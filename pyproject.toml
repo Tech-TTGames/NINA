@@ -9,9 +9,9 @@ repository = "https://github.com/Tech-TTGames/ThingSim"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-tomlkit = "^0.12.3"
 colorama = "^0.4.6"
 yapf = "^0.40.2"
+tomli-w = "^1.0.0"
 
 [tool.yapf]
 based_on_style = "google"

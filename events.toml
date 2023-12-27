@@ -1,0 +1,113 @@
+[[cycles]]
+    # A cycle type that can be used in the arena. This is used to determine what
+    # events can happen on this day. Use it to create special days like the
+    # bloodbath or the feast.
+    name = "Day"
+    allow_item_events = 1
+
+    [[cycles.events]]
+        # The events that can happen during this type of cycle.
+        text = "$Tribute1 yeeted $Tribute2 into the void."
+        # The text that is displayed when this event happens. Use $Tribute[no] to
+        # insert the name of the tribute into the text. Other placeholders are possible.
+        weight = 10
+        # The weight of the event. The higher the weight, the more likely it is to happen.
+        max_use = -1
+        # The maximum amount of times this event can happen. -1 means infinite.
+        max_cycle = -1
+        # The maximum amount of times this event can happen in a single cycle. -1 means infinite.
+        tribute_changes = [
+            { kills = 1 },
+            { status = 1 }
+        ]
+        # The changes that this event causes to the tributes. See the documentation for more information.
+        # This is required, but the arrays can be empty.
+        tribute_requirements = [
+            { enemies = [1] },
+            { }
+        ]
+        # The requirements that the tributes must meet for this event to happen. See the documentation for more information.
+        # Either create a list of requirement arrays for every tribute or do not add the key at all to use default requirements.
+
+    [[cycles.events]]
+        text = "$Tribute1 fishes."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 1},
+        ]
+
+[[cycles]]
+    name = "Night"
+    allow_item_events = 0
+
+    [[cycles.events]]
+        text = "$Tribute1 sleeps."
+        weight = 2
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { },
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 has a nightmare."
+        weight = 1
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = -1},
+        ]
+
+
+[[items]]
+    # An item that can be found by the tributes.
+    name = "MP5"
+    power = 100
+    # The power of the item. A standard tribute has a base power of 500, so you can make a tribute stronger or weaker
+    # by changing this value. The power of the item is added to the power of the tribute when calculating the chance
+    # of causing a fatal event, and lowers the chance of being killed by a fatal event.
+    cycles = ["Day"]
+    # The cycles in which this item can be found. If you want to make an item that can only be found during the feast,
+    # create a new cycle type and add it here. Must match the name of a cycle type.
+    use_count = 30
+    # The amount of times this item can be used. -1 means infinite. Events can use charges, but do not have to.
+
+    [items.base_event]
+    # The aqusition event that is used when the item is first found. Sets a chance of being found, can occur only
+    # during a certain cycle, etc.
+        text = "$Tribute1 picked up an MP5."
+        weight = 2
+        max_use = 5
+        # There's only 5 MP5s in the arena.
+        tribute_changes = [
+            { "itemg" = 0 }
+            # The itemg - ItemGain action with 0 gives the associated item to the tribute.
+        ]
+
+    [[items.events]]
+        # The events that a tribute can cause with this item.
+        text = "$Tribute1 uses their MP5 to hunt for food."
+        weight = 10
+        tribute_changes = [
+            { power = 15, itemu = 1 },
+            # The itemu - ItemUse action with 1 uses a charge of the item.
+        ]
+        tribute_requirements = [
+            { itemstatus = [1, 0] }
+            # The itemstatus - ItemStatus action with 1, 0 checks if the item has at least 1 charge.
+            # 1 means the greater than operator, and 0 means the value to compare to.
+        ]
+
+    [[items.events]]
+        text = "$Tribute1 shoots $Tribute2 with their MP5."
+        weight = 10
+        tribute_changes = [
+            { kills = 1, itemu = 2 },
+            { status = 1 }
+        ]
+        tribute_requirements = [
+            { notallies = [1], itemstatus = [2, 0] },
+            { }
+        ]
