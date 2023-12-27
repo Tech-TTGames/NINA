@@ -42,6 +42,8 @@ class District:
         color: The color of the district.
         members: The members of the district.
     """
+    name: str
+    color: str
     members: list["Tribute"] = []
 
     def __init__(self, data: dict):
@@ -51,8 +53,8 @@ class District:
             data: tomli interpreted data.
                 Example: { name = "Eosphorous Faction", color = "#FF0400" }
         """
-        self.name: str = data['name']
-        self.color: str = data['color']
+        self.name = data['name']
+        self.color = data['color']
 
 
 class Tribute:
@@ -97,10 +99,10 @@ class Tribute:
                 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187782049633935433/image.png"
                 ```
         """
-        self.name: str = data['name']
-        self.gender: int = data['gender']
-        self.image: str = data['image']
-        self.dead_image: str = data['dead_image']
+        self.name = data['name']
+        self.gender = data['gender']
+        self.image = data['image']
+        self.dead_image = data['dead_image']
 
 
 class Cycle:
@@ -141,8 +143,11 @@ class Cycle:
                 /// REMOVED FOR BREVITY, REFER EVENT OBJECT ///
                 ```
         """
-        self.name: str = data['name']
-        self.allow_item_events: int = data['allow_item_events']
+        self.name = data['name']
+        self.text = data.get('text', None)
+        self.allow_item_events = data.get('allow_item_events', 0)
+        self.weight = data.get('weight', None)
+        self.max_use = data.get('max_use', -1)
         self.events = [Event(event, self) for event in data['events']]
 
 
@@ -222,12 +227,12 @@ class Event:
         """
         self.text = Template(data['text'])
         self.cycle = cycle
-        self.weight = data['weight'] or 1
-        self.max_use = data['max_use'] or -1
-        self.max_cycle = data['max_cycle'] or -1
+        self.weight = data.get('weight', 1)
+        self.max_use = data.get('max_use', -1)
+        self.max_cycle = data.get('max_cycle', -1)
         self.item = item
         self.tribute_changes: list[dict] = data['tribute_changes']
-        self.tribute_requirements: list[dict] = data['tribute_requirements'] or []
+        self.tribute_requirements: list[dict] = data.get('tribute_requirements', [])
 
 
 class Item:
@@ -270,8 +275,12 @@ class Item:
             cycles: The cycle library for the simulation.
         """
         self.name: str = data['name']
-        self.power: int = data['power'] or 0
+        self.power: int = data.get('power', 0)
         self.cycles = [cycle for cycle in cycles if cycle.name in data['cycles']]
-        self.use_count: int = data['use_count'] or -1
+        self.use_count: int = data.get('use_count', -1)
         self.base_event = Event(data['base_event'], self.cycles)
-        self.events = [Event(event, self.cycles) for event in data['events']]
+        event_cycles: list[Cycle] = []
+        for cycle in cycles:
+            if cycle.allow_item_events == 1 or (cycle.allow_item_events == 2 and cycle.name in data['cycles']):
+                event_cycles.append(cycle)
+        self.events = [Event(event, event_cycles) for event in data['events']]
