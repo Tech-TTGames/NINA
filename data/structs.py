@@ -5,6 +5,7 @@ This is the module with the data structures for the TechSim.
 import tomllib
 from pathlib import Path
 from string import Template
+from typing import Optional
 
 
 class Simulation:
@@ -41,7 +42,7 @@ class District:
         color: The color of the district.
         members: The members of the district.
     """
-    members: list[Tribute] = []
+    members: list["Tribute"] = []
 
     def __init__(self, data: dict):
         """Initialize the District object.
@@ -76,10 +77,10 @@ class Tribute:
     status: int = 0
     power: int = 500
     district: District | None = None
-    allies: list[Tribute] = []
-    enemies: list[Tribute] = []
-    items: list[Item] = []
-    self.kills = 0
+    allies: list["Tribute"] = []
+    enemies: list["Tribute"] = []
+    items: list["Item"] = []
+    kills: int = 0
     log: list[str] = []
 
     def __init__(self, data: dict):
@@ -124,7 +125,7 @@ class Cycle:
     allow_item_events: int = 0
     weight: int | None = None
     max_use: int = -1
-    events: list[Event]
+    events: list["Event"]
 
     def __init__(self, data: dict):
         """Initialize the Cycle object.
@@ -191,11 +192,11 @@ class Event:
     weight: int = 1
     max_use: int = -1
     max_cycle: int = -1
-    item: Item | None = None
+    item: Optional["Item"] = None
     tribute_changes: list[dict]
     tribute_requirements: list[dict] = []
 
-    def __init__(self, data: dict, cycle: Cycle | list[Cycle], item: Item | None = None):
+    def __init__(self, data: dict, cycle: Cycle | list[Cycle], item: Optional["Item"] = None):
         """Initialize the Event object.
 
         Args:
