@@ -33,6 +33,10 @@ class Simulation:
         self.items = [Item(item, self.cycles) for item in data['items']]
         file.close()
 
+    def __str__(self):
+        """Text representation of the simulation."""
+        return f"TechSim Simulation: {self.name}"
+
 
 class District:
     """The class representing a district.
@@ -55,6 +59,10 @@ class District:
         """
         self.name = data['name']
         self.color = data['color']
+
+    def __str__(self):
+        """Text representation of the district."""
+        return f"TechSim District: {self.name}"
 
 
 class Tribute:
@@ -104,6 +112,10 @@ class Tribute:
         self.image = data['image']
         self.dead_image = data['dead_image']
 
+    def __str__(self):
+        """Text representation of the tribute."""
+        return f"TechSim Tribute: {self.name}"
+
 
 class Cycle:
     """The class representing a cycle type.
@@ -149,6 +161,10 @@ class Cycle:
         self.weight = data.get('weight', None)
         self.max_use = data.get('max_use', -1)
         self.events = [Event(event, self) for event in data['events']]
+
+    def __str__(self):
+        """Text representation of the cycle."""
+        return f"TechSim Cycle: {self.name}"
 
 
 class Event:
@@ -234,6 +250,10 @@ class Event:
         self.tribute_changes: list[dict] = data['tribute_changes']
         self.tribute_requirements: list[dict] = data.get('tribute_requirements', [])
 
+    def __str__(self):
+        """Return the text representation of the event."""
+        return f"TechSim Event: {self.text.template}"
+
 
 class Item:
     """The class representing an item.
@@ -284,3 +304,7 @@ class Item:
             if cycle.allow_item_events == 1 or (cycle.allow_item_events == 2 and cycle.name in data['cycles']):
                 event_cycles.append(cycle)
         self.events = [Event(event, event_cycles) for event in data['events']]
+
+    def __str__(self):
+        """Return the name of the item."""
+        return f"TechSim Item: {self.name}"
