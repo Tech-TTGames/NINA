@@ -421,6 +421,10 @@ class Event:
 
     Attributes:
         text: The text of the event.
+            Placeholders:
+            $TributeX - The name of the tribute in the Xth position.
+            $DistrictX - The name of the district of the tribute in the Xth position.
+            $PowerX - The power of the tribute in the Xth position.
         cycle: The cycle the event belongs to.
         weight: The weight of the event.
             Influences the probability of the event happening.
@@ -854,7 +858,7 @@ class Event:
             # Generate all the Placeholders
             resolution_dict[f"Tribute{tribute_id + 1}"] = tribute.name
             resolution_dict[f"District{tribute_id + 1}"] = tribute.district.name
-            resolution_dict[f"Power{tribute_id + 1}"] = tribute.power
+            resolution_dict[f"Power{tribute_id + 1}"] = str(tribute.power)
             resolution_dict[f"SP{tribute_id + 1}"] = SPronouns[tribute.gender]
             resolution_dict[f"OP{tribute_id + 1}"] = OPronouns[tribute.gender]
             resolution_dict[f"PP{tribute_id + 1}"] = SPronouns[tribute.gender]
