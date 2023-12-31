@@ -1,9 +1,55 @@
 [[cycles]]
+    name = "Bloodbath"
+    weight = "0"
+    allow_item_events = "special"
+
+    [[cycles.events]]
+        text = "$Tribute1 and $Tribute2 fight for a bag. $Tribute1 gives up and retreats."
+        weight = 4
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = -5 },
+            { power = 10 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { relationship = { 1 = "notallies"} }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 shoots an arrow at $Tribute2, but misses and kills $Tribute3 instead."
+        weight = 4
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { kills = 1 },
+            { enemies = [[1, 1]] }, # Tribute now considers tribute 1 an enemy
+            { status = 1 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { relationship = { 1 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 grabs a backpack and retreats."
+        weight = 1
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 5 }
+        ]
+
+
+[[cycles]]
     # A cycle type that can be used in the arena. This is used to determine what
     # events can happen on this day. Use it to create special days like the
     # bloodbath or the feast.
     name = "Day"
-    allow_item_events = 1
+    weight = 1000
+    allow_item_events = "all"
 
     [[cycles.events]]
         # The events that can happen during this type of cycle.
@@ -17,14 +63,14 @@
         max_cycle = -1
         # The maximum amount of times this event can happen in a single cycle. -1 means infinite.
         tribute_changes = [
-            { kills = 1 },
-            { status = 1 }
+            { kills = 1 }, # Tribute 1 changes
+            { status = 1 } # Tribute 2 changes
         ]
         # The changes that this event causes to the tributes. See the documentation for more information.
         # This is required, but the arrays can be empty.
         tribute_requirements = [
-            { enemies = [1] },
-            { }
+            { relationship = { 2 = "notallies"} }, # Tribute 1 requirements
+            { } # Tribute 2 requirements
         ]
         # The requirements that the tributes must meet for this event to happen. See the documentation for more information.
         # Either create a list of requirement arrays for every tribute or do not add the key at all to use default requirements.
@@ -38,9 +84,45 @@
             { power = 1},
         ]
 
+    [[cycles.events]]
+        text = "$Tribute1 and $Tribute2 form an alliance."
+        weight = 4
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { allies = [[2, 1]] }, # Tribute 1 now considers tribute 2 an ally
+            { allies = [[1, 1]] }  # Tribute 2 now considers tribute 1 an ally
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies"} }, # Tribute 1 requirements
+            { relationship = { 1 = "notenemies"} }  # Tribute 2 requirements
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1, $Tribute2, $Tribute4 and $Tribute5 overestimated their ability to handle Exception Protocol."
+        weight = 1
+        max_use = -1
+        max_cycle = 2
+        tribute_changes = [
+            { status = 1 },
+            { status = 1 },
+            { status = 1 },
+            { status = 1 },
+            { status = 1 },
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies", 3 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 3 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies", 4 = "notenemies"} }
+        ]
+
+
 [[cycles]]
     name = "Night"
-    allow_item_events = 0
+    weight = -1000
+    allow_item_events = "cycle"
 
     [[cycles.events]]
         text = "$Tribute1 sleeps."
@@ -57,7 +139,7 @@
         max_use = -1
         max_cycle = -1
         tribute_changes = [
-            { power = -1},
+            { power = -1 },
         ]
 
 
@@ -71,7 +153,7 @@
     cycles = ["Day"]
     # The cycles in which this item can be found. If you want to make an item that can only be found during the feast,
     # create a new cycle type and add it here. Must match the name of a cycle type.
-    use_count = 30
+    use_count = 5
     # The amount of times this item can be used. -1 means infinite. Events can use charges, but do not have to.
 
     [items.base_event]
@@ -82,7 +164,7 @@
         max_use = 5
         # There's only 5 MP5s in the arena.
         tribute_changes = [
-            { "itemg" = 0 }
+            { itemg = 0 }
             # The itemg - ItemGain action with 0 gives the associated item to the tribute.
         ]
 
@@ -95,7 +177,7 @@
             # The itemu - ItemUse action with 1 uses a charge of the item.
         ]
         tribute_requirements = [
-            { itemstatus = [1, 0] }
+            { itemstatus = [">", 0] }
             # The itemstatus - ItemStatus action with 1, 0 checks if the item has at least 1 charge.
             # 1 means the greater than operator, and 0 means the value to compare to.
         ]
@@ -108,6 +190,6 @@
             { status = 1 }
         ]
         tribute_requirements = [
-            { notallies = [1], itemstatus = [2, 0] },
+            { relationship = { 1 = "notallies"}, itemstatus = [">", 1] },
             { }
         ]

@@ -15,8 +15,7 @@ import random
 import colorama
 from pathlib import Path
 
-from data.brantstructs import Simulation
-
+from techsim.brantstructs import Simulation
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
@@ -61,14 +60,12 @@ if __name__ == '__main__':
     else:
         output = Path(args.output)
     if not intake.exists():
-        print(colorama.Fore.RED + "Input file does not exist!" +
-              colorama.Style.RESET_ALL)
+        print(colorama.Fore.RED + "Input file does not exist!" + colorama.Style.RESET_ALL)
         print("Exiting...")
         exit(1)
     if output.exists():
         print(colorama.Fore.RED + "Output file already exists!")
-        print("Are you sure you want to overwrite it? (Y/N)" +
-              colorama.Style.RESET_ALL)
+        print("Are you sure you want to overwrite it? (Y/N)" + colorama.Style.RESET_ALL)
         if input().upper() != 'Y':
             print("Exiting...")
             exit(0)
@@ -76,8 +73,7 @@ if __name__ == '__main__':
     try:
         sim = Simulation(intake)
     except Exception as e:
-        print(colorama.Fore.RED + "Error reading input file!" +
-              colorama.Style.RESET_ALL)
+        print(colorama.Fore.RED + "Error reading input file!" + colorama.Style.RESET_ALL)
         print(e)
         print("Exiting...")
         exit(1)
