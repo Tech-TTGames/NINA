@@ -1,7 +1,20 @@
 [[cycles]]
     name = "Bloodbath"
+    # The name of the cycle type. This is
+    text = "As the tributes stand on their podiums, the horn sounds."
     weight = "0"
-    allow_item_events = "special"
+    # The weight of the cycle.
+    # The higher the weight, the more likely it is to happen.
+    # If the weight is a string, it will be used as a hardcoded cycle number.
+    allow_item_events = "cycle"
+    # Whether this cycle allows item events.
+    # Can be "all", "cycle" or "none".
+    # The value of "all" means that all item events can happen during this cycle.
+    # The value of "cycle" means that only item events of items that can be found during this cycle can happen.
+    # The value of "none" means no item events can happen.
+    # max_use = 1
+    # The maximum number of times this cycle can happen. -1 means infinite.
+
 
     [[cycles.events]]
         text = "$Tribute1 and $Tribute2 fight for a bag. $Tribute1 gives up and retreats."
@@ -93,6 +106,9 @@
             { allies = [[2, 1]] }, # Tribute 1 now considers tribute 2 an ally
             { allies = [[1, 1]] }  # Tribute 2 now considers tribute 1 an ally
         ]
+        # The 'allies' and 'enemies' actions can be used to change the relationship between tributes.
+        # The first value is the tribute number, and the second value is the operation to perform.
+        # 1 means add, 0 means remove.
         tribute_requirements = [
             { relationship = { 2 = "notenemies"} }, # Tribute 1 requirements
             { relationship = { 1 = "notenemies"} }  # Tribute 2 requirements
@@ -118,6 +134,48 @@
             { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies", 4 = "notenemies"} }
         ]
 
+    [[cycles.events]]
+        text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it."
+        weight = 1
+        max_use = -1
+        max_cycle = 3
+        tribute_changes = [
+            { status = 1 }
+        ]
+        tribute_requirements = [
+            { power = ["<", 600]}
+            # This power requirement checks if the tribute has less than 600 power.
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They managed to parry it in time."
+        weight = 1
+        max_use = -1
+        max_cycle = 3
+        tribute_changes = [
+            { power = 25 }
+            # Let's reward a successful parry with some power.
+        ]
+        tribute_requirements = [
+            { power = [">", 600]}
+            # This power requirement checks if the tribute has more than 600 power.
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute2 encountered $Tribute1 at an unfortunate time. $Triubte1 now considers $OP2 an enemy."
+        weight = 1
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { enemies = [[2, 1]] }, # Tribute 1 now actually considers tribute 2 an enemy
+            { } # Tribute 2 does not change
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies"} }, # Tribute 1 has to not consider tribute 2 an enemy
+            { }
+        ]
+
+
 
 [[cycles]]
     name = "Night"
@@ -142,6 +200,29 @@
             { power = -1 },
         ]
 
+    [[cycles.events]]
+        text = "$Tribute1 robs $Tribute2 while they sleep."
+        weight = 2
+        max_use = -1
+        max_cycle = 5
+        tribute_changes = [
+            { itemg = 1 }, # Tribute 1 gains an item from the event item pool
+            { iteml = 1 }, # Tribute 2 loses an item to the event item pool
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 tends to $PA1 wounds."
+        weight = 2
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { powern = 50 }, # Tribute 1 restores 50 power, up to the maximum of base power
+        ]
+
 
 [[items]]
     # An item that can be found by the tributes.
@@ -155,6 +236,9 @@
     # create a new cycle type and add it here. Must match the name of a cycle type.
     use_count = 5
     # The amount of times this item can be used. -1 means infinite. Events can use charges, but do not have to.
+    textl = "$Tribute1 ran out of ammo on their MP5."
+    # The text that is displayed when the item runs out of charges.
+    # The Only placeholder here is $Tribute1.
 
     [items.base_event]
     # The aqusition event that is used when the item is first found. Sets a chance of being found, can occur only
@@ -170,7 +254,7 @@
 
     [[items.events]]
         # The events that a tribute can cause with this item.
-        text = "$Tribute1 uses their MP5 to hunt for food."
+        text = "$Tribute1 uses $PA1 MP5 to hunt for food."
         weight = 10
         tribute_changes = [
             { power = 15, itemu = 1 },
@@ -183,7 +267,8 @@
         ]
 
     [[items.events]]
-        text = "$Tribute1 shoots $Tribute2 with their MP5."
+        text = "$Tribute1 shoots $Tribute2 with $PA1 MP5."
+        # The $PA1 placeholder is possesive adjective for tribute 1.
         weight = 10
         tribute_changes = [
             { kills = 1, itemu = 2 },
