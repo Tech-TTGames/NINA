@@ -423,8 +423,15 @@ class Event:
         text: The text of the event.
             Placeholders:
             $TributeX - The name of the tribute in the Xth position.
-            $DistrictX - The name of the district of the tribute in the Xth position.
+            $DistrictX - The name of the district the tribute in the Xth position belongs to.
             $PowerX - The power of the tribute in the Xth position.
+            $SPX - The subjective pronoun of the tribute in the Xth position.
+            $OPX - The objective pronoun of the tribute in the Xth position.
+            $PPX - The possessive pronoun of the tribute in the Xth position.
+            $RPX - The reflexive pronoun of the tribute in the Xth position.
+            $PAX - The possessive adjective of the tribute in the Xth position.
+            $ItemLX_Y - The name of the Yth item lost by the tribute in the Xth position.
+            $ItemGX_Y - The name of the Yth item gained by the tribute in the Xth position.
         cycle: The cycle the event belongs to.
         weight: The weight of the event.
             Influences the probability of the event happening.
@@ -861,7 +868,7 @@ class Event:
             resolution_dict[f"Power{tribute_id + 1}"] = str(tribute.power)
             resolution_dict[f"SP{tribute_id + 1}"] = SPronouns[tribute.gender]
             resolution_dict[f"OP{tribute_id + 1}"] = OPronouns[tribute.gender]
-            resolution_dict[f"PP{tribute_id + 1}"] = SPronouns[tribute.gender]
+            resolution_dict[f"PP{tribute_id + 1}"] = PPronouns[tribute.gender]
             resolution_dict[f"RP{tribute_id + 1}"] = RPronouns[tribute.gender]
             resolution_dict[f"PA{tribute_id + 1}"] = PAdjectives[tribute.gender]
             for i, item in enumerate(item_loses.get(tribute, [])):
