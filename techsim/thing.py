@@ -6,10 +6,9 @@ import random
 import colorsys
 import tomllib
 import logging
-import sys  # Temporary logging thingie
 from pathlib import Path
 from string import Template
-from typing import Optional, Union
+from typing import Optional, Union, Literal
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
@@ -160,7 +159,7 @@ class Simulation:
             wg = [tribute.effectivepower() for tribute in active_tributes]
             tribute: "Tribute" = random.choices(active_tributes, weights=wg)[0]
             for item, _ in tribute.items.items():
-                if (cycle in item.cycles and cycle.allow_item_events == "special") or cycle.allow_item_events == "all":
+                if (cycle in item.cycles and cycle.allow_item_events == "cycle") or cycle.allow_item_events == "all":
                     possible_events.extend(item.events)
             for event in cycle_events:
                 if event.check_requirements(tribute, 0):
@@ -322,7 +321,12 @@ class Tribute:
             power = 1
         return power
 
-    def handle_relationships(self, tributes: list[list[int, int]], involved: list["Tribute"], relationship: str):
+    def handle_relationships(
+        self,
+        tributes: list[list[int, int]],
+        involved: list["Tribute"],
+        relationship: Literal["allies", "enemies"],
+    ):
         """Handle the relationship changes for the tribute.
 
         Args:
@@ -338,6 +342,10 @@ class Tribute:
                 getattr(self, relationship).remove(involved[tribt_idr])
             elif modif and involved[tribt_idr] not in getattr(self, relationship):
                 getattr(self, relationship).add(involved[tribt_idr])
+                if relationship == "allies" and involved in self.enemies:
+                    self.enemies.remove(involved[tribt_idr])
+                if relationship == "enemies" and involved in self.allies:
+                    self.allies.remove(involved[tribt_idr])
 
     def relationshipchck(self, tributes: Union["Tribute", list["Tribute"]], relationship: str) -> bool:
         """Check whether the tribute has the requested relationship with any of the tributes.
@@ -556,11 +564,11 @@ class Event:
             return False
         if requirements.get('power', 'MISSING') != 'MISSING':
             operation, power = requirements['power']
-            if operation == "=" and tribute.power != power:
+            if operation == "=" and tribute.effectivepower() != power:
                 return False
-            if operation == ">" and tribute.power <= power:
+            if operation == ">" and tribute.effectivepower() <= power:
                 return False
-            if operation == "<" and tribute.power >= power:
+            if operation == "<" and tribute.effectivepower() >= power:
                 return False
         if requirements.get('item_status', 'MISSING') != 'MISSING':
             if self.item is None:
