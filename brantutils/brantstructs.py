@@ -3,6 +3,10 @@
 It is not representative of the TechSim, but it is a good utility for
 transferring data between the TechSim and the Brent-Steele simulator.
 """
+# License: EPL-2.0
+# SPDX-License-Identifier: EPL-2.0
+# Copyright (c) 2023-present Tech. TTGames
+
 import tomli_w
 from pathlib import Path
 from typing import TextIO

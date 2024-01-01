@@ -8,6 +8,9 @@ server.
 Typical usage example:
     > ./brantsteelerandomiser.py -i input_cast.txt
 """
+# License: EPL-2.0
+# SPDX-License-Identifier: EPL-2.0
+# Copyright (c) 2023-present Tech. TTGames
 
 import argparse
 import colorsys
@@ -15,7 +18,7 @@ import random
 import colorama
 from pathlib import Path
 
-from techsim.brantstructs import Simulation
+from brantutils.brantstructs import Simulation
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
