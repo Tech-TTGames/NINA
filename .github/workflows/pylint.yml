@@ -25,7 +25,7 @@ jobs:
       if: steps.cached-poetry.outputs.cache-hit != 'true'
       uses: snok/install-poetry@v1
     - name: Install poetry requirements
-      run: poetry install --with dev
+      run: poetry install
     - name: Analysing the code with pylint
       run: |
         poetry run pylint $(git ls-files '*.py') --fail-under 10

@@ -55,7 +55,7 @@ jobs:
       uses: snok/install-poetry@v1
     - name: Install poetry requirements
       run: |
-        poetry install --with dev
+        poetry install
         echo "CODEQL_PYTHON_PATH=$(poetry run which python)" >> $GITHUB_ENV
 
     # Initializes the CodeQL tools for scanning.
