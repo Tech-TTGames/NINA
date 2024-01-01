@@ -1,0 +1,31 @@
+name: Pylint
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.12"]
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+    - name: Load cached Poetry installation
+      id: cached-poetry
+      uses: actions/cache@v3
+      with:
+        path: ~/.local  # the path depends on the OS
+        key: poetry-0  # increment to reset cache
+    - name: Install Poetry
+      if: steps.cached-poetry.outputs.cache-hit != 'true'
+      uses: snok/install-poetry@v1
+    - name: Install poetry requirements
+      run: poetry install --with dev
+    - name: Analysing the code with pylint
+      run: |
+        poetry run pylint $(git ls-files '*.py') --fail-under 10
