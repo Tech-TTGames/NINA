@@ -1,7 +1,22 @@
-"""Data structures for the project.
+"""The actual simulation infrastructure for TechSim.
 
-This is the module with the data structures for the TechSim.
+This is the main module for the simulation infrastructure.
+It contains the classes for the simulation, districts, tributes, cycles, events and items.
+It's placed in the ext folder because it's not a cog, and the core cog will import it.
+
+Typical usage example:
+    ```py
+    from techsim.ext import simulation
+    # Set up the log handler of choice.
+    sim = simulation.Simulation("cast.toml", "events.toml")
+    sim.ready()
+    sim.computecycle()
+    ```
 """
+# License: EPL-2.0
+# SPDX-License-Identifier: EPL-2.0
+# Copyright (c) 2023-present Tech. TTGames
+
 import random
 import colorsys
 import tomllib
@@ -10,7 +25,7 @@ from pathlib import Path
 from string import Template
 from typing import Optional, Union, Literal
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger("techsim.simulation")
 logger.setLevel(logging.INFO)
 
 BASE_POWER = 500
@@ -49,16 +64,15 @@ class Simulation:
 
     def __init__(self, cast_file: Path, events_file: Path):
         """Initialize the Simulation object."""
-        file = open(cast_file, "rb")
-        data = tomllib.load(file)
-        file.close()
+        with open(cast_file, "rb") as file:
+            data = tomllib.load(file)
         self.cycle = -2
         self.name: str = data['name']
         self.logo: str = data['logo']
         self.cast = [Tribute(tribute) for tribute in data['cast']]
         self.districts = [District(district) for district in data['districts']]
-        file = open(events_file, "rb")
-        data = tomllib.load(file)
+        with open(events_file, "rb") as file:
+            data = tomllib.load(file)
         self.cycles = [Cycle(cycle) for cycle in data['cycles']]
         self.items = [Item(item, self.cycles) for item in data['items']]
         file.close()
@@ -130,9 +144,10 @@ class Simulation:
                 continue
             if cycle.weight < 0 and night and cycle.max_use != 0:
                 randomevents.append(cycle)
-        if not randomevents and not resolved_cycle:
+        res = resolved_cycle or random.choices(randomevents, weights=[abs(cycle.weight) for cycle in randomevents])[0]
+        if res is None:
             raise ValueError("Configuration error: No cycles available.")
-        return resolved_cycle or random.choices(randomevents, weights=[abs(cycle.weight) for cycle in randomevents])[0]
+        return res
 
     def computecycle(self):
         """Compute the next cycle.

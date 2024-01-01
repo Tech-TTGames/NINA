@@ -28,35 +28,34 @@ class Simulation:
         Args:
             filename: The file containing the cast.
         """
-        file = open(filename)
-        self.name = file.readline().strip()
-        self.logo = file.readline().strip()
-        self.districts = []
-        self.cast = []
-        skipcount = 0
-        cur_district = None
-        while True:
-            line = file.readline()
-            if line == "":
-                break
-            if line == "\n":
-                skipcount += 1
-                continue
-            if skipcount == 1:
-                tribute = Tribute(line.strip(), file)
-                self.cast.append(tribute)
-                skipcount = 0
-            if skipcount == 2:
-                if cur_district is not None:
-                    self.districts.append(cur_district)
-                cur_district = {
-                    'name': line.strip(),
-                    'color': file.readline().strip(),
-                }
-                skipcount = 0
-        if cur_district is not None:
-            self.districts.append(cur_district)
-        file.close()
+        with open(filename) as file:
+            self.name = file.readline().strip()
+            self.logo = file.readline().strip()
+            self.districts = []
+            self.cast = []
+            skipcount = 0
+            cur_district = None
+            while True:
+                line = file.readline()
+                if line == "":
+                    break
+                if line == "\n":
+                    skipcount += 1
+                    continue
+                if skipcount == 1:
+                    tribute = Tribute(line.strip(), file)
+                    self.cast.append(tribute)
+                    skipcount = 0
+                if skipcount == 2:
+                    if cur_district is not None:
+                        self.districts.append(cur_district)
+                    cur_district = {
+                        'name': line.strip(),
+                        'color': file.readline().strip(),
+                    }
+                    skipcount = 0
+            if cur_district is not None:
+                self.districts.append(cur_district)
 
     def __dict__(self):
         """Return a dictionary representation of the simulation."""
