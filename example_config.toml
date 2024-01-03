@@ -1,0 +1,7 @@
+# This is the example configuration file for the bot, with the values filled in for the KumoDesu server.
+
+guild_id = 1089603246626181221
+# The ID of the guild which the bot is handling
+
+[roles]
+operators = [1191430593683148860, 1089605554747490426]
