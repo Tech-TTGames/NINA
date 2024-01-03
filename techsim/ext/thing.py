@@ -9,21 +9,27 @@ Typical usage example:
     from techsim.ext import simulation
     # Set up the log handler of choice.
     sim = simulation.Simulation("cast.toml", "events.toml")
-    sim.ready()
-    sim.computecycle()
+    await sim.ready()
+    await sim.computecycle()
     ```
 """
 # License: EPL-2.0
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
+import io
+import aiohttp
 import random
 import colorsys
 import tomllib
 import logging
+import discord
 from pathlib import Path
+from PIL import Image
 from string import Template
 from typing import Optional, Union, Literal
+from techsim import bot
+from techsim.ext import imgops
 
 logger = logging.getLogger("techsim.simulation")
 logger.setLevel(logging.INFO)
@@ -62,7 +68,7 @@ class Simulation:
     dead: list["Tribute"]
     cycle_deaths: list["Tribute"]
 
-    def __init__(self, cast_file: Path, events_file: Path):
+    def __init__(self, cast_file: Path, events_file: Path, bot_instance: bot.TechSimBot | None) -> None:
         """Initialize the Simulation object."""
         with open(cast_file, "rb") as file:
             data = tomllib.load(file)
@@ -75,13 +81,21 @@ class Simulation:
             data = tomllib.load(file)
         self.cycles = [Cycle(cycle) for cycle in data['cycles']]
         self.items = [Item(item, self.cycles) for item in data['items']]
-        file.close()
+        if not self.cycles:
+            raise ValueError("No cycles found.")
+        self._bt = bot_instance
 
     def __str__(self):
         """Text representation of the simulation."""
         return f"TechSim Simulation: {self.name}"
 
-    def ready(self, seed: str | None, districtrand: bool = False, recolor: bool = False):
+    async def ready(
+        self,
+        seed: str | None,
+        districtrand: bool = False,
+        recolor: bool = False,
+        interaction: discord.Interaction | None = None,
+    ):
         """Ready up!
 
         This is the method that prepares the simulation for running.
@@ -91,14 +105,21 @@ class Simulation:
                 None for random.
             districtrand: Whether to randomize the district members.
             recolor: Whether to recolor the districts to the standard HUE rotation.
+            interaction: The interaction to send some log-like messages to.
         """
         logger.info("Beginning simulation '%s' ready up procedure.", self.name)
+        if interaction:
+            await interaction.followup.send(f"Beginning simulation `{self.name}` ready up procedure.")
         random.seed(seed)
         if districtrand:
             logger.info("Randomizing district members.")
+            if interaction:
+                await interaction.followup.send("Randomizing district members.")
             random.shuffle(self.cast)
         if recolor:
             logger.info("Recoloring districts.")
+            if interaction:
+                await interaction.followup.send("Recoloring districts.")
             max_hue = 360
             increment = max_hue // len(self.districts)
             offset = random.randint(0, increment)
@@ -107,6 +128,8 @@ class Simulation:
                 color = '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
                 district.color = color
         logger.info("Assigning districts.")
+        if interaction:
+            await interaction.followup.send("Assigning districts.")
         tid = 0
         mpd = len(self.cast) // len(self.districts)
         for district in self.districts:
@@ -129,7 +152,7 @@ class Simulation:
         """
         if self.cycle == [-2, -1]:
             logger.warning("Simulation '%s' is not ready.", self.name)
-            return
+            return None
         night = self.cycle % 2 == 0
         randomevents = []
         resolved_cycle: Cycle | None = None
@@ -144,26 +167,30 @@ class Simulation:
                 continue
             if cycle.weight < 0 and night and cycle.max_use != 0:
                 randomevents.append(cycle)
-        res = resolved_cycle or random.choices(randomevents, weights=[abs(cycle.weight) for cycle in randomevents])[0]
-        if res is None:
-            raise ValueError("Configuration error: No cycles available.")
-        return res
+        if randomevents and not resolved_cycle:
+            resolved_cycle = random.choices(randomevents, weights=[abs(cycle.weight) for cycle in randomevents])[0]
+        return resolved_cycle
 
-    def computecycle(self):
+    async def computecycle(self, interaction: discord.Interaction | None = None) -> None:
         """Compute the next cycle.
 
         This is the method that computes the next cycle.
         So the whole day/night/special event cycle.
+
+        Args:
+            interaction: The interaction to send some log-like messages to.
         """
         if self.cycle in [-2, -1]:
             logger.warning("Simulation '%s' is not ready.", self.name)
             return
         cycle = self.getcycle()
+        # TODO: Display this via the bot.
         logger.info("Beginning cycle %s.", cycle.name)
         if cycle.text is not None:
             logger.info("Displaying cycle text.")
-            # TODO: Actually displaying anything.
+            logger.info(cycle.text)
         logger.info("Computing events.")
+        # Parse to bot here.
         active_tributes = self.alive.copy()
         cycle_events = cycle.events
         for item in self.items:
@@ -184,21 +211,21 @@ class Simulation:
                 continue
             event = random.choices(possible_events, weights=[event.weight for event in possible_events])[0]
             logger.debug("Resolving event '%s'.", event.text.template)
-            tributes_involved = event.affiliationresolution(tribute, active_tributes, self)
+            tributes_involved = await event.affiliationresolution(tribute, active_tributes, self)
             if not tributes_involved:
                 continue  # Already logged in affiliationresolution
-            resolution_text = event.resolve(tributes_involved, self)
+            resolution_text = await event.resolve(tributes_involved, self)
             for tribute in tributes_involved:
                 if tribute in active_tributes:
                     active_tributes.remove(tribute)
-            # TODO: Actually displaying anything.
+            # TODO: Parse to bot here.
             logger.info("Resolution text: %s", resolution_text)
         logger.info("Cycle %s-%i complete.", cycle.name, self.cycle)
         if self.cycle_deaths and int(cycle.weight) % 2 == 0 and int(cycle.weight) != 0:
             logger.info("You hear %i cannon shot%s in the distance.", len(self.cycle_deaths),
                         "s" if len(self.cycle_deaths) > 1 else "")
             logger.info("The fallen tributes are: %s", ", ".join([tribute.name for tribute in self.cycle_deaths]))
-            # TODO: Display this.
+            # TODO: Parse to bot here.
             self.cycle_deaths = []
         self.cycle += 1
         if cycle.max_use > 0:
@@ -222,6 +249,7 @@ class Simulation:
                 districts.append(tribute.district)
         if len(districts) == 1:
             logger.info("Simulation %s complete.", self.name)
+            # TODO: Parse to bot here.
             self.cycle = -1
             logger.info("Winner: %s", districts[0].name)
             logger.info("Alive tributes: %s", ", ".join([tribute.name for tribute in self.alive]))
@@ -385,6 +413,63 @@ class Tribute:
                 return any([tribute in self.allies for tribute in tributes])
             case _:
                 raise ValueError("Invalid relationship.")
+
+    async def fetch_image(
+        self,
+        itype: Literal["alive", "dead"],
+        place: Path,
+        session: aiohttp.ClientSession | None = None,
+    ) -> Path:
+        """Fetch the image of the tribute.
+
+        Args:
+            itype: The type of image to fetch.
+                Valid values: alive, dead
+            place: The place to save the image to.
+                The directory for the tribute.
+            session: The aiohttp session to use for the request.
+        """
+        match itype:
+            case "dead":
+                image = self.dead_image
+            case _:
+                image = self.image
+
+        if image == "BW" and itype == "dead":
+            placepth = place.joinpath(f"{itype}.png")
+        else:
+            frmt = image.split(".")[-1]
+            if frmt in ["jpg", "jpeg"]:
+                frmt = "png"
+            if frmt == "webp":
+                frmt = "gif"  # Sadly, Discord doesn't support webp.
+            if frmt not in ["png", "gif"]:
+                raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
+            placepth = place.joinpath(f"{itype}.{frmt}")
+
+        if placepth.exists():
+            return placepth
+
+        if session is None:
+            raise ValueError("No session and image not found.")
+
+        if image == "BW" and itype == "dead":
+            img = Image.open(await self.fetch_image("alive", place, session))
+            img = img.convert("LA")
+            img = imgops.resize(img)
+            img.save(placepth)
+            return placepth
+
+        async with session.get(image) as response:
+            if not response.ok:
+                raise ValueError(f"Could not fetch image for tribute {self.name}.")
+            img = Image.open(io.BytesIO(await response.read()))
+        img = imgops.resize(img)
+        if isinstance(img, tuple):
+            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1])
+        else:
+            img.save(placepth)
+        return placepth
 
 
 class Cycle:
@@ -599,7 +684,8 @@ class Event:
         # Relationship requirements are a tad too complicated, so we handle them during event resolution.
         return True
 
-    def affiliationresolution(self, tribute: Tribute, active: list[Tribute], simstate: Simulation) -> list[Tribute]:
+    async def affiliationresolution(self, tribute: Tribute, active: list[Tribute],
+                                    simstate: Simulation) -> list[Tribute]:
         """Resolve the affiliation requirements for the event.
 
         Args:
@@ -682,8 +768,11 @@ class Event:
                 logger.debug("Could not resolve tributes for event %s.", self.text.template)
                 return []
 
-        def sub_resolve(sub_pos: int, possibilities: list[set[Tribute]],
-                        trail: list[Tribute]) -> Optional[list[Tribute]]:
+        async def sub_resolve(
+            sub_pos: int,
+            possibilities: list[set[Tribute]],
+            trail: list[Tribute],
+        ) -> Optional[list[Tribute]]:
             """Recursive resolution helper function.
 
             Args:
@@ -769,7 +858,7 @@ class Event:
                     continue
                 # If the intersection is not empty, we add the choice to the trail and continue resolving.
                 trail.append(sub_choice)
-                result = sub_resolve(sub_pos + 1, sub_possibilities, trail)
+                result = await sub_resolve(sub_pos + 1, sub_possibilities, trail)
                 if result is not None:
                     return result
                 trail.pop()
@@ -777,13 +866,13 @@ class Event:
                 listed_possibilities.remove(sub_choice)
             return None
 
-        resolved_tributes = sub_resolve(1, possible_resolutions, [tribute])
+        resolved_tributes = await sub_resolve(1, possible_resolutions, [tribute])
         if resolved_tributes is None:
             logger.debug("Could not resolve tributes for event %s.", self.text.template)
             return []
         return resolved_tributes
 
-    def resolve(self, tributes: list[Tribute], simstate: Simulation) -> str:
+    async def resolve(self, tributes: list[Tribute], simstate: Simulation) -> str:
         """Resolve the event for the given tributes.
 
         Resolves the tribute changes and returns the resolution text.

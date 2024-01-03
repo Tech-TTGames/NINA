@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "thingsim"
+name = "techsim"
 version = "0.0.1"
 description = "Various simulation things, maybe a BR simulator."
 license = "EPL-2.0"
@@ -8,7 +8,7 @@ readme = "README.md"
 repository = "https://github.com/Tech-TTGames/ThingSim"
 
 [tool.poetry.scripts]
-start = "thingsim.__main__:main"
+start = "techsim.__main__:main"
 
 [tool.poetry.dependencies]
 python = "^3.12"
@@ -16,6 +16,8 @@ colorama = "^0.4.6"
 yapf = "^0.40.2"
 tomli-w = "^1.0.0"
 discord-py = "^2.3.2"
+aiohttp = {extras = ["speedups"], version = "^3.9.1"}
+pillow = "^10.2.0"
 
 [tool.yapf]
 based_on_style = "google"

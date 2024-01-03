@@ -3,3 +3,5 @@
 .venv
 secret*
 config*
+data/*
+*.log

@@ -82,27 +82,26 @@ class Simulation:
         Args:
             filename: The file to write the simulation to.
         """
-        file = open(filename, 'w')
-        file.write(self.name + '\n')
-        file.write(self.logo + '\n')
-        cast_index = 0
-        cpd = len(self.cast) // len(self.districts)
-        for district in self.districts:
-            file.write("\n")
-            file.write("\n")
-            file.write(district['name'] + '\n')
-            file.write(district['color'] + '\n')
-            for a in range(cast_index, cast_index + cpd):
+        with open(filename, 'w') as file:
+            file.write(self.name + '\n')
+            file.write(self.logo + '\n')
+            cast_index = 0
+            cpd = len(self.cast) // len(self.districts)
+            for district in self.districts:
                 file.write("\n")
-                file.write(self.cast[a].name + '\n')
-                file.write(self.cast[a].nickname + '\n')
-                file.write(f"{self.cast[a].gender}\n")
-                file.write(self.cast[a].image + '\n')
-                file.write(self.cast[a].dead_image)
-                if a != len(self.cast) - 1:
+                file.write("\n")
+                file.write(district['name'] + '\n')
+                file.write(district['color'] + '\n')
+                for a in range(cast_index, cast_index + cpd):
                     file.write("\n")
-            cast_index += cpd
-        file.close()
+                    file.write(self.cast[a].name + '\n')
+                    file.write(self.cast[a].nickname + '\n')
+                    file.write(f"{self.cast[a].gender}\n")
+                    file.write(self.cast[a].image + '\n')
+                    file.write(self.cast[a].dead_image)
+                    if a != len(self.cast) - 1:
+                        file.write("\n")
+                cast_index += cpd
 
     def writet(self, filename: Path):
         """Write the simulation to .toml.
