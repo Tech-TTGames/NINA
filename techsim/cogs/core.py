@@ -30,8 +30,6 @@ from techsim.ext import thing
 
 logger = logging.getLogger("techsim.core")
 
-_CNFG = config.Config()
-
 
 class Core(commands.Cog, name="SimCore"):
     """Simulation user interface cog.
@@ -181,7 +179,6 @@ class Core(commands.Cog, name="SimCore"):
         ctx.extras["location"] = self._dir.joinpath("status")
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as the districts split the status images.
-        pass
         # TODO: After implementing rendering stuff, use it here.
 
     @app_commands.command(
@@ -202,7 +199,6 @@ class Core(commands.Cog, name="SimCore"):
         ctx.extras["location"] = self._dir.joinpath("cycles", f"cycle_{self.sim.cycle}")
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as a cycle consists of multiple event images.
-        pass
         # TODO: After implementing rendering stuff, use it here.
 
     @app_commands.command(
