@@ -451,7 +451,7 @@ class Tribute:
             return placepth
 
         if session is None:
-            raise ValueError("No session and image not found.")
+            raise ValueError(f"No session and image not found for {placepth}.")
 
         if image == "BW" and itype == "dead":
             img = Image.open(await self.fetch_image("alive", place, session))
@@ -466,9 +466,9 @@ class Tribute:
             img = Image.open(io.BytesIO(await response.read()))
         img = imgops.resize(img)
         if isinstance(img, tuple):
-            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1])
+            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True)
         else:
-            img.save(placepth)
+            img.save(placepth, optimize=True)
         return placepth
 
 
@@ -788,7 +788,7 @@ class Event:
                 sub_wg.append(sub_mpower - possibility.effectivepower())
                 listed_possibilities.append(possibility)
             while listed_possibilities:
-                glblbrkr = False
+                g_breaker = False
                 sub_choice = random.choices(listed_possibilities, weights=sub_wg)[0]
                 # First, we check if the choice's requirements for previous tributes are met,
                 # i.e., if the choice has a relationship requirement regarding the previous tribute.
@@ -797,27 +797,27 @@ class Event:
                     match relationship:
                         case "enemies":
                             if trail[j] not in sub_choice.enemies:
-                                glblbrkr = True
+                                g_breaker = True
                                 break
                         case "notallies":
                             if trail[j] in sub_choice.allies:
-                                glblbrkr = True
+                                g_breaker = True
                                 break
                         case "neutral":
                             if trail[j] in sub_choice.enemies.union(sub_choice.allies):
-                                glblbrkr = True
+                                g_breaker = True
                                 break
                         case "notenemies":
                             if trail[j] in sub_choice.enemies:
-                                glblbrkr = True
+                                g_breaker = True
                                 break
                         case "allies":
                             if trail[j] not in sub_choice.allies:
-                                glblbrkr = True
+                                g_breaker = True
                                 break
                         case _:
                             continue
-                if glblbrkr:
+                if g_breaker:
                     # If the choice's requirements for previous tributes are not met, we remove it from the pool.
                     sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
                     listed_possibilities.remove(sub_choice)
@@ -849,9 +849,9 @@ class Event:
                     if sub_choice in sub_possibilities[j]:
                         sub_possibilities[j].remove(sub_choice)
                     if not sub_possibilities[j]:
-                        glblbrkr = True
+                        g_breaker = True
                         break
-                if glblbrkr:
+                if g_breaker:
                     # If the choice's requirements for the next tributes are not met, we remove it from the pool.
                     sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
                     listed_possibilities.remove(sub_choice)

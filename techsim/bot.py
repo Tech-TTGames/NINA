@@ -14,8 +14,10 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
+import asyncio
 import aiohttp
 import logging
+import pathlib
 
 import discord
 from discord.ext import commands
@@ -37,6 +39,8 @@ class TechSimBot(commands.Bot):
         stat_confg: The config for the bot.
     """
     stat_confg: config.Config
+    sim: "Simulation"
+    basp: pathlib.Path
 
     def __init__(self, *args, confg: config.Config | None, **kwargs) -> None:
         """Initialises the bot instance.

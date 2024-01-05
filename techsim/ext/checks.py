@@ -19,11 +19,13 @@ Typical usage example:
 # License: UNLICENSED
 # SPDX-License-Identifier: UNLICENSED
 # Copyright (c) 2023-present Tech. TTGames
+from pathlib import Path
 
 import discord
 from discord import app_commands
 
-from techsim.ext import exceptions
+from techsim.bot import TechSimBot
+from techsim.ext import exceptions, thing
 
 
 def is_owner_check():
@@ -67,6 +69,77 @@ def is_owner_check():
                 return True
         if interaction.user == app.owner:
             return True
-        raise exceptions.DCheckFailure("You do not have permission to do this.")
+        raise exceptions.TechCheckFailure("You do not have permission to do this.")
 
     return app_commands.check(is_owner)
+
+
+def sim_setup_check():
+    """A check to ensure that data has been loaded into the simulation.
+
+    Returns:
+        `discord.app_commands.check`: The check.
+            This time it requires a cog so use it with
+            command.sim_setup_check(sim_setup(self))
+    """
+
+    async def sim_setup(interaction: discord.Interaction):
+        """This check to ensure that data has been loaded into the simulation
+
+        Args:
+            interaction: The interaction to handle.
+
+        Returns:
+            `bool`: Whether the data is loaded into the simulation
+        """
+        direct = interaction.client.basp
+        castdir, eventsdir = direct.joinpath("cast.toml"), direct.joinpath("events.toml")
+        if not castdir.exists() or not eventsdir.exists():
+            setup_id = 0
+            for command in interaction.client.full_tree:
+                if command.name == "setup":
+                    setup_id = command.id
+                    break
+            await interaction.response.send_message(
+                f"Simulation not set up. Please use </setup:{setup_id}> first.",
+                ephemeral=True,
+            )
+            return False
+        return True
+
+    return app_commands.check(sim_setup)
+
+
+def sim_ready_check():
+    """A check to ensure that the simulation is ready.
+
+    Returns:
+        `discord.app_commands.check`: The check.
+            This time it requires a cog so use it with
+            command.add_check(sim_ready_check(self))
+    """
+
+    async def sim_ready(interaction: discord.Interaction):
+        """This check to ensure that sim ready before running commands
+
+        Args:
+            interaction: The interaction to handle.
+
+        Returns:
+            `bool`: Whether the data is loaded into the simulation
+        """
+        bt = interaction.client
+        if bt.sim.cycle == -2:
+            ready_id = 0
+            for command in bt.full_tree:
+                if command.name == "ready":
+                    ready_id = command.id
+                    break
+            await interaction.response.send_message(
+                f"Simulation not readied up!. Please use </ready:{ready_id}> first.",
+                ephemeral=True,
+            )
+            return False
+        return True
+
+    return app_commands.check(sim_ready)

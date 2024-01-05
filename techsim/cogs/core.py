@@ -26,7 +26,7 @@ from discord.ext import commands
 
 from techsim import bot
 from techsim.data import config, const
-from techsim.ext import thing
+from techsim.ext import thing, checks
 
 logger = logging.getLogger("techsim.core")
 
@@ -53,10 +53,13 @@ class Core(commands.Cog, name="SimCore"):
         self._dir = const.PROG_DIR.joinpath("data")
         os.makedirs(self._dir, exist_ok=True)
         self.sim = None
-        castdir, eventsdir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
-        if castdir.exists() and eventsdir.exists():
-            self.sim = thing.Simulation(castdir, eventsdir, self._bt)
+        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
+        if cast_dir.exists() and events_dir.exists():
+            self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
             logger.info("Loaded last simulation data.")
+        self._bt.basp = self._dir
+        self._bt.sim = self.sim
+        logger.info("Loaded %s", self.__class__.__name__)
 
     @app_commands.command(
         name="setup",
@@ -82,13 +85,13 @@ class Core(commands.Cog, name="SimCore"):
         """
         logger.info(f"Setting up simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True, ephemeral=True)
-        castdir, eventsdir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
+        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         async with ctx.channel.typing():
-            with open(castdir, "wb") as f:
+            with open(cast_dir, "wb") as f:
                 f.write(await cast.read())
-            with open(eventsdir, "wb") as f:
+            with open(events_dir, "wb") as f:
                 f.write(await events.read())
-        self.sim = thing.Simulation(castdir, eventsdir, self._bt)
+        self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
         await ctx.followup.send("Configuration loaded.", ephemeral=True)
         logger.info(f"Simulation set up for {ctx.user}.")
 
@@ -103,6 +106,7 @@ class Core(commands.Cog, name="SimCore"):
         randomize_dc="Whether to shuffle district assignments.",
         recolor_dc="Whether to recolor the districts.",
     )
+    @checks.sim_setup_check()
     async def ready(
         self,
         ctx: discord.Interaction,
@@ -121,8 +125,8 @@ class Core(commands.Cog, name="SimCore"):
             randomize_dc: Whether to shuffle district assignments.
             recolor_dc: Whether to recolor the districts.
         """
-        castdir, eventsdir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
-        if not castdir.exists() or not eventsdir.exists():
+        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
+        if not cast_dir.exists() or not events_dir.exists():
             setup_id = 0
             for command in self._bt.full_tree:
                 if command.name == "setup":
@@ -133,7 +137,8 @@ class Core(commands.Cog, name="SimCore"):
                 ephemeral=True,
             )
             return
-        self.sim = thing.Simulation(castdir, eventsdir, self._bt)
+        self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+        self._bt.sim = self.sim
         # Reset the sim just in case.
         logger.info(f"Readying simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True)
@@ -141,23 +146,23 @@ class Core(commands.Cog, name="SimCore"):
         await ctx.followup.send(
             f"Simulation '{self.sim.name}' primary ready procedure complete.\n"
             f"Fetching images...",)
-        castpdir = self._dir.joinpath("cast")
-        if castpdir.exists():
-            shutil.rmtree(castpdir)
-        os.makedirs(castpdir)
-        imagetasks = []
+        cast_fdir = self._dir.joinpath("cast")
+        if cast_fdir.exists():
+            shutil.rmtree(cast_fdir)
+        os.makedirs(cast_fdir)
+        image_tasks = []
         sesh = self._bt.httpsession
-        for trid, tribute in enumerate(self.sim.cast):
-            curdir = castpdir.joinpath(str(trid))
-            os.makedirs(curdir)
-            imagetasks.append(tribute.fetch_image("alive", curdir, sesh))
-        await asyncio.gather(*imagetasks)
-        imagetasks = []
+        for tribute_id, tribute in enumerate(self.sim.cast):
+            cwd = cast_fdir.joinpath(str(tribute_id))
+            os.makedirs(cwd)
+            image_tasks.append(tribute.fetch_image("alive", cwd, sesh))
+        await asyncio.gather(*image_tasks)
+        image_tasks = []
         # Separated to allow for PIL to be used for BW images.
-        for trid, tribute in enumerate(self.sim.cast):
-            curdir = castpdir.joinpath(str(trid))
-            imagetasks.append(tribute.fetch_image("dead", curdir, sesh))
-        await asyncio.gather(*imagetasks)
+        for tribute_id, tribute in enumerate(self.sim.cast):
+            cwd = cast_fdir.joinpath(str(tribute_id))
+            image_tasks.append(tribute.fetch_image("dead", cwd, sesh))
+        await asyncio.gather(*image_tasks)
         await ctx.followup.send("Images fetched. Simulation ready.")
         logger.info(f"Simulation readied for {ctx.user}.")
 
@@ -167,6 +172,7 @@ class Core(commands.Cog, name="SimCore"):
     )
     @app_commands.guild_only()
     @app_commands.default_permissions(manage_messages=True)
+    @checks.sim_ready_check()
     async def status(self, ctx: discord.Interaction) -> None:
         """Displays the current simulation status.
 
@@ -187,6 +193,7 @@ class Core(commands.Cog, name="SimCore"):
     )
     @app_commands.guild_only()
     @app_commands.default_permissions(manage_messages=True)
+    @checks.sim_ready_check()
     async def cycle(self, ctx: discord.Interaction) -> None:
         """Runs a cycle of the simulation.
 
@@ -210,6 +217,7 @@ class Core(commands.Cog, name="SimCore"):
     @app_commands.describe(tribute="The tribute to display.",)
     # @app_commands.autocomplete(tribute="tribute")
     # TODO: Implement autocomplete.
+    @checks.sim_ready_check()
     async def tributestatus(self, ctx: discord.Interaction, tribute: str) -> None:
         """Displays the status of a tribute.
 

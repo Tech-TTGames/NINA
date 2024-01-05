@@ -32,12 +32,12 @@ class TechSimBotError(app_commands.AppCommandError):
     """
 
 
-class DCheckFailure(app_commands.CheckFailure):
-    """Command failed ticket checks.
+class TechCheckFailure(app_commands.CheckFailure):
+    """Command failed simulation checks.
 
-    An app command failed the ticket checks.
+    An app command failed the checks.
     This is usually used when a user tries to execute a command
-     not allowed in the current ticket state.
+     not allowed in the current simulation state.
     """
 
 
