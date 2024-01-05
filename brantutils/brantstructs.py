@@ -7,9 +7,10 @@ transferring data between the TechSim and the Brent-Steele simulator.
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
-import tomli_w
-from pathlib import Path
+import pathlib
 from typing import TextIO
+
+import tomli_w
 
 
 class Simulation:
@@ -22,7 +23,7 @@ class Simulation:
         cast: The cast of the simulation.
     """
 
-    def __init__(self, filename: Path):
+    def __init__(self, filename: pathlib.Path):
         """Initialize the Simulation object.
 
         Args:
@@ -75,7 +76,7 @@ class Simulation:
 
     def write(
         self,
-        filename: Path,
+        filename: pathlib.Path,
     ):
         """Write the simulation to the specified file.
 
@@ -103,7 +104,7 @@ class Simulation:
                         file.write("\n")
                 cast_index += cpd
 
-    def writet(self, filename: Path):
+    def writet(self, filename: pathlib.Path):
         """Write the simulation to .toml.
 
         This not the default write method because it is not compatible

@@ -26,7 +26,8 @@ import discord
 from discord.ext import commands
 
 from techsim import bot
-from techsim.data import config, const
+from techsim.data import config
+from techsim.data import const
 
 
 # pylint: disable=unused-argument

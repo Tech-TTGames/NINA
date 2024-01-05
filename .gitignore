@@ -4,4 +4,4 @@
 secret*
 config*
 data/*
-*.log
+*.log*

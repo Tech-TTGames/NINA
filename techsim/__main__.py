@@ -18,7 +18,8 @@ import asyncio
 import sys
 
 import techsim
-from techsim.data import config, const
+from techsim.data import config
+from techsim.data import const
 
 
 def main():

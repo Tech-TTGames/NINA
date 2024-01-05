@@ -11,8 +11,12 @@ Typical usage example:
 # License: EPL-2.0
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
+import itertools
+import math
 
-from PIL import Image, ImageSequence, ImageOps
+from PIL import Image
+from PIL import ImageOps
+from PIL import ImageSequence
 
 SIZE = (512, 512)
 

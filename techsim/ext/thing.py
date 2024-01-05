@@ -17,19 +17,26 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
-import io
 import asyncio
-import pathlib
-import string
-import aiohttp
-import random
 import colorsys
-import tomllib
+import io
+import itertools
 import logging
+import pathlib
+import random
+import string
+import tomllib
+from typing import Literal, Optional, Union
+
+import aiohttp
 import discord
-from PIL import Image, ImageDraw, ImageFont, ImageSequence
-from typing import Optional, Union, Literal
+from PIL import Image
+from PIL import ImageDraw
+from PIL import ImageFont
+from PIL import ImageSequence
+
 from techsim import bot
+from techsim.data import const
 from techsim.ext import imgops
 
 logger = logging.getLogger("techsim.simulation")
@@ -460,7 +467,7 @@ class Tribute:
             img = Image.open(await self.fetch_image("alive", place, session))
             img = img.convert("LA")
             img = imgops.resize(img)
-            img.save(placepth)
+            img.save(placepth, optimize=True)
             return placepth
 
         async with session.get(image) as response:
@@ -496,7 +503,7 @@ class Tribute:
         else:
             user_image = Image.open(await self.fetch_image("alive", place))
 
-        base_image = Image.new("RGBA", (512, 512 + 128), (0, 0, 0, 0))
+        base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
         font = ImageFont.truetype("consola.ttf", size=30)
         text = (f"{self.name}\n"
                 f"Status: {['Alive', 'Dead'][self.status]}\n"
@@ -1106,14 +1113,20 @@ class Item:
 
 async def main():
     """Testing loop."""
-    sim = Simulation(pathlib.Path("J:\\priv\\ThingSim\\data\\cast.toml"),
-                     pathlib.Path("J:\\priv\\ThingSim\\data\\events.toml"), None)
+    sim = Simulation(
+        const.PROG_DIR.joinpath("data", "cast.toml"),
+        const.PROG_DIR.joinpath("data", "events.toml"),
+        None,
+    )
     await sim.ready(None)
-    loc = pathlib.Path("J:\\priv\\ThingSim\\data\\cast\\0")
+    loc = const.PROG_DIR.joinpath("data", "cast")
     async with aiohttp.ClientSession() as session:
-        await sim.cast[0].fetch_image("alive", loc, session=session)
-        await sim.cast[0].fetch_image("dead", loc, session=session)
-    await sim.cast[0].get_status_render(loc)
+        for i, member in enumerate(sim.cast):
+            plc = loc.joinpath(f"{i}")
+            await sim.cast[0].fetch_image("alive", plc, session=session)
+            await sim.cast[0].fetch_image("dead", plc, session=session)
+    sim.cast[0].status = 1
+    await sim.districts[0].get_render(sim)
 
 
 if __name__ == "__main__":

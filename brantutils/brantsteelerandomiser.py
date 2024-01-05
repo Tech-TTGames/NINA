@@ -14,9 +14,10 @@ Typical usage example:
 
 import argparse
 import colorsys
+import pathlib
 import random
+
 import colorama
-from pathlib import Path
 
 from brantutils.brantstructs import Simulation
 
@@ -57,11 +58,11 @@ if __name__ == '__main__':
     )
     args = parser.parse_args()
     colorama.init()
-    intake = Path(args.input)
+    intake = pathlib.Path(args.input)
     if args.output is None:
-        output = Path(args.input[:-4] + '_randomized.txt')
+        output = pathlib.Path(args.input[:-4] + '_randomized.txt')
     else:
-        output = Path(args.output)
+        output = pathlib.Path(args.output)
     if not intake.exists():
         print(colorama.Fore.RED + "Input file does not exist!" + colorama.Style.RESET_ALL)
         print("Exiting...")

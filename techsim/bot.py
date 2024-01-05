@@ -14,15 +14,16 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
-import aiohttp
 import logging
 import pathlib
 
+import aiohttp
 import discord
 from discord.ext import commands
 
 from techsim import cogs
-from techsim.data import const, config
+from techsim.data import config
+from techsim.data import const
 
 logger = logging.getLogger("techsim.botcore")
 

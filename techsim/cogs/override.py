@@ -25,9 +25,12 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from techsim import bot, cogs
-from techsim.data import config, const
-from techsim.ext import checks, views
+from techsim import bot
+from techsim import cogs
+from techsim.data import config
+from techsim.data import const
+from techsim.ext import checks
+from techsim.ext import views
 
 _CNFG = config.Config()
 """Submodule private global constant for the config."""
