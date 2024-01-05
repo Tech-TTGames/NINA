@@ -59,6 +59,11 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
         logger.setLevel(logging.INFO)
         logger.addHandler(const.HANDLER)
 
+        # Set up asyncio logging
+        async_logger = logging.getLogger("asyncio")
+        async_logger.setLevel(logging.INFO)
+        async_logger.addHandler(const.HANDLER)
+
         # Set up botcore logging
         core_logger = logging.getLogger("techsim.botcore")
         core_logger.setLevel(logging.INFO)
@@ -88,6 +93,7 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
 
         if debug:
             logger.setLevel(logging.DEBUG)
+            async_logger.setLevel(logging.DEBUG)
             corecmd_logger.setLevel(logging.DEBUG)
             err_logger.setLevel(logging.DEBUG)
             ovrd_logger.setLevel(logging.DEBUG)
