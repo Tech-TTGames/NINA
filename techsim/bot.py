@@ -14,7 +14,6 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
-import asyncio
 import aiohttp
 import logging
 import pathlib

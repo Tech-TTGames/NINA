@@ -25,7 +25,7 @@ from discord import app_commands
 from discord.ext import commands
 
 from techsim import bot
-from techsim.data import config, const
+from techsim.data import const
 from techsim.ext import thing, checks
 
 logger = logging.getLogger("techsim.core")
