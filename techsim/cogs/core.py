@@ -182,10 +182,19 @@ class Core(commands.Cog, name="SimCore"):
         Args:
             ctx: The interaction context.
         """
-        ctx.extras["location"] = self._dir.joinpath("status")
-        os.makedirs(ctx.extras["location"], exist_ok=True)
+        await ctx.response.defer(thinking=True)
+        location = self._dir.joinpath("status")
+        place = self._dir.joinpath("cast")
+        os.makedirs(location, exist_ok=True)
         # This is a directory as the districts split the status images.
         # TODO: After implementing rendering stuff, use it here.
+        # For testing stuff: Nuke after use, probably or actually use it.
+        tasks = []
+        for tribute_id, tribute in enumerate(self.sim.cast):
+            cwd = place.joinpath(str(tribute_id))
+            tasks.append(tribute.get_status_render(cwd))
+        await asyncio.gather(*tasks)
+        await ctx.followup.send("Test status generation done.")
 
     @app_commands.command(
         name="cycle",

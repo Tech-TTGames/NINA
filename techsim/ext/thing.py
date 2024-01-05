@@ -18,6 +18,7 @@ Typical usage example:
 # Copyright (c) 2023-present Tech. TTGames
 
 import io
+import asyncio
 import aiohttp
 import random
 import colorsys
@@ -25,7 +26,7 @@ import tomllib
 import logging
 import discord
 from pathlib import Path
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont, ImageSequence
 from string import Template
 from typing import Optional, Union, Literal
 from techsim import bot
@@ -320,6 +321,7 @@ class Tribute:
     items: dict["Item", int]
     kills: int
     log: list[str]
+    render: tuple[Path, list[int]] | None
 
     def __init__(self, data: dict):
         """Initialize the Tribute object.
@@ -347,6 +349,7 @@ class Tribute:
         self.items = {}
         self.kills = 0
         self.log = []
+        self.render = None
 
     def __str__(self):
         """Text representation of the tribute."""
@@ -470,6 +473,52 @@ class Tribute:
         else:
             img.save(placepth, optimize=True)
         return placepth
+
+    async def get_status_render(self, place: Path | None) -> Path:
+        """Get an assembled image representing the tribute.
+
+        With the status, kills and effective power.
+
+        Args:
+            place: The place to save the image to.
+                The directory for the tribute.
+        """
+        status = [self.status, self.kills, self.effectivepower()]
+        if self.render is not None and self.render[1] == status:
+            return self.render[0]
+        if place is None:
+            if self.render is not None:
+                place = self.render[0].parent
+            else:
+                raise ValueError(f"Neither place nor old render provided for tribute {self}")
+        if self.status:
+            user_image = Image.open(await self.fetch_image("dead", place))
+        else:
+            user_image = Image.open(await self.fetch_image("alive", place))
+
+        base_image = Image.new("RGBA", (512, 512 + 128), (0, 0, 0, 0))
+        font = ImageFont.truetype("consola.ttf", size=30)
+        text = (f"{self.name}\n"
+                f"Status: {['Alive', 'Dead'][self.status]}\n"
+                f"Kills: {self.kills}\n"
+                f"Power: {self.effectivepower()}\n")
+        drw = ImageDraw.Draw(base_image)
+        f_color = (255, 255, 255, 255)
+        s_color = (0, 0, 0, 255)
+        drw.multiline_text((256, 670), text, f_color, font, "md", align="center", stroke_fill=s_color, stroke_width=2)
+        if user_image.format == "PNG":
+            status_img = base_image
+            status_img.paste(user_image)
+            landing = place.joinpath("status.png")
+            status_img.save(landing, optimize=True)
+        else:
+            status_img = [base_image.copy() for _ in range(user_image.n_frames)]
+            for sts_frame, usr_frame in zip(status_img, ImageSequence.Iterator(user_image)):
+                sts_frame.paste(usr_frame)
+            landing = place.joinpath("status.gif")
+            status_img[0].save(landing, save_all=True, append_images=status_img[1:], **user_image.info, optimize=True)
+        self.render = (landing, status)
+        return landing
 
 
 class Cycle:
@@ -1053,3 +1102,18 @@ class Item:
     def __str__(self):
         """Return the name of the item."""
         return f"TechSim Item: {self.name}"
+
+
+async def main():
+    """Testing loop."""
+    sim = Simulation(Path("J:\\priv\\ThingSim\\data\\cast.toml"), Path("J:\\priv\\ThingSim\\data\\events.toml"), None)
+    await sim.ready(None)
+    loc = Path("J:\\priv\\ThingSim\\data\\cast\\0")
+    async with aiohttp.ClientSession() as session:
+        await sim.cast[0].fetch_image("alive", loc, session=session)
+        await sim.cast[0].fetch_image("dead", loc, session=session)
+    await sim.cast[0].get_status_render(loc)
+
+
+if __name__ == "__main__":
+    asyncio.run(main())
