@@ -64,3 +64,24 @@ def resize(im: Image.Image, size: tuple[int, int] = SIZE) -> tuple[list[Image.Im
         frame = frame.convert("RGBA")
         frames.append(thumbpaste(frame, size))
     return frames, im.info
+
+
+def average_gif_durations(durations: list[list[int] | int], frames: int) -> list[int]:
+    """Calculates the average duration for each frame of the gif in milliseconds.
+
+    Args:
+        durations: The durations of the gif in milliseconds, for every gif.
+            Either a list of specific durations or a global one.
+        frames: Maximum number of frames for the gif.
+    """
+    if len(durations) == 1:
+        durations = [durations[0] for _ in range(frames)]
+        return durations
+    for duration in durations:
+        if isinstance(duration, int):
+            duration = [duration for _ in range(frames)]
+        if len(duration) < frames:
+            dur_cycle = itertools.cycle(iter(duration.copy()))
+            for _ in range(frames - len(duration)):
+                duration.append(next(dur_cycle))
+    return [sum(packaged_dur) // len(packaged_dur) for packaged_dur in zip(*durations)]

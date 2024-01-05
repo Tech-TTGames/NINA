@@ -143,7 +143,7 @@ class Simulation:
         for district in self.districts:
             for tribute in range(tid, tid + mpd):
                 self.cast[tribute].district = district
-                district.members.add(self.cast[tribute])
+                district.members.append(self.cast[tribute])
             district.apply_allies()
             tid += mpd
         self.cycle = 0
@@ -273,7 +273,8 @@ class District:
     """
     name: str
     color: str
-    members: set["Tribute"]
+    members: list["Tribute"]
+    render: tuple[pathlib.Path, list[list[int]]] | None
 
     def __init__(self, data: dict):
         """Initialize the District object.
@@ -284,7 +285,8 @@ class District:
         """
         self.name = data['name']
         self.color = data['color']
-        self.members = set()
+        self.members = []
+        self.render = None
 
     def __str__(self):
         """Text representation of the district."""
@@ -293,8 +295,68 @@ class District:
     def apply_allies(self):
         """Mark all members of the district as allies to each other."""
         for member in self.members:
-            member.allies.update(self.members)
+            member.allies.update(set(self.members))
             member.allies.remove(member)  # Remove self from allies
+
+    async def get_render(self, sim: Simulation) -> pathlib.Path:
+        """Get an image representing the district
+
+        Merges the status images of the tributes and places a name above them.
+
+        Args:
+            sim: The simulation that the district is part of
+
+        """
+        status = [[tribute.status, tribute.kills, tribute.effectivepower()] for tribute in self.members]
+        if self.render is not None and self.render[1] == status:
+            return self.render[0]
+
+        data_dir = const.PROG_DIR.joinpath("data")
+        place = data_dir.joinpath("cast")
+        landing = data_dir.joinpath("status")
+        tribute_status_gets = [
+            tribute.get_status_render(place.joinpath(f"{sim.cast.index(tribute)}")) for tribute in self.members
+        ]
+        tribute_status = await asyncio.gather(*tribute_status_gets)
+        tribute_status = [Image.open(stat_img) for stat_img in tribute_status]
+        member_c = len(self.members)
+
+        base_image = Image.new("RGBA", (512 * member_c + 64 * (member_c + 1), 768), (0, 0, 0, 0))
+        # The width is 512 for each member + 64 for each offset + 128 for sides
+        draw = ImageDraw.Draw(base_image)
+        font = ImageFont.truetype("consola.ttf", size=120)
+        draw.text((base_image.width // 2, 0), self.name, fill=self.color, font=font, anchor="ma")
+
+        # Primary paste loop, only static images
+        gifs_to_process = []
+        for i, tribute_status_image in enumerate(tribute_status):
+            if tribute_status_image.format == "GIF":
+                gifs_to_process.append((i, tribute_status_image))
+                continue
+            base_image.paste(tribute_status_image, (64 + i * 576, 128))
+        if not gifs_to_process:
+            landing = landing.joinpath(f"{sim.districts.index(self)}.png")
+            base_image.save(landing, optimize=True)
+        else:
+            landing = landing.joinpath(f"{sim.districts.index(self)}.gif")
+            max_frames = max([gif[1].n_frames for gif in gifs_to_process])
+            status_img = [base_image.copy() for _ in range(max_frames)]
+            for i, gif in gifs_to_process:
+                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.Iterator(gif))):
+                    result_frame.paste(gif_frame, (64 + i * 576, 128))
+            durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process],
+                                                max_frames)
+            status_img[0].save(
+                landing,
+                save_all=True,
+                append_images=status_img[1:],
+                loop=0,
+                duration=durs,
+                optimize=True,
+                disposal=2,
+            )
+        self.render = (landing, status)
+        return landing
 
 
 class Tribute:
@@ -476,7 +538,7 @@ class Tribute:
             img = Image.open(io.BytesIO(await response.read()))
         img = imgops.resize(img)
         if isinstance(img, tuple):
-            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True)
+            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True, disposal=2)
         else:
             img.save(placepth, optimize=True)
         return placepth
@@ -523,7 +585,14 @@ class Tribute:
             for sts_frame, usr_frame in zip(status_img, ImageSequence.Iterator(user_image)):
                 sts_frame.paste(usr_frame)
             landing = place.joinpath("status.gif")
-            status_img[0].save(landing, save_all=True, append_images=status_img[1:], **user_image.info, optimize=True)
+            status_img[0].save(
+                landing,
+                save_all=True,
+                append_images=status_img[1:],
+                **user_image.info,
+                optimize=True,
+                disposal=2,
+            )
         self.render = (landing, status)
         return landing
 
@@ -1126,7 +1195,8 @@ async def main():
             await sim.cast[0].fetch_image("alive", plc, session=session)
             await sim.cast[0].fetch_image("dead", plc, session=session)
     sim.cast[0].status = 1
-    await sim.districts[0].get_render(sim)
+    for district in sim.districts:
+        await district.get_render(sim)
 
 
 if __name__ == "__main__":

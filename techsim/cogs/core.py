@@ -18,6 +18,7 @@ Typical usage example:
 import asyncio
 import logging
 import os
+import pathlib
 import shutil
 
 import discord
@@ -27,9 +28,27 @@ from discord.ext import commands
 from techsim import bot
 from techsim.data import const
 from techsim.ext import checks
+from techsim.ext import exceptions
 from techsim.ext import thing
 
 logger = logging.getLogger("techsim.core")
+
+
+async def tribute_autocomplete(
+    interaction: discord.Interaction,
+    current: str,
+) -> list[app_commands.Choice[str]]:
+    """Suggests completions for tribute names.
+
+    Args:
+        interaction: The interaction requesting autocompletion.
+        current: The current input in the field.
+    """
+    return [
+        app_commands.Choice(name=tribute.name, value=tribute.name)
+        for tribute in interaction.client.sim.cast
+        if current.lower() in tribute.name.lower()
+    ]
 
 
 class Core(commands.Cog, name="SimCore"):
@@ -148,6 +167,9 @@ class Core(commands.Cog, name="SimCore"):
             f"Simulation '{self.sim.name}' primary ready procedure complete.\n"
             f"Fetching images...",)
         cast_fdir = self._dir.joinpath("cast")
+        location = self._dir.joinpath("status")
+        if location.exists():
+            shutil.rmtree(location)
         if cast_fdir.exists():
             shutil.rmtree(cast_fdir)
         os.makedirs(cast_fdir)
@@ -185,17 +207,17 @@ class Core(commands.Cog, name="SimCore"):
         """
         await ctx.response.defer(thinking=True)
         location = self._dir.joinpath("status")
-        place = self._dir.joinpath("cast")
         os.makedirs(location, exist_ok=True)
         # This is a directory as the districts split the status images.
-        # TODO: After implementing rendering stuff, use it here.
-        # For testing stuff: Nuke after use, probably or actually use it.
-        tasks = []
-        for tribute_id, tribute in enumerate(self.sim.cast):
-            cwd = place.joinpath(str(tribute_id))
-            tasks.append(tribute.get_status_render(cwd))
-        await asyncio.gather(*tasks)
-        await ctx.followup.send("Test status generation done.")
+        emd = discord.Embed(title="Current Simulation Status",)
+        emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
+        for district in self.sim.districts:
+            image = await district.get_render(self.sim)
+            op_image = discord.File(image, filename=image.name)
+            emd.description = f"Status for {district.name}"
+            emd.set_image(url=f"attachment://{image.name}")
+            emd.colour = discord.Color.from_str(district.color)
+            await ctx.followup.send(embed=emd, file=op_image)
 
     @app_commands.command(
         name="cycle",
@@ -225,9 +247,8 @@ class Core(commands.Cog, name="SimCore"):
     @app_commands.guild_only()
     @app_commands.default_permissions(manage_messages=True)
     @app_commands.describe(tribute="The tribute to display.",)
-    # @app_commands.autocomplete(tribute="tribute")
-    # TODO: Implement autocomplete.
     @checks.sim_ready_check()
+    @app_commands.autocomplete(tribute=tribute_autocomplete)
     async def tributestatus(self, ctx: discord.Interaction, tribute: str) -> None:
         """Displays the status of a tribute.
 
@@ -239,9 +260,26 @@ class Core(commands.Cog, name="SimCore"):
             ctx: The interaction context.
             tribute: The tribute to display.
         """
-        pass
-        # This one won't be rendering anything we just use the image/dead image and some data in an embed.
-        # TODO: Implement this.
+        for possibly_correct in self.sim.cast:
+            if possibly_correct.name == tribute:
+                tribute = possibly_correct
+                break
+        if isinstance(tribute, str):
+            raise exceptions.UsageError("Invalid Tribute provided.")
+        emd = discord.Embed(
+            color=discord.Colour.from_str(tribute.district.color),
+            title=f"Status of {tribute.name}",
+            description=f"**Status:** {['Alive', 'Dead'][tribute.status]}\n"
+            f"**Kills:** {tribute.kills}\n"
+            f"**Power:** {tribute.effectivepower()}",
+        )
+        emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
+        emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
+        emd.add_field(name="Items", value="\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]))
+        emd.add_field(name="Allies", value="\n".join([ally.name for ally in tribute.allies]))
+        emd.add_field(name="Enemies", value="\n".join([enemy.name for enemy in tribute.enemies]))
+        emd.add_field(name="Events", value="\n".join(tribute.log))
+        await ctx.response.send_message(embed=emd)
 
 
 async def setup(bot_instance: bot.TechSimBot) -> None:
