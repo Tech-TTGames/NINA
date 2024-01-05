@@ -15,6 +15,7 @@ Typical usage example:
 # Copyright (c) 2023-present Tech. TTGames
 
 import asyncio
+import sys
 
 import techsim
 from techsim.data import config, const
@@ -28,7 +29,8 @@ def main():
     print(f"Starting TechSim {const.VERSION}...")
     cnfg = config.Config()
     print("Brace for timeloop!")
-    asyncio.run(techsim.start_bot(conf=cnfg))
+    debug_mode = 'pydevd' in sys.modules
+    asyncio.run(techsim.start_bot(conf=cnfg, debug=debug_mode), debug=debug_mode)
 
 
 if __name__ == "__main__":

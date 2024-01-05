@@ -40,7 +40,7 @@ signal.signal(signal.SIGINT, sigint_handler)
 logger = logging.getLogger("techsim.launchpad")
 
 
-async def start_bot(conf: config.Config) -> None:
+async def start_bot(conf: config.Config, debug: bool = False) -> None:
     """Starts the bot.
 
     Also sets up logging.
@@ -48,6 +48,8 @@ async def start_bot(conf: config.Config) -> None:
     """
     colorama.just_fix_windows_console()
     print("Beginning setup...")
+    if debug:
+        print(colorama.Fore.RED + colorama.Style.BRIGHT + "DEBUG MODE ACTIVE!" + colorama.Style.RESET_ALL)
     try:
         # Set up logging
         dt_fmr = "%Y-%m-%d %H:%M:%S"
@@ -83,6 +85,14 @@ async def start_bot(conf: config.Config) -> None:
         dscrd_logger.addHandler(const.HANDLER)
 
         logger.info("Logging set up.")
+
+        if debug:
+            logger.setLevel(logging.DEBUG)
+            corecmd_logger.setLevel(logging.DEBUG)
+            err_logger.setLevel(logging.DEBUG)
+            ovrd_logger.setLevel(logging.DEBUG)
+            corecmd_logger.setLevel(logging.DEBUG)
+            dscrd_logger.setLevel(logging.DEBUG)
     # pylint: disable=broad-except
     except Exception as e:
         logger.exception("Failed to set up logging.")
