@@ -19,13 +19,11 @@ Typical usage example:
 # License: UNLICENSED
 # SPDX-License-Identifier: UNLICENSED
 # Copyright (c) 2023-present Tech. TTGames
-from pathlib import Path
 
 import discord
 from discord import app_commands
 
-from techsim.bot import TechSimBot
-from techsim.ext import exceptions, thing
+from techsim.ext import exceptions
 
 
 def is_owner_check():

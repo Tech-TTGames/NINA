@@ -19,15 +19,15 @@ Typical usage example:
 
 import io
 import asyncio
+import pathlib
+import string
 import aiohttp
 import random
 import colorsys
 import tomllib
 import logging
 import discord
-from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageSequence
-from string import Template
 from typing import Optional, Union, Literal
 from techsim import bot
 from techsim.ext import imgops
@@ -69,7 +69,7 @@ class Simulation:
     dead: list["Tribute"]
     cycle_deaths: list["Tribute"]
 
-    def __init__(self, cast_file: Path, events_file: Path, bot_instance: bot.TechSimBot | None) -> None:
+    def __init__(self, cast_file: pathlib.Path, events_file: pathlib.Path, bot_instance: bot.TechSimBot | None) -> None:
         """Initialize the Simulation object."""
         with open(cast_file, "rb") as file:
             data = tomllib.load(file)
@@ -321,7 +321,7 @@ class Tribute:
     items: dict["Item", int]
     kills: int
     log: list[str]
-    render: tuple[Path, list[int]] | None
+    render: tuple[pathlib.Path, list[int]] | None
 
     def __init__(self, data: dict):
         """Initialize the Tribute object.
@@ -420,9 +420,9 @@ class Tribute:
     async def fetch_image(
         self,
         itype: Literal["alive", "dead"],
-        place: Path,
+        place: pathlib.Path,
         session: aiohttp.ClientSession | None = None,
-    ) -> Path:
+    ) -> pathlib.Path:
         """Fetch the image of the tribute.
 
         Args:
@@ -474,7 +474,7 @@ class Tribute:
             img.save(placepth, optimize=True)
         return placepth
 
-    async def get_status_render(self, place: Path | None) -> Path:
+    async def get_status_render(self, place: pathlib.Path | None) -> pathlib.Path:
         """Get an assembled image representing the tribute.
 
         With the status, kills and effective power.
@@ -645,7 +645,7 @@ class Event:
             Example: [ { relationship = { 2 = "notallies" } }, { relationship = { 1 = "allies" } } ]
                 Tribute 1 does not consider Tribute 2 an ally, Tribute 2 considers Tribute 1 an ally.
         """
-    text: Template
+    text: string.Template
     cycle: Cycle | list[Cycle]
     weight: int
     max_use: int
@@ -679,7 +679,7 @@ class Event:
             cycle: The cycle the event belongs to.
             item: The item the event is attached to.
         """
-        self.text = Template(data['text'])
+        self.text = string.Template(data['text'])
         self.cycle = cycle
         self.weight = data.get('weight', 1)
         self.max_use = data.get('max_use', -1)
@@ -1058,7 +1058,7 @@ class Item:
         events: The events that can happen with this item.
     """
     name: str
-    textl: Template
+    textl: string.Template
     power: int
     cycles: list[Cycle]
     use_count: int
@@ -1087,7 +1087,7 @@ class Item:
             cycles: The cycle library for the simulation.
         """
         self.name = data['name']
-        self.textl = Template(data.get('text', f"$Tribute1's {self.name} broke."))
+        self.textl = string.Template(data.get('text', f"$Tribute1's {self.name} broke."))
         self.power = data.get('power', 0)
         self.cycles = [cycle for cycle in cycles if cycle.name in data['cycles']]
         self.use_count = data.get('use_count', -1)
@@ -1106,9 +1106,10 @@ class Item:
 
 async def main():
     """Testing loop."""
-    sim = Simulation(Path("J:\\priv\\ThingSim\\data\\cast.toml"), Path("J:\\priv\\ThingSim\\data\\events.toml"), None)
+    sim = Simulation(pathlib.Path("J:\\priv\\ThingSim\\data\\cast.toml"),
+                     pathlib.Path("J:\\priv\\ThingSim\\data\\events.toml"), None)
     await sim.ready(None)
-    loc = Path("J:\\priv\\ThingSim\\data\\cast\\0")
+    loc = pathlib.Path("J:\\priv\\ThingSim\\data\\cast\\0")
     async with aiohttp.ClientSession() as session:
         await sim.cast[0].fetch_image("alive", loc, session=session)
         await sim.cast[0].fetch_image("dead", loc, session=session)

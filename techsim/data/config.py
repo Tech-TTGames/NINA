@@ -14,11 +14,10 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 
-from typing import overload, Literal
-
 import discord
 import tomllib
 
+from typing import overload, Literal
 from techsim.data import const
 
 BURNABLE = False
