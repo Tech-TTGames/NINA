@@ -85,6 +85,11 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
         corecmd_logger.setLevel(logging.INFO)
         corecmd_logger.addHandler(const.HANDLER)
 
+        # Set up simulation logging
+        sim_logger = logging.getLogger("techsim.simulation")
+        sim_logger.setLevel(logging.INFO)
+        sim_logger.addHandler(const.HANDLER)
+
         # Set up discord.py logging
         dscrd_logger = logging.getLogger("discord")
         dscrd_logger.setLevel(logging.INFO)
@@ -99,6 +104,7 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
             err_logger.setLevel(logging.DEBUG)
             ovrd_logger.setLevel(logging.DEBUG)
             corecmd_logger.setLevel(logging.DEBUG)
+            sim_logger.setLevel(logging.DEBUG)
             dscrd_logger.setLevel(logging.DEBUG)
     # pylint: disable=broad-except
     except Exception as e:
