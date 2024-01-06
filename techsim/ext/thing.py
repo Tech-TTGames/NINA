@@ -40,7 +40,6 @@ from techsim.data import const
 from techsim.ext import imgops
 
 logger = logging.getLogger("techsim.simulation")
-logger.setLevel(logging.INFO)
 
 BASE_POWER = 500
 
@@ -50,6 +49,8 @@ OPronouns = ["her", "him", "it", "them", "them"]
 PPronouns = ["hers", "his", "its", "theirs", "theirs"]
 RPronouns = ["herself", "himself", "itself", "themself", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
+F_COLOR = (255, 255, 255, 255)
+S_COLOR = (0, 0, 0, 255)
 
 
 def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
@@ -60,10 +61,10 @@ def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
         font: The font to calculate for.
         text: The text to split.
     """
-    if font.getlength(text) > 512:
+    if font.getlength(text) > max_length:
         split_text = text.split(" ")
         for word_n in range(len(split_text), 0, -1):
-            if font.getlength(" ".join(split_text[:word_n])) < 512:
+            if font.getlength(" ".join(split_text[:word_n])) < max_length:
                 rest_split = wraptext(max_length, font, " ".join(split_text[word_n:]))
                 return " ".join(split_text[:word_n]) + "\n" + rest_split
     return text
@@ -226,6 +227,7 @@ class Simulation:
         # Parse to bot here.
         active_tributes = self.alive.copy()
         cycle_events = cycle.events
+        event_no = 0
         for item in self.items:
             if cycle in item.cycles:
                 cycle_events.append(item.base_event)
@@ -238,7 +240,10 @@ class Simulation:
                     possible_events.extend(item.events)
             for event in cycle_events:
                 if event.check_requirements(tribute, 0):
+                    logger.debug("Adding event to pool %s for tribute %s", event.text.template, tribute.name)
                     possible_events.append(event)
+                else:
+                    logger.debug("Discarded event %s for tribute %s", event.text.template, tribute.name)
             if not possible_events:
                 logger.warning("Could not find event for tribute '%s'.", tribute.name)
                 continue
@@ -247,11 +252,23 @@ class Simulation:
             tributes_involved = await event.affiliationresolution(tribute, active_tributes, self)
             if not tributes_involved:
                 continue  # Already logged in affiliationresolution
-            resolution_text = await event.resolve(tributes_involved, self)
+            event_no += 1
+            if interaction:
+                pack = (interaction.extras["location"], event_no)
+                resolution_text, image = await event.rendered_resolve(tributes_involved, self, pack)
+                attach = discord.File(image, description=f"{resolution_text}")
+                embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
+                                      title=f"Event {event_no} for Cycle {self.cycle}",
+                                      description=f"Active tributes remaining: {len(active_tributes)}\n"
+                                      f"Event result:\n{resolution_text}")
+                embed.set_author(name=self.name, icon_url=self.logo)
+                embed.set_image(url=f"attachment://{attach.filename}")
+                await interaction.followup.send(embed=embed, file=attach)
+            else:
+                resolution_text = await event.resolve(tributes_involved, self)
             for tribute in tributes_involved:
                 if tribute in active_tributes:
                     active_tributes.remove(tribute)
-            # TODO: Parse to bot here.
             logger.info("Resolution text: %s", resolution_text)
         logger.info("Cycle %s-%i complete.", cycle.name, self.cycle)
         if self.cycle_deaths and int(cycle.weight) % 2 == 0 and int(cycle.weight) != 0:
@@ -270,7 +287,7 @@ class Simulation:
             # Reset the cycle use for all events in the cycle.
             for event in cycle.events:
                 event.cycle_use = event.max_cycle
-        # Also rest the cycle use for all items.
+        # Also reset the cycle use for all items.
         for item in self.items:
             item.base_event.cycle_use = item.base_event.max_cycle
             for event in item.events:
@@ -349,10 +366,9 @@ class District:
         base_image = Image.new("RGBA", (512 * member_c + 64 * (member_c + 1), 768), (0, 0, 0, 0))
         # The width is 512 for each member + 64 for each offset + 128 for sides
         draw = ImageDraw.Draw(base_image)
-        font = ImageFont.truetype("consola.ttf", size=120)
+        font = ImageFont.truetype("consola.ttf", size=128)
         draw.text((base_image.width // 2, 0), self.name, fill=self.color, font=font, anchor="ma")
 
-        # Primary paste loop, only static images
         gifs_to_process = []
         for i, tribute_status_image in enumerate(tribute_status):
             if tribute_status_image.format == "GIF":
@@ -367,7 +383,7 @@ class District:
             max_frames = max([gif[1].n_frames for gif in gifs_to_process])
             status_img = [base_image.copy() for _ in range(max_frames)]
             for i, gif in gifs_to_process:
-                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.Iterator(gif))):
+                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
                     result_frame.paste(gif_frame, (64 + i * 576, 128))
             durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process],
                                                 max_frames)
@@ -513,7 +529,7 @@ class Tribute:
 
     async def fetch_image(
         self,
-        itype: Literal["alive", "dead"],
+        itype: Literal["alive", "dead"] | str,
         place: pathlib.Path,
         session: aiohttp.ClientSession | None = None,
     ) -> pathlib.Path:
@@ -553,7 +569,7 @@ class Tribute:
         if image == "BW" and itype == "dead":
             img = Image.open(await self.fetch_image("alive", place, session))
             img = img.convert("LA")
-            img = imgops.resize(img)
+            img = imgops.resize(img, border_c=self.district.color)
             img.save(placepth, optimize=True)
             return placepth
 
@@ -569,7 +585,7 @@ class Tribute:
                     raise ValueError(f"Could not fetch image for tribute {self.name}.")
                 img = Image.open(io.BytesIO(await response.read()))
 
-        img = imgops.resize(img)
+        img = imgops.resize(img, border_c=self.district.color)
         if isinstance(img, tuple):
             img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True, disposal=2)
         else:
@@ -599,15 +615,13 @@ class Tribute:
             user_image = Image.open(await self.fetch_image("alive", place))
 
         base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
-        font = ImageFont.truetype("consola.ttf", size=30)
+        font = ImageFont.truetype("consola.ttf", size=32)
         text = (f"{self.name}\n"
                 f"Status: {['Alive', 'Dead'][self.status]}\n"
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         drw = ImageDraw.Draw(base_image)
-        f_color = (255, 255, 255, 255)
-        s_color = (0, 0, 0, 255)
-        drw.multiline_text((256, 670), text, f_color, font, "md", align="center", stroke_fill=s_color, stroke_width=2)
+        drw.multiline_text((256, 670), text, F_COLOR, font, "md", align="center", stroke_fill=S_COLOR, stroke_width=2)
         if user_image.format == "PNG":
             status_img = base_image
             status_img.paste(user_image)
@@ -686,8 +700,6 @@ class Cycle:
         place = const.PROG_DIR.joinpath("data", "cycles", f"{current_cycle}", f"start.png")
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
-        f_color = (255, 255, 255, 255)
-        s_color = (0, 0, 0, 255)
         font = ImageFont.truetype("consola.ttf", size=64)
         y_print = 64 // 2
         anchor = "mm"
@@ -701,17 +713,17 @@ class Cycle:
                 text,
                 anchor="md",
                 font=font,
-                fill=f_color,
+                fill=F_COLOR,
                 stroke_width=2,
-                stroke_fill=s_color,
+                stroke_fill=S_COLOR,
             )
         draw.text(
             (256, y_print),
             f"Cycle {current_cycle}: {self.name}",
             anchor=anchor,
             font=font,
-            fill=f_color,
-            stroke_fill=s_color,
+            fill=F_COLOR,
+            stroke_fill=S_COLOR,
             stroke_width=2,
         )
         image.save(place, optimize=True)
@@ -1011,7 +1023,7 @@ class Event:
                                 break
                         case _:
                             continue
-                if g_breaker:
+                if g_breaker or sub_choice in trail:
                     # If the choice's requirements for previous tributes are not met, we remove it from the pool.
                     sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
                     listed_possibilities.remove(sub_choice)
@@ -1191,6 +1203,70 @@ class Event:
         self.max_use -= 1
         self.cycle_use -= 1
         return "\n".join(resolutuion_strings)
+
+    async def rendered_resolve(self, tributes: list[Tribute], simstate: Simulation,
+                               pack: tuple[pathlib.Path, int]) -> tuple[str, pathlib.Path]:
+        """Resolve the event with a rendered image.
+
+        Resolves the tribute changes and returns the resolution text and the rendered image.
+
+        Args:
+            tributes: The tributes to resolve the event for.
+            simstate: The simulation state.
+            pack: Tuple of cycle directory and event number
+        """
+        tribute_c = len(tributes)
+        base_image = Image.new("RGBA", (512 * tribute_c + 64 * (tribute_c + 1), 640), (0, 0, 0, 0))
+        tribute_place = const.PROG_DIR.joinpath("data", "cast")
+        tribute_images = await asyncio.gather(*[
+            tribute.fetch_image(
+                ["alive", "dead"][tribute.status],
+                tribute_place.joinpath(f"{simstate.cast.index(tribute)}"),
+            ) for tribute in tributes
+        ])
+        tribute_images = [Image.open(im) for im in tribute_images]
+        text = await self.resolve(tributes, simstate)
+        font = ImageFont.truetype("consola.ttf", size=32)
+        img_text = wraptext(base_image.width, font, text)
+        draw = ImageDraw.Draw(base_image)
+        draw.text(
+            (base_image.width // 2, 640),
+            img_text,
+            fill=F_COLOR,
+            font=font,
+            anchor="md",
+            align="center",
+            stroke_fill=S_COLOR,
+            stroke_width=2,
+        )
+        gifs_to_process = []
+        for i, tribute_image in enumerate(tribute_images):
+            if tribute_image.format == "GIF":
+                gifs_to_process.append((i, tribute_image))
+                continue
+            base_image.paste(tribute_image, (64 + i * 576, 0))
+        if not gifs_to_process:
+            landing = pack[0].joinpath(f"{pack[1]}.png")
+            base_image.save(landing, optimize=True)
+        else:
+            landing = pack[0].joinpath(f"{pack[1]}.gif")
+            max_frames = max([gif[1].n_frames for gif in gifs_to_process])
+            status_img = [base_image.copy() for _ in range(max_frames)]
+            for i, gif in gifs_to_process:
+                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
+                    result_frame.paste(gif_frame, (64 + i * 576, 0))
+            durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process],
+                                                max_frames)
+            status_img[0].save(
+                landing,
+                save_all=True,
+                append_images=status_img[1:],
+                loop=0,
+                duration=durs,
+                optimize=True,
+                disposal=2,
+            )
+        return text, landing
 
 
 class Item:

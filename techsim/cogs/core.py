@@ -18,7 +18,6 @@ Typical usage example:
 import asyncio
 import logging
 import os
-import pathlib
 import shutil
 
 import discord
@@ -243,7 +242,7 @@ class Core(commands.Cog, name="SimCore"):
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as a cycle consists of multiple event images.
         await self.sim.computecycle(ctx)
-        await ctx.followup.send(f"Cycle {self.sim.cycle} complete!")
+        await ctx.followup.send(f"Cycle {self.sim.cycle - 1} complete!")
 
     @app_commands.command(
         name="tributestatus",
