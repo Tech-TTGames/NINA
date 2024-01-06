@@ -52,6 +52,23 @@ RPronouns = ["herself", "himself", "itself", "themself", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
 
 
+def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
+    """Segment the text with newlines to satisfy max_length per line.
+
+    Args:
+        max_length: Maximum length of the line in pixels.
+        font: The font to calculate for.
+        text: The text to split.
+    """
+    if font.getlength(text) > 512:
+        split_text = text.split(" ")
+        for word_n in range(len(split_text), 0, -1):
+            if font.getlength(" ".join(split_text[:word_n])) < 512:
+                rest_split = wraptext(max_length, font, " ".join(split_text[word_n:]))
+                return " ".join(split_text[:word_n]) + "\n" + rest_split
+    return text
+
+
 class Simulation:
     """A class representing a TechSim simulation.
 
@@ -192,7 +209,15 @@ class Simulation:
             logger.warning("Simulation '%s' is not ready.", self.name)
             return
         cycle = self.getcycle()
-        # TODO: Display this via the bot.
+        if interaction:
+            embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
+                                  title=f"Beginning simulation of Cycle {self.cycle}",
+                                  description=f"Cycle type: {cycle.name}\n"
+                                  f"Remaining tribute count: {len(self.alive)}")
+            embed.set_author(name=self.name, icon_url=self.logo)
+            attach = discord.File(await cycle.render_start(self.cycle))
+            embed.set_image(url="attachment://start.png")
+            await interaction.followup.send(embed=embed, file=attach)
         logger.info("Beginning cycle %s.", cycle.name)
         if cycle.text is not None:
             logger.info("Displaying cycle text.")
@@ -647,6 +672,42 @@ class Cycle:
     def __str__(self):
         """Text representation of the cycle."""
         return f"TechSim Cycle: {self.name}"
+
+    async def render_start(self, current_cycle: int) -> pathlib.Path:
+        """Get an image representing the start of the cycle."""
+        place = const.PROG_DIR.joinpath("data", "cycles", f"{current_cycle}", f"start.png")
+        image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
+        draw = ImageDraw.Draw(image)
+        f_color = (255, 255, 255, 255)
+        s_color = (0, 0, 0, 255)
+        font = ImageFont.truetype("consola.ttf", size=64)
+        y_print = 64 // 2
+        anchor = "mm"
+        if self.text:
+            y_print = 0
+            anchor = "ma"
+            font = ImageFont.truetype("consola.ttf", size=16)
+            text = wraptext(512, font, self.text)
+            draw.text(
+                (256, 64),
+                text,
+                anchor="md",
+                font=font,
+                fill=f_color,
+                stroke_width=2,
+                stroke_fill=s_color,
+            )
+        draw.text(
+            (256, y_print),
+            f"Cycle {current_cycle}: {self.name}",
+            anchor=anchor,
+            font=font,
+            fill=f_color,
+            stroke_fill=s_color,
+            stroke_width=2,
+        )
+        image.save(place, optimize=True)
+        return place
 
 
 class Event:
@@ -1188,15 +1249,7 @@ async def main():
         None,
     )
     await sim.ready(None)
-    loc = const.PROG_DIR.joinpath("data", "cast")
-    async with aiohttp.ClientSession() as session:
-        for i, member in enumerate(sim.cast):
-            plc = loc.joinpath(f"{i}")
-            await sim.cast[0].fetch_image("alive", plc, session=session)
-            await sim.cast[0].fetch_image("dead", plc, session=session)
-    sim.cast[0].status = 1
-    for district in sim.districts:
-        await district.get_render(sim)
+    # Place for testing code
 
 
 if __name__ == "__main__":

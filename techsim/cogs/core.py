@@ -168,6 +168,9 @@ class Core(commands.Cog, name="SimCore"):
             f"Fetching images...",)
         cast_fdir = self._dir.joinpath("cast")
         location = self._dir.joinpath("status")
+        cycles = self._dir.joinpath("cycles")
+        if cycles.exists():
+            shutil.rmtree(cycles)
         if location.exists():
             shutil.rmtree(location)
         if cast_fdir.exists():
@@ -238,7 +241,8 @@ class Core(commands.Cog, name="SimCore"):
         ctx.extras["location"] = self._dir.joinpath("cycles", f"cycle_{self.sim.cycle}")
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as a cycle consists of multiple event images.
-        # TODO: After implementing rendering stuff, use it here.
+        await self.sim.computecycle(ctx)
+        await ctx.followup.send(f"Cycle {self.sim.cycle} complete!")
 
     @app_commands.command(
         name="tributestatus",
