@@ -219,7 +219,7 @@ class Simulation:
             embed.set_image(url="attachment://start.png")
             await interaction.followup.send(embed=embed, file=attach)
         logger.info("Beginning cycle %s.", cycle.name)
-        if cycle.text is not None:
+        if cycle.text:
             logger.info("Displaying cycle text.")
             logger.info(cycle.text)
         logger.info("Computing events.")
@@ -333,7 +333,7 @@ class District:
 
         """
         status = [[tribute.status, tribute.kills, tribute.effectivepower()] for tribute in self.members]
-        if self.render is not None and self.render[1] == status:
+        if self.render and self.render[1] == status:
             return self.render[0]
 
         data_dir = const.PROG_DIR.joinpath("data")
@@ -482,9 +482,9 @@ class Tribute:
                 getattr(self, relationship).remove(involved[tribt_idr])
             elif modif and involved[tribt_idr] not in getattr(self, relationship):
                 getattr(self, relationship).add(involved[tribt_idr])
-                if relationship == "allies" and involved in self.enemies:
+                if relationship == "allies" and involved[tribt_idr] in self.enemies:
                     self.enemies.remove(involved[tribt_idr])
-                if relationship == "enemies" and involved in self.allies:
+                if relationship == "enemies" and involved[tribt_idr] in self.allies:
                     self.allies.remove(involved[tribt_idr])
 
     def relationshipchck(self, tributes: Union["Tribute", list["Tribute"]], relationship: str) -> bool:
@@ -547,7 +547,7 @@ class Tribute:
         if placepth.exists():
             return placepth
 
-        if session is None:
+        if not session:
             raise ValueError(f"No session and image not found for {placepth}.")
 
         if image == "BW" and itype == "dead":
@@ -557,10 +557,18 @@ class Tribute:
             img.save(placepth, optimize=True)
             return placepth
 
-        async with session.get(image) as response:
-            if not response.ok:
-                raise ValueError(f"Could not fetch image for tribute {self.name}.")
-            img = Image.open(io.BytesIO(await response.read()))
+        try:
+            async with session.get(image) as response:
+                if not response.ok:
+                    raise ValueError(f"Could not fetch image for tribute {self.name}.")
+                img = Image.open(io.BytesIO(await response.read()))
+        except aiohttp.ClientError:
+            await asyncio.sleep(10)  # Retries the download if a ClientError happened
+            async with session.get(image) as response:
+                if not response.ok:
+                    raise ValueError(f"Could not fetch image for tribute {self.name}.")
+                img = Image.open(io.BytesIO(await response.read()))
+
         img = imgops.resize(img)
         if isinstance(img, tuple):
             img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True, disposal=2)
@@ -578,10 +586,10 @@ class Tribute:
                 The directory for the tribute.
         """
         status = [self.status, self.kills, self.effectivepower()]
-        if self.render is not None and self.render[1] == status:
+        if self.render and self.render[1] == status:
             return self.render[0]
-        if place is None:
-            if self.render is not None:
+        if not place:
+            if self.render:
                 place = self.render[0].parent
             else:
                 raise ValueError(f"Neither place nor old render provided for tribute {self}")
@@ -857,7 +865,7 @@ class Event:
             if operation == "<" and tribute.effectivepower() >= power:
                 return False
         if requirements.get('item_status', 'MISSING') != 'MISSING':
-            if self.item is None:
+            if not self.item:
                 raise ValueError("Event has item requirements but is not attached to an item.")
             # Assuming the Tribute has the item, otherwise the event would not be in the pool.
             operation, status = requirements['item_status']
@@ -1045,7 +1053,7 @@ class Event:
                 # If the intersection is not empty, we add the choice to the trail and continue resolving.
                 trail.append(sub_choice)
                 result = await sub_resolve(sub_pos + 1, sub_possibilities, trail)
-                if result is not None:
+                if result:
                     return result
                 trail.pop()
                 sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
@@ -1077,10 +1085,10 @@ class Event:
                 affected = tributes[tribute_id]
                 match change:
                     case "iteml":
-                        if self.item is None:
-                            raise ValueError("Event has item requirements but is not attached to an item.")
                         val = value
                         if val == 0:
+                            if not self.item:
+                                raise ValueError("Event has event item changes but is not attached to an item.")
                             itempool.append((self.item, affected.items.pop(self.item)))
                             item_loses[affected] = [self.item]
                             continue
@@ -1122,6 +1130,8 @@ class Event:
                             simstate.dead.remove(affected)
                         continue
                     case "itemu":
+                        if not self.item:
+                            raise ValueError("Event has event item changes but is not attached to an item.")
                         affected.items[self.item] -= value
                         if affected.items[self.item] == 0:
                             affected.items.pop(self.item)
@@ -1131,6 +1141,8 @@ class Event:
                         continue
                     case "itemg":
                         if value == 0:
+                            if not self.item:
+                                raise ValueError("Event has event item changes but is not attached to an item.")
                             items = [(self.item, self.item.use_count)]
                             item_gains[affected] = [self.item]
                         else:

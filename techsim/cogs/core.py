@@ -238,7 +238,8 @@ class Core(commands.Cog, name="SimCore"):
         Args:
             ctx: The interaction context.
         """
-        ctx.extras["location"] = self._dir.joinpath("cycles", f"cycle_{self.sim.cycle}")
+        await ctx.response.defer(thinking=True)
+        ctx.extras["location"] = self._dir.joinpath("cycles", f"{self.sim.cycle}")
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as a cycle consists of multiple event images.
         await self.sim.computecycle(ctx)
@@ -274,6 +275,7 @@ class Core(commands.Cog, name="SimCore"):
             color=discord.Colour.from_str(tribute.district.color),
             title=f"Status of {tribute.name}",
             description=f"**Status:** {['Alive', 'Dead'][tribute.status]}\n"
+            f"**District:** {tribute.district.name}\n"
             f"**Kills:** {tribute.kills}\n"
             f"**Power:** {tribute.effectivepower()}",
         )
