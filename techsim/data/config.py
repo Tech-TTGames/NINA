@@ -15,7 +15,7 @@ Typical usage example:
 # Copyright (c) 2023-present Tech. TTGames
 
 import tomllib
-from typing import Literal, overload
+from typing import overload
 
 import discord
 
