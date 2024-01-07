@@ -78,6 +78,7 @@ class Core(commands.Cog, name="SimCore"):
             logger.info("Loaded last simulation data.")
         self._bt.basp = self._dir
         self._bt.sim = self.sim
+        self.lock = False
         logger.info("Loaded %s", self.__class__.__name__)
 
     @app_commands.command(
@@ -102,6 +103,9 @@ class Core(commands.Cog, name="SimCore"):
             cast: The cast attachment.
             events: The events attachment.
         """
+        if self.lock:
+            raise exceptions.UsageError("Bot simulation lock active.")
+        self.lock = True
         logger.info(f"Setting up simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True, ephemeral=True)
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
@@ -111,6 +115,7 @@ class Core(commands.Cog, name="SimCore"):
             with open(events_dir, "wb") as f:
                 f.write(await events.read())
         self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+        self.lock = False
         await ctx.followup.send("Configuration loaded.", ephemeral=True)
         logger.info(f"Simulation set up for {ctx.user}.")
 
@@ -144,6 +149,9 @@ class Core(commands.Cog, name="SimCore"):
             randomize_dc: Whether to shuffle district assignments.
             recolor_dc: Whether to recolor the districts.
         """
+        if self.lock:
+            raise exceptions.UsageError("Bot simulation lock active.")
+        self.lock = True
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         if not cast_dir.exists() or not events_dir.exists():
             setup_id = 0
@@ -193,6 +201,7 @@ class Core(commands.Cog, name="SimCore"):
         await asyncio.gather(*image_tasks)
         await ctx.followup.send("Images fetched. Simulation ready.")
         logger.info(f"Simulation readied for {ctx.user}.")
+        self.lock = False
 
     @app_commands.command(
         name="status",
@@ -240,12 +249,16 @@ class Core(commands.Cog, name="SimCore"):
         Args:
             ctx: The interaction context.
         """
+        if self.lock:
+            raise exceptions.UsageError("Bot simulation lock active.")
+        self.lock = True
         await ctx.response.defer(thinking=True)
         ctx.extras["location"] = self._dir.joinpath("cycles", f"{self.sim.cycle}")
         os.makedirs(ctx.extras["location"], exist_ok=True)
         # This is a directory as a cycle consists of multiple event images.
         await self.sim.computecycle(ctx)
         await ctx.followup.send(f"Cycle {self.sim.cycle - 1} complete!")
+        self.lock = False
 
     @app_commands.command(
         name="tributestatus",
