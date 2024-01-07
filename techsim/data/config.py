@@ -63,36 +63,6 @@ class Config(dict):
             gld = await instance.fetch_guild(gld)
         return gld
 
-    @overload
-    async def roles(self, category: Literal["operators"], instance: discord.Client) -> list[discord.Role]:
-        ...
-
-    @overload
-    async def roles(self, category: Literal["operators"], instance: None) -> list[int]:
-        ...
-
-    async def roles(
-        self,
-        category: Literal["operators"],
-        instance: discord.Client | None = None,
-    ) -> list[int] | list[discord.Role]:
-        """Returns the specified type of roles.
-
-        The same situation as the guild function applies here.
-        If the Client object is passed, it returns the role objects.
-        Otherwise, it returns the role IDs.
-        """
-        roles: list[int] = self["roles"][category]
-        resolved_roles: list[discord.Role] = []
-        if instance is not None:
-            guild = await self.guild(instance)
-            await guild.fetch_roles()
-            for role in roles:
-                rs = guild.get_role(role)
-                if rs is not None:
-                    resolved_roles.append(rs)
-        return resolved_roles or roles
-
 
 class Secret:
     """Class for sensitive data.

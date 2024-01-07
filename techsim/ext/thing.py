@@ -22,11 +22,12 @@ import colorsys
 import io
 import itertools
 import logging
+import os
 import pathlib
 import random
 import string
 import tomllib
-from typing import Literal, Optional, Union
+from typing import Any, Literal, Optional, Union
 
 import aiohttp
 import discord
@@ -70,6 +71,97 @@ def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
     return text
 
 
+async def generate_endcycle(
+    cycle_no: int,
+    involved: list["Tribute"],
+    sim: "Simulation",
+    request: int,
+) -> pathlib.Path:
+    """Generate a mortem report image for the given deaths.
+
+    Args:
+        cycle_no: The number of the cycle requesting the mortem report
+        involved: A list of tributes involved in this endofcycle.
+        sim: The current simulation status.
+        request: 0 for mortem request, 1 for victory screen.
+    """
+    tribute_place = const.PROG_DIR.joinpath("data", "cast")
+    image_paths = await asyncio.gather(*[
+        tribute.fetch_image(["alive", "dead"][tribute.status], tribute_place.joinpath(f"{sim.cast.index(tribute)}"))
+        for tribute in involved
+    ])
+    images = [(Image.open(pth), (dead.name, dead.district.name)) for pth, dead in zip(image_paths, involved)]
+    place = const.PROG_DIR.joinpath("data", "cycles", f"{cycle_no}")
+    if cycle_no == -1:
+        place = const.PROG_DIR.joinpath("data")
+    base_image = Image.new(
+        "RGBA",
+        (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
+        (0, 0, 0, 0),
+    )
+    draw = ImageDraw.Draw(base_image)
+    font = ImageFont.truetype("consola.ttf", size=64)
+    text = wraptext(base_image.width, font,
+                    f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
+    if request:
+        text = wraptext(base_image.width, font,
+                        f"Winner{'s' if len(involved) > 1 else ''} of {sim.name} from {involved[0].district.name}")
+    draw.text(
+        (base_image.width // 2, 0),
+        text,
+        fill=F_COLOR,
+        font=font,
+        anchor="ma",
+        align="center",
+        stroke_width=2,
+        stroke_fill=S_COLOR,
+    )
+    # Size is
+    # Width: number between 1-4 * 576 + 64
+    # Height: 640 for each row of images,
+    font = ImageFont.truetype("consola.ttf", size=32)
+    gifs_pending = []
+    for row, batch in enumerate(itertools.batched(images, 4)):
+        offset = 64 + ((4 - len(batch)) * 288) * bool(len(involved) > 4)
+        for col, img in enumerate(batch):
+            paste = (offset + col * 576, 128 + row * 576)
+            if img[0].format == "GIF":
+                gifs_pending.append((img[0], paste))
+            else:
+                base_image.paste(img[0], paste)
+            draw.multiline_text(
+                (paste[0] + 256, paste[1] + 512),
+                text=f"{img[1][0]}\n{img[1][1]}",
+                fill=F_COLOR,
+                font=font,
+                anchor="ma",
+                align="center",
+                stroke_width=2,
+                stroke_fill=S_COLOR,
+            )
+    if not gifs_pending:
+        place = place.joinpath(f"{['mortem', 'victors'][request]}.png")
+        base_image.save(place, optimize=True)
+    else:
+        place = place.joinpath(f"{['mortem', 'victors'][request]}.gif")
+        max_frames = max([gif[1].n_frames for gif in gifs_pending])
+        status_img = [base_image.copy() for _ in range(max_frames)]
+        for gif, location in gifs_pending:
+            for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
+                result_frame.paste(gif_frame, location)
+        durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process], max_frames)
+        status_img[0].save(
+            place,
+            save_all=True,
+            append_images=status_img[1:],
+            loop=0,
+            duration=durs,
+            optimize=True,
+            disposal=2,
+        )
+    return place
+
+
 class Simulation:
     """A class representing a TechSim simulation.
 
@@ -89,6 +181,7 @@ class Simulation:
         alive: The living tributes of the simulation.
         dead: The dead tributes of the simulation.
     """
+    seed: Any
     cycle: int
     alive: list["Tribute"]
     dead: list["Tribute"]
@@ -136,6 +229,19 @@ class Simulation:
         logger.info("Beginning simulation '%s' ready up procedure.", self.name)
         if interaction:
             await interaction.followup.send(f"Beginning simulation `{self.name}` ready up procedure.")
+        if not seed:
+            seed = os.urandom(16)
+            self.seed = int.from_bytes(seed)
+        else:
+            if seed.isnumeric():
+                self.seed = int(seed)
+                try:
+                    seed = int(seed).to_bytes(16)
+                except ArithmeticError:
+                    seed = str(seed)
+                    self.seed = seed
+            else:
+                self.seed = seed
         random.seed(seed)
         if districtrand:
             logger.info("Randomizing district members.")
@@ -271,11 +377,24 @@ class Simulation:
                     active_tributes.remove(tribute)
             logger.info("Resolution text: %s", resolution_text)
         logger.info("Cycle %s-%i complete.", cycle.name, self.cycle)
-        if self.cycle_deaths and int(cycle.weight) % 2 == 0 and int(cycle.weight) != 0:
+        if self.cycle_deaths and self.cycle % 2 == 1 and self.cycle != 0:
             logger.info("You hear %i cannon shot%s in the distance.", len(self.cycle_deaths),
                         "s" if len(self.cycle_deaths) > 1 else "")
             logger.info("The fallen tributes are: %s", ", ".join([tribute.name for tribute in self.cycle_deaths]))
-            # TODO: Parse to bot here.
+            if interaction:
+                image = await generate_endcycle(self.cycle, self.cycle_deaths, self, 0)
+                attach = discord.File(image)
+                embed = discord.Embed(
+                    title=f"Fallen Tributes for Day {self.cycle // 2 + 1}",
+                    color=discord.Color.from_rgb(255, 255, 255),
+                    description=
+                    f"You hear {len(self.cycle_deaths)} cannon shot{'s' if len(self.cycle_deaths) > 1 else ''}"
+                    " in the distance.\nThe fallen tributes are:\n" +
+                    "\n".join([f"{tribute.name} - {tribute.district.name}" for tribute in self.cycle_deaths]),
+                )
+                embed.set_author(name=self.name, icon_url=self.logo)
+                embed.set_image(url=f"attachment://{attach.filename}")
+                await interaction.followup.send(embed=embed, file=attach)
             self.cycle_deaths = []
         self.cycle += 1
         if cycle.max_use > 0:
@@ -299,8 +418,16 @@ class Simulation:
                 districts.append(tribute.district)
         if len(districts) == 1:
             logger.info("Simulation %s complete.", self.name)
-            # TODO: Parse to bot here.
             self.cycle = -1
+            if interaction:
+                image = await generate_endcycle(self.cycle, self.alive, self, 1)
+                attach = discord.File(image)
+                embed = discord.Embed(color=discord.Color.gold(),
+                                      title="Simulation Complete",
+                                      description="Winners:\n" + "\n".join([tribute.name for tribute in self.alive]))
+                embed.set_author(name=self.name, icon_url=self.logo)
+                embed.set_image(url=f"attachment://{attach.filename}")
+                await interaction.followup.send(embed=embed, file=attach)
             logger.info("Winner: %s", districts[0].name)
             logger.info("Alive tributes: %s", ", ".join([tribute.name for tribute in self.alive]))
 

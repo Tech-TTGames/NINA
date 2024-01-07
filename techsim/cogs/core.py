@@ -18,6 +18,7 @@ Typical usage example:
 import asyncio
 import logging
 import os
+import random
 import shutil
 
 import discord
@@ -162,9 +163,12 @@ class Core(commands.Cog, name="SimCore"):
         logger.info(f"Readying simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True)
         await self.sim.ready(seed, randomize_dc, recolor_dc, ctx)
-        await ctx.followup.send(
-            f"Simulation '{self.sim.name}' primary ready procedure complete.\n"
-            f"Fetching images...",)
+        embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
+                              title=f"Simulation primary ready up protocol complete.",
+                              description="Fetching images...")
+        embed.set_author(name=self.sim.name, icon_url=self.sim.logo)
+        embed.set_footer(text=f"Random seed: {self.sim.seed}")
+        await ctx.followup.send(embed=embed)
         cast_fdir = self._dir.joinpath("cast")
         location = self._dir.joinpath("status")
         cycles = self._dir.joinpath("cycles")
@@ -278,13 +282,20 @@ class Core(commands.Cog, name="SimCore"):
             f"**Kills:** {tribute.kills}\n"
             f"**Power:** {tribute.effectivepower()}",
         )
-        emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
+        file = discord.utils.MISSING
+        if tribute.status and tribute.dead_image == "BW":
+            place = self._dir.joinpath("cast", f"{self.sim.cast.index(tribute)}")
+            fil = await tribute.fetch_image("dead", place)
+            file = discord.File(fil)
+            emd.set_image(url=f"attachment://{file.filename}")
+        else:
+            emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
         emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
         emd.add_field(name="Items", value="\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]))
         emd.add_field(name="Allies", value="\n".join([ally.name for ally in tribute.allies]))
         emd.add_field(name="Enemies", value="\n".join([enemy.name for enemy in tribute.enemies]))
         emd.add_field(name="Events", value="\n".join(tribute.log))
-        await ctx.response.send_message(embed=emd)
+        await ctx.response.send_message(embed=emd, file=file)
 
 
 async def setup(bot_instance: bot.TechSimBot) -> None:

@@ -20,268 +20,10 @@ districts = [
 ]
 
 [[cast]]
-name = "Mojiki"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182728286686683249/ccfdf6c6e3eb20628a79433a1c46c2dd.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182976036514832484/image.png"
-
-[[cast]]
-name = "Colphne"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1187797337951715418/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187797564670627890/image.png"
-
-[[cast]]
-name = "Kimie when"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784235726147635/IMG_20231220_222753.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187784782684364811/image.png"
-
-[[cast]]
-name = "Tom Kruise"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784888141758495/sample_a1baf60bc41e47fec31d4a6039b295ed2.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784888410185738/sample_a1baf60bc41e47fec31d4a6039b295ed3.jpg"
-
-[[cast]]
-name = "G11"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187792205411266570/g11.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187793854053748887/image.png"
-
-[[cast]]
-name = "NotSoShou"
+name = "William"
 gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189240318483255417/Screenshot_20231216_213226_Instagram.jpg"
-dead_image = "BW"
-
-[[cast]]
-name = "Old Hag"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1182992933750849536/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182993230346866699/image.png"
-
-[[cast]]
-name = "Abigail"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183117346630545548/abigailMOCHIXD320.gif"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183120212489416755/image.png"
-
-[[cast]]
-name = "Prof. SoCKs"
-gender = 1
-image = "https://i.imgur.com/ZgnO2Pdh.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182974492453113966/image.png"
-
-[[cast]]
-name = "Stay"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182854211281616936/01840-2619809184.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182978613885280346/image.png"
-
-[[cast]]
-name = "Yegor"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182727891260289095/10eaab5e9066adbb1bf5f7f8cdd0b8b9.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182975506979749888/image.png"
-
-[[cast]]
-name = "Eucharist"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182995796694663168/beelneith_avg_face_8.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182996344743415918/image.png"
-
-[[cast]]
-name = "Jiangyu"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006410200592485/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006615746650203/image.png"
-
-[[cast]]
-name = "Zancyin"
-gender = 0
-image = "https://cdn.discordapp.com/emojis/1005036492617420800.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188154447201849514/image.png"
-
-[[cast]]
-name = "Nora"
-gender = 0
-image = "https://cdn.discordapp.com/emojis/1005020148769501245.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188154107630989332/image.png"
-
-[[cast]]
-name = "Dork"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182983172170993684/dorkyoi_hg.png"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182983172720435210/dorkeryoi_hg.png"
-
-[[cast]]
-name = "FemKJ"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187779797796016222/femkj.png"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187779798030893086/attachment.png"
-
-[[cast]]
-name = "Raph"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183089598889476146/cid.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183090295148118156/image.png"
-
-[[cast]]
-name = "Lizzy"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182792867647860886/LizzyFallen_256x256.png"
-dead_image = "BW"
-
-[[cast]]
-name = "Kuro Gaming"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187740972390547516/kuro_gaming.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187740972868710460/kuro_ded.jpg"
-
-[[cast]]
-name = "Akismile"
-gender = 1
-image = "https://cdn.discordapp.com/emojis/1005044933322866708.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187788199406358639/image.png"
-
-[[cast]]
-name = "Mega Sweat"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189239363670904904/Mega_Sweat_1.png"
-dead_image = "BW"
-
-[[cast]]
-name = "CluKat"
-gender = 2
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187797599521091644/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187798010139254815/image.png"
-
-[[cast]]
-name = "Undine's Walking Garbage"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1183008516231938080/ICON_Item_426102.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183008712651198534/image.png"
-
-[[cast]]
-name = "Kiryu"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183093777305436340/image0.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183094264725512333/image.png"
-
-[[cast]]
-name = "Majima when he"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185602345007067206/IMG_8430.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185606117972258916/image.png"
-
-[[cast]]
-name = "Ksenia"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182964226231369728/180px-ksenia_face_2.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182980354529841182/image.png"
-
-[[cast]]
-name = "Kruyger"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183092984930119801/ec2e7c6161e3c9a959186797d445c604.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183093906800377986/image.png"
-
-[[cast]]
-name = "Neco Sol"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187774146659233853/export202312221808504406.png"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187774147003170936/export202312221806403261.png"
-
-[[cast]]
-name = "Harry"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185629073725198478/smug.png"
-dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185629667554771105/attachment.png"
-
-[[cast]]
-name = "Tech."
-gender = 4
-image = "https://imgur.com/1g8jg41.gif"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182977598557519882/image.png"
-
-[[cast]]
-name = "Iny"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182941962517618708/Toad_Idol.png"
-dead_image = "BW"
-
-[[cast]]
-name = "Maya"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182732472417521725/Maya.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185597756732100699/image.png"
-
-[[cast]]
-name = "Romrom Gramsay"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183040950449213440/IMG_0056.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183041971758047302/image.png"
-
-[[cast]]
-name = "Machlian"
-gender = 0
-image = "https://i.imgur.com/yYVob0Y.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183002986373451776/image.png"
-
-[[cast]]
-name = "Ungoverned Skater"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183089568556253234/banxsy_face_2.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183090921584205834/image.png"
-
-[[cast]]
-name = "Rinye"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006851026137128/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006999525462077/image.png"
-
-[[cast]]
-name = "Turing"
-gender = 0
-image = "https://cdn.discordapp.com/emojis/1043904961416798248.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185644495111475209/image.png"
-
-[[cast]]
-name = "Wham Slam Bam Sam"
-gender = 1
-image = "https://media.discordapp.net/attachments/1182725408010027189/1188153851505807381/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188155310188273674/image.png"
-
-[[cast]]
-name = "Sopmod"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1182997669455613973/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182997858467713094/image.png"
-
-[[cast]]
-name = "Kekdated"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185619627284369500/IMG_20221126_161634.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185628551962165420/image.png"
-
-[[cast]]
-name = "Nina"
-gender = 0
-image = "https://i.imgur.com/X3BM59z.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187782049633935433/image.png"
-
-[[cast]]
-name = "Florence"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189255835570933951/Florence_costume2_face_1.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1189256261603176538/image.png"
-
-[[cast]]
-name = "Acez"
-gender = 4
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189235351512961035/8d3526a564d2b8a64bf696971b1b8e09.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1189236319273091202/image.png"
+image = "https://i.imgur.com/aKmdpSO.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183012141717000193/image.png"
 
 [[cast]]
 name = "Raymond"
@@ -290,34 +32,118 @@ image = "https://cdn.discordapp.com/attachments/1182725408010027189/118299630292
 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183004956219932732/image.png"
 
 [[cast]]
+name = "Wolfy"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185617199868674078/F7FDhKabkAA_rfA.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185628185388400871/image.png"
+
+[[cast]]
+name = "Neco Sol"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187774146659233853/export202312221808504406.png"
+dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187774147003170936/export202312221806403261.png"
+
+[[cast]]
+name = "Hesperus"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1193259692747673721/hesperus_face_5.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1193260151961043044/image.png"
+
+[[cast]]
+name = "Akismile"
+gender = 1
+image = "https://cdn.discordapp.com/emojis/1005044933322866708.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187788199406358639/image.png"
+
+[[cast]]
+name = "Zancyin"
+gender = 0
+image = "https://cdn.discordapp.com/emojis/1005036492617420800.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188154447201849514/image.png"
+
+[[cast]]
+name = "Colphne"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1187797337951715418/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187797564670627890/image.png"
+
+[[cast]]
+name = "Instructor Python"
+gender = 1
+image = "https://cdn.discordapp.com/emojis/1065921438000881674.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1193242990530019378/image.png"
+
+[[cast]]
+name = "Kekdated"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185619627284369500/IMG_20221126_161634.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185628551962165420/image.png"
+
+[[cast]]
 name = "Helix"
 gender = 0
 image = "https://cdn.discordapp.com/emojis/1059230395234783242.png"
 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183120554753003680/image.png"
 
 [[cast]]
-name = "Tsathy"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187783785803161621/93067490_p0.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187784273491677265/image.png"
-
-[[cast]]
-name = "William"
+name = "Prof. SoCKs"
 gender = 1
-image = "https://i.imgur.com/aKmdpSO.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183012141717000193/image.png"
+image = "https://i.imgur.com/ZgnO2Pdh.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182974492453113966/image.png"
 
 [[cast]]
-name = "Yuwulena"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187786864187420692/Screenshot_20231222_175009_YouTube.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187787202994913310/image.png"
+name = "NotSoShou"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189240318483255417/Screenshot_20231216_213226_Instagram.jpg"
+dead_image = "BW"
 
 [[cast]]
-name = "Baba Lyuba"
+name = "RealComedian"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1193179976153956533/IMG_0326.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1193242491076493353/image.png"
+
+[[cast]]
+name = "Xinghuan"
 gender = 0
-image = "https://i.imgur.com/nKWymLh.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183003277583990847/image.png"
+image = "https://cdn.discordapp.com/emojis/1151854189203443712.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1191062801905627218/image.png"
+
+[[cast]]
+name = "Nora"
+gender = 0
+image = "https://cdn.discordapp.com/emojis/1005020148769501245.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188154107630989332/image.png"
+
+[[cast]]
+name = "Dupin"
+gender = 1
+image = "https://cdn.discordapp.com/emojis/1045283406155632661.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1191079305292300458/image.png"
+
+[[cast]]
+name = "Lizzy"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182792867647860886/LizzyFallen_256x256.png"
+dead_image = "BW"
+
+[[cast]]
+name = "Ungoverned Skater"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183089568556253234/banxsy_face_2.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183090921584205834/image.png"
+
+[[cast]]
+name = "Mega Sweat"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189239363670904904/Mega_Sweat_1.png"
+dead_image = "BW"
+
+[[cast]]
+name = "Taco"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189241010933477507/taco.png"
+dead_image = "BW"
 
 [[cast]]
 name = "Griffin"
@@ -326,22 +152,10 @@ image = "https://i.imgur.com/epXEqCL.png"
 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182980836455370783/image.png"
 
 [[cast]]
-name = "Destiny"
+name = "Kamei"
 gender = 4
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1185607387256717312/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185607561626538155/image.png"
-
-[[cast]]
-name = "Horizon spray"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187787534298783844/horizonspray.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187787831301636136/image.png"
-
-[[cast]]
-name = "Wolfy"
-gender = 0
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185617199868674078/F7FDhKabkAA_rfA.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185628185388400871/image.png"
+image = "https://cdn.discordapp.com/emojis/1057204543147999272.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183000266333749278/image.png"
 
 [[cast]]
 name = "Uranus"
@@ -350,16 +164,76 @@ image = "https://cdn.discordapp.com/attachments/1182725408010027189/118299945291
 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183001420321017938/image.png"
 
 [[cast]]
-name = "Rappy"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182745849789423616/1135237457638588496.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182976970280157309/image.png"
+name = "Old Hag"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1182992933750849536/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182993230346866699/image.png"
 
 [[cast]]
-name = "Karnma"
+name = "Majima when he"
 gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182955783047086100/0082BhXLgy1hkl7sdeq69j30rs0rsq8j.jpg"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182979610191876156/image.png"
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185602345007067206/IMG_8430.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185606117972258916/image.png"
+
+[[cast]]
+name = "Kiryu"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183093777305436340/image0.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183094264725512333/image.png"
+
+[[cast]]
+name = "Acez"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189235351512961035/8d3526a564d2b8a64bf696971b1b8e09.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1189236319273091202/image.png"
+
+[[cast]]
+name = "CluKat"
+gender = 2
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187797599521091644/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187798010139254815/image.png"
+
+[[cast]]
+name = "Tech."
+gender = 4
+image = "https://imgur.com/1g8jg41.gif"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182977598557519882/image.png"
+
+[[cast]]
+name = "Yegor"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182727891260289095/10eaab5e9066adbb1bf5f7f8cdd0b8b9.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182975506979749888/image.png"
+
+[[cast]]
+name = "Ksenia"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182964226231369728/180px-ksenia_face_2.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182980354529841182/image.png"
+
+[[cast]]
+name = "Wham Slam Bam Sam"
+gender = 1
+image = "https://media.discordapp.net/attachments/1182725408010027189/1188153851505807381/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1188155310188273674/image.png"
+
+[[cast]]
+name = "Dork"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182983172170993684/dorkyoi_hg.png"
+dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182983172720435210/dorkeryoi_hg.png"
+
+[[cast]]
+name = "Destiny"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1185607387256717312/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185607561626538155/image.png"
+
+[[cast]]
+name = "Baba Lyuba"
+gender = 0
+image = "https://i.imgur.com/nKWymLh.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183003277583990847/image.png"
 
 [[cast]]
 name = "Taisch"
@@ -368,28 +242,58 @@ image = "https://cdn.discordapp.com/attachments/1182725408010027189/118779523799
 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187795835086438420/image.png"
 
 [[cast]]
-name = "Ruinerz"
-gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183003130410057769/f406ba0357ba8a546833002b5dccc283.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183003538222227496/image.png"
-
-[[cast]]
-name = "Kamei"
+name = "Maya"
 gender = 4
-image = "https://cdn.discordapp.com/emojis/1057204543147999272.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183000266333749278/image.png"
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182732472417521725/Maya.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185597756732100699/image.png"
 
 [[cast]]
-name = "Daiyan"
+name = "Machlian"
 gender = 0
-image = "https://cdn.discordapp.com/attachments/718338933880258601/1183005430956425246/image.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183005565828476938/image.png"
+image = "https://i.imgur.com/yYVob0Y.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183002986373451776/image.png"
 
 [[cast]]
-name = "Oki"
+name = "Kruyger"
 gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182956145518845973/unknown.png"
-dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182979942145859614/image.png"
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183092984930119801/ec2e7c6161e3c9a959186797d445c604.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183093906800377986/image.png"
+
+[[cast]]
+name = "Sopmod"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1182997669455613973/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182997858467713094/image.png"
+
+[[cast]]
+name = "Hubbles"
+gender = 0
+image = "https://cdn.discordapp.com/emojis/1175947226418249749.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1191078540523864064/image.png"
+
+[[cast]]
+name = "Jiangyu"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006410200592485/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006615746650203/image.png"
+
+[[cast]]
+name = "Turing"
+gender = 0
+image = "https://cdn.discordapp.com/emojis/1043904961416798248.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1185644495111475209/image.png"
+
+[[cast]]
+name = "Karnma"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182955783047086100/0082BhXLgy1hkl7sdeq69j30rs0rsq8j.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182979610191876156/image.png"
+
+[[cast]]
+name = "Undine's Walking Garbage"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1193259638569844828/Undine_costume4_face_4.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1193259865548796024/image.png"
 
 [[cast]]
 name = "Nina's Pet"
@@ -398,7 +302,103 @@ image = "https://cdn.discordapp.com/attachments/1003579899736498236/118192996831
 dead_image = "BW"
 
 [[cast]]
-name = "Taco"
+name = "G11"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187792205411266570/g11.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187793854053748887/image.png"
+
+[[cast]]
+name = "IEverTellYouAboutTheTime"
 gender = 1
-image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189241010933477507/taco.png"
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1193176680513146950/d5243r6-3bef66d5-40c3-4a45-8334-8b135229ae9f.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1193242093737488395/image.png"
+
+[[cast]]
+name = "Kimie when she"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784235726147635/IMG_20231220_222753.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187784782684364811/image.png"
+
+[[cast]]
+name = "Nina"
+gender = 0
+image = "https://i.imgur.com/X3BM59z.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187782049633935433/image.png"
+
+[[cast]]
+name = "Tom Kruise"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784888141758495/sample_a1baf60bc41e47fec31d4a6039b295ed2.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187784888410185738/sample_a1baf60bc41e47fec31d4a6039b295ed3.jpg"
+
+[[cast]]
+name = "Stay"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182854211281616936/01840-2619809184.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182978613885280346/image.png"
+
+[[cast]]
+name = "Iny"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182941962517618708/Toad_Idol.png"
 dead_image = "BW"
+
+[[cast]]
+name = "Daiyan"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1183005430956425246/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183005565828476938/image.png"
+
+[[cast]]
+name = "Tsathy"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187783785803161621/93067490_p0.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187784273491677265/image.png"
+
+[[cast]]
+name = "Rinye"
+gender = 4
+image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006851026137128/image.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183006999525462077/image.png"
+
+[[cast]]
+name = "Horizon spray"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187787534298783844/horizonspray.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187787831301636136/image.png"
+
+[[cast]]
+name = "Kuro Gaming"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187740972390547516/kuro_gaming.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187740972868710460/kuro_ded.jpg"
+
+[[cast]]
+name = "Harry"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185629073725198478/smug.png"
+dead_image = "https://cdn.discordapp.com/attachments/1182725408010027189/1185629667554771105/attachment.png"
+
+[[cast]]
+name = "Oki"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1182956145518845973/unknown.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1182979942145859614/image.png"
+
+[[cast]]
+name = "Florence"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1189255835570933951/Florence_costume2_face_1.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1189256261603176538/image.png"
+
+[[cast]]
+name = "Yuwulena"
+gender = 0
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1187786864187420692/Screenshot_20231222_175009_YouTube.png"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187787202994913310/image.png"
+
+[[cast]]
+name = "Raph"
+gender = 1
+image = "https://cdn.discordapp.com/attachments/1182725408010027189/1183089598889476146/cid.jpg"
+dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1183090295148118156/image.png"
