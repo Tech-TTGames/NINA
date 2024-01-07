@@ -303,10 +303,13 @@ class Core(commands.Cog, name="SimCore"):
         else:
             emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
         emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
-        emd.add_field(name="Items", value="\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]))
-        emd.add_field(name="Allies", value="\n".join([ally.name for ally in tribute.allies]))
-        emd.add_field(name="Enemies", value="\n".join([enemy.name for enemy in tribute.enemies]))
-        emd.add_field(name="Events", value="\n".join(tribute.log))
+        emd.add_field(name="Items",
+                      value=thing.truncatelast(
+                          "\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]), 1024))
+        emd.add_field(name="Allies", value=thing.truncatelast("\n".join([ally.name for ally in tribute.allies]), 1024))
+        emd.add_field(name="Enemies",
+                      value=thing.truncatelast("\n".join([enemy.name for enemy in tribute.enemies]), 1024))
+        emd.add_field(name="Events", value=thing.truncatelast("\n".join(tribute.log), 1024))
         await ctx.response.send_message(embed=emd, file=file)
 
 

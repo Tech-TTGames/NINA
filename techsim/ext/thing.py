@@ -71,6 +71,16 @@ def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
     return text
 
 
+def truncatelast(text: str, length: int) -> str:
+    """Truncate a string to fit the provided length.
+
+    Args:
+        text: The string to truncate
+        length: The length to achieve
+    """
+    return "..." + text[-1 * (length - 3):] if len(text) > length else text
+
+
 async def generate_endcycle(
     cycle_no: int,
     involved: list["Tribute"],
@@ -104,8 +114,7 @@ async def generate_endcycle(
     text = wraptext(base_image.width, font,
                     f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
     if request:
-        text = wraptext(base_image.width, font,
-                        f"Winner{'s' if len(involved) > 1 else ''} of {sim.name} from {involved[0].district.name}")
+        text = wraptext(base_image.width, font, f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
     draw.text(
         (base_image.width // 2, 0),
         text,
@@ -366,7 +375,7 @@ class Simulation:
                 embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
                                       title=f"Event {event_no} for Cycle {self.cycle}",
                                       description=f"Active tributes remaining: {len(active_tributes)}\n"
-                                      f"Event result:\n{resolution_text}")
+                                      f"Event result:\n{truncatelast(resolution_text, 5900)}")
                 embed.set_author(name=self.name, icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
@@ -389,8 +398,9 @@ class Simulation:
                     color=discord.Color.from_rgb(255, 255, 255),
                     description=
                     f"You hear {len(self.cycle_deaths)} cannon shot{'s' if len(self.cycle_deaths) > 1 else ''}"
-                    " in the distance.\nThe fallen tributes are:\n" +
-                    "\n".join([f"{tribute.name} - {tribute.district.name}" for tribute in self.cycle_deaths]),
+                    " in the distance.\nThe fallen tributes are:\n" + truncatelast(
+                        "\n".join([f"{tribute.name} - {tribute.district.name}" for tribute in self.cycle_deaths]),
+                        5900),
                 )
                 embed.set_author(name=self.name, icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
