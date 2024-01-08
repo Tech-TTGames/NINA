@@ -74,8 +74,12 @@ class Core(commands.Cog, name="SimCore"):
         self.sim = None
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         if cast_dir.exists() and events_dir.exists():
-            self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
-            logger.info("Loaded last simulation data.")
+            try:
+                self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+                logger.info("Loaded last simulation data.")
+            except ValueError:
+                logger.info("Local files invalid/corrupt")
+                self.sim = None
         self._bt.basp = self._dir
         self._bt.sim = self.sim
         self.lock = False
