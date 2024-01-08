@@ -78,8 +78,10 @@ class Core(commands.Cog, name="SimCore"):
                 self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
                 logger.info("Loaded last simulation data.")
             except ValueError:
-                logger.info("Local files invalid/corrupt")
                 self.sim = None
+                os.remove(cast_dir)
+                os.remove(events_dir)
+                logger.info("Local files invalid/corrupt. Purged from system.")
         self._bt.basp = self._dir
         self._bt.sim = self.sim
         self.lock = False

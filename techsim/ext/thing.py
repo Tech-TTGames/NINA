@@ -43,6 +43,8 @@ from techsim.ext import imgops
 logger = logging.getLogger("techsim.simulation")
 
 BASE_POWER = 500
+FONT = "consola.ttf"
+DRAW_ARGS = {"fill": (255, 255, 255, 255), "stroke_fill": (0, 0, 0, 255), "stroke": 2, "align": "center"}
 
 # 0: Female, 1: Male, 2: Neuter, 3: Pair, 4: Non-binary
 SPronouns = ["she", "he", "it", "they", "they"]
@@ -50,23 +52,21 @@ OPronouns = ["her", "him", "it", "them", "them"]
 PPronouns = ["hers", "his", "its", "theirs", "theirs"]
 RPronouns = ["herself", "himself", "itself", "themself", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
-F_COLOR = (255, 255, 255, 255)
-S_COLOR = (0, 0, 0, 255)
 
 
-def wraptext(max_length: int, font: ImageFont.FreeTypeFont, text: str) -> str:
+def wraptext(text: str, max_length: int, font: ImageFont.FreeTypeFont) -> str:
     """Segment the text with newlines to satisfy max_length per line.
 
     Args:
+        text: The text to split.
         max_length: Maximum length of the line in pixels.
         font: The font to calculate for.
-        text: The text to split.
     """
     if font.getlength(text) > max_length:
         split_text = text.split(" ")
         for word_n in range(len(split_text), 0, -1):
             if font.getlength(" ".join(split_text[:word_n])) < max_length:
-                rest_split = wraptext(max_length, font, " ".join(split_text[word_n:]))
+                rest_split = wraptext(" ".join(split_text[word_n:]), max_length, font)
                 return " ".join(split_text[:word_n]) + "\n" + rest_split
     return text
 
@@ -110,25 +110,16 @@ async def generate_endcycle(
         (0, 0, 0, 0),
     )
     draw = ImageDraw.Draw(base_image)
-    font = ImageFont.truetype("consola.ttf", size=64)
-    text = wraptext(base_image.width, font,
-                    f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
+    font = ImageFont.truetype(FONT, size=64)
+    text = wraptext(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}", base_image.width,
+                    font)
     if request:
-        text = wraptext(base_image.width, font, f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
-    draw.text(
-        (base_image.width // 2, 0),
-        text,
-        fill=F_COLOR,
-        font=font,
-        anchor="ma",
-        align="center",
-        stroke_width=2,
-        stroke_fill=S_COLOR,
-    )
+        text = wraptext(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!", base_image.width, font)
+    draw.text((base_image.width // 2, 0), text, font=font, anchor="ma", **DRAW_ARGS)
     # Size is
     # Width: number between 1-4 * 576 + 64
     # Height: 640 for each row of images,
-    font = ImageFont.truetype("consola.ttf", size=32)
+    font = ImageFont.truetype(FONT, size=32)
     gifs_pending = []
     for row, batch in enumerate(itertools.batched(images, 4)):
         offset = 64 + ((4 - len(batch)) * 288) * bool(len(involved) > 4)
@@ -138,16 +129,11 @@ async def generate_endcycle(
                 gifs_pending.append((img[0], paste))
             else:
                 base_image.paste(img[0], paste)
-            draw.multiline_text(
-                (paste[0] + 256, paste[1] + 512),
-                text=f"{img[1][0]}\n{img[1][1]}",
-                fill=F_COLOR,
-                font=font,
-                anchor="ma",
-                align="center",
-                stroke_width=2,
-                stroke_fill=S_COLOR,
-            )
+            draw.text((paste[0] + 256, paste[1] + 512),
+                      text=f"{img[1][0]}\n{img[1][1]}",
+                      font=font,
+                      anchor="ma",
+                      **DRAW_ARGS)
     if not gifs_pending:
         place = place.joinpath(f"{['mortem', 'victors'][request]}.png")
         base_image.save(place, optimize=True)
@@ -503,8 +489,8 @@ class District:
         base_image = Image.new("RGBA", (512 * member_c + 64 * (member_c + 1), 768), (0, 0, 0, 0))
         # The width is 512 for each member + 64 for each offset + 128 for sides
         draw = ImageDraw.Draw(base_image)
-        font = ImageFont.truetype("consola.ttf", size=128)
-        draw.text((base_image.width // 2, 0), self.name, fill=self.color, font=font, anchor="ma")
+        font = ImageFont.truetype(FONT, size=128)
+        draw.text((base_image.width // 2, 0), self.name, font=font, anchor="ma", **DRAW_ARGS)
 
         gifs_to_process = []
         for i, tribute_status_image in enumerate(tribute_status):
@@ -752,13 +738,13 @@ class Tribute:
             user_image = Image.open(await self.fetch_image("alive", place))
 
         base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
-        font = ImageFont.truetype("consola.ttf", size=32)
+        font = ImageFont.truetype(FONT, size=32)
         text = (f"{self.name}\n"
                 f"Status: {['Alive', 'Dead'][self.status]}\n"
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
-        drw = ImageDraw.Draw(base_image)
-        drw.multiline_text((256, 670), text, F_COLOR, font, "md", align="center", stroke_fill=S_COLOR, stroke_width=2)
+        draw = ImageDraw.Draw(base_image)
+        draw.text((256, 670), text, font=font, anchor="md", **DRAW_ARGS)
         if user_image.format == "PNG":
             status_img = base_image
             status_img.paste(user_image)
@@ -837,32 +823,16 @@ class Cycle:
         place = const.PROG_DIR.joinpath("data", "cycles", f"{current_cycle}", f"start.png")
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
-        font = ImageFont.truetype("consola.ttf", size=64)
+        font = ImageFont.truetype(FONT, size=64)
         y_print = 64 // 2
         anchor = "mm"
         if self.text:
             y_print = 0
             anchor = "ma"
-            font = ImageFont.truetype("consola.ttf", size=16)
-            text = wraptext(512, font, self.text)
-            draw.text(
-                (256, 64),
-                text,
-                anchor="md",
-                font=font,
-                fill=F_COLOR,
-                stroke_width=2,
-                stroke_fill=S_COLOR,
-            )
-        draw.text(
-            (256, y_print),
-            f"Cycle {current_cycle}: {self.name}",
-            anchor=anchor,
-            font=font,
-            fill=F_COLOR,
-            stroke_fill=S_COLOR,
-            stroke_width=2,
-        )
+            font = ImageFont.truetype(FONT, size=16)
+            text = wraptext(self.text, 512, font)  # CURRENT DO: Upsize text to max
+            draw.text((256, 64), text, anchor="md", font=font, **DRAW_ARGS)
+        draw.text((256, y_print), f"Cycle {current_cycle}: {self.name}", anchor=anchor, font=font, **DRAW_ARGS)
         image.save(place, optimize=True)
         return place
 
@@ -1363,19 +1333,10 @@ class Event:
         ])
         tribute_images = [Image.open(im) for im in tribute_images]
         text = await self.resolve(tributes, simstate)
-        font = ImageFont.truetype("consola.ttf", size=32)
-        img_text = wraptext(base_image.width, font, text)
+        font = ImageFont.truetype(FONT, size=32)
+        img_text = wraptext(text, base_image.width, font)  # CURRENT DO: Make upsize to limit
         draw = ImageDraw.Draw(base_image)
-        draw.text(
-            (base_image.width // 2, 640),
-            img_text,
-            fill=F_COLOR,
-            font=font,
-            anchor="md",
-            align="center",
-            stroke_fill=S_COLOR,
-            stroke_width=2,
-        )
+        draw.text((base_image.width // 2, 640), img_text, font=font, anchor="md", **DRAW_ARGS)
         gifs_to_process = []
         for i, tribute_image in enumerate(tribute_images):
             if tribute_image.format == "GIF":

@@ -127,7 +127,7 @@ def sim_ready_check():
             `bool`: Whether the data is loaded into the simulation
         """
         bt = interaction.client
-        if bt.sim.cycle == -2:
+        if not bt.sim or bt.sim.cycle == -2:
             ready_id = 0
             for command in bt.full_tree:
                 if command.name == "ready":
