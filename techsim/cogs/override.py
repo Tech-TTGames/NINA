@@ -82,6 +82,8 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         for extension in cogs.EXTENSIONS:
             if extension in self._bt.extensions:
                 await self._bt.reload_extension(extension)
+            else:
+                await self._bt.load_extension(extension)
         await ctx.followup.send("Reloaded cogs.")
         logger.info("Finished reloading cogs.")
         if sync:
