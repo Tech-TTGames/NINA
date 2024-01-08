@@ -43,8 +43,14 @@ from techsim.ext import imgops
 logger = logging.getLogger("techsim.simulation")
 
 BASE_POWER = 500
+MAX_LINEBREAKS = 5
 FONT = "consola.ttf"
-DRAW_ARGS = {"fill": (255, 255, 255, 255), "stroke_fill": (0, 0, 0, 255), "stroke": 2, "align": "center"}
+DRAW_ARGS = {
+    "fill": (255, 255, 255, 255),
+    "stroke_fill": (0, 0, 0, 255),
+    "stroke_width": 2,
+    "align": "center",
+}
 
 # 0: Female, 1: Male, 2: Neuter, 3: Pair, 4: Non-binary
 SPronouns = ["she", "he", "it", "they", "they"]
@@ -54,21 +60,85 @@ RPronouns = ["herself", "himself", "itself", "themself", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
 
 
-def wraptext(text: str, max_length: int, font: ImageFont.FreeTypeFont) -> str:
-    """Segment the text with newlines to satisfy max_length per line.
+def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, mode: int | None) -> tuple[int, int]:
+    """Get the size of the text.
 
     Args:
-        text: The text to split.
-        max_length: Maximum length of the line in pixels.
-        font: The font to calculate for.
+        draw: The draw object to use.
+        Shouldn't change anything.
+        text: The text to measure.
+        font: The font to use for measurement.
+        mode: Whether a correction for an ascender or descender is needed.
     """
-    if font.getlength(text) > max_length:
-        split_text = text.split(" ")
-        for word_n in range(len(split_text), 0, -1):
-            if font.getlength(" ".join(split_text[:word_n])) < max_length:
-                rest_split = wraptext(" ".join(split_text[word_n:]), max_length, font)
-                return " ".join(split_text[:word_n]) + "\n" + rest_split
-    return text
+    bbox = draw.textbbox((0, 0), text, font=font, stroke_width=DRAW_ARGS['stroke_width'], align=DRAW_ARGS['align'])
+    correction = 0
+    if mode is not None:
+        correction = font.getmetrics()[mode]
+    return bbox[2] - bbox[0], bbox[3] - bbox[1] + correction
+
+
+def draw_max_text(
+    im: Image.Image,
+    text: str,
+    max_sizes: tuple[int, int],
+    anchor: str,
+    location: tuple[int, int],
+) -> ImageDraw.ImageDraw:
+    """Draws a text on top of the image, taking up as much space as possible.
+
+    Attempts to provide the biggest possible fontsize for the best readability.
+
+    Args:
+        im: The image to draw on
+        text: The text to draw
+        max_sizes: The maximum size that the text can take up
+        anchor: The to use for the drawing.
+        location: The location to use for drawing.
+
+    Returns:
+        The draw object used.
+    """
+    mode = None
+    if anchor[1] == "d":
+        mode = 1
+    elif anchor[1] == "a":
+        mode = 0
+    draw = ImageDraw.Draw(im)
+    size = 1
+    last_viable_set = None
+    while True:
+        proposed_text = text
+        font = ImageFont.truetype(FONT, size)
+        current_size = getsize(draw, proposed_text, font, mode)
+        if current_size[0] > max_sizes[0]:
+            cropped_frags = []
+            linebreaks = 0
+            while True:
+                current_size = getsize(draw, proposed_text, font, mode)
+                if current_size[0] <= max_sizes[0]:
+                    break
+                split_text = proposed_text.split(" ")
+                for word_n in range(len(split_text), 0, -1):
+                    sequence = " ".join(split_text[:word_n])
+                    sequence_size = getsize(draw, sequence, font, mode)
+                    if sequence_size[0] < max_sizes[0]:
+                        cropped_frags.append(sequence + "\n")
+                        proposed_text = " ".join(split_text[word_n:])
+                        break
+                linebreaks += 1
+                if linebreaks > MAX_LINEBREAKS:
+                    break
+            proposed_text = "".join(cropped_frags) + proposed_text
+            current_size = getsize(draw, proposed_text, font, mode)
+            if current_size[1] > max_sizes[1] or linebreaks > MAX_LINEBREAKS:
+                break
+        last_viable_set = (font, proposed_text)
+        size += 1
+    if not last_viable_set:
+        raise ValueError("Text too long for image.")
+    font, new_text = last_viable_set
+    draw.text(location, new_text, font=font, anchor=anchor, **DRAW_ARGS)
+    return draw
 
 
 def truncatelast(text: str, length: int) -> str:
@@ -109,13 +179,10 @@ async def generate_endcycle(
         (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
         (0, 0, 0, 0),
     )
-    draw = ImageDraw.Draw(base_image)
-    font = ImageFont.truetype(FONT, size=64)
-    text = wraptext(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}", base_image.width,
-                    font)
+    text = f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}"
     if request:
-        text = wraptext(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!", base_image.width, font)
-    draw.text((base_image.width // 2, 0), text, font=font, anchor="ma", **DRAW_ARGS)
+        text = f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!"
+    draw = draw_max_text(base_image, text, (base_image.width, 128), "ma", (base_image.width // 2, 0))
     # Size is
     # Width: number between 1-4 * 576 + 64
     # Height: 640 for each row of images,
@@ -830,8 +897,7 @@ class Cycle:
             y_print = 0
             anchor = "ma"
             font = ImageFont.truetype(FONT, size=16)
-            text = wraptext(self.text, 512, font)  # CURRENT DO: Upsize text to max
-            draw.text((256, 64), text, anchor="md", font=font, **DRAW_ARGS)
+            draw_max_text(image, self.text, (512, 32), "md", (256, 64))
         draw.text((256, y_print), f"Cycle {current_cycle}: {self.name}", anchor=anchor, font=font, **DRAW_ARGS)
         image.save(place, optimize=True)
         return place
@@ -1333,10 +1399,7 @@ class Event:
         ])
         tribute_images = [Image.open(im) for im in tribute_images]
         text = await self.resolve(tributes, simstate)
-        font = ImageFont.truetype(FONT, size=32)
-        img_text = wraptext(text, base_image.width, font)  # CURRENT DO: Make upsize to limit
-        draw = ImageDraw.Draw(base_image)
-        draw.text((base_image.width // 2, 640), img_text, font=font, anchor="md", **DRAW_ARGS)
+        draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 640))
         gifs_to_process = []
         for i, tribute_image in enumerate(tribute_images):
             if tribute_image.format == "GIF":
