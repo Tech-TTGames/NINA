@@ -318,6 +318,41 @@ class Core(commands.Cog, name="SimCore"):
         emd.add_field(name="Events", value=thing.truncatelast("\n".join(tribute.log), 1024))
         await ctx.response.send_message(embed=emd, file=file)
 
+    @app_commands.command(
+        name="tweakfont",
+        description="Tweaks the font for the simulation.",
+    )
+    @app_commands.guild_only()
+    @app_commands.default_permissions(manage_messages=True)
+    @app_commands.describe(
+        fill="The fill color for the font. Hexcode.",
+        stroke="The stroke color for the font. Hexcode.",
+        width="The width of the stroke.",
+    )
+    async def tweakfont(self, ctx: discord.Interaction, fill: str = "", stroke: str = "", width: int = -1) -> None:
+        """Tweaks the font for the simulation.
+
+        This command is used to tweak the font for the simulation.
+        It takes the stroke, fill, and width as arguments.
+
+        Args:
+            ctx: The interaction context.
+            stroke: The stroke color for the font. Hexcode.
+            fill: The fill color for the font. Hexcode.
+            width: The width of the stroke.
+        """
+        if self.lock:
+            raise exceptions.UsageError("Bot simulation lock active.")
+        self.lock = True
+        if width < 0:
+            width = None
+        await ctx.response.defer(thinking=True)
+        thing.DRAW_ARGS["fill"] = fill or thing.DRAW_ARGS["fill"]
+        thing.DRAW_ARGS["stroke_fill"] = stroke or thing.DRAW_ARGS["stroke_fill"]
+        thing.DRAW_ARGS["stroke_width"] = width or thing.DRAW_ARGS["stroke_width"]
+        await ctx.followup.send("Font tweaked.")
+        self.lock = False
+
 
 async def setup(bot_instance: bot.TechSimBot) -> None:
     """Set up the core cog.
