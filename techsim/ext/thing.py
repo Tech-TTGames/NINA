@@ -121,8 +121,8 @@ def draw_max_text(
                     break
             proposed_text = "".join(cropped_frags) + proposed_text
             current_size = getsize(draw, proposed_text, font)
-            if current_size[1] > max_sizes[1] or linebreaks > MAX_LINEBREAKS:
-                break
+        if current_size[1] > max_sizes[1] or current_size[0] > max_sizes[0]:
+            break
         last_viable_set = (font, proposed_text)
         size += 1
     if not last_viable_set:
@@ -184,7 +184,7 @@ async def generate_endcycle(
     text = f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}"
     if request:
         text = f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!"
-    draw = draw_max_text(base_image, text, (base_image.width, 128), "ma", (base_image.width // 2, 0))
+    draw = draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 128))
     # Size is
     # Width: number between 1-4 * 576 + 64
     # Height: 640 for each row of images,
