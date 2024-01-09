@@ -559,8 +559,16 @@ class District:
         # The width is 512 for each member + 64 for each offset + 128 for sides
         draw = ImageDraw.Draw(base_image)
         font = ImageFont.truetype(FONT, size=128)
-        draw.text((base_image.width // 2, 0), self.name, font=font, anchor="ma", **DRAW_ARGS)
-
+        draw.text(
+            (base_image.width // 2, 0),
+            self.name,
+            font=font,
+            anchor="ma",
+            fill=self.color,
+            stroke_fill=DRAW_ARGS["stroke_fill"],
+            stroke_width=DRAW_ARGS["stroke_width"],
+            align=DRAW_ARGS["align"],
+        )
         gifs_to_process = []
         for i, tribute_status_image in enumerate(tribute_status):
             if tribute_status_image.format == "GIF":
