@@ -60,7 +60,7 @@ RPronouns = ["herself", "himself", "itself", "themself", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
 
 
-def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, mode: int | None) -> tuple[int, int]:
+def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[int, int]:
     """Get the size of the text.
 
     Args:
@@ -68,13 +68,9 @@ def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont, 
         Shouldn't change anything.
         text: The text to measure.
         font: The font to use for measurement.
-        mode: Whether a correction for an ascender or descender is needed.
     """
-    bbox = draw.textbbox((0, 0), text, font=font, stroke_width=DRAW_ARGS['stroke_width'], align=DRAW_ARGS['align'])
-    correction = 0
-    if mode is not None:
-        correction = font.getmetrics()[mode]
-    return bbox[2] - bbox[0], bbox[3] - bbox[1] + correction
+    bbox = draw.textbbox((0, 0), text, font, stroke_width=DRAW_ARGS['stroke_width'], align=DRAW_ARGS['align'])
+    return bbox[2] - bbox[0], bbox[3] - bbox[1]
 
 
 def draw_max_text(
@@ -98,29 +94,24 @@ def draw_max_text(
     Returns:
         The draw object used.
     """
-    mode = None
-    if anchor[1] == "d":
-        mode = 1
-    elif anchor[1] == "a":
-        mode = 0
     draw = ImageDraw.Draw(im)
     size = 1
     last_viable_set = None
     while True:
         proposed_text = text
         font = ImageFont.truetype(FONT, size)
-        current_size = getsize(draw, proposed_text, font, mode)
+        current_size = getsize(draw, proposed_text, font)
         if current_size[0] > max_sizes[0]:
             cropped_frags = []
             linebreaks = 0
             while True:
-                current_size = getsize(draw, proposed_text, font, mode)
+                current_size = getsize(draw, proposed_text, font)
                 if current_size[0] <= max_sizes[0]:
                     break
                 split_text = proposed_text.split(" ")
                 for word_n in range(len(split_text), 0, -1):
                     sequence = " ".join(split_text[:word_n])
-                    sequence_size = getsize(draw, sequence, font, mode)
+                    sequence_size = getsize(draw, sequence, font)
                     if sequence_size[0] < max_sizes[0]:
                         cropped_frags.append(sequence + "\n")
                         proposed_text = " ".join(split_text[word_n:])
@@ -129,7 +120,7 @@ def draw_max_text(
                 if linebreaks > MAX_LINEBREAKS:
                     break
             proposed_text = "".join(cropped_frags) + proposed_text
-            current_size = getsize(draw, proposed_text, font, mode)
+            current_size = getsize(draw, proposed_text, font)
             if current_size[1] > max_sizes[1] or linebreaks > MAX_LINEBREAKS:
                 break
         last_viable_set = (font, proposed_text)
@@ -137,6 +128,17 @@ def draw_max_text(
     if not last_viable_set:
         raise ValueError("Text too long for image.")
     font, new_text = last_viable_set
+    if anchor[1] in ["a", "d"]:
+        sizey = draw.textbbox(location,
+                              new_text,
+                              font,
+                              anchor,
+                              stroke_width=DRAW_ARGS['stroke_width'],
+                              align=DRAW_ARGS['align'])
+        if anchor[1] == "a":
+            location = (location[0], location[1] + (location[1] - sizey[1]))
+        else:
+            location = (location[0], location[1] + (location[1] - sizey[3]))
     draw.text(location, new_text, font=font, anchor=anchor, **DRAW_ARGS)
     return draw
 
