@@ -1,6 +1,6 @@
 """General powertools for the bot owner.
 
-Tech's standardzied bot override cogs.
+Tech's standardized bot override cogs.
 This cog contains commands that are only available to the bot owner.
 These commands are used to reload cogs, restart the bot, and pull from git.
 The commands are only available in the development guild, as specified in
@@ -182,6 +182,31 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
             return
         await ctx.followup.send("Sent logs.")
         logger.info("Logs sent.")
+
+    @app_commands.command(name="exec", description="Initiate an exec request.")
+    @checks.is_owner_check()
+    async def exec(self, ctx: discord.Interaction) -> None:
+        """Initiates an exec request.
+
+        This command starts listening in the DMs from the user for the code to execute.
+        """
+        await ctx.response.send_message("Waiting for code in DMs. Edit response to return something.", ephemeral=True)
+
+        channel = ctx.client.application.owner.dm_channel
+        if channel is None:
+            channel = await ctx.client.application.owner.create_dm()
+
+        def dm_from_user(msg):
+            """Check if the message is from the user in DMs."""
+            return msg.channel == dm_channel and msg.author == owner
+
+        response = None
+        code = await ctx.client.wait_for("message", check=dm_from_user)
+        await asyncio.to_thread(exec, code.content, globals(), locals())
+        if response is not None:
+            await channel.send(str(response))
+        else:
+            await channel.send("Executed.")
 
     @commands.command(name="sync", description="Syncs the tree.")
     @commands.is_owner()
