@@ -1,2 +1,2 @@
-# Another of Tech's random projects
-A more advanced hunger games simulator.
+# Project NINA: A more advanced Battle Royale Simulator.
+Neural Immersive Network Arena
