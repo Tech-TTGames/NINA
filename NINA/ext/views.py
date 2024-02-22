@@ -1,11 +1,11 @@
-"""Generic discord.py views for TechSimBot.
+"""Generic discord.py views for Project: NINA.
 
 Those are various buttons and select menus used throughout the bot.
 Note that these are not cogs, but rather discord.py views.
 
 Typical usage example:
     ```py
-    from techsim.ext import views
+    from NINA.ext import views
 
     @bot.command()
     async def example(ctx):

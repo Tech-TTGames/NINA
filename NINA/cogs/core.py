@@ -6,9 +6,9 @@ check the status, and more.
 
 Typical usage example:
     ```py
-    from techsim import bot
-    bot_instance = bot.TechSimBot(...)
-    await bot_instance.load_extension("techsim.cogs.core")
+    from NINA import bot
+    bot_instance = bot.NINABot(...)
+    await bot_instance.load_extension("NINA.cogs.core")
     ```
 """
 # License: EPL-2.0
@@ -24,13 +24,13 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from techsim import bot
-from techsim.data import const
-from techsim.ext import checks
-from techsim.ext import exceptions
-from techsim.ext import thing
+from NINA import bot
+from NINA.data import const
+from NINA.ext import checks
+from NINA.ext import exceptions
+from NINA.ext import NINA
 
-logger = logging.getLogger("techsim.core")
+logger = logging.getLogger("NINA.core")
 
 
 async def tribute_autocomplete(
@@ -58,7 +58,7 @@ class Core(commands.Cog, name="SimCore"):
     check the status, and more.
     """
 
-    def __init__(self, bot_instance: bot.TechSimBot) -> None:
+    def __init__(self, bot_instance: bot.NINABot) -> None:
         """Initializes the cog.
 
         This method initializes the cog.
@@ -75,7 +75,7 @@ class Core(commands.Cog, name="SimCore"):
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         if cast_dir.exists() and events_dir.exists():
             try:
-                self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+                self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
                 logger.info("Loaded last simulation data.")
             except ValueError:
                 self.sim = None
@@ -120,7 +120,7 @@ class Core(commands.Cog, name="SimCore"):
                 f.write(await cast.read())
             with open(events_dir, "wb") as f:
                 f.write(await events.read())
-        self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
         self.lock = False
         await ctx.followup.send("Configuration loaded.", ephemeral=True)
         logger.info(f"Simulation set up for {ctx.user}.")
@@ -170,7 +170,7 @@ class Core(commands.Cog, name="SimCore"):
                 ephemeral=True,
             )
             return
-        self.sim = thing.Simulation(cast_dir, events_dir, self._bt)
+        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
         self._bt.sim = self.sim
         # Reset the sim just in case.
         logger.info(f"Readying simulation for {ctx.user}.")
@@ -310,12 +310,12 @@ class Core(commands.Cog, name="SimCore"):
             emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
         emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
         emd.add_field(name="Items",
-                      value=thing.truncatelast(
+                      value=NINA.truncatelast(
                           "\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]), 1024))
-        emd.add_field(name="Allies", value=thing.truncatelast("\n".join([ally.name for ally in tribute.allies]), 1024))
+        emd.add_field(name="Allies", value=NINA.truncatelast("\n".join([ally.name for ally in tribute.allies]), 1024))
         emd.add_field(name="Enemies",
-                      value=thing.truncatelast("\n".join([enemy.name for enemy in tribute.enemies]), 1024))
-        emd.add_field(name="Events", value=thing.truncatelast("\n".join(tribute.log), 1024))
+                      value=NINA.truncatelast("\n".join([enemy.name for enemy in tribute.enemies]), 1024))
+        emd.add_field(name="Events", value=NINA.truncatelast("\n".join(tribute.log), 1024))
         await ctx.response.send_message(embed=emd, file=file)
 
     @app_commands.command(
@@ -347,14 +347,14 @@ class Core(commands.Cog, name="SimCore"):
         if width < 0:
             width = None
         await ctx.response.defer(thinking=True)
-        thing.DRAW_ARGS["fill"] = fill or thing.DRAW_ARGS["fill"]
-        thing.DRAW_ARGS["stroke_fill"] = stroke or thing.DRAW_ARGS["stroke_fill"]
-        thing.DRAW_ARGS["stroke_width"] = width or thing.DRAW_ARGS["stroke_width"]
+        NINA.DRAW_ARGS["fill"] = fill or NINA.DRAW_ARGS["fill"]
+        NINA.DRAW_ARGS["stroke_fill"] = stroke or NINA.DRAW_ARGS["stroke_fill"]
+        NINA.DRAW_ARGS["stroke_width"] = width or NINA.DRAW_ARGS["stroke_width"]
         await ctx.followup.send("Font tweaked.")
         self.lock = False
 
 
-async def setup(bot_instance: bot.TechSimBot) -> None:
+async def setup(bot_instance: bot.NINABot) -> None:
     """Set up the core cog.
 
     The bot calls this function when loading the cog.

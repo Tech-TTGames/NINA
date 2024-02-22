@@ -6,9 +6,9 @@ It's nice to not leave the user confused.
 
 Typical usage example:
     ```py
-    from techsim import bot
-    bot_instance = bot.TechSimBot(...)
-    await bot_instance.load_extension("techsim.cogs.errors")
+    from NINA import bot
+    bot_instance = bot.NINABot(...)
+    await bot_instance.load_extension("NINA.cogs.errors")
     ```
 """
 # License: EPL-2.0
@@ -22,14 +22,14 @@ from discord import app_commands
 from discord import utils
 from discord.ext import commands
 
-from techsim import bot
-from techsim.ext import exceptions
+from NINA import bot
+from NINA.ext import exceptions
 
-logger = logging.getLogger("techsim.commanderrorhandler")
+logger = logging.getLogger("NINA.commanderrorhandler")
 
 
 class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
-    """Error handling for TechSimBot.
+    """Error handling for Project: NINA.
 
     This cog is used to handle errors from app commands globally.
     This is to actually handle and respond to errors.
@@ -39,7 +39,7 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
             This is used to restore the old error handler.
     """
 
-    def __init__(self, bot_instance: bot.TechSimBot) -> None:
+    def __init__(self, bot_instance: bot.NINABot) -> None:
         """Initialises the cog instance.
 
         We store some attributes here for later use.
@@ -91,7 +91,7 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
                     return
 
         emd = discord.Embed(
-            title="TechSimBot Error: 500 - Internal Server Error",
+            title="Project: NINA Error: 500 - Internal Server Error",
             description=("An unexpected internal error occurred.\n"
                          "Please report this error to the server staff."),
             color=discord.Color.red(),
@@ -99,7 +99,7 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
         )
 
         if isinstance(error, app_commands.CommandNotFound):
-            emd.title = "TechSimBot Error: 404 - Command Not Found"
+            emd.title = "Project: NINA Error: 404 - Command Not Found"
             emd.description = "The command you tried to use does not exist."
             emd.set_footer(text="If this error persists, please report it.")
             await ctx.followup.send(embed=emd, ephemeral=True)
@@ -107,7 +107,7 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
 
         if isinstance(error, app_commands.CheckFailure):
             if isinstance(error, app_commands.BotMissingPermissions):
-                emd.title = "TechSimBot Error: 503 - Bot Missing Permissions"
+                emd.title = "Project: NINA Error: 503 - Bot Missing Permissions"
                 emd.description = ("The bot is missing permissions required"
                                    " to run this command.\n"
                                    "Please ask a server administrator to grant the bot the "
@@ -119,28 +119,28 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
                 return
 
             if isinstance(error, app_commands.NoPrivateMessage):
-                emd.title = "TechSimBot Error: 405 - DMs Not Allowed"
+                emd.title = "Project: NINA Error: 405 - DMs Not Allowed"
                 emd.description = "This command cannot be used in DMs."
                 emd.set_footer(text="Please use this command in a server.")
                 await ctx.followup.send(embed=emd, ephemeral=True)
                 return
 
             if isinstance(error, app_commands.CommandOnCooldown):
-                emd.title = "TechSimBot Error: 429 - Command On Cooldown"
+                emd.title = "Project: NINA Error: 429 - Command On Cooldown"
                 emd.description = ("This command is on cooldown.\n"
                                    f"Please try again in {error.retry_after} seconds.")
-                emd.set_footer(text="Thank you for using TechSim!")
+                emd.set_footer(text="Thank you for using Project: NINA!")
                 await ctx.followup.send(embed=emd, ephemeral=True)
                 return
 
-            emd.title = "TechSimBot Error: 403 - Forbidden"
+            emd.title = "Project: NINA Error: 403 - Forbidden"
             emd.description = "You do not have permission to use this command."
             emd.set_footer(text=f"Error type: {type(error).__name__}")
             await ctx.followup.send(embed=emd, ephemeral=True)
             return
 
-        if isinstance(error, exceptions.TechSimBotError):
-            emd.title = "TechSimBot Error: 400 - Bad Request"
+        if isinstance(error, exceptions.NINABotError):
+            emd.title = "Project: NINA Error: 400 - Bad Request"
             emd.description = str(error)
             emd.set_footer(text=f"Error type: {type(error).__name__}")
             await ctx.followup.send(embed=emd, ephemeral=True)
@@ -156,7 +156,7 @@ class ErrorHandling(commands.Cog, name="AppCommandErrorHandler"):
         await ctx.followup.send(embed=emd, ephemeral=True)
 
 
-async def setup(bot_instance: bot.TechSimBot) -> None:
+async def setup(bot_instance: bot.NINABot) -> None:
     """Sets up the error handler.
 
     This function is called when the cog is loaded.

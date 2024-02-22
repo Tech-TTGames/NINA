@@ -1,11 +1,11 @@
-"""Various data interfaces and structures for the TechSim bot.
+"""Various data interfaces and structures for the Project: NINA bot.
 
-This package holds all the data interfaces and structures for the TechSim bot.
+This package holds all the data interfaces and structures for the Project: NINA bot.
 This is mostly constants, config interfaces, data structures, and database layers.
 
 Typical usage example:
     ```py
-    from techsim.data import config, layer
+    from NINA.data import config, layer
     cnfg = config.Config()
     print(cnfg["guild"])
     manager = layer.DatabaseLayer(bot, session)

@@ -1,4 +1,4 @@
-"""TechSim - A discord pruning bot, for the KumoDesu discord server.
+"""Project: NINA - A battle royale simualtion engine, with a discor bot UI.
 
 This is the main module for the bot. It contains the entry point for the bot.
 
@@ -8,9 +8,9 @@ Typical usage example:
     ```py
     #!/usr/bin/env python3
     import asyncio
-    import techsim
+    import NINA
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(techsim.start_bot(config))
+    loop.run_until_complete(NINA.start_bot(config))
     ```
 """
 # License: EPL-2.0
@@ -25,9 +25,9 @@ import colorama
 import discord
 from discord.ext import commands
 
-from techsim import bot
-from techsim.data import config
-from techsim.data import const
+from NINA import bot
+from NINA.data import config
+from NINA.data import const
 
 
 # pylint: disable=unused-argument
@@ -38,7 +38,7 @@ def sigint_handler(sign, frame):
 
 
 signal.signal(signal.SIGINT, sigint_handler)
-logger = logging.getLogger("techsim.launchpad")
+logger = logging.getLogger("NINA.launchpad")
 
 
 async def start_bot(conf: config.Config, debug: bool = False) -> None:
@@ -66,27 +66,27 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
         async_logger.addHandler(const.HANDLER)
 
         # Set up botcore logging
-        core_logger = logging.getLogger("techsim.botcore")
+        core_logger = logging.getLogger("NINA.botcore")
         core_logger.setLevel(logging.INFO)
         core_logger.addHandler(const.HANDLER)
 
         # Set up error handling logging
-        err_logger = logging.getLogger("techsim.commanderrorhandler")
+        err_logger = logging.getLogger("NINA.commanderrorhandler")
         err_logger.setLevel(logging.INFO)
         err_logger.addHandler(const.HANDLER)
 
         # Set up override logging
-        ovrd_logger = logging.getLogger("techsim.override")
+        ovrd_logger = logging.getLogger("NINA.override")
         ovrd_logger.setLevel(logging.INFO)
         ovrd_logger.addHandler(const.HANDLER)
 
         # Set up core command logging
-        corecmd_logger = logging.getLogger("techsim.core")
+        corecmd_logger = logging.getLogger("NINA.core")
         corecmd_logger.setLevel(logging.INFO)
         corecmd_logger.addHandler(const.HANDLER)
 
         # Set up simulation logging
-        sim_logger = logging.getLogger("techsim.simulation")
+        sim_logger = logging.getLogger("NINA.simulation")
         sim_logger.setLevel(logging.INFO)
         sim_logger.addHandler(const.HANDLER)
 
@@ -117,7 +117,7 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
 
     # Create bot instance
     try:
-        bot_instance = bot.TechSimBot(
+        bot_instance = bot.NINABot(
             confg=conf,
             intents=const.INTENTS,
             command_prefix=commands.when_mentioned,
@@ -153,4 +153,4 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
         print("Internal bot shutdown. (/close was used.)")
         logger.info("Bot shutdown gracefully.")
     logger.info("Bot shutdown complete.")
-    print("Thanks for using TechSim!")
+    print("Thanks for using Project: NINA!")

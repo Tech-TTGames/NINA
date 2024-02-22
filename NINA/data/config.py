@@ -5,7 +5,7 @@ It loads from a TOML file, and provides a class to access the config.
 
 Typical usage example:
     ```py
-    from techsim.data import config
+    from NINA.data import config
     cnfg = config.Config()
     print(cnfg["guild"])
     ```
@@ -19,7 +19,7 @@ from typing import overload
 
 import discord
 
-from techsim.data import const
+from NINA.data import const
 
 BURNABLE = False
 

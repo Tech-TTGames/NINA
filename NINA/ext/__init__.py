@@ -4,7 +4,7 @@ But it's still really important stuff, it's just placed in a different folder.
 
 Typical usage example:
     ```py
-    from techsim.ext import <module>
+    from NINA.ext import <module>
     ```
 """
 # License: EPL-2.0

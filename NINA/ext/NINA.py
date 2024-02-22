@@ -1,4 +1,4 @@
-"""The actual simulation infrastructure for TechSim.
+"""The actual simulation infrastructure for Project: NINA.
 
 This is the main module for the simulation infrastructure.
 It contains the classes for the simulation, districts, tributes, cycles, events and items.
@@ -6,7 +6,7 @@ It's placed in the ext folder because it's not a cog, and the core cog will impo
 
 Typical usage example:
     ```py
-    from techsim.ext import simulation
+    from NINA.ext import simulation
     # Set up the log handler of choice.
     sim = simulation.Simulation("cast.toml", "events.toml")
     await sim.ready()
@@ -36,11 +36,11 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageSequence
 
-from techsim import bot
-from techsim.data import const
-from techsim.ext import imgops
+from NINA import bot
+from NINA.data import const
+from NINA.ext import imgops
 
-logger = logging.getLogger("techsim.simulation")
+logger = logging.getLogger("NINA.simulation")
 
 BASE_POWER = 500
 MAX_LINEBREAKS = 5
@@ -227,7 +227,7 @@ async def generate_endcycle(
 
 
 class Simulation:
-    """A class representing a TechSim simulation.
+    """A class representing a Project: NINA simulation.
 
     Attributes:
         cycle: The current cycle/status of the simulation.
@@ -251,7 +251,7 @@ class Simulation:
     dead: list["Tribute"]
     cycle_deaths: list["Tribute"]
 
-    def __init__(self, cast_file: pathlib.Path, events_file: pathlib.Path, bot_instance: bot.TechSimBot | None) -> None:
+    def __init__(self, cast_file: pathlib.Path, events_file: pathlib.Path, bot_instance: bot.NINABot | None) -> None:
         """Initialize the Simulation object."""
         with open(cast_file, "rb") as file:
             data = tomllib.load(file)
@@ -270,7 +270,7 @@ class Simulation:
 
     def __str__(self):
         """Text representation of the simulation."""
-        return f"TechSim Simulation: {self.name}"
+        return f"Project: NINA Simulation: {self.name}"
 
     async def ready(
         self,
@@ -524,7 +524,7 @@ class District:
 
     def __str__(self):
         """Text representation of the district."""
-        return f"TechSim District: {self.name}"
+        return f"Project: NINA District: {self.name}"
 
     def apply_allies(self):
         """Mark all members of the district as allies to each other."""
@@ -663,7 +663,7 @@ class Tribute:
 
     def __str__(self):
         """Text representation of the tribute."""
-        return f"TechSim Tribute: {self.name}"
+        return f"Project: NINA Tribute: {self.name}"
 
     def effectivepower(self) -> int:
         """Resolve the effective power of the tribute.
@@ -893,7 +893,7 @@ class Cycle:
 
     def __str__(self):
         """Text representation of the cycle."""
-        return f"TechSim Cycle: {self.name}"
+        return f"Project: NINA Cycle: {self.name}"
 
     async def render_start(self, current_cycle: int) -> pathlib.Path:
         """Get an image representing the start of the cycle."""
@@ -1031,7 +1031,7 @@ class Event:
 
     def __str__(self):
         """Return the text representation of the event."""
-        return f"TechSim Event: {self.text.template}"
+        return f"Project: NINA Event: {self.text.template}"
 
     def check_requirements(self, tribute: Tribute, placement: int) -> bool:
         """Check whether the tribute can meet the requirements for the event/placement.
@@ -1497,7 +1497,7 @@ class Item:
 
     def __str__(self):
         """Return the name of the item."""
-        return f"TechSim Item: {self.name}"
+        return f"Project: NINA Item: {self.name}"
 
 
 async def main():

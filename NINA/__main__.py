@@ -6,7 +6,7 @@ We don't really need to do anything here, so we just call the bot's startup
 function.
 
 Typical usage example:
-    $ python3 techsim
+    $ python3 NINA
     OR
     $ poetry run start
 """
@@ -17,9 +17,9 @@ Typical usage example:
 import asyncio
 import sys
 
-import techsim
-from techsim.data import config
-from techsim.data import const
+import NINA
+from NINA.data import config
+from NINA.data import const
 
 
 def main():
@@ -27,11 +27,11 @@ def main():
 
     This function is the entry point for the bot.
     """
-    print(f"Starting TechSim {const.VERSION}...")
+    print(f"Starting Project: NINA {const.VERSION}...")
     cnfg = config.Config()
     print("Brace for timeloop!")
     debug_mode = 'pydevd' in sys.modules
-    asyncio.run(techsim.start_bot(conf=cnfg, debug=debug_mode), debug=debug_mode)
+    asyncio.run(NINA.start_bot(conf=cnfg, debug=debug_mode), debug=debug_mode)
 
 
 if __name__ == "__main__":

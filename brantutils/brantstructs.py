@@ -1,7 +1,7 @@
 """This is the module with the data structures for the Brent-Steele Hunger Games simulator.
 
-It is not representative of the TechSim, but it is a good utility for
-transferring data between the TechSim and the Brent-Steele simulator.
+It is not representative of Project: NINA, but it is a good utility for
+transferring data between the Project: NINA and the Brent-Steele simulator.
 """
 # License: EPL-2.0
 # SPDX-License-Identifier: EPL-2.0

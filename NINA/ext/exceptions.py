@@ -6,7 +6,7 @@ exceptions are a subclass of `discord.app_commands.AppCommandError`.
 
 Typical usage example:
     ```py
-    from techsim.ext import exceptions
+    from NINA.ext import exceptions
     try:
         ...
     except exceptions.ReferenceNotFound:
@@ -20,10 +20,10 @@ Typical usage example:
 from discord import app_commands
 
 
-class TechSimBotError(app_commands.AppCommandError):
-    """Base class for TechSimBot exceptions.
+class NINABotError(app_commands.AppCommandError):
+    """Base class for Project: NINA exceptions.
 
-    This is the base class for all TechSimBot exceptions.
+    This is the base class for all Project: NINA exceptions.
     Avoid using this exception, use a subclass of this exception instead.
     If you are using this exception, please consider creating a subclass of
     for your use case.
@@ -32,7 +32,7 @@ class TechSimBotError(app_commands.AppCommandError):
     """
 
 
-class TechCheckFailure(app_commands.CheckFailure):
+class NINACheckFailure(app_commands.CheckFailure):
     """Command failed simulation checks.
 
     An app command failed the checks.
@@ -41,7 +41,7 @@ class TechCheckFailure(app_commands.CheckFailure):
     """
 
 
-class ReferenceNotFound(TechSimBotError):
+class ReferenceNotFound(NINABotError):
     """Command executed with invalid reference.
 
     A previously valid reference no longer resolves successfully.
@@ -50,11 +50,11 @@ class ReferenceNotFound(TechSimBotError):
     """
 
 
-class UsageError(TechSimBotError):
+class UsageError(NINABotError):
     """Command executed with invalid usage.
 
     An app command was executed with invalid usage.
-    A broad TechSimBot exception that is used when a command is executed
+    A broad Project: NINA exception that is used when a command is executed
     in an invalid way.
     """
 

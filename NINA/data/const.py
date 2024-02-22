@@ -5,7 +5,7 @@ throughout the bot and are not meant to be changed by the user.
 
 Typical usage example:
     ```py
-    from techsim.data import const
+    from NINA.data import const
     print(const.VERSION)
     ```
 """

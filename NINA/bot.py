@@ -1,13 +1,13 @@
-"""This main bot class module for the TechSim bot.
+"""This main bot class module for the Project: NINA bot.
 
-A module that contains purely the bot class - `TechSimBot`.
+A module that contains purely the bot class - `NINABot`.
 It's a subclass of `discord.ext.commands.Bot`.
 It's not sharded, as it's not meant for use in more than one server.
 
 Typical usage example:
     ```py
-    from techsim import bot
-    bot_instance = bot.TechSimBot(...)
+    from NINA import bot
+    bot_instance = bot.NINABot(...)
     ```
 """
 # License: EPL-2.0
@@ -20,18 +20,17 @@ import pathlib
 import aiohttp
 import discord
 from discord.ext import commands
+from NINA import cogs
+from NINA.data import config
+from NINA.data import const
 
-from techsim import cogs
-from techsim.data import config
-from techsim.data import const
-
-logger = logging.getLogger("techsim.botcore")
+logger = logging.getLogger("NINA.botcore")
 
 
-class TechSimBot(commands.Bot):
-    """The main bot class for the TechSim bot.
+class NINABot(commands.Bot):
+    """The main bot class for the Project: NINA bot.
 
-    Subclassing `discord.ext.commands.Bot`, this is the main bot class.
+    Subclassing `discord.ext.commands.Bot`, this is the main bot class.F
     It's not sharded, as it's not meant for use in more than one server.
     It is used to share the database engine/pool, and the config.
 
@@ -67,7 +66,7 @@ class TechSimBot(commands.Bot):
         This is used to load the cogs and sync the database.
         Generally, this function should not be called manually.
         """
-        logger.info("TechSim version: %s", const.VERSION)
+        logger.info("Project: NINA version: %s", const.VERSION)
         logger.info("Discord.py version: %s", discord.__version__)
         logger.info("Loading cogs...")
         for extension in cogs.EXTENSIONS:

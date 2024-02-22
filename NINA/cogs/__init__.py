@@ -5,9 +5,9 @@ We can just import this submodule and iterate over the `EXTENSIONS` list.
 
 Typical usage example:
     ```py
-    from techsim import bot
-    from techsim import cogs
-    bot_instance = bot.TechSimBot(...)
+    from NINA import bot
+    from NINA import cogs
+    bot_instance = bot.NINABot(...)
     for extension in cogs.EXTENSIONS:
         await bot_instance.load_extension(extension)
     ```

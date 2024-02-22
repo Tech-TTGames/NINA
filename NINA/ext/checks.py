@@ -1,14 +1,14 @@
-"""TechSim decorators for use with discord.py app commands.
+"""Project: NINA decorators for use with discord.py app commands.
 
 A set of decorators for use with discord.py application commands.
-These are generally TechSim Bot specific, but some may be more general.
-They require the client to be a `techsim.bot.TechSimBot` instance.
+These are generally Project: NINA Bot specific, but some may be more general.
+They require the client to be a `NINA.bot.NINABot` instance.
 Though some may work with any `discord.ext.commands.Bot` instance.
 
 Typical usage example:
     ```py
     from discord import app_commands
-    from techsim.ext import checks
+    from NINA.ext import checks
 
     @app_commands.command()
     @checks.is_owner_check()
@@ -23,7 +23,7 @@ Typical usage example:
 import discord
 from discord import app_commands
 
-from techsim.ext import exceptions
+from NINA.ext import exceptions
 
 
 def is_owner_check():
@@ -56,7 +56,7 @@ def is_owner_check():
                 Doesn't return if the user is not an owner.
 
         Raises:
-            `techsim.exceptions.DCheckFailure`: Requirements not met.
+            `NINA.exceptions.DCheckFailure`: Requirements not met.
                 Raised if the user is not an owner. This is according to the
                 discord.py convention.
         """
@@ -67,7 +67,7 @@ def is_owner_check():
                 return True
         if interaction.user == app.owner:
             return True
-        raise exceptions.TechCheckFailure("You do not have permission to do this.")
+        raise exceptions.NINACheckFailure("You do not have permission to do this.")
 
     return app_commands.check(is_owner)
 

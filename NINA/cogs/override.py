@@ -8,9 +8,9 @@ the config.
 
 Typical usage example:
     ```py
-    from techsim import bot
-    bot_instance = bot.TechSimBot(...)
-    await bot_instance.load_extension("techsim.cogs.override")
+    from NINA import bot
+    bot_instance = bot.NINABot(...)
+    await bot_instance.load_extension("NINA.cogs.override")
     ```
 """
 # License: EPL-2.0
@@ -25,16 +25,16 @@ import discord
 from discord import app_commands
 from discord.ext import commands
 
-from techsim import bot
-from techsim import cogs
-from techsim.data import config
-from techsim.data import const
-from techsim.ext import checks
-from techsim.ext import views
+from NINA import bot
+from NINA import cogs
+from NINA.data import config
+from NINA.data import const
+from NINA.ext import checks
+from NINA.ext import views
 
 _CNFG = config.Config()
 """Submodule private global constant for the config."""
-logger = logging.getLogger("techsim.override")
+logger = logging.getLogger("NINA.override")
 
 
 @app_commands.guilds(_CNFG["guild_id"])
@@ -47,7 +47,7 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
     the config.
     """
 
-    def __init__(self, bot_instance: bot.TechSimBot):
+    def __init__(self, bot_instance: bot.NINABot):
         """Initializes the cog.
 
         This method initializes the cog.
@@ -204,7 +204,7 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         logger.info("Synced.")
 
 
-async def setup(bot_instance: bot.TechSimBot):
+async def setup(bot_instance: bot.NINABot):
     """Sets up the overrides.
 
     We add the override cog to the bot.
