@@ -28,7 +28,7 @@ from NINA import bot
 from NINA.data import const
 from NINA.ext import checks
 from NINA.ext import exceptions
-from NINA.ext import NINA
+from NINA.ext import NINA, recovery
 
 logger = logging.getLogger("NINA.core")
 
@@ -110,7 +110,7 @@ class Core(commands.Cog, name="SimCore"):
             events: The events attachment.
         """
         if self.lock:
-            raise exceptions.UsageError("Bot simulation lock active.")
+            raise exceptions.UsageError("Bot cog lock active.")
         self.lock = True
         logger.info(f"Setting up simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True, ephemeral=True)
@@ -120,7 +120,6 @@ class Core(commands.Cog, name="SimCore"):
                 f.write(await cast.read())
             with open(events_dir, "wb") as f:
                 f.write(await events.read())
-        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
         self.lock = False
         await ctx.followup.send("Configuration loaded.", ephemeral=True)
         logger.info(f"Simulation set up for {ctx.user}.")
@@ -258,12 +257,13 @@ class Core(commands.Cog, name="SimCore"):
         if self.lock:
             raise exceptions.UsageError("Bot simulation lock active.")
         self.lock = True
-        await ctx.response.defer(thinking=True)
-        ctx.extras["location"] = self._dir.joinpath("cycles", f"{self.sim.cycle}")
-        os.makedirs(ctx.extras["location"], exist_ok=True)
-        # This is a directory as a cycle consists of multiple event images.
-        await self.sim.computecycle(ctx)
-        await ctx.followup.send(f"Cycle {self.sim.cycle - 1} complete!")
+        with recovery.Safe(self.sim) as sim:
+            await ctx.response.defer(thinking=True)
+            ctx.extras["location"] = self._dir.joinpath("cycles", f"{sim.cycle}")
+            os.makedirs(ctx.extras["location"], exist_ok=True)
+            # This is a directory as a cycle consists of multiple event images.
+            await sim.computecycle(ctx)
+            await ctx.followup.send(f"Cycle {sim.cycle - 1} complete!")
         self.lock = False
 
     @app_commands.command(
