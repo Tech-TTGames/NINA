@@ -102,7 +102,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 gathers as much food as they can."
+        text = "$Tribute1 gathers as much food as $SP1 can."
         weight = 1
         max_use = -1
         max_cycle = -1
@@ -120,6 +120,7 @@
         ]
 
     [[cycles.events]]
+        # Consider promoting to a recvoery item?
         text = "$Tribute1 clutches a first aid kit and runs away."
         weight = 1
         max_use = -1
@@ -195,6 +196,7 @@
         ]
 
     [[cycles.events]]
+        # Consider upgrading to Item
         text = "$Tribute1 retrieves a Grappling Hook from inside the Oasis."
         weight = 1
         max_use = -1
@@ -347,7 +349,7 @@
         max_use = -1
         max_cycle = -1
         tribute_changes = [
-            { powerN = 5 }
+            { powern = 5 }
         ]
 
     [[cycles.events]]
@@ -356,7 +358,7 @@
         max_use = -1
         max_cycle = -1
         tribute_changes = [
-            { powerN = 5 }
+            { powern = 5 }
         ]
 
     [[cycles.events]]
@@ -383,7 +385,7 @@
         max_use = -1
         max_cycle = -1
         tribute_changes = [
-            { powerN = -1 }
+            { powern = -1 }
         ]
 
     [[cycles.events]]
@@ -410,7 +412,7 @@
         max_use = -1
         max_cycle = -1
         tribute_changes = [
-            { powerN = 1 }
+            { powern = 1 }
         ]
 
     [[cycles.events]]
@@ -644,6 +646,209 @@
             { relationship = { 2 = "notenemies"} }, # Tribute 1 has to not consider tribute 2 an enemy
             { }
         ]
+
+    [[cycles.events]]
+        text = "$Tribute1 runs away from $Tribute2."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = -5 },
+            { }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 defeats $Tribute2 in a fight but spares $PP2 life."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 10 },
+            { power = -5 },
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 and $Tribute2 work together for the day."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 5 },  # Add power/status changes based on your game logic
+            { power = 5 }  # Add power/status changes based on your game logic
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies" } },
+            { relationship = { 1 = "allies" } }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2 refuses, keeping $Tribute1 alive."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { },
+            { power = 5 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            { relationship = { 1 = "allies" } }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 raid $Tribute5's camp while $SP5 is hunting."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 10 },
+            { power = 10 },
+            { power = 10 },
+            { power = 10 },
+            { power = -15, relationship = { 1 = "enemies", 2 = "enemies", 3 = "enemies", 4 = "enemies" } }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies", 3 = "allies", 4 = "allies" } },
+            { relationship = { 1 = "allies", 3 = "allies", 4 = "allies" } },
+            { relationship = { 1 = "allies", 2 = "allies", 4 = "allies" } },
+            { relationship = { 1 = "allies", 2 = "allies", 3 = "allies" } },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 overhears $Tribute2 and $Tribute3 talking in the distance."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { },
+            { },
+            { }
+        ]
+        tribute_requirements = [
+            { relationship = { } },
+            { relationship = { 3 = "allies" } },
+            { relationship = { 2 = "allies" } }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 and $Tribute2 split up to search for resources."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 10 },
+            { power = 10 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies" } },
+            { relationship = { 1 = "allies" } }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 tends to $Tribute2's wounds."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { },
+            { powern = 20 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies" } },
+            { power = ["<", 500]}
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 sprains $PP1 ankle while running away from $Tribute2."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = -5 },
+            { }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            { }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1 and $Tribute2 hunt for other tributes."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+            { power = 2 },
+            { power = 2 }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies" } },
+            { relationship = { 1 = "allies" } }
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1, $Tribute2, and $Tribute3 hunt for other tributes."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+        ]
+        tribute_requirements = [
+          { relationship = { 2 = "allies", 3 = "allies" } },
+          { relationship = { 1 = "allies", 3 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies" } },
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 hunt for other tributes."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+        ]
+        tribute_requirements = [
+          { relationship = { 2 = "allies", 3 = "allies", 4 = "allies" } },
+          { relationship = { 1 = "allies", 3 = "allies", 4 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies", 4 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies", 3 = "allies" } },
+        ]
+
+    [[cycles.events]]
+        text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 hunt for other tributes."
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        tribute_changes = [
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+          { power = 2 },
+        ]
+        tribute_requirements = [
+          { relationship = { 2 = "allies", 3 = "allies", 4 = "allies", 5 = "allies" } },
+          { relationship = { 1 = "allies", 3 = "allies", 4 = "allies", 5 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies", 4 = "allies", 5 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies", 3 = "allies", 5 = "allies" } },
+          { relationship = { 1 = "allies", 2 = "allies", 3 = "allies", 4 = "allies" } }
+        ]
+
 
     [[cycles.events]]
         text = "$Tribute1, $Tribute2, $Tribute4 and $Tribute5 overestimated their ability to handle Exception Protocol."
