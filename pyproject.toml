@@ -19,6 +19,7 @@ discord-py = "^2.3.2"
 aiohttp = {extras = ["speedups"], version = "^3.9.3"}
 pillow = "^10.2.0"
 isort = "^5.13.2"
+text-to-owo = "^2.0.1"
 
 [tool.yapf]
 based_on_style = "google"

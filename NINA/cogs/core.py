@@ -18,17 +18,20 @@ Typical usage example:
 import asyncio
 import logging
 import os
+import random
 import shutil
+import sys
 
 import discord
+import owo
 from discord import app_commands
 from discord.ext import commands
 
 from NINA import bot
 from NINA.data import const
+from NINA.ext import NINA
 from NINA.ext import checks
 from NINA.ext import exceptions
-from NINA.ext import NINA, recovery
 
 logger = logging.getLogger("NINA.core")
 
@@ -72,10 +75,11 @@ class Core(commands.Cog, name="SimCore"):
         self._dir = const.PROG_DIR.joinpath("data")
         os.makedirs(self._dir, exist_ok=True)
         self.sim = None
+        self.owo_toggwe = False
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         if cast_dir.exists() and events_dir.exists():
             try:
-                self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
+                self.sim = NINA.Simulation(cast_dir, events_dir, self._bt, self.owo_toggwe)
                 logger.info("Loaded last simulation data.")
             except ValueError:
                 self.sim = None
@@ -86,6 +90,12 @@ class Core(commands.Cog, name="SimCore"):
         self._bt.sim = self.sim
         self.lock = False
         logger.info("Loaded %s", self.__class__.__name__)
+
+    def t(self, string: str) -> str:
+        """Adjusts text according to the current owo_toggwe mode."""
+        if self.owo_toggwe:
+            return owo.owo(string)
+        return string
 
     @app_commands.command(
         name="setup",
@@ -112,6 +122,7 @@ class Core(commands.Cog, name="SimCore"):
         if self.lock:
             raise exceptions.UsageError("Bot cog lock active.")
         self.lock = True
+        t = self.t
         logger.info(f"Setting up simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True, ephemeral=True)
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
@@ -121,7 +132,7 @@ class Core(commands.Cog, name="SimCore"):
             with open(events_dir, "wb") as f:
                 f.write(await events.read())
         self.lock = False
-        await ctx.followup.send("Configuration loaded.", ephemeral=True)
+        await ctx.followup.send(t("Configuration loaded."), ephemeral=True)
         logger.info(f"Simulation set up for {ctx.user}.")
 
     @app_commands.command(
@@ -134,6 +145,7 @@ class Core(commands.Cog, name="SimCore"):
         seed="The seed to use for the simulation.",
         randomize_dc="Whether to shuffle district assignments.",
         recolor_dc="Whether to recolor the districts.",
+        owo_toggwe="Manually toggle OwO mode for the simulation.",
     )
     @checks.sim_setup_check()
     async def ready(
@@ -142,6 +154,7 @@ class Core(commands.Cog, name="SimCore"):
         seed: str | None = None,
         randomize_dc: bool = False,
         recolor_dc: bool = False,
+        owo_toggwe: bool = False,
     ) -> None:
         """Readies the simulation.
 
@@ -153,6 +166,7 @@ class Core(commands.Cog, name="SimCore"):
             seed: The seed to use for the simulation.
             randomize_dc: Whether to shuffle district assignments.
             recolor_dc: Whether to recolor the districts.
+            owo_toggwe: Whether to owo_toggwe everything.
         """
         if self.lock:
             raise exceptions.UsageError("Bot simulation lock active.")
@@ -169,17 +183,22 @@ class Core(commands.Cog, name="SimCore"):
                 ephemeral=True,
             )
             return
-        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt)
+        self.owo_toggwe = owo_toggwe
+        if not self.owo_toggwe:
+            a = random.randint(0, sys.maxsize // 2)
+            self.owo_toggwe = a == 0
+        t = self.t
+        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt, self.owo_toggwe)
         self._bt.sim = self.sim
         # Reset the sim just in case.
         logger.info(f"Readying simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True)
         await self.sim.ready(seed, randomize_dc, recolor_dc, ctx)
         embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
-                              title=f"Simulation primary ready up protocol complete.",
-                              description="Fetching images...")
-        embed.set_author(name=self.sim.name, icon_url=self.sim.logo)
-        embed.set_footer(text=f"Random seed: {self.sim.seed}")
+                              title=t(f"Simulation primary ready up protocol complete."),
+                              description=t("Fetching images..."))
+        embed.set_author(name=t(self.sim.name), icon_url=self.sim.logo)
+        embed.set_footer(text=t("Random seed:") + f"{self.sim.seed}")
         await ctx.followup.send(embed=embed)
         cast_fdir = self._dir.joinpath("cast")
         location = self._dir.joinpath("status")
@@ -204,7 +223,7 @@ class Core(commands.Cog, name="SimCore"):
             cwd = cast_fdir.joinpath(str(tribute_id))
             image_tasks.append(tribute.fetch_image("dead", cwd, sesh))
         await asyncio.gather(*image_tasks)
-        await ctx.followup.send("Images fetched. Simulation ready.")
+        await ctx.followup.send(t("Images fetched. Simulation ready."))
         logger.info(f"Simulation readied for {ctx.user}.")
         self.lock = False
 
@@ -225,15 +244,16 @@ class Core(commands.Cog, name="SimCore"):
             ctx: The interaction context.
         """
         await ctx.response.defer(thinking=True)
+        t = self.t
         location = self._dir.joinpath("status")
         os.makedirs(location, exist_ok=True)
         # This is a directory as the districts split the status images.
-        emd = discord.Embed(title="Current Simulation Status",)
-        emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
+        emd = discord.Embed(title=t("Current Simulation Status"))
+        emd.set_author(name=t(f"{self.sim.name}"), icon_url=self.sim.logo)
         for district in self.sim.districts:
             image = await district.get_render(self.sim)
             op_image = discord.File(image, filename=image.name)
-            emd.description = f"Status for {district.name}"
+            emd.description = t(f"Status for {district.name}")
             emd.set_image(url=f"attachment://{image.name}")
             emd.colour = discord.Color.from_str(district.color)
             await ctx.followup.send(embed=emd, file=op_image)
@@ -257,13 +277,16 @@ class Core(commands.Cog, name="SimCore"):
         if self.lock:
             raise exceptions.UsageError("Bot simulation lock active.")
         self.lock = True
-        with recovery.Safe(self.sim) as sim:
-            await ctx.response.defer(thinking=True)
-            ctx.extras["location"] = self._dir.joinpath("cycles", f"{sim.cycle}")
-            os.makedirs(ctx.extras["location"], exist_ok=True)
-            # This is a directory as a cycle consists of multiple event images.
-            await sim.computecycle(ctx)
-            await ctx.followup.send(f"Cycle {sim.cycle - 1} complete!")
+        t = self.t
+        sim = self.sim
+        # recovery.Safe doesn't seem to be working at the moment. Bypassed
+        # with recovery.Safe(self.sim) as sim:
+        await ctx.response.defer(thinking=True)
+        ctx.extras["location"] = self._dir.joinpath("cycles", f"{sim.cycle}")
+        os.makedirs(ctx.extras["location"], exist_ok=True)
+        # This is a directory as a cycle consists of multiple event images.
+        await sim.computecycle(ctx)
+        await ctx.followup.send(t(f"Cycle {sim.cycle - 1} complete!"))
         self.lock = False
 
     @app_commands.command(
@@ -292,13 +315,13 @@ class Core(commands.Cog, name="SimCore"):
                 break
         if isinstance(tribute, str):
             raise exceptions.UsageError("Invalid Tribute provided.")
+        t = self.t
         emd = discord.Embed(
             color=discord.Colour.from_str(tribute.district.color),
-            title=f"Status of {tribute.name}",
-            description=f"**Status:** {['Alive', 'Dead'][tribute.status]}\n"
-            f"**District:** {tribute.district.name}\n"
-            f"**Kills:** {tribute.kills}\n"
-            f"**Power:** {tribute.effectivepower()}",
+            title=t(f"Status of {tribute.name}"),
+            description=t(f"**Status:** {['Alive', 'Dead'][tribute.status]}\n") +
+            t(f"**District:** {tribute.district.name}\n") + t(f"**Kills:** {tribute.kills}\n") +
+            t(f"**Power:** {tribute.effectivepower()}"),
         )
         file = discord.utils.MISSING
         if tribute.status and tribute.dead_image == "BW":
@@ -308,14 +331,15 @@ class Core(commands.Cog, name="SimCore"):
             emd.set_image(url=f"attachment://{file.filename}")
         else:
             emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
-        emd.set_author(name=f"{self.sim.name}", icon_url=self.sim.logo)
-        emd.add_field(name="Items",
+        emd.set_author(name=t(f"{self.sim.name}"), icon_url=self.sim.logo)
+        emd.add_field(name=t("Items"),
                       value=NINA.truncatelast(
-                          "\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()]), 1024))
-        emd.add_field(name="Allies", value=NINA.truncatelast("\n".join([ally.name for ally in tribute.allies]), 1024))
-        emd.add_field(name="Enemies",
-                      value=NINA.truncatelast("\n".join([enemy.name for enemy in tribute.enemies]), 1024))
-        emd.add_field(name="Events", value=NINA.truncatelast("\n".join(tribute.log), 1024))
+                          t("\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()])), 1024))
+        emd.add_field(name=t("Allies"),
+                      value=NINA.truncatelast(t("\n".join([ally.name for ally in tribute.allies])), 1024))
+        emd.add_field(name=t("Enemies"),
+                      value=NINA.truncatelast(t("\n".join([enemy.name for enemy in tribute.enemies])), 1024))
+        emd.add_field(name=t("Events"), value=NINA.truncatelast("\n".join(tribute.log), 1024))
         await ctx.response.send_message(embed=emd, file=file)
 
     @app_commands.command(

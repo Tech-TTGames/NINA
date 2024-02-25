@@ -31,6 +31,7 @@ from typing import Any, Literal, Optional, Union
 
 import aiohttp
 import discord
+import owo
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
@@ -44,7 +45,7 @@ logger = logging.getLogger("NINA.simulation")
 
 BASE_POWER = 500
 MAX_LINEBREAKS = 5
-FONT = "consola.ttf"
+FONT = "unifont.otf"
 DRAW_ARGS = {
     "fill": (255, 255, 255, 255),
     "stroke_fill": (0, 0, 0, 255),
@@ -167,6 +168,7 @@ async def generate_endcycle(
         sim: The current simulation status.
         request: 0 for mortem request, 1 for victory screen.
     """
+    t = sim.t
     tribute_place = const.PROG_DIR.joinpath("data", "cast")
     image_paths = await asyncio.gather(*[
         tribute.fetch_image(["alive", "dead"][tribute.status], tribute_place.joinpath(f"{sim.cast.index(tribute)}"))
@@ -181,9 +183,9 @@ async def generate_endcycle(
         (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
         (0, 0, 0, 0),
     )
-    text = f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}"
+    text = t(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
     if request:
-        text = f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!"
+        text = t(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
     draw = draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 128))
     # Size is
     # Width: number between 1-4 * 576 + 64
@@ -244,6 +246,7 @@ class Simulation:
             See Item class for more information.
         alive: The living tributes of the simulation.
         dead: The dead tributes of the simulation.
+        owo_toggwe: The owo toggle.
     """
     seed: Any
     cycle: int
@@ -251,7 +254,13 @@ class Simulation:
     dead: list["Tribute"]
     cycle_deaths: list["Tribute"]
 
-    def __init__(self, cast_file: pathlib.Path, events_file: pathlib.Path, bot_instance: bot.NINABot | None) -> None:
+    def __init__(
+        self,
+        cast_file: pathlib.Path,
+        events_file: pathlib.Path,
+        bot_instance: bot.NINABot | None,
+        owo_toggwe: bool = False,
+    ) -> None:
         """Initialize the Simulation object."""
         with open(cast_file, "rb") as file:
             data = tomllib.load(file)
@@ -267,10 +276,17 @@ class Simulation:
         if not self.cycles:
             raise ValueError("No cycles found.")
         self._bt = bot_instance
+        self.owo_toggwe = owo_toggwe
 
     def __str__(self):
         """Text representation of the simulation."""
         return f"Project: NINA Simulation: {self.name}"
+
+    def t(self, text: str) -> str:
+        """Adjusts text according to the current owo_toggwe mode."""
+        if self.owo_toggwe:
+            return owo.owo(text)
+        return text
 
     async def ready(
         self,
@@ -291,8 +307,9 @@ class Simulation:
             interaction: The interaction to send some log-like messages to.
         """
         logger.info("Beginning simulation '%s' ready up procedure.", self.name)
+        t = self.t
         if interaction:
-            await interaction.followup.send(f"Beginning simulation `{self.name}` ready up procedure.")
+            await interaction.followup.send(t(f"Beginning simulation `{self.name}` ready up procedure."))
         if not seed:
             seed = os.urandom(16)
             self.seed = int.from_bytes(seed)
@@ -310,12 +327,12 @@ class Simulation:
         if districtrand:
             logger.info("Randomizing district members.")
             if interaction:
-                await interaction.followup.send("Randomizing district members.")
+                await interaction.followup.send(t("Randomizing district members."))
             random.shuffle(self.cast)
         if recolor:
             logger.info("Recoloring districts.")
             if interaction:
-                await interaction.followup.send("Recoloring districts.")
+                await interaction.followup.send(t("Recoloring districts."))
             max_hue = 360
             increment = max_hue // len(self.districts)
             offset = random.randint(0, increment)
@@ -325,7 +342,7 @@ class Simulation:
                 district.color = color
         logger.info("Assigning districts.")
         if interaction:
-            await interaction.followup.send("Assigning districts.")
+            await interaction.followup.send(t("Assigning districts."))
         tid = 0
         mpd = len(self.cast) // len(self.districts)
         for district in self.districts:
@@ -379,14 +396,15 @@ class Simulation:
         if self.cycle in [-2, -1]:
             logger.warning("Simulation '%s' is not ready.", self.name)
             return
+        t = self.t
         cycle = self.getcycle()
         if interaction:
             embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
-                                  title=f"Beginning simulation of Cycle {self.cycle}",
-                                  description=f"Cycle type: {cycle.name}\n"
-                                  f"Remaining tribute count: {len(self.alive)}")
-            embed.set_author(name=self.name, icon_url=self.logo)
-            attach = discord.File(await cycle.render_start(self.cycle))
+                                  title=t(f"Beginning simulation of Cycle {self.cycle}"),
+                                  description=t(f"Cycle type: {cycle.name}\n") +
+                                  t(f"Remaining tribute count: {len(self.alive)}"))
+            embed.set_author(name=t(self.name), icon_url=self.logo)
+            attach = discord.File(await cycle.render_start(self))
             embed.set_image(url="attachment://start.png")
             await interaction.followup.send(embed=embed, file=attach)
         logger.info("Beginning cycle %s.", cycle.name)
@@ -394,7 +412,6 @@ class Simulation:
             logger.info("Displaying cycle text.")
             logger.info(cycle.text)
         logger.info("Computing events.")
-        # Parse to bot here.
         active_tributes = self.alive.copy()
         cycle_events = cycle.events
         event_no = 0
@@ -428,10 +445,10 @@ class Simulation:
                 resolution_text, image = await event.rendered_resolve(tributes_involved, self, pack)
                 attach = discord.File(image, description=f"{resolution_text}")
                 embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
-                                      title=f"Event {event_no} for Cycle {self.cycle}",
-                                      description=f"Active tributes remaining: {len(active_tributes)}\n"
-                                      f"Event result:\n{truncatelast(resolution_text, 5900)}")
-                embed.set_author(name=self.name, icon_url=self.logo)
+                                      title=t(f"Event {event_no} for Cycle {self.cycle}"),
+                                      description=t(f"Active tributes remaining: {len(active_tributes)}\n") +
+                                      t("Event result:") + f"\n{truncatelast(resolution_text, 4096)}")
+                embed.set_author(name=t(self.name), icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
             else:
@@ -448,16 +465,16 @@ class Simulation:
             if interaction:
                 image = await generate_endcycle(self.cycle, self.cycle_deaths, self, 0)
                 attach = discord.File(image)
+                line = t(f"You hear {len(self.cycle_deaths)} cannon shot{'s' if len(self.cycle_deaths) > 1 else ''}"
+                         " in the distance.\nThe fallen tributes are:\n")
                 embed = discord.Embed(
-                    title=f"Fallen Tributes for Day {self.cycle // 2 + 1}",
+                    title=t(f"Fallen Tributes for Day {self.cycle // 2 + 1}"),
                     color=discord.Color.from_rgb(255, 255, 255),
-                    description=
-                    f"You hear {len(self.cycle_deaths)} cannon shot{'s' if len(self.cycle_deaths) > 1 else ''}"
-                    " in the distance.\nThe fallen tributes are:\n" + truncatelast(
-                        "\n".join([f"{tribute.name} - {tribute.district.name}" for tribute in self.cycle_deaths]),
-                        5900),
+                    description=line + truncatelast(
+                        t("\n".join([f"{tribute.name} - {tribute.district.name}" for tribute in self.cycle_deaths])),
+                        4096 - len(line)),
                 )
-                embed.set_author(name=self.name, icon_url=self.logo)
+                embed.set_author(name=t(self.name), icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
             self.cycle_deaths = []
@@ -488,9 +505,9 @@ class Simulation:
                 image = await generate_endcycle(self.cycle, self.alive, self, 1)
                 attach = discord.File(image)
                 embed = discord.Embed(color=discord.Color.gold(),
-                                      title="Simulation Complete",
-                                      description="Winners:\n" + "\n".join([tribute.name for tribute in self.alive]))
-                embed.set_author(name=self.name, icon_url=self.logo)
+                                      title=t("Simulation Complete"),
+                                      description=t("Winners:\n" + "\n".join([tribute.name for tribute in self.alive])))
+                embed.set_author(name=t(self.name), icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
             logger.info("Winner: %s", districts[0].name)
@@ -895,9 +912,9 @@ class Cycle:
         """Text representation of the cycle."""
         return f"Project: NINA Cycle: {self.name}"
 
-    async def render_start(self, current_cycle: int) -> pathlib.Path:
+    async def render_start(self, simstate: Simulation) -> pathlib.Path:
         """Get an image representing the start of the cycle."""
-        place = const.PROG_DIR.joinpath("data", "cycles", f"{current_cycle}", f"start.png")
+        place = const.PROG_DIR.joinpath("data", "cycles", f"{simstate.cycle}", f"start.png")
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
         font = ImageFont.truetype(FONT, size=64)
@@ -908,7 +925,11 @@ class Cycle:
             anchor = "ma"
             font = ImageFont.truetype(FONT, size=16)
             draw_max_text(image, self.text, (512, 32), "md", (256, 64))
-        draw.text((256, y_print), f"Cycle {current_cycle}: {self.name}", anchor=anchor, font=font, **DRAW_ARGS)
+        draw.text((256, y_print),
+                  simstate.t(f"Cycle {simstate.cycle}: {self.name}"),
+                  anchor=anchor,
+                  font=font,
+                  **DRAW_ARGS)
         image.save(place, optimize=True)
         return place
 
@@ -1274,6 +1295,7 @@ class Event:
         item_loses = {}
         item_gains = {}
         resolutuion_strings = []
+        t = simstate.t
         # Priority processing loop
         for tribute_id, changes in enumerate(self.tribute_changes):
             for change, value in changes.items():
@@ -1331,8 +1353,8 @@ class Event:
                         if affected.items[self.item] == 0:
                             affected.items.pop(self.item)
                             destruction = self.item.textl.safe_substitute(Tribute1=affected.name)
-                            resolutuion_strings.append(destruction)
-                            affected.log.append(destruction)
+                            resolutuion_strings.append(t(destruction))
+                            affected.log.append(t(destruction))
                         continue
                     case "itemg":
                         if value == 0:
@@ -1380,7 +1402,7 @@ class Event:
                 resolution_dict[f"ItemL{tribute_id + 1}_{i + 1}"] = item.name
             for i, item in enumerate(item_gains.get(tribute, [])):
                 resolution_dict[f"ItemG{tribute_id + 1}_{i + 1}"] = item.name
-        resolutuion_strings.insert(0, self.text.safe_substitute(**resolution_dict))
+        resolutuion_strings.insert(0, t(self.text.safe_substitute(**resolution_dict)))
         for tribute in tributes:
             tribute.log.append(resolutuion_strings[0])
         self.max_use -= 1

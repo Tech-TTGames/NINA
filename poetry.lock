@@ -762,6 +762,17 @@ files = [
 ]
 
 [[package]]
+name = "text-to-owo"
+version = "2.0.1"
+description = "Translates normal text into OwO speak. Port from Zuzak's javascript version"
+optional = false
+python-versions = ">=3"
+files = [
+    {file = "text-to-owo-2.0.1.tar.gz", hash = "sha256:fdc38a1886a07604e758450c2f15004e15b6e475eb0316c2bc6d1454fba8e679"},
+    {file = "text_to_owo-2.0.1-py3-none-any.whl", hash = "sha256:ff7cda037c83e555cbc735d36113460df3905879d96e205ca2025f65637d9f71"},
+]
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -920,4 +931,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "6f95d98a68fee712c991dddf9aa8f59cdc1e4639c5880e3b893c497093f4a51f"
+content-hash = "1216a1d2b7c1a196652db027dfef4802db4fd53235e3ee85e7914f4759d9b2ee"
