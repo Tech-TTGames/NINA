@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "NINA"
-version = "0.0.1"
+version = "0.1.0"
 description = "Various simulation things, maybe a BR simulator."
 license = "EPL-2.0"
 authors = ["Tech. TTGames <50541739+Tech-TTGames@users.noreply.github.com>"]
