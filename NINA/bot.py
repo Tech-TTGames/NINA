@@ -20,6 +20,7 @@ import pathlib
 import aiohttp
 import discord
 from discord.ext import commands
+
 from NINA import cogs
 from NINA.data import config
 from NINA.data import const
@@ -68,6 +69,7 @@ class NINABot(commands.Bot):
         """
         logger.info("Project: NINA version: %s", const.VERSION)
         logger.info("Discord.py version: %s", discord.__version__)
+        logger.info("Discord username: %s", self.user.name)
         logger.info("Loading cogs...")
         for extension in cogs.EXTENSIONS:
             try:
