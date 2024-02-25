@@ -56,11 +56,23 @@ if __name__ == '__main__':
         help='Randomize district colors.',
         default=False,
     )
+    parser.add_argument(
+        '-toml',
+        '--output_toml',
+        action='store_true',
+        help='Output a toml file.',
+        default=False,
+    )
     args = parser.parse_args()
     colorama.init()
     intake = pathlib.Path(args.input)
     if args.output is None:
-        output = pathlib.Path(args.input[:-4] + '_randomized.txt')
+        if args.output_toml:
+            ext = '.toml'
+        else:
+            ext += '.txt'
+        output = pathlib.Path(args.input[:-4] + f'_randomized{ext}')
+
     else:
         output = pathlib.Path(args.output)
     if not intake.exists():
@@ -93,5 +105,8 @@ if __name__ == '__main__':
             rgb = [int(x * 255) for x in colorsys.hsv_to_rgb((i * increment + offset) / 360, 1.0, 1.0)]
             color = '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
             district['color'] = color + " 0 0"
-    sim.write(output)
+    if args.output_toml:
+        sim.writet(output)
+    else:
+        sim.write(output)
     print(colorama.Fore.CYAN + "Done! Results written to " + str(output) + ".")
