@@ -201,7 +201,7 @@ async def generate_endcycle(
             else:
                 base_image.paste(img[0], paste)
             draw.text((paste[0] + 256, paste[1] + 512),
-                      text=f"{img[1][0]}\n{img[1][1]}",
+                      text=t(f"{img[1][0]}\n{img[1][1]}"),
                       font=font,
                       anchor="ma",
                       **DRAW_ARGS)
@@ -558,6 +558,7 @@ class District:
             sim: The simulation that the district is part of
 
         """
+        t = sim.t
         status = [[tribute.status, tribute.kills, tribute.effectivepower()] for tribute in self.members]
         if self.render and self.render[1] == status:
             return self.render[0]
@@ -566,7 +567,7 @@ class District:
         place = data_dir.joinpath("cast")
         landing = data_dir.joinpath("status")
         tribute_status_gets = [
-            tribute.get_status_render(place.joinpath(f"{sim.cast.index(tribute)}")) for tribute in self.members
+            tribute.get_status_render(place.joinpath(f"{sim.cast.index(tribute)}"), sim) for tribute in self.members
         ]
         tribute_status = await asyncio.gather(*tribute_status_gets)
         tribute_status = [Image.open(stat_img) for stat_img in tribute_status]
@@ -578,7 +579,7 @@ class District:
         font = ImageFont.truetype(FONT, size=128)
         draw.text(
             (base_image.width // 2, 0),
-            self.name,
+            t(self.name),
             font=font,
             anchor="ma",
             fill=self.color,
@@ -809,7 +810,7 @@ class Tribute:
             img.save(placepth, optimize=True)
         return placepth
 
-    async def get_status_render(self, place: pathlib.Path | None) -> pathlib.Path:
+    async def get_status_render(self, place: pathlib.Path | None, sim: Simulation) -> pathlib.Path:
         """Get an assembled image representing the tribute.
 
         With the status, kills and effective power.
@@ -817,7 +818,9 @@ class Tribute:
         Args:
             place: The place to save the image to.
                 The directory for the tribute.
+            sim: The simulation being rendered for.
         """
+        t = sim.t
         status = [self.status, self.kills, self.effectivepower()]
         if self.render and self.render[1] == status:
             return self.render[0]
@@ -832,13 +835,13 @@ class Tribute:
             user_image = Image.open(await self.fetch_image("alive", place))
 
         base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
-        font = ImageFont.truetype(FONT, size=32)
+        font = ImageFont.truetype(FONT, size=28)
         text = (f"{self.name}\n"
                 f"Status: {['Alive', 'Dead'][self.status]}\n"
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         draw = ImageDraw.Draw(base_image)
-        draw.text((256, 670), text, font=font, anchor="md", **DRAW_ARGS)
+        draw.text((256, 675), t(text), font=font, anchor="md", **DRAW_ARGS)
         if user_image.format == "PNG":
             status_img = base_image
             status_img.paste(user_image)
@@ -1531,6 +1534,7 @@ async def main():
     )
     await sim.ready(None)
     # Place for testing code
+    await sim.districts[0].get_render(sim)
 
 
 if __name__ == "__main__":
