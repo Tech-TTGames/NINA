@@ -924,7 +924,7 @@ class Cycle:
             y_print = 0
             anchor = "ma"
             font = ImageFont.truetype(FONT, size=16)
-            draw_max_text(image, self.text, (512, 32), "md", (256, 64))
+            draw_max_text(image, t(self.text), (512, 32), "md", (256, 64))
         draw.text((256, y_print),
                   simstate.t(f"Cycle {simstate.cycle}: {self.name}"),
                   anchor=anchor,
