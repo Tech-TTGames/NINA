@@ -20,7 +20,6 @@ import logging
 import os
 import random
 import shutil
-import sys
 
 import discord
 import owo
@@ -185,7 +184,7 @@ class Core(commands.Cog, name="SimCore"):
             return
         self.owo_toggwe = owo_toggwe
         if not self.owo_toggwe:
-            a = random.randint(0, sys.maxsize // 2)
+            a = random.randint(0, 7911979)
             self.owo_toggwe = a == 0
         t = self.t
         self.sim = NINA.Simulation(cast_dir, events_dir, self._bt, self.owo_toggwe)
