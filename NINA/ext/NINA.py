@@ -953,6 +953,8 @@ class Event:
             $PAX - The possessive adjective of the tribute in the Xth position.
             $ItemLX_Y - The name of the Yth item lost by the tribute in the Xth position.
             $ItemGX_Y - The name of the Yth item gained by the tribute in the Xth position.
+        Variants:
+            ..._C - the capitalized version of the placeholder.
         cycle: The cycle the event belongs to.
         weight: The weight of the event.
             Influences the probability of the event happening.
@@ -1405,6 +1407,8 @@ class Event:
                 resolution_dict[f"ItemL{tribute_id + 1}_{i + 1}"] = item.name
             for i, item in enumerate(item_gains.get(tribute, [])):
                 resolution_dict[f"ItemG{tribute_id + 1}_{i + 1}"] = item.name
+        for key, val in resolution_dict.items():
+            resolution_dict[key+"_C"] = val.capitalize()
         resolutuion_strings.insert(0, t(self.text.safe_substitute(**resolution_dict)))
         for tribute in tributes:
             tribute.log.append(resolutuion_strings[0])
