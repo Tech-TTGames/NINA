@@ -465,7 +465,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 receives a poster from an unknown sponsor. $SP1 reads the poster and its about the Rossartist Propaganda."
+        text = "$Tribute1 receives a poster from an unknown sponsor. $SP1_C reads the poster and its about the Rossartist Propaganda."
         weight = 20
         max_use = -1
         max_cycle = 3
@@ -483,7 +483,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 receives an alert from an unknown sponsor. $SP1 looks up in the sky and its filled with the NordVPN logo."
+        text = "$Tribute1 receives an alert from an unknown sponsor. $SP1_C looks up in the sky and its filled with the NordVPN logo."
         weight = 20
         max_use = -1
         max_cycle = -1
@@ -492,7 +492,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 receives a help and advice guide. $SP1 can't read it and throws it away."
+        text = "$Tribute1 receives a help and advice guide. $SP1_C can't read it and throws it away."
         weight = 20
         max_use = -1
         max_cycle = -1
@@ -690,7 +690,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2 refuses, keeping $Tribute1 alive."
+        text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C refuses, keeping $Tribute1 alive."
         weight = 20
         max_use = -1
         max_cycle = -1
