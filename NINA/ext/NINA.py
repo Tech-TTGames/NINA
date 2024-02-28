@@ -1407,8 +1407,8 @@ class Event:
                 resolution_dict[f"ItemL{tribute_id + 1}_{i + 1}"] = item.name
             for i, item in enumerate(item_gains.get(tribute, [])):
                 resolution_dict[f"ItemG{tribute_id + 1}_{i + 1}"] = item.name
-        for key, val in resolution_dict.items():
-            resolution_dict[key+"_C"] = val.capitalize()
+        for key, val in resolution_dict.copy().items():
+            resolution_dict[key + "_C"] = val.capitalize()
         resolutuion_strings.insert(0, t(self.text.safe_substitute(**resolution_dict)))
         for tribute in tributes:
             tribute.log.append(resolutuion_strings[0])
