@@ -371,7 +371,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 practices $PA1 punches against a Baalia Training Machine."
+        text = "$Tribute1 practices $PP1 punches against a Baalia Training Machine."
         weight = 10
         max_use = -1
         max_cycle = -1
@@ -662,7 +662,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 defeats $Tribute2 in a fight but spares $PP2 life."
+        text = "$Tribute1 defeats $Tribute2 in a fight but spares $PA2 life."
         weight = 20
         max_use = -1
         max_cycle = -1
@@ -909,7 +909,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 tends to $PA1 wounds."
+        text = "$Tribute1 tends to $PP1 own wounds."
         weight = 2
         max_use = -1
         max_cycle = -1

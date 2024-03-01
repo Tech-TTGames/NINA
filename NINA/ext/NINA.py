@@ -57,7 +57,7 @@ DRAW_ARGS = {
 SPronouns = ["she", "he", "it", "they", "they"]
 OPronouns = ["her", "him", "it", "them", "them"]
 PPronouns = ["hers", "his", "its", "theirs", "theirs"]
-RPronouns = ["herself", "himself", "itself", "themself", "themself"]
+RPronouns = ["herself", "himself", "itself", "themselves", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
 
 
