@@ -70,7 +70,7 @@ if __name__ == '__main__':
         if args.output_toml:
             ext = '.toml'
         else:
-            ext += '.txt'
+            ext = '.txt'
         output = pathlib.Path(args.input[:-4] + f'_randomized{ext}')
 
     else:
