@@ -1,7 +1,7 @@
 [[cycles]]
     name = "Bloodbath"
-    # The name of the cycle type. This is
-    text = "As the tributes stand on their podiums, the horn sounds."
+    # The name of the cycle type. This is the identificator of the cycle too.
+    text = "As the tributes materialize on their podiums, the horn sounds."
     weight = "0"
     # The weight of the cycle.
     # The higher the weight, the more likely it is to happen.
