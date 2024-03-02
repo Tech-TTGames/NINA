@@ -938,7 +938,7 @@
     # The aqusition event that is used when the item is first found. Sets a chance of being found, can occur only
     # during a certain cycle, etc.
         text = "$Tribute1 picked up an MP5."
-        weight = 2
+        weight = 10
         max_use = 5
         # There's only 5 MP5s in the arena.
         tribute_changes = [
@@ -954,11 +954,6 @@
             { power = 15, itemu = 1 },
             # The itemu - ItemUse action with 1 uses a charge of the item.
         ]
-        tribute_requirements = [
-            { itemstatus = [">", 0] }
-            # The itemstatus - ItemStatus action with 1, 0 checks if the item has at least 1 charge.
-            # 1 means the greater than operator, and 0 means the value to compare to.
-        ]
 
     [[items.events]]
         text = "$Tribute1 shoots $Tribute2 with $PA1 MP5."
@@ -971,4 +966,72 @@
         tribute_requirements = [
             { relationship = { 1 = "notallies"}, itemstatus = [">", 1] },
             { }
+        ]
+
+[[items]]
+    name = "Advanced Search Command"
+    power = 0
+    cycles =  ["Bloodbath", "Day", "Feast"]
+    use_count = 1
+    textl = "$Tribute1 used up all their rolls."
+
+    [items.base_event]
+        text = "$Tribute1 found some Advanced Searches."
+        weight = 2
+        max_use = 5
+        tribute_changes = [
+            { itemg = 0 }
+        ]
+
+    [[items.events]]
+        text = "$Tribute1 spent their Advanced Searches to restore $Tribute2."
+        weight = 750
+        tribute_changes = [
+            { itemu = 1 },
+            { status = 0, allies = [1, 1], powern = 500}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "allies" }},
+            { status = 1}
+        ]
+
+    [[items.events]]
+        text = "$Tribute1 lost the rate up."
+        weight = 250
+        tribute_changes = [
+            { itemu = 1, powern = -50}
+        ]
+
+[[items]]
+    name = "Basic Search Command"
+    power = 0
+    cycles =  ["Bloodbath", "Day", "Feast"]
+    use_count = 1
+    textl = "$Tribute1 used up all their rolls."
+
+    [items.base_event]
+        text = "$Tribute1 found some Basic Searches."
+        weight = 5
+        max_use = 7
+        tribute_changes = [
+            { itemg = 0 }
+        ]
+
+    [[items.events]]
+        text = "$Tribute1 spent their Basic Searches to restore $Tribute2."
+        weight = 500
+        tribute_changes = [
+            { itemu = 1 },
+            { status = 0, powern = -200}
+        ]
+        tribute_requirements = [
+            { },
+            { status = 1 }
+        ]
+
+    [[items.events]]
+        text = "$Tribute1 lost the rate up."
+        weight = 500
+        tribute_changes = [
+            { itemu = 1, powern = -5}
         ]
