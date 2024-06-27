@@ -192,18 +192,19 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         """
         await ctx.response.send_message("Waiting for code in DMs. Edit response to return something.", ephemeral=True)
 
-        channel = ctx.client.application.owner.dm_channel
+        owner = ctx.client.application.owner
+        channel = owner.dm_channel
         if channel is None:
-            channel = await ctx.client.application.owner.create_dm()
+            channel = await owner.create_dm()
 
         def dm_from_user(msg):
             """Check if the message is from the user in DMs."""
-            return msg.channel == dm_channel and msg.author == owner
+            return msg.channel == channel and msg.author == owner
 
         response = None
         code = await ctx.client.wait_for("message", check=dm_from_user)
         await asyncio.to_thread(exec, code.content, globals(), locals())
-        if response is not None:
+        if response is not None:  # Untested should be edited in the secondary thread.
             await channel.send(str(response))
         else:
             await channel.send("Executed.")
