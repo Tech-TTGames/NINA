@@ -192,7 +192,7 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         """
         await ctx.response.send_message("Waiting for code in DMs. Edit response to return something.", ephemeral=True)
 
-        owner = ctx.client.application.owner
+        owner = ctx.user
         channel = owner.dm_channel
         if channel is None:
             channel = await owner.create_dm()
