@@ -984,4 +984,4 @@ brentutils = ["beautifulsoup4", "tomli-w"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "7a8aee639223a7b4f9ccbb4622df324c389ff717f60dc25a5acaef7cf13972f5"
+content-hash = "aa2d1128023673675fdbecc2191b5c82a99afdb07eb1847cebf8adf8045fd98f"
