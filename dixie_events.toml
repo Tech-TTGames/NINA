@@ -178,7 +178,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 , $Tribute2 , $Tribute3 and $Tribute4 share everything they gathered before running."
+        text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 share everything they gathered before running."
         weight = 1
         max_use = -1
         max_cycle = -1
@@ -589,7 +589,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 chases $Tribute2."
+        text = "$Tribute1 chases $Tribute2 but fails to catch $OP2."
         weight = 20
         max_use = -1
         max_cycle = -1
@@ -603,7 +603,7 @@
         ]
 
     [[cycles.events]]
-        text = "$Tribute1 steals from $Tribute2 while they aren't looking."
+        text = "$Tribute1 steals from $Tribute2 while $SP2 isn't looking."
         weight = 2
         max_use = -1
         max_cycle = 5
@@ -992,7 +992,7 @@
         ]
         tribute_requirements = [
             { relationship = { 2 = "allies" }},
-            { status = 1}
+            { status = 1 }
         ]
 
     [[items.events]]

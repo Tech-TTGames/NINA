@@ -124,16 +124,6 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) (goes/goes/goes/goes/go1) to sleep."
-text = "$Tribute1 goes to sleep."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1:1) and (Player2:1) tell stories about themselves to each other."
 text = "$Tribute1 and $Tribute2 tell stories about themselves to each other."
 tribute_changes = [
@@ -174,16 +164,6 @@ refstring = "(Player1:1) and (Player2:1) sleep in shifts."
 text = "$Tribute1 and $Tribute2 sleep in shifts."
 tribute_changes = [
     {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (tends/tends/tends/tend1) to [typeC1] wounds."
-text = "$Tribute1 tends to $PA1 wounds."
-tribute_changes = [
     {},
 ]
 
@@ -375,17 +355,6 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) (begs/begs/begs/begs/beg1) for (Player2:1) to kill [typeB1]. [TypeA2] (refuses/refuses/refuses/refuses/refuse2), keeping (Player1) alive."
 text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C refuses, keeping $Tribute1 alive."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) (destroys/destroys/destroys/destroys/destroy1) (Player2!1)'s supplies while [typeA2] (is/is/are/is/are2) asleep."
-text = "$Tribute1 destroys $Tribute2's supplies while $SP2 is asleep."
 tribute_changes = [
     {},
     {},
