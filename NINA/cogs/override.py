@@ -204,10 +204,7 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         response = None
         code = await ctx.client.wait_for("message", check=dm_from_user)
         await asyncio.to_thread(exec, code.content, globals(), locals())
-        if response is not None:  # Untested should be edited in the secondary thread.
-            await channel.send(str(response))
-        else:
-            await channel.send("Executed.")
+        await channel.send("Executed.")
 
     @commands.command(name="sync", description="Syncs the tree.")
     @commands.is_owner()

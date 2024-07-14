@@ -953,8 +953,8 @@ class Event:
             $PAX - The possessive adjective of the tribute in the Xth position.
             $ItemLX_Y - The name of the Yth item lost by the tribute in the Xth position.
             $ItemGX_Y - The name of the Yth item gained by the tribute in the Xth position.
-        Variants:
-            ..._C - the capitalized version of the placeholder.
+            Variants:
+                ..._C - the capitalized version of the placeholder.
         cycle: The cycle the event belongs to.
         weight: The weight of the event.
             Influences the probability of the event happening.
