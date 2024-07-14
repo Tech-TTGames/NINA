@@ -1,21 +1,23 @@
 import os
 import re
 
+import bs4
 import tomli_w
-from bs4 import BeautifulSoup
+from selenium import webdriver
+
+driver = webdriver.Firefox()
 
 
-def convert_to_toml(html_data):
+def convert_to_toml(soup: bs4.BeautifulSoup):
     """
     Converts event data from HTML to TOML format.
 
     Args:
-        html_data: String containing the HTML content.
+        soup: The more limited pre-parsed BeautifulSoup object.
 
     Returns:
         A list of dictionaries containing the converted event data in TOML format.
     """
-    soup = BeautifulSoup(html_data, 'html.parser')
     data = soup.find_all("strong")  # Find events separated by double <br>
 
     converted_events = []
@@ -70,15 +72,20 @@ def convert_to_toml(html_data):
 
 def process_html_file(filename):
     """
+    DEPRECATED!
+    Mostly due to the manual-intensive process it uses. The new function will be much more automated.
     Reads HTML data from a file, converts it to TOML, and saves it to a corresponding TOML file.
 
     Args:
         filename: The name of the HTML file to process.
     """
+    from warnings import warn
+    warn("This function is deprecated. It will continue to function but will not be maintained!")
     with open(filename) as f:
         html_data = f.read()
 
-    toml_data = convert_to_toml(html_data)
+    soup = bs4.BeautifulSoup(html_data, 'lxml')
+    toml_data = convert_to_toml(soup)
     toml_data = {"cycles": {"events": toml_data}}
 
     # Create the output filename by replacing the extension with .toml
@@ -88,11 +95,47 @@ def process_html_file(filename):
         tomli_w.dump(toml_data, f)
 
 
-# Get all HTML files in the current directory
-html_files = [f for f in os.listdir() if f.endswith(".html")]
+def scrape_events(entry_url: str):
+    """
+    Fully automatically scrapes all the events from the URL-provided brent simulator link.
 
-# Process each HTML file
-for filename in html_files:
-    process_html_file(filename)
+    Args:
+        entry_url: The URL of the brent simulator save to scrape.
+    """
+    driver.get(entry_url)
+    driver.implicitly_wait(5)
+    base_event_url = "https://brantsteele.com/hungergames/classic/ManageEvents.php?type="
+    e_types = [
+        "bloodbath",
+        "day",
+        "night",
+        "feast",
+        "bloodbathfatal",
+        "dayfatal",
+        "nightfatal",
+        "feastfatal",
+    ]  # TODO: ARENA and ENDGAME need special handling
+    for event_type in e_types:
+        driver.get(base_event_url + event_type)
+        driver.implicitly_wait(5)
+        soup = bs4.BeautifulSoup(driver.page_source, "lxml")
+        soup = soup.find(class_="left")
+        tomled_data = {"cycles": {"events": convert_to_toml(soup)}}
+        with open(event_type + ".toml", "wb") as f:
+            tomli_w.dump(tomled_data, f)
 
-print("Converted all HTML files to TOML successfully!")
+
+if __name__ == "__main__":
+    imput = input("Paste the BrantSteele Save link here or just press enter to use legacy mode!\n")
+    if not imput:
+        # Get all HTML files in the current directory
+        html_files = [f for f in os.listdir() if f.endswith(".html")]
+
+        # Process each HTML file
+        for filename in html_files:
+            process_html_file(filename)
+
+        print("Converted all HTML files to TOML successfully!")
+    else:
+        scrape_events(imput)
+
