@@ -1,0 +1,739 @@
+# Dekete the event after adding/locating it in dixie_events.toml
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (head/head/head/head/heads2)."
+text = "$Tribute1 throws a knife into $Tribute2's head."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) accidentally (steps/steps/steps/steps/step1) on a landmine."
+text = "$Tribute1 accidentally steps on a landmine."
+tribute_changes = [
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (catches/catches/catches/catches/catch1) (Player2!1) off guard and (kills/kills/kills/kills/kill1) [typeB2]."
+text = "$Tribute1 catches $Tribute2 off guard and kills $OP2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to drown (Player3!1)."
+text = "$Tribute1 and $Tribute2 work together to drown $Tribute3."
+tribute_changes = [
+    { kills = 1 },
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) an arrow into (Player2!1)'s (head/head/head/head/heads2)."
+text = "$Tribute1 shoots an arrow into $Tribute2's head."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) cannot handle the circumstances and (commits/commits/commits/commits/commit1) suicide."
+text = "$Tribute1 cannot handle the circumstances and commits suicide."
+tribute_changes = [
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (bashes/bashes/bashes/bashes/bash1) (Player2!1)'s (head/head/head/head/heads2) against a rock several times."
+text = "$Tribute1 bashes $Tribute2's head against a rock several times."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (snaps/snaps/snaps/snaps/snap1) (Player2!1)'s (neck/neck/neck/neck/necks2)."
+text = "$Tribute1 snaps $Tribute2's neck."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (decapitates/decapitates/decapitates/decapitates/decapitate1) (Player2!1) with [typeC1] unsheathed edge."
+text = "$Tribute1 decapitates $Tribute2 with $PA1 unsheathed edge."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (spears/spears/spears/spears/spear1) (Player2!1) in the abdomen."
+text = "$Tribute1 spears $Tribute2 in the abdomen."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) (Player2!1) on fire with a molotov."
+text = "$Tribute1 sets $Tribute2 on fire with a molotov."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into a Sinspreader's maw and gets consumed."
+text = "$Tribute1 falls into a Sinspreader's maw and gets consumed."
+tribute_changes = [
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) while [typeC2] (back is/back is/back is/back is/backs are2) turned."
+text = "$Tribute1 stabs $Tribute2 while $PA2 back is turned."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1), but (puts/puts/injures/puts/put1) [typeB2] out of [typeC2] misery."
+text = "$Tribute1 severely injures $Tribute2, but puts $OP2 out of $PA2 misery."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1) and (leaves/leaves/leaves/leaves/leave1) [typeB2] to die."
+text = "$Tribute1 severely injures $Tribute2 and leaves $OP2 to die."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) bonks (Player2!1)'s (head/head/head/head/heads2) in with a mallet."
+text = "$Tribute1 bonks $Tribute2's head in with a mallet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (pushes/pushes/pushes/pushes/push1) (Player2!1) off a cliff during a knife fight."
+text = "$Tribute1 pushes $Tribute2 off a cliff during a knife fight."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (chest/chest/chest/chest/chests2)."
+text = "$Tribute1 throws a knife into $Tribute2's chest."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (is/is/is/is/are1) unable to convince (Player2!1) to not kill [typeB1]."
+text = "$Tribute1 is unable to convince $Tribute2 to not kill $OP1."
+tribute_changes = [
+    { status = 1 },
+    { kills = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (convinces/convinces/convinces/convinces/convince1) (Player2!1) to not kill [typeB1], only to kill [typeB2] instead."
+text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into MICA's Love & Hope and dies."
+text = "$Tribute1 falls into MICA's Love & Hope and dies."
+tribute_changes = [
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) start fighting, but (Player2) (runs/runs/runs/runs/run2) away as (Player1) (kills/kills/kills/kills/kill1) (Player3)."
+text = "$Tribute1, $Tribute2, and $Tribute3 start fighting, but $Tribute2 runs away as $Tribute1 kills $Tribute3."
+tribute_changes = [
+    { kills = 1 },
+    {},
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with [typeC2] own weapon."
+text = "$Tribute1 kills $Tribute2 with $PA2 own weapon."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (overpowers/overpowers/overpowers/overpowers/overpower1) (Player2!1), killing [typeB2]."
+text = "$Tribute1 overpowers $Tribute2, killing $OP2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), and (Player3!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2, and $Tribute3."
+tribute_changes = [
+    { kills = 2 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), and (Player4!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, and $Tribute4."
+tribute_changes = [
+    { kills = 3 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), (Player4!1) and (Player5!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, $Tribute4 and $Tribute5."
+tribute_changes = [
+    { kills = 4 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) as [typeA2] (tries/tries/try/tries/try2) to run."
+text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) form a suicide pact, killing themselves."
+text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 form a suicide pact, killing themselves."
+tribute_changes = [
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a hatchet."
+text = "$Tribute1 kills $Tribute2 with a hatchet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player1) and (Player2) survive."
+text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute1 and $Tribute2 survive."
+tribute_changes = [
+    { kills = 2 },
+    { kills = 2 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player3) and (Player4) survive."
+text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute3 and $Tribute4 survive."
+tribute_changes = [
+    { status = 1 },
+    { status = 1 },
+    { kills = 2 },
+    { kills = 2 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2) (attacks/attacks/attacks/attacks/attack1) (Player2:2!1), but (Player3:2!1) protects [typeB2], killing (Player1)."
+text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
+tribute_changes = [
+    { status = 1 },
+    { kills = 1 },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) severely (slices/slices/slices/slices/slice1) (Player2!1) with a sword."
+text = "$Tribute1 severely slices $Tribute2 with a sword."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) with a rope."
+text = "$Tribute1 strangles $Tribute2 with a rope."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) for [typeC2] supplies."
+text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a gun at (Player2!1), but (misses/misses/misses/misses/miss1) and (kills/kills/kills/kills/kill1) (Player3) instead."
+text = "$Tribute1 shoots a gun at $Tribute2, but misses and kills $Tribute3 instead."
+tribute_changes = [
+    { kills = 1 },
+    {},
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a suspicious syringe into (Player2!1)'s (neck/neck/neck/neck/necks2), slowly killing [typeB2]."
+text = "$Tribute1 shoots a suspicious syringe into $Tribute2's neck, slowly killing $OP2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) with a tree branch."
+text = "$Tribute1 stabs $Tribute2 with a tree branch."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) in the (back/back/back/back/backs2) with a bayonet."
+text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player1) triumphantly (kills/kills/kills/kills/kill1) them both."
+text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute1 triumphantly kills them both."
+tribute_changes = [
+    { kills = 2 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player2) triumphantly (kills/kills/kills/kills/kill2) them both."
+text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute2 triumphantly kills them both."
+tribute_changes = [
+    { status = 1 },
+    { kills = 2 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight.(Player3) triumphantly (kills/kills/kills/kills/kill3) them both."
+text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
+tribute_changes = [
+    { status = 1 },
+    { status = 1 },
+    { kills = 2 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a sickle."
+text = "$Tribute1 kills $Tribute2 with a sickle."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) repeatedly (stabs/stabs/stabs/stabs/stab1) (Player2!1) to death with a combat knife."
+text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (bleeds/bleeds/bleeds/bleeds/bleed1) out due to untreated injuries."
+text = "$Tribute1 bleeds out due to untreated injuries."
+tribute_changes = [
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (ambushes/ambushes/ambushes/ambushes/ambush1) (Player2!1) and (kills/kills/kills/kills/kill1) [typeB2]."
+text = "$Tribute1 ambushes $Tribute2 and kills $OP2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) successfully ambush and kill (Player4:2!1), (Player5:2!1), and (Player6:2!1)."
+text = "$Tribute1, $Tribute2, and $Tribute3 successfully ambush and kill $Tribute4, $Tribute5, and $Tribute6."
+tribute_changes = [
+    { kills = 3 },
+    { kills = 3 },
+    { kills = 3 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) unsuccessfully ambush (Player4:2!1), (Player5:2!1), and (Player6:2!1), who kill them instead."
+text = "$Tribute1, $Tribute2, and $Tribute3 unsuccessfully ambush $Tribute4, $Tribute5, and $Tribute6, who kill them instead."
+tribute_changes = [
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+    { kills = 3 },
+    { kills = 3 },
+    { kills = 3 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), (Player4:1), and (Player5:1) track down and kill (Player6!1)."
+text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 track down and kill $Tribute6."
+tribute_changes = [
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) track down and kill (Player5!1)."
+text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 track down and kill $Tribute5."
+tribute_changes = [
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), and (Player3:1) track down and kill (Player4!1)."
+text = "$Tribute1, $Tribute2, and $Tribute3 track down and kill $Tribute4."
+tribute_changes = [
+    { kills = 1 },
+    { kills = 1 },
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) track down and kill (Player3!1)."
+text = "$Tribute1 and $Tribute2 track down and kill $Tribute3."
+tribute_changes = [
+    { kills = 1 },
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (tracks/tracks/tracks/tracks/track1) down and (kills/kills/kills/kills/kill1) (Player2!1)."
+text = "$Tribute1 tracks down and kills $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing (Player1), (Player2!1), (Player3!1) and (Player4!1)."
+text = "$Tribute1 stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing $Tribute1, $Tribute2, $Tribute3 and $Tribute4."
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1), killing (Player2) with a headshot."
+text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) kills (Player1) instead."
+text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) found a pressure cooker and tried to open it. It was an IED which promptly exploded."
+text = "$Tribute1 found a pressure cooker and tried to open it. It was an IED which promptly exploded."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) got squished to death by a stray Toad Idol."
+text = "$Tribute1 got squished to death by a stray Toad Idol."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) shoots (Player2!1) in the head. (Player2) had a Reflect protocol active, causing the bullet to bounce back into (Player1)'s head"
+text = "$Tribute1 shoots $Tribute2 in the head. $Tribute2 had a Reflect protocol active, causing the bullet to bounce back into $Tribute1's head"
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1), (Player2) and (Player3)."
+text = "AU's air support fired a cruise missile, killing $Tribute1, $Tribute2 and $Tribute3."
+tribute_changes = [
+    {},
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1) and (Player2)."
+text = "AU's air support fired a cruise missile, killing $Tribute1 and $Tribute2."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1), (Player2), (Player3) and (Player4)."
+text = "AU's air support fired a cruise missile, killing $Tribute1, $Tribute2, $Tribute3 and $Tribute4."
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]

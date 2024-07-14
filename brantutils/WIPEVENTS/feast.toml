@@ -1,0 +1,150 @@
+# Dekete the event after adding/locating it in dixie_events.toml
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (gathers/gathers/gathers/gathers/gather1) as much food into a bag as [typeA1] can before fleeing."
+text = "$Tribute1 gathers as much food into a bag as $SP1 can before fleeing."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (sobs/sobs/sobs/sobs/sob1) while gripping a photo of [typeC1] waifus and husbandos."
+text = "$Tribute1 sobs while gripping a photo of $PA1 waifus and husbandos."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) decide to work together to get more supplies."
+text = "$Tribute1 and $Tribute2 decide to work together to get more supplies."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) get into a fight over raw meat, but (Player2) (gives/gives/gives/gives/give2) up and (runs/runs/runs/runs/run2) away."
+text = "$Tribute1 and $Tribute2 get into a fight over raw meat, but $Tribute2 gives up and runs away."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) get into a fight over an Arma Inscripta upgrade, but (Player1) (gives/gives/gives/gives/give1) up and (runs/runs/runs/runs/run1) away."
+text = "$Tribute1 and $Tribute2 get into a fight over an Arma Inscripta upgrade, but $Tribute1 gives up and runs away."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) confront each other, but grab what they want slowly to avoid conflict."
+text = "$Tribute1, $Tribute2, and $Tribute3 confront each other, but grab what they want slowly to avoid conflict."
+tribute_changes = [
+    {},
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (destroys/destroys/destroys/destroys/destroy1) (Player2!1)'s family memoirs out of spite."
+text = "$Tribute1 destroys $Tribute2's family memoirs out of spite."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) team up to grab food, supplies, weapons, and memoirs."
+text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 team up to grab food, supplies, weapons, and memoirs."
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (steals/steals/steals/steals/steal1) (Player2!1)'s memoirs."
+text = "$Tribute1 steals $Tribute2's memoirs."
+tribute_changes = [
+    {},
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (takes/takes/takes/takes/take1) a Quartz Package leaning against the wall."
+text = "$Tribute1 takes a Quartz Package leaning against the wall."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (stuffs/stuffs/stuffs/stuffs/stuff1) a bundle of algos into a backpack before sprinting away."
+text = "$Tribute1 stuffs a bundle of algos into a backpack before sprinting away."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) grabs a Trigger for a Jupiter Cannon."
+text = "$Tribute1 grabs a Trigger for a Jupiter Cannon."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) finds an Arma Inscripta upgrade, but does not have enough Cores to claim it."
+text = "$Tribute1 finds an Arma Inscripta upgrade, but does not have enough Cores to claim it."
+tribute_changes = [
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) finds an Adult Card on the ground."
+text = "$Tribute1 finds an Adult Card on the ground."
+tribute_changes = [
+    {},
+]
