@@ -1,4 +1,4 @@
-# Dekete the event after adding/locating it in dixie_events.toml
+# Delete the event after adding/locating it in dixie_events.toml
 [[cycles.events]]
 weight = 20
 max_use = -1

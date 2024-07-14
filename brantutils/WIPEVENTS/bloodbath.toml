@@ -1,4 +1,4 @@
-# Dekete the event after adding/locating it in dixie_events.toml
+# Delete the event after adding/locating it in dixie_events.toml
 [[cycles.events]]
 weight = 20
 max_use = -1
@@ -196,26 +196,6 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) finds an Adult Card on the ground."
 text = "$Tribute1 finds an Adult Card on the ground."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) grabs some Basic Searches."
-text = "$Tribute1 grabs some Basic Searches."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) finds some Advanced Searches."
-text = "$Tribute1 finds some Advanced Searches."
 tribute_changes = [
     {},
 ]
