@@ -37,7 +37,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 grabs a backpack and retreats."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -46,7 +46,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 finds some widgets, diggcoins and prefabs."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -55,7 +55,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 runs into the Oasis and hides."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -64,7 +64,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 rips a balloon out of $Tribute2's hands."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -74,7 +74,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 finds a baggie full of water."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -83,7 +83,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 stays at the Oasis for resources."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -92,7 +92,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 gathers as much food as $SP1 can."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -101,7 +101,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 finds a bag full of pumpkins."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -111,7 +111,7 @@
     [[cycles.events]]
         # Consider promoting to a recvoery item?
         text = "$Tribute1 clutches a first aid kit and runs away."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -120,7 +120,7 @@
 
     [[cycles.events]]
         text = "$Tribute1, $Tribute2 and $Tribute3 work together to get as many supplies as possible."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -131,7 +131,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 runs away with a lighter and some rope."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -140,7 +140,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 finds a backpack full of skill pivots."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -149,7 +149,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 breaks $Tribute2's nose for a basket of Choco's chocos."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -159,7 +159,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 grabs a backpack, not realizing its empty."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -168,7 +168,7 @@
 
     [[cycles.events]]
         text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 share everything they gathered before running."
-        weight = 1
+        weight = 10
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -187,7 +187,7 @@
     [[cycles.events]]
         # Consider upgrading to Item
         text = "$Tribute1 retrieves a Grappling Hook from inside the Oasis."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -196,7 +196,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 grabs a jar of fishing bait while $Tribute2 gets fishing gear."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -210,7 +210,7 @@
 
     [[cycles.events]]
         text = "$Tribute1 scares $Tribute2 away from the Oasis."
-        weight = 1
+        weight = 20
         max_use = -1
         max_cycle = -1
         tribute_changes = [
@@ -227,6 +227,244 @@
             { power = 5 }
         ]
 
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 knocks out $Tribute2, leaving them at the Oasis."
+        tribute_changes = [
+            { },
+            { power = -10, enemies = [[1, 1]] },
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 snatches a bottle of alcohol and a rag."
+        tribute_changes = [
+            { power = 5 },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 grabs a Coffee Mug."
+        tribute_changes = [
+            { power = 5 },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 grabs some shotgun shells."
+        tribute_changes = [
+            { power = 1 }, # Doesn't do much considering they don't have a shotgun.
+        ]
+
+    [[cycles.events]]
+        weight = 10
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 grabs some syringes filled with fluids."
+        tribute_changes = [
+            { power = 10 },
+        ]
+
+    [[cycles.events]]
+        weight = 10
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 grabs some syringes filled with fluids."
+        tribute_changes = [
+            { power = -10},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
+        tribute_changes = [
+            { },
+            { enemies = [[1, 1]] },
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 obtains a bass-boosted microphone and screams into $Tribute2's ears, temporarily deafening them."
+        tribute_changes = [
+            {},
+            { power = -5, enemies = [[1, 1]]},
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 aggressively pulls at $Tribute2's hair but they manage to escape."
+        tribute_changes = [
+            {},
+            { power = -5, enemies = [[1, 1]]},
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 kicks $Tribute2 in the gut, forcing $OP2 to run away."
+        tribute_changes = [
+            {},
+            { power = -10, enemies = [[1, 1]]},
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 slaps $Tribute2. They flee out of shame."
+        tribute_changes = [
+            {},
+            { power = -1, enemies = [[1, 1]]},
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies"} },
+            { }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 hastily grabs a poster of his favourite anime."
+        tribute_changes = [
+            { power = 1 },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 runs away from the Oasis crying."
+        tribute_changes = [
+            { power = -2 },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 grabs a skateboard and leaves the Oasis in style."
+        tribute_changes = [
+            { power = 1},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 doesn't know what to do, running away from the Oasis empty-handed."
+        tribute_changes = [
+            { },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 finds farming seeds and escapes the Oasis."
+        tribute_changes = [
+            { power = 5 },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 finds a backpack with one durian in it and escapes the Oasis."
+        tribute_changes = [
+            { power = 5},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 finds a suppressor. It does not fit on the weapon he found."
+        tribute_changes = [
+            { power = 20 }, # Tey *have* found a weapon
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 finds a belt of ammunition and escapes the Oasis."
+        tribute_changes = [
+            { power = 15 },
+        ]
+
+    [[cycles.events]]
+        weight = 10
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 tosses an unpinned frag grenade and destroys a stash of weapons before running away from the Oasis."
+        tribute_changes = [
+            { },
+        ]
+
+    [[cycles.events]]
+        weight = 10
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 tosses a frag grenade and destroys a stash of weapons before running away from the Oasis. It does not blow up, as $Tribute1 did not pull the pin."
+        tribute_changes = [
+            { },
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 flirts with $Tribute2, scaring $OP2 off from the Oasis."
+        tribute_changes = [
+            {},
+            {},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 tries to shoot at $Tribute2 but $OP1 weapon is empty."
+        tribute_changes = [
+            {},
+            {},
+        ]
 
 [[cycles]]
     name = "Day"

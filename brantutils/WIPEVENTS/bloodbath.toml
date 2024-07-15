@@ -13,17 +13,6 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1:1) and (Player2!1) fight for a bag. (Player2) (gives up and retreats/gives up and retreats/gives up and retreats/gives up and retreats/give up and retreat2)."
-text = "$Tribute1 and $Tribute2 fight for a bag. $Tribute2 gives up and retreats."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) (takes/takes/takes/takes/take1) a handful of throwing knives."
 text = "$Tribute1 takes a handful of throwing knives."
 tribute_changes = [
@@ -54,16 +43,6 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) (snatches/snatches/snatches/snatches/snatch1) a bottle of alcohol and a rag."
-text = "$Tribute1 snatches a bottle of alcohol and a rag."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) (snatches/snatches/snatches/snatches/snatch1) a pair of Nunchucks."
 text = "$Tribute1 snatches a pair of Nunchucks."
 tribute_changes = [
@@ -86,16 +65,6 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) grabs a Vector without ammunition."
 text = "$Tribute1 grabs a Vector without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) grabs a Coffee Mug."
-text = "$Tribute1 grabs a Coffee Mug."
 tribute_changes = [
     {},
 ]
@@ -144,28 +113,8 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) grabs some shotgun shells."
-text = "$Tribute1 grabs some shotgun shells."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) grabs an AK-12 with ammunition."
 text = "$Tribute1 grabs an AK-12 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) grabs some syringes filled with fluids."
-text = "$Tribute1 grabs some syringes filled with fluids."
 tribute_changes = [
     {},
 ]
@@ -217,61 +166,6 @@ max_cycle = -1
 refstring = "(Player1) finds an unsheathed edge."
 text = "$Tribute1 finds an unsheathed edge."
 tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) manages to escape."
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) obtains a bass-boosted microphone and screams into (Player2!1)'s ears, temporarily deafening them."
-text = "$Tribute1 obtains a bass-boosted microphone and screams into $Tribute2's ears, temporarily deafening them."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) aggressively pulls at (Player2!1)'s hair but they manage to escape."
-text = "$Tribute1 aggressively pulls at $Tribute2's hair but they manage to escape."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) kicks (Player2!1) in the gut, forcing (him/her/them2) to run away."
-text = "$Tribute1 kicks $Tribute2 in the gut, forcing him to run away."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) slaps (Player2!1). They flee out of shame."
-text = "$Tribute1 slaps $Tribute2. They flee out of shame."
-tribute_changes = [
-    {},
     {},
 ]
 
@@ -569,68 +463,8 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) hastily grabs a poster of (his/her/their1) favourite anime."
-text = "$Tribute1 hastily grabs a poster of his favourite anime."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) runs away from the Oasis crying."
-text = "$Tribute1 runs away from the Oasis crying."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) grabs a spear with a laser sight attached."
 text = "$Tribute1 grabs a spear with a laser sight attached."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) finds farming seeds and escapes the Oasis."
-text = "$Tribute1 finds farming seeds and escapes the Oasis."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) finds a backpack with one durian in it and escapes the Oasis."
-text = "$Tribute1 finds a backpack with one durian in it and escapes the Oasis."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) finds a suppressor. It does not fit on the weapon (he/she/they1) found."
-text = "$Tribute1 finds a suppressor. It does not fit on the weapon he found."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) finds a belt of ammunition and escapes the Oasis."
-text = "$Tribute1 finds a belt of ammunition and escapes the Oasis."
 tribute_changes = [
     {},
 ]
@@ -645,56 +479,6 @@ tribute_changes = [
     {},
 ]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) grabs a skateboard and leaves the Oasis in style."
-text = "$Tribute1 grabs a skateboard and leaves the Oasis in style."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) doesn't know what to do, running away from the Oasis empty-handed."
-text = "$Tribute1 doesn't know what to do, running away from the Oasis empty-handed."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) tosses an unpinned frag grenade and destroys a stash of weapons before running away from the Oasis."
-text = "$Tribute1 tosses an unpinned frag grenade and destroys a stash of weapons before running away from the Oasis."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) tosses a frag grenade and destroys a stash of weapons before running away from the Oasis. It does not blow up, as (Player1) did not pull the pin."
-text = "$Tribute1 tosses a frag grenade and destroys a stash of weapons before running away from the Oasis. It does not blow up, as $Tribute1 did not pull the pin."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) flirts with (Player2!1), scaring (him/her/them2) off from the Oasis."
-text = "$Tribute1 flirts with $Tribute2, scaring him off from the Oasis."
-tribute_changes = [
-    {},
-    {},
-]
 
 [[cycles.events]]
 weight = 20
@@ -703,27 +487,5 @@ max_cycle = -1
 refstring = "(Player1) grabs a bipod knife."
 text = "$Tribute1 grabs a bipod knife."
 tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) knocks out (Player2!1), leaving them at the Oasis."
-text = "$Tribute1 knocks out $Tribute2, leaving them at the Oasis."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) tries to shoot at (Player2!1) but (his/her/their1) weapon is empty."
-text = "$Tribute1 tries to shoot at $Tribute2 but his weapon is empty."
-tribute_changes = [
-    {},
     {},
 ]
