@@ -78,7 +78,7 @@ class Core(commands.Cog, name="SimCore"):
         cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
         if cast_dir.exists() and events_dir.exists():
             try:
-                self.sim = NINA.Simulation(cast_dir, events_dir, self._bt, self.owo_toggwe)
+                self.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
                 logger.info("Loaded last simulation data.")
             except ValueError:
                 self.sim = None
@@ -187,7 +187,7 @@ class Core(commands.Cog, name="SimCore"):
             a = random.randint(0, 7911979)
             self.owo_toggwe = a == 0
         t = self.t
-        self.sim = NINA.Simulation(cast_dir, events_dir, self._bt, self.owo_toggwe)
+        self.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
         self._bt.sim = self.sim
         # Reset the sim just in case.
         logger.info(f"Readying simulation for {ctx.user}.")

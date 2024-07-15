@@ -112,8 +112,8 @@ if __name__ == '__main__':
             max_hue = 360
             increment = max_hue // len(sim.districts)
             offset = random.randint(0, increment)
-            for i, district in enumerate(sim.districts):
-                rgb = [int(x * 255) for x in colorsys.hsv_to_rgb((i * increment + offset) / 360, 1.0, 1.0)]
+            for y, district in enumerate(sim.districts):
+                rgb = [int(x * 255) for x in colorsys.hsv_to_rgb((y * increment + offset) / 360, 1.0, 1.0)]
                 color = '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
                 district['color'] = color + " 0 0"
         if args.output_toml:
