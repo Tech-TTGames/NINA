@@ -37,7 +37,6 @@ from PIL import ImageDraw
 from PIL import ImageFont
 from PIL import ImageSequence
 
-from NINA import bot
 from NINA.data import const
 from NINA.ext import imgops
 
@@ -258,7 +257,6 @@ class Simulation:
         self,
         cast_file: pathlib.Path,
         events_file: pathlib.Path,
-        bot_instance: bot.NINABot | None,
         owo_toggwe: bool = False,
     ) -> None:
         """Initialize the Simulation object."""
@@ -275,7 +273,6 @@ class Simulation:
         self.items = [Item(item, self.cycles) for item in data['items']]
         if not self.cycles:
             raise ValueError("No cycles found.")
-        self._bt = bot_instance
         self.owo_toggwe = owo_toggwe
 
     def __str__(self):
