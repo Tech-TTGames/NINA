@@ -210,12 +210,12 @@ async def generate_endcycle(
         base_image.save(place, optimize=True)
     else:
         place = place.joinpath(f"{['mortem', 'victors'][request]}.gif")
-        max_frames = max([gif[1].n_frames for gif in gifs_pending])
+        max_frames = max([gif[0].n_frames for gif in gifs_pending])
         status_img = [base_image.copy() for _ in range(max_frames)]
         for gif, location in gifs_pending:
             for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
                 result_frame.paste(gif_frame, location)
-        durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process], max_frames)
+        durs = imgops.average_gif_durations([gif[0].info.get("duration", 50) for gif in gifs_pending], max_frames)
         status_img[0].save(
             place,
             save_all=True,
@@ -927,7 +927,7 @@ class Cycle:
             y_print = 0
             anchor = "ma"
             font = ImageFont.truetype(FONT, size=16)
-            draw_max_text(image, t(self.text), (512, 32), "md", (256, 64))
+            draw_max_text(image, simstate.t(self.text), (512, 32), "md", (256, 64))
         draw.text((256, y_print),
                   simstate.t(f"Cycle {simstate.cycle}: {self.name}"),
                   anchor=anchor,
@@ -1474,7 +1474,7 @@ class Item:
 
     Attributes:
         name: The name of the item.
-        textL: The text of the item when lost.
+        textl: The text of the item when lost.
             The only placeholder here is $Tribute1.
         power: The power of the item.
         cycles: The cycles the item can be found in.
