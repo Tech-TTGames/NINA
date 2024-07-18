@@ -43,256 +43,32 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) (thinks/thinks/thinks/thinks/think1) about home."
-text = "$Tribute1 thinks about home."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) (tends/tends/tends/tend1) to (Player2:1)'s wounds."
-text = "$Tribute1 tends to $Tribute2's wounds."
-tribute_changes = [
-    {},
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) an explosive from an unknown bomber."
 text = "$Tribute1 receives an explosive from an unknown bomber."
 tribute_changes = [
     {},
 ]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (questions/questions/questions/questions/question1) [typeC1] sanity."
-text = "$Tribute1 questions $PA1 sanity."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (starts/starts/starts/starts/start1) a fire."
-text = "$Tribute1 starts a fire."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (sets/sets/sets/sets/set1) up camp for the night."
-text = "$Tribute1 sets up camp for the night."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (loses/loses/loses/loses/lose1) sight of where [typeA1] (is/is/are/is/are1)."
-text = "$Tribute1 loses sight of where $SP1 is."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (climbs/climbs/climbs/climbs/climb1) a tree to rest."
-text = "$Tribute1 climbs a tree to rest."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) and (Player2:1) tell stories about themselves to each other."
-text = "$Tribute1 and $Tribute2 tell stories about themselves to each other."
-tribute_changes = [
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) sleep in shifts."
-text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 sleep in shifts."
-tribute_changes = [
-    {},
-    {},
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1), (Player2:1), and (Player3:1) sleep in shifts."
-text = "$Tribute1, $Tribute2, and $Tribute3 sleep in shifts."
-tribute_changes = [
-    {},
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) and (Player2:1) sleep in shifts."
-text = "$Tribute1 and $Tribute2 sleep in shifts."
-tribute_changes = [
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (sees/sees/sees/sees/see1) a fire, but (stays/stays/stays/stays/stay1) hidden."
-text = "$Tribute1 sees a fire, but stays hidden."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (screams/screams/screams/screams/scream1) for help."
-text = "$Tribute1 screams for help."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (stays/stays/stays/stays/stay1) awake all night."
-text = "$Tribute1 stays awake all night."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (passes/passes/passes/passes/pass1) out from exhaustion."
-text = "$Tribute1 passes out from exhaustion."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (cooks/cooks/cooks/cooks/cook1) [typeC1] food before putting [typeC1] fire out."
-text = "$Tribute1 cooks $PA1 food before putting $PA1 fire out."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) and (Player2!1) run into each other and decide to truce for the night."
-text = "$Tribute1 and $Tribute2 run into each other and decide to truce for the night."
-tribute_changes = [
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) (fends/fends/fends/fends/fend1) (Player2!1), (Player3!1), and (Player4!1) away from [typeC1] fire."
-text = "$Tribute1 fends $Tribute2, $Tribute3, and $Tribute4 away from $PA1 fire."
-tribute_changes = [
-    {},
-    {},
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1), (Player2:1), and (Player3:1) discuss the games and what might happen in the morning."
-text = "$Tribute1, $Tribute2, and $Tribute3 discuss the games and what might happen in the morning."
-tribute_changes = [
-    {},
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (cries/cries/cries/cries/cry1) [typeD1] to sleep."
-text = "$Tribute1 cries $RP1 to sleep."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (tries/tries/tries/tries/try1) to treat [typeC1] infection."
-text = "$Tribute1 tries to treat $PA1 infection."
-tribute_changes = [
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) and (Player2:1) talk about the tributes still alive."
-text = "$Tribute1 and $Tribute2 talk about the tributes still alive."
-tribute_changes = [
-    {},
-    {},
-]
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1) (is/is/is/is/are1) awoken by nightmares."
-text = "$Tribute1 is awoken by nightmares."
-tribute_changes = [
-    {},
-]
 
 [[cycles.events]]
 weight = 20
