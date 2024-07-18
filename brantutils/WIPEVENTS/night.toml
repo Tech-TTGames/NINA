@@ -5,7 +5,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) a hatchet from an unknown sponsor."
 text = "$Tribute1 receives a hatchet from an unknown sponsor."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -13,7 +15,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) suspicious liquids from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives suspicious liquids from an unknown Fr*nch sponsor."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -21,7 +25,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) Diggcoins from an unknown scammer."
 text = "$Tribute1 receives Diggcoins from an unknown scammer."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -29,7 +35,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) fresh food from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives fresh food from an unknown Fr*nch sponsor."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -37,7 +45,31 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) an explosive from an unknown bomber."
 text = "$Tribute1 receives an explosive from an unknown bomber."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 [[cycles.events]]
@@ -46,7 +78,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (thinks/thinks/thinks/thinks/think1) about winning."
 text = "$Tribute1 thinks about winning."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -54,7 +88,12 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) tell each other ghost stories to lighten the mood."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 tell each other ghost stories to lighten the mood."
-tribute_changes = [{}, {}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -62,7 +101,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (looks/looks/looks/looks/look1) at the night sky."
 text = "$Tribute1 looks at the night sky."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -70,7 +111,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) (defeats/defeats/defeats/defeats/defeat1) (Player2!1) in a fight, but spares [typeC2] life."
 text = "$Tribute1 defeats $Tribute2 in a fight, but spares $PA2 life."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -78,7 +122,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) (begs/begs/begs/begs/beg1) for (Player2:1) to kill [typeB1]. [TypeA2] (refuses/refuses/refuses/refuses/refuse2), keeping (Player1) alive."
 text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C refuses, keeping $Tribute1 alive."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -86,7 +133,13 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1), (Player2:1), (Player3:1), (Player4:1), and (Player5:1) sleep in shifts."
 text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 sleep in shifts."
-tribute_changes = [{}, {}, {}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -94,7 +147,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) (lets/lets/lets/lets/let1) (Player2:1) into [typeC1] loft."
 text = "$Tribute1 lets $Tribute2 into $PA1 loft."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -102,7 +158,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (tries/tries/tries/tries/try1) to sing [typeD1] to sleep."
 text = "$Tribute1 tries to sing $RP1 to sleep."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -110,7 +168,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (attempts/attempts/attempts/attempts/attempt1) to start a fire, but is unsuccessful."
 text = "$Tribute1 attempts to start a fire, but is unsuccessful."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -118,7 +178,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) quietly (hums/hums/hums/hums/hum1)."
 text = "$Tribute1 quietly hums."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -126,7 +188,11 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1), (Player2:1), and (Player3:1) cheerfully sing songs together."
 text = "$Tribute1, $Tribute2, and $Tribute3 cheerfully sing songs together."
-tribute_changes = [{}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -134,7 +200,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (is/is/is/is/are1) unable to start a fire and sleeps without warmth."
 text = "$Tribute1 is unable to start a fire and sleeps without warmth."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -142,7 +210,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) and (Player2:1) hold hands."
 text = "$Tribute1 and $Tribute2 hold hands."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -150,7 +221,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) (convinces/convinces/convinces/convinces/convince1) (Player2:1) to snuggle with [typeB1]."
 text = "$Tribute1 convinces $Tribute2 to snuggle with $OP1."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -158,7 +232,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives a poster from an unknown sponsor. [TypeA1] reads the poster and its about the Rossartist Propaganda."
 text = "$Tribute1 receives a poster from an unknown sponsor. $SP1_C reads the poster and its about the Rossartist Propaganda."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -166,7 +242,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) helps (Player2:1) sharpen [typeC2] sword."
 text = "$Tribute1 helps $Tribute2 sharpen $PA2 sword."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -174,7 +253,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) decides to become one with the Tree."
 text = "$Tribute1 decides to become one with the Tree."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -182,7 +263,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives sponsorship from NordVPN. The sky is filled with an advertisement."
 text = "$Tribute1 receives sponsorship from NordVPN. The sky is filled with an advertisement."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -190,7 +273,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives a help and advice guide. [TypeA1] can't read it and throws it away."
 text = "$Tribute1 receives a help and advice guide. $SP1_C can't read it and throws it away."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -198,7 +283,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) finds a coffin to sleep in, they were plagued by nightmares."
 text = "$Tribute1 finds a coffin to sleep in, they were plagued by nightmares."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -206,7 +293,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) patiently waits for Ferrari lore to drop."
 text = "$Tribute1 patiently waits for Ferrari lore to drop."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -214,7 +303,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) candies from an unknown sugar addict."
 text = "$Tribute1 receives candies from an unknown sugar addict."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -222,7 +313,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) manages to escape."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -230,7 +324,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives a help and advice guide from an unknown professor. [TypeA1] reads it and clears a Matrix Dungeon."
 text = "$Tribute1 receives a help and advice guide from an unknown professor. $SP1_C reads it and clears a Matrix Dungeon."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -238,7 +334,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) thinks of receiving a sponsorship but first a word from today's sponsor - Raid Shadow Le--- (Player1) installed Ublock Origin."
 text = "$Tribute1 thinks of receiving a sponsorship but first a word from today's sponsor - Raid Shadow Le--- $Tribute1 installed Ublock Origin."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -246,7 +344,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) thinks about playing the critically acclaimed MMORPG Fin--- (Player1) installed Ublock Origin."
 text = "$Tribute1 thinks about playing the critically acclaimed MMORPG Fin--- $Tribute1 installed Ublock Origin."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -254,7 +354,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) wishes they got Sanctifier role."
 text = "$Tribute1 wishes they got Sanctifier role."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -262,7 +364,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) longs for affection."
 text = "$Tribute1 longs for affection."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -270,7 +374,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) considers cannibalism."
 text = "$Tribute1 considers cannibalism."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -278,7 +384,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) practices (his/her/their1) aim in the woods. No one is alarmed, but (Player2!1) hears the gunshots."
 text = "$Tribute1 practices his aim in the woods. No one is alarmed, but $Tribute2 hears the gunshots."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -286,7 +395,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) survives dysentery."
 text = "$Tribute1 survives dysentery."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -294,7 +405,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1)'s weapon breaks."
 text = "$Tribute1's weapon breaks."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -302,7 +415,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) convinces (Player2!1) to team up for the night."
 text = "$Tribute1 convinces $Tribute2 to team up for the night."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -310,7 +426,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) tries to convince (Player2!1) to team up with (him/her/them1) but fails."
 text = "$Tribute1 tries to convince $Tribute2 to team up with him but fails."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -318,7 +437,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) gives (Player2:1) a hug."
 text = "$Tribute1 gives $Tribute2 a hug."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -326,7 +448,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) pats (Player2:1)'s head."
 text = "$Tribute1 pats $Tribute2's head."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -334,7 +459,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) falls off a steep cliff trying to climb down, but survives the fall."
 text = "$Tribute1 falls off a steep cliff trying to climb down, but survives the fall."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -342,7 +469,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) falls off a steep cliff trying to climb down, and is unconscious for the night."
 text = "$Tribute1 falls off a steep cliff trying to climb down, and is unconscious for the night."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -350,7 +479,11 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) and (Player2:1) manage to sneak into (Player3!1)'s shelter and steals from (him/her3)."
 text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from him."
-tribute_changes = [{}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -358,7 +491,11 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) and (Player2:1) chase after (Player3!1) but they fail to catch (him/her/them3)."
 text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch him."
-tribute_changes = [{}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -366,7 +503,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) chases after (Player2!1) but fails to catch (him/her/them2)."
 text = "$Tribute1 chases after $Tribute2 but fails to catch him."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -374,7 +514,12 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1), (Player2:1) and (Player3:1) chase after (Player4!1) but fail to catch (him/her4)."
 text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him."
-tribute_changes = [{}, {}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -382,7 +527,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives a packaging of ramen from an unknown sponsor."
 text = "$Tribute1 receives a packaging of ramen from an unknown sponsor."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -390,7 +537,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) boils water over a firepit and makes ramen."
 text = "$Tribute1 boils water over a firepit and makes ramen."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -398,7 +547,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) laughs at (Player2!1)."
 text = "$Tribute1 laughs at $Tribute2."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -406,7 +558,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) argues with (Player2:1), resulting in (him/her/them2) getting kicked out of (Player1:1)'s shelter."
 text = "$Tribute1 argues with $Tribute2, resulting in him getting kicked out of $Tribute1's shelter."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -414,7 +569,11 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1:1) and (Player2) argue with (Player3:1), resulting in (Player3:1) getting kicked out of their shelter."
 text = "$Tribute1 and $Tribute2 argue with $Tribute3, resulting in $Tribute3 getting kicked out of their shelter."
-tribute_changes = [{}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -422,7 +581,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) gets lit and fucks the club up."
 text = "$Tribute1 gets lit and fucks the club up."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -430,7 +591,10 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) and (Player2) get lit and fuck the club up."
 text = "$Tribute1 and $Tribute2 get lit and fuck the club up."
-tribute_changes = [{}, {}]
+tribute_changes = [
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -438,7 +602,11 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1), (Player2) and (Player3) get lit and fuck the club up."
 text = "$Tribute1, $Tribute2 and $Tribute3 get lit and fuck the club up."
-tribute_changes = [{}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -446,7 +614,12 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1), (Player2), (Player3) and (Player4) get lit and fuck the club up."
 text = "$Tribute1, $Tribute2, $Tribute3 and $Tribute4 get lit and fuck the club up."
-tribute_changes = [{}, {}, {}, {}]
+tribute_changes = [
+    {},
+    {},
+    {},
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -454,7 +627,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) burns a whole field of weed with a flamethrower."
 text = "$Tribute1 burns a whole field of weed with a flamethrower."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -462,7 +637,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) found some operands to repair themselves with."
 text = "$Tribute1 found some operands to repair themselves with."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -470,7 +647,9 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) pets an unknown dog sponsor riding a cart."
 text = "$Tribute1 pets an unknown dog sponsor riding a cart."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
 
 [[cycles.events]]
 weight = 20
@@ -478,4 +657,6 @@ max_use = -1
 max_cycle = -1
 refstring = "(Player1) receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
 text = "$Tribute1 receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
-tribute_changes = [{}]
+tribute_changes = [
+    {},
+]
