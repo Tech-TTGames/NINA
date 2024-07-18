@@ -1862,6 +1862,21 @@
             { power = -5 }
         ]
 
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 and $Tribute2 huddle for warmth."
+        tribute_changes = [
+            { power = 10, allies = [[2, 1]] },
+            { power = 10, allies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies"} },
+            { relationship = { 1 = "notenemies"} }
+        ]
+
 [[items]]
     name = "MP5"
     power = 100

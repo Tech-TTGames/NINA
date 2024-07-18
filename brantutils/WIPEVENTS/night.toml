@@ -70,16 +70,7 @@ tribute_changes = [
 
 
 
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-refstring = "(Player1:1) and (Player2:1) huddle for warmth."
-text = "$Tribute1 and $Tribute2 huddle for warmth."
-tribute_changes = [
-    {},
-    {},
-]
+
 
 [[cycles.events]]
 weight = 20
