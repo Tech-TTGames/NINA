@@ -69,18 +69,6 @@ tribute_changes = [
     {},
 ]
 
-
-
-
-
-
-
-
-
-
-
-
-
 [[cycles.events]]
 weight = 20
 max_use = -1
