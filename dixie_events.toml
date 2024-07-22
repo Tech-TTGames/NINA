@@ -1877,6 +1877,375 @@
             { relationship = { 1 = "notenemies"} }
         ]
 
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 thinks about winning."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 tell each other ghost stories to lighten the mood."
+        tribute_changes = [
+            {},
+            {},
+            {},
+            {}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies", 3 = "notenemies", 4 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 3 = "notenemies", 4 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 4 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies"} }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 looks at the night sky."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 defeats $Tribute2 in a fight, but spares $PA2 life."
+        tribute_changes = [
+            { enemies = [[2, 1]] },
+            { power = -20, enemies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C refuses, keeping $Tribute1 alive."
+        tribute_changes = [
+            { enemies = [[2, 1]] },
+            { notenemies = [[1, 1]] }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 sleep in shifts."
+        tribute_changes = [
+            {},
+            {},
+            {},
+            {},
+            {}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies", 3 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 3 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 4 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies", 5 = "notenemies"} },
+            { relationship = { 1 = "notenemies", 2 = "notenemies", 3 = "notenemies", 4 = "notenemies"} }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 tries to sing $RP1 to sleep."
+        tribute_changes = [
+            {}
+       ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 attempts to start a fire, but is unsuccessful."
+        tribute_changes = [
+            {},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 quietly hums."
+        tribute_changes = [
+            {},
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1, $Tribute2, and $Tribute3 cheerfully sing songs together."
+        tribute_changes = [
+            {},
+            {},
+            {}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies", 3 = "notenemies" } },
+            { relationship = { 1 = "notenemies", 3 = "notenemies" } },
+            { relationship = { 1 = "notenemies", 2 = "notenemies" } }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 lets $Tribute2 into $PA1 loft."
+        tribute_changes = [
+            { allies = [[2, 1]]},
+            { allies = [[1, 1]]}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 is unable to start a fire and sleeps without warmth."
+        tribute_changes = [
+            { power = -5 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 and $Tribute2 hold hands."
+        tribute_changes = [
+            { allies = [[2, 1]] },
+            { allies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            { relationship = { 1 = "notenemies" } }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 convinces $Tribute2 to snuggle with $OP1."
+        tribute_changes = [
+            { allies = [[2 ,1]] },
+            { allies = [[1 ,1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 receives a poster from an unknown sponsor. $SP1_C reads the poster and its about the Rossartist Propaganda."
+        tribute_changes = [
+            { power = 10 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 helps $Tribute2 sharpen $PA2 sword."
+        tribute_changes = [
+            { allies = [[2, 1]] },
+            { allies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            { relationship = { 1 = "notenemies" } }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 decides to become one with the Tree."
+        tribute_changes = [
+            { power = 10 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 receives sponsorship from NordVPN. The sky is filled with an advertisement."
+        tribute_changes = [
+            { power = 10 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 receives a help and advice guide. $SP1_C can't read it and throws it away."
+        tribute_changes = [
+            { power = -10 }
+        ]
+    
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 finds a coffin to sleep in, they were plagued by nightmares."
+        tribute_changes = [
+            { power = -5 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 patiently waits for Ferrari lore to drop."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
+        tribute_changes = [
+            { power = -15 },
+            { enemies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 receives a help and advice guide from an unknown professor. $SP1_C reads it and clears a Matrix Dungeon."
+        tribute_changes = [
+            { power = 20 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 thinks of receiving a sponsorship but first a word from today's sponsor - Raid Shadow Le--- $Tribute1 installed Ublock Origin."
+        tribute_changes = [
+            { power = 10 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 thinks about playing the critically acclaimed MMORPG Fin--- $Tribute1 installed Ublock Origin."
+        tribute_changes = [
+            { power = 10 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 wishes they got Sanctifier role."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 longs for affection."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 practices his aim in the woods. No one is alarmed, but $Tribute2 hears the gunshots."
+        tribute_changes = [
+            { power = 15 },
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 considers cannibalism."
+        tribute_changes = [
+            {}
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 survives dysentery."
+        tribute_changes = [
+            { power = 20 }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 convinces $Tribute2 to team up for the night."
+        tribute_changes = [
+            { allies = [[2, 1]] },
+            { allies = [[1, 1]] }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        text = "$Tribute1 tries to convince $Tribute2 to team up with him but fails."
+        tribute_changes = [
+            {},
+            {}
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notallies" } },
+            { relationship = { 1 = "notallies" } }
+        ]
+
+    [[cycles.events]]
+        weight = 20
+        max_use = -1
+        max_cycle = -1
+        refstring = "(Player1:1) gives (Player2:1) a hug."
+        text = "$Tribute1 gives $Tribute2 a hug."
+        tribute_changes = [
+            { allies = [[2, 1]] },
+            { allies = [[1, 1]] }
+        ]
+        tribute_requirements = [
+            { relationship = { 2 = "notenemies" } },
+            { relationship = { 1 = "notenemies" } }
+        ]
+
+
 [[items]]
     name = "MP5"
     power = 100
