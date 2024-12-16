@@ -1,7 +1,7 @@
 .infobox {
     border: .05rem solid var(--md-primary-fg-color);
-    border-radius: 0.1rem;
-    margin-bottom: 1em;
+    border-radius: .1rem;
+    margin: 0 0 1em 1em;
     border-collapse: collapse;
     font-size: 0.9em;
     width: 300px;
