@@ -1,0 +1,94 @@
+site_name: NINA Project
+site_url: https://nina.ttlabs.org/
+repo_url: https://github.com/Tech-TTGames/NINA
+edit_uri: edit/main/docs/
+
+copyright: >
+  Copyright &copy; 2024 - 2025 Tech. TTGames & Other Project NINA Contributors –
+  <a href="#__consent">Change cookie settings</a>
+
+extra:
+  consent:
+    title: Choco's Cookies!
+    description: >- 
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our wiki and whether users find what
+      they're searching for. With your consent, you're helping us to make our
+      wiki better.
+  analytics:
+    provider: google
+    property: G-KR4WPR2T26
+    feedback:
+          title: Was this page helpful?
+          ratings:
+            - icon: material/emoticon-happy-outline
+              name: This page was helpful
+              data: 1
+              note: >-
+                Thanks for your feedback!
+            - icon: material/emoticon-sad-outline
+              name: This page could be improved
+              data: 0
+              note: >- 
+                Thanks for your feedback! Help us improve this page by
+                using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: cyan
+      toggle:
+        icon: material/brightness-7
+        name: Switch to system preference
+
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.indexes
+    - navigation.top
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.action.edit
+    - content.action.view
+
+
+plugins:
+  - privacy
+  - search
+  - tags:
+      tags_file: tags.md
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: Tech-TTGames/NINA
+      branch: main
+
+markdown_extensions:
+  - attr_list
+  - md_in_html
+
+extra_css:
+  - assets/css/infobox.css

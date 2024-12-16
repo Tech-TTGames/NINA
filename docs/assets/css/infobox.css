@@ -1,0 +1,84 @@
+.infobox {
+    border: .05rem solid var(--md-primary-fg-color);
+    border-radius: 0.1rem;
+    margin-bottom: 1em;
+    border-collapse: collapse;
+    font-size: 0.9em;
+    width: 300px;
+    float: right;
+    clear: right;
+    background: var(--md-primary-fg-color);
+}
+
+
+.infobox .infobox-top {
+    text-align: center;
+    margin: 0.4em;
+    font-size: 1.6em;
+}
+
+.infobox-top p {
+    margin: 0;
+}
+
+.infobox .infobox-subtitle {
+    text-align: center;
+    margin: 0.4em;
+    font-size: 1.125em;
+}
+
+.infobox-subtitle p {
+    margin: 0;
+}
+
+.infobox figure {
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: var(--md-default-bg-color);
+}
+
+.infobox img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.infobox figcaption {
+    margin: 0.5em auto;
+}
+
+.infobox .md-typeset__scrollwrap {
+    margin: 0;
+}
+
+.infobox table:not([class]) {
+    border: none;
+    display: table;
+    border-radius: 0;
+}
+
+.infobox .md-typeset__table {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0;
+    display: block;
+}
+
+.infobox thead {
+    visibility: hidden;
+    display: none;
+    width: 100%;
+    height: 0;
+    margin: 0;
+    border: 0 none;
+}
+
+.infobox tr {
+    width: 100%;
+}
+
+.infobox table:not([class]) td {
+    border-top-color: var(--md-primary-fg-color);
+}

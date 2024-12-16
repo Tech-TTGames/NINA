@@ -1,6 +1,7 @@
 *.txt
 .idea
 .venv
+.cache
 secret*
 config*
 data/*
