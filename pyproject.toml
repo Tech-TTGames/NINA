@@ -6,6 +6,9 @@ license = "EPL-2.0"
 authors = ["Tech. TTGames <50541739+Tech-TTGames@users.noreply.github.com>"]
 readme = "README.md"
 repository = "https://github.com/Tech-TTGames/NINA"
+packages = [
+    {include = "NINA"}
+]
 
 [tool.poetry.scripts]
 start = "NINA.__main__:main"
