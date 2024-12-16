@@ -1,4 +1,4 @@
-*.txt
+brantutils/*.txt
 .idea
 .venv
 .cache
