@@ -74,14 +74,21 @@ theme:
     - content.action.edit
     - content.action.view
 
+nav:
+  - index.md
+  - Dolls:
+      - ...
+not_in_nav: tags.md
 
 plugins:
   - privacy
   - search
+  - awesome-pages
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
       enable_creation_date: true
+      type: timeago
   - git-committers:
       repository: Tech-TTGames/NINA
       branch: main
