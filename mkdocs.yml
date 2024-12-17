@@ -84,6 +84,7 @@ plugins:
   - privacy
   - search
   - awesome-pages
+  - social
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
