@@ -10,6 +10,13 @@
     background: var(--md-primary-fg-color);
 }
 
+@media screen and (max-width: 768px) {
+    .infobox {
+        width: 100%;
+        float: none;
+        margin: 0 auto;
+    }
+}
 
 .infobox .infobox-top {
     text-align: center;
@@ -34,11 +41,13 @@
 .infobox figure {
     margin-top: 0;
     margin-bottom: 0;
+    width: 100%;
     background-color: var(--md-default-bg-color);
 }
 
 .infobox img {
     max-width: 100%;
+    width: 100%;
     height: auto;
     display: block;
     margin-left: auto;

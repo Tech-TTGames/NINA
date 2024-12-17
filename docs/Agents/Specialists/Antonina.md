@@ -8,7 +8,7 @@ tags:
 <div class="infobox" markdown="1">
 <div class="infobox-top" markdown="1">**Antonina**</div>
 <figure markdown="span">
-  ![Antonina!](https://iopwiki.com/images/c/c8/Character_Profile_Antonina.png){ width="300" }
+  ![Antonina!](https://iopwiki.com/images/c/c8/Character_Profile_Antonina.png)
 </figure>
 <div class="infobox-subtitle" markdown="1">**Basic Info**</div>
 
