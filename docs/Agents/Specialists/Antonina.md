@@ -3,7 +3,7 @@ title: Antonina
 description: It's me, Antonina! Your reliable network security assistant! Nice to meet you! ... Oh, it's you, Professor.
 tags:
   - Specialist
-  - Doll
+  - Agent
 ---
 <div class="infobox" markdown="1">
 <div class="infobox-top" markdown="1">**Antonina**</div>
