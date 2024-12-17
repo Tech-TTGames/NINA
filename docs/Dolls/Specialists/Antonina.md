@@ -9,12 +9,17 @@ tags:
 
 Dear Professor, be aware that we're not fully operational yet.
 ///
-<div class="infobox" markdown="1">
-<div class="infobox-top" markdown="1">**Antonina**</div>
-<figure markdown="span">
-  ![Antonina!](https://iopwiki.com/images/c/c8/Character_Profile_Antonina.png)
-</figure>
-<div class="infobox-subtitle" markdown="1">**Basic Info**</div>
+/// html | div.infobox
+
+//// html | div.infobox-top
+
+**Antonina**
+////
+![Antonina!](https://iopwiki.com/images/c/c8/Character_Profile_Antonina.png)
+//// html | div.infobox-subtitle
+
+**Basic Info**
+////
 
 | Entry            | Info                      |
 |------------------|---------------------------|
@@ -24,7 +29,7 @@ Dear Professor, be aware that we're not fully operational yet.
 | **Birthday**     | *Unknown*                 |
 | **Rarity**       | 2*                        |
 | **Voice Actor**  | Juri Nagatsuma            |
-</div>
+///
 
 > It's me, Antonina! Your reliable network security assistant! Nice to meet you! ... Oh, it's you, Professor.
 

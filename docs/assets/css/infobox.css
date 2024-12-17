@@ -1,3 +1,4 @@
+/* This file contains solely definitions for the functionality of infoboxes on the website */
 .infobox {
     border: .05rem solid var(--md-primary-fg-color);
     border-radius: .1rem;
@@ -38,20 +39,13 @@
     margin: 0;
 }
 
-.infobox figure {
-    margin-top: 0;
-    margin-bottom: 0;
-    width: 100%;
-    background-color: var(--md-default-bg-color);
-}
-
 .infobox img {
     max-width: 100%;
     width: 100%;
+    background-color: var(--md-default-bg-color);
     height: auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 0 auto;
 }
 
 .infobox figcaption {
