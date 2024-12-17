@@ -71,6 +71,7 @@ theme:
     - search.suggest
     - search.highlight
     - search.share
+    - content.tooltips
     - content.action.edit
     - content.action.view
     - content.tabs.link

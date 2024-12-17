@@ -111,3 +111,6 @@ If you seriously want to make the most out of her Stun spam, a Guard-less team w
 ### Stats
 
 ### Gift Preferences
+
+*[Trojan]: Debuff: Attack Speed reduced by 10 points.
+*[stuns]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
