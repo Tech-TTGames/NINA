@@ -126,6 +126,7 @@ markdown_extensions:
       slugify: !!python/object/apply:pymdownx.slugs.slugify
         kwds:
           case: lower
+  - mdext.spanner
 
 extra_css:
   - assets/css/infobox.css
