@@ -4,7 +4,7 @@ description: This is a project that provides a place for people to seek informat
 hide:
   - navigation
 ---
-# Welcome to Project: NINA - Wiki!
+# Welcome to Project: NINA!
 !!! danger
     This is currently a very rough WIP version of the wiki! Be warned.
 
