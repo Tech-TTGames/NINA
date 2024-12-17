@@ -73,6 +73,7 @@ theme:
     - search.share
     - content.action.edit
     - content.action.view
+    - content.tabs.link
 
 nav:
   - index.md
@@ -116,8 +117,11 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.tabbed:
+  - pymdownx.blocks.tab:
       alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
 
 extra_css:
   - assets/css/infobox.css
