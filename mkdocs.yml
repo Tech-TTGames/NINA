@@ -77,7 +77,7 @@ theme:
 
 nav:
   - index.md
-  - Agents:
+  - Dolls:
       - ...
 not_in_nav: tags.md
 
