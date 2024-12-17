@@ -1,6 +1,6 @@
 ---
 title: Antonina
-description: So, you getting used to the virtual world yet? When in doubt, come ask me, Antonina! I'm the finest network engineer 42Lab has to offer!
+description: It's me, Antonina! Your reliable network security assistant! Nice to meet you! ... Oh, it's you, Professor.
 tags:
   - Specialist
   - Doll
@@ -24,7 +24,7 @@ tags:
 !!! note
     Dear Professor, be aware that we're not fully operational yet.
 
-> So, you getting used to the virtual world yet? When in doubt, come ask me, Antonina! I'm the finest network engineer 42Lab has to offer!
+> It's me, Antonina! Your reliable network security assistant! Nice to meet you! ... Oh, it's you, Professor.
 
 A basic introduction to Antonina. (Not quite sure what exactly to write here yet, but probably more on the
 story/personality side of the character.)
