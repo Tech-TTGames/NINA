@@ -103,9 +103,11 @@ markdown_extensions:
   - footnotes
   - tables
   - abbr
+  - smarty
   - toc:
       permalink: true
       toc_depth: 3
+  - markdown_grid_tables
   - pymdownx.betterem
   - pymdownx.caret
   - pymdownx.mark

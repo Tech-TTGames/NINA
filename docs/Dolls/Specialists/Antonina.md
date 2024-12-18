@@ -107,10 +107,40 @@ If you seriously want to make the most out of her Stun spam, a Guard-less team w
 
 ## Skills and Stats
 ### Skills and Explanation
+/// tab | Passive
 
+///
+/// tab | Active
+
+///
+/// tab | Ultimate
+
+///
 ### Stats
-
++---------------------------------------------------------------------------------------------------------------------+
+| Maximum Stats (without Algorithms)                                                                                  |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-hp: &emsp; Max HP              | 17225 + 20422 | :attr-crate: &emsp; Crit Rate                   | 8%         |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-atk: &emsp; Attack             | 549 + 571     | :attr-cdmg: &emsp; Crit Damage                  | 50%        |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-hash: &emsp; Hashrate          | 562 + 639     | :attr-phpen: &emsp; Physical Penetration        | 343 + 257  |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-phdef: &emsp; Physical Defense | 355 + 266     | :attr-oppen: &emsp; Operand Penetration         | 347 + 260  |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-opdef: &emsp; Operand Defense  | 375 + 280     | :attr-dodge: &emsp; Dodge Rate                  | 3%         |
++--------------------------------------+---------------+-------------------------------------------------+------------+
+| :attr-spd: &emsp; Attack Speed       | 100           | :attr-battle-regen: &emsp; Post-battle HP Regen | 546 + 1485 |
++--------------------------------------+---------------+-------------------------------------------------+------------+
 ### Gift Preferences
+#### Liked
+ - ~i-epic{Meal for Two}
+ - ~i-rare{Working Meal}
+ - ~i-uncommon{Fast Food}
+#### Disliked
+ - ~i-epic{Teddy Bear}
+ - ~i-rare{Cartoon Doll}
+ - ~i-uncommon{Plushie Charm}
 
 *[Trojan]: Debuff: Attack Speed reduced by 10 points.
 *[stuns]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
