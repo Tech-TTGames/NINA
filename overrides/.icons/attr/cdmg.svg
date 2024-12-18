@@ -7,6 +7,7 @@
 <metadata>
 Created by potrace 1.16, written by Peter Selinger 2001-2019
 </metadata>
+<g transform="translate(0.000000,64.000000) scale(0.100000,-0.100000)" stroke="none">
 <path d="M209 555 l-13 -65 -59 0 c-51 0 -58 -2 -53 -16 12 -30 29 -105 25
 -108 -2 -2 -26 -15 -53 -28 l-49 -25 51 -29 c29 -16 52 -32 52 -36 0 -4 -8
 -30 -19 -57 l-19 -50 61 -3 61 -3 14 -50 c8 -27 16 -52 18 -54 2 -2 24 10 49
@@ -16,3 +17,4 @@ Created by potrace 1.16, written by Peter Selinger 2001-2019
 -64 -44 -83 -21 -7 9 -26 25 -41 35 l-27 20 -13 -65z"/>
 </g>
 </svg>
+

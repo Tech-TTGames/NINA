@@ -12,5 +12,5 @@ Get-ChildItem *.png | ForEach-Object {
     potrace ($_.BaseName + ".pnm") -s -o ($_.BaseName + ".svg")
 
     # Step 5: Remove unwanted fill attribute
-    (Get-Content ($_.BaseName + ".svg")) -replace '\nfill="#000000"', '' | Set-Content ($_.BaseName + ".svg")
+    (Get-Content ($_.BaseName + ".svg") -Raw) -replace '\nfill="#000000"', '' | Set-Content ($_.BaseName + ".svg")
 }
