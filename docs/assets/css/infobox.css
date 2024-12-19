@@ -48,8 +48,8 @@
     margin: 0 auto;
 }
 
-.infobox figcaption {
-    margin: 0.5em auto;
+.infobox p {
+    margin: 0;
 }
 
 .infobox .md-typeset__scrollwrap {
