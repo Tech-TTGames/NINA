@@ -3,3 +3,31 @@
 .r {
     color: #e06666;
 }
+
+.b {
+    color: #41a0b4;
+}
+
+.ai {
+    color: #e3928e;
+}
+
+.i-common {
+    color: #7f7f7f;
+}
+
+.i-uncommon {
+    color: #009aea;
+}
+
+.i-rare {
+    color: #be62f3;
+}
+
+.i-epic {
+    color: #ff7b00;
+}
+
+.i-legendary {
+    color: #fef500;
+}
