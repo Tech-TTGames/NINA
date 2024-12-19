@@ -114,14 +114,46 @@ Normal attacks inflict 1 stack of [Trojan] on target. Targets with 6 stacks of [
 
 ~ai{[Arma Inscripta I]} ~r{Stun} caused by [Trojan] lasts 2 seconds longer.
 
-~ai{[Arma Inscripta II]} Normal attacks target 2 enemies, and apply 1 stack of [Trojan].
+~ai{[Arma Inscripta III]} Normal attacks target 2 enemies, and apply 1 stack of [Trojan].
+
+#### Notes
+- Stun caused by Antonina’s Trojan in particular is represented differently - the enemy gets briefly encased in a yellow octagon, then teal cubes surround the enemy (instead of the yellow swirl above the enemy’s head unlike with other Stun sources).
+- Mechanically, Antonina’s Trojan-caused Stun has the same properties as the normal Stun (prevent the enemy from doing anything and pause their Autoskill charge).
+- The on-death Trojan transfer is represented by a red trail connecting the dead enemy and the inheritor.
+- If the Trojan stack amount on the enemy overflows beyond 6 before the Trojan-caused Stun occurs, the excessive stacks will actually remain on the enemy. In fact, sometimes the Trojan-caused Stun does not happen immediately and you might actually see 7 or more stacks on the same enemy for a brief moment. This might be a hidden cooldown mechanic to make Antonina’s stunlocking less oppressive.
+- Antonina’s Trojan stacks are different from those applied by Crash Data Matrix (the Enigma Trojan server). They will stack up on the enemy independently from each other, they both debuff the enemy’s Attack Speed (f.e. 4+2 stacks from different sources result in -60 Attack Speed in total), and they both will trigger Stun when either of those reaches 6 stacks. The Stun animation & duration will be different, however, and Stun triggered by either type of Trojan will not clear the Trojan stacks from the other source.
+
+~ai{**AI3**}: Antonina attacks one more enemy with her normal attacks, and Trojan gets applied to that enemy as well. If there is only one enemy on the field, that enemy gets hit twice with a slight delay between each hit, and two Trojan stacks get applied to that enemy in total.
+
+This unintentionally enables her ATK DPS build which I personally consider to be superior to her Hashrate one almost every time. If you want to be using Antonina, you would need to pay for AI3 because otherwise it doesn’t feel like she is doing enough to justify her investment and team slot cost.
+
+The second target priority (it’s janky, be aware):
+
+ - It’s usually the most “vulnerable” class enemy within Antonina’s attack range (Medic > Sniper > Specialist > Warrior > Guard).
+ - If there is only one enemy within Antonina’s attack range, the second attack goes to that enemy.
+ - The sniper tile seems to set the furthest enemy as the secondary target, while the closest enemy becomes her primary target. If another enemy becomes the closest one to Antonina, she will begin targeting that enemy with her primary attack.
+ - When affected by the sniper tile, the closest enemy gets hit first while the furthest enemy gets hit the second. That is why I assume the closest enemy is her actual primary target. Moreover, the projectile for the closest enemy spawns first.
+ - Focus Fire makes only one of her attacks go to the marked target. The other hit follows default logic described above: for example, the retargeting tactical command gives a brief fullscreen attack range so Antonina will target the most “vulnerable” enemy with her other shot.
+
+Additional notes:
+
+ - The secondary attack will not trigger Impactor’s pseudo-Backlash if the Impactor in question is Antonina’s secondary target. This is intentional with how Impactor’s skill is worded.
+ - The 4-pcs effect of Multi-End Enhancement adds only one normal attack aimed at Antonina’s primary target, coming out with a slight delay after the first two.
+ - The Blade of Silence card (Mental Cage set) cannot proc on the secondary target, but it seems that the second hit done on the primary target can proc it.
 ///
 /// tab | Active
 ![Chain Pollution Icon](Antonina/active){ .skill-icon }
 #### Chain Pollution
 Deals ~b{Operand Damage equal to 120% Hashrate} to target enemy with greatest ATK, and ~b{[Derivative] Operand Damage equal to 60% Hashrate} to other enemies, applying 1 stack of [Trojan].
 
-~ai{[Arma Inscripta III]} If any enemy triggers Data Corrosion within 3 seconds of skill activation activate [Transmittance].
+~ai{[Arma Inscripta II]} If any enemy triggers Data Corrosion within 3 seconds of skill activation activate [Transmittance].
+
+#### Notes
+- The visual representation of this attack is: Antonina produces an instant thick red beam that connects with the highest ATK enemy, then the smaller red beams will originate from that enemy and go towards all other enemies. Antonina has a bunch of different visual effects, and she won’t hesitate to flood your screen with them, so I find this one lowkey important to point out.
+- The Transmittance damage ignores the enemy OpDEF for some reason.
+- The Transmittance damage can be crit-enabled by Daiyan or Penumbra.
+- Transmittance seems to prioritize the most “vulnerable” classes as its targets: in practice, it would often target the enemy Medics and Snipers regardless of who Antonina is attacking and how the enemies are placed around the field.
+- Transmittance is visually represented by a group of small red dots originating from the affected enemy and flying towards their targets.
 ///
 /// tab | Ultimate
 ![Global Intrusion Icon](Antonina/ultimate){ .skill-icon }
