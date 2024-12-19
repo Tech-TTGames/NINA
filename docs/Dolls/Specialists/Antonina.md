@@ -117,14 +117,14 @@ Normal attacks inflict 1 stack of [Trojan] on target. Targets with 6 stacks of [
 ~ai{[Arma Inscripta II]} Normal attacks target 2 enemies, and apply 1 stack of [Trojan].
 ///
 /// tab | Active
-![Chain Pollution Icon](Antonina/passive){ .skill-icon }
+![Chain Pollution Icon](Antonina/active){ .skill-icon }
 #### Chain Pollution
 Deals ~b{Operand Damage equal to 120% Hashrate} to target enemy with greatest ATK, and ~b{[Derivative] Operand Damage equal to 60% Hashrate} to other enemies, applying 1 stack of [Trojan].
 
 ~ai{[Arma Inscripta III]} If any enemy triggers Data Corrosion within 3 seconds of skill activation activate [Transmittance].
 ///
 /// tab | Ultimate
-![Global Intrusion Icon](Antonina/passive){ .skill-icon }
+![Global Intrusion Icon](Antonina/ultimate){ .skill-icon }
 #### Global Intrusion
 Antonina ~r{Stuns} all enemies for 7 seconds. After 7 seconds, she inflicts 4 stacks of [Trojan] to all enemies.
 ///
@@ -155,4 +155,9 @@ Antonina ~r{Stuns} all enemies for 7 seconds. After 7 seconds, she inflicts 4 st
  - ~i-uncommon{Plushie Charm}
 
 *[Trojan]: Debuff: Attack Speed reduced by 10 points.
+*[stunned]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
 *[stuns]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
+*[Stun]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
+*[Stuns]: Debuff: Immobilizes target, interrupts skill release and halts Auto SKill recharge. This is a control effect.
+*[Transmittance]: Deal [Derivative] Operand Damage equal to 60% to at most 2 other enemies, applying 1 stack of [Trojan].
+*[Derivative]: Damage is affeted by Physical and Operand DEF but, does not trigger Backlash, Life Steal or other damage-related effects, and it does not trigger Functions or the damage condition for most skills.
