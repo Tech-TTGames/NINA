@@ -41,13 +41,13 @@ Let me be completely honest with you: Antonina is only worth raising if you real
 
 Antonina specializes at applying Stun to enemies by piling up Trojan stacks on them: they debuff the enemy Attack Speed, and upon accumulating too many of those the enemy gets Stunned for a fair amount of time. As a byproduct of her design, she also procs the powerful Flush algorithm set and Specialist functions really well, and she is solid at depleting blue bars on top. But this is where the good news end; even though Stun spam effectively reduces the amount of normal attacks and Autoskills the enemy can use on you, each part of Antonina’s kit can be covered with something else and with generally more useful Dolls:
 
-- Attack Speed debuffing is usually a less effective method of defending against normal attacks than the Dodge / Blind strategies provided by Groove AI, Willow AI, Mai, or the semi-common Swift Crackdown function set.
+- Attack Speed debuffing is usually a less effective method of defending against normal attacks than the Dodge / Blind strategies provided by [[Groove]] AI, [[Willow]] AI, [[Mai]], or the semi-common Swift Crackdown function set.
 
-- Stun is undeniably a good effect, but its Autoskill-stalling effect is done way more reliably by Angela or Mai. Hell, Banxsy AI3 can stall Autoskills with Dodge + Blind support just as well while actually doing a decent amount of damage in the process.
+- Stun is undeniably a good effect, but its Autoskill-stalling effect is done way more reliably by [[Angela]] or Mai. Hell, [[Banxsy]] AI3 can stall Autoskills with Dodge + Blind support just as well while actually doing a decent amount of damage in the process.
 
-- Antonina’s blue bar breaking is quite potent and she can fit into Hashrate-scaling teams (most of the BB breakers scale from ATK), but some players can use either Puzzle, Souchun AI, or a strong ATK-scaling breaker like Lind or Centaureissi (despite the stat scaling conflict) instead of Antonina, all of which are either cheaper or more useful at something else than that.
+- Antonina’s blue bar breaking is quite potent, and she can fit into Hashrate-scaling teams (most of the BB breakers scale from ATK), but some players can use either [[Puzzle]], [[Souchun]] AI, or a strong ATK-scaling breaker like [[Lind]] or [[Centaureissi]] (despite the stat scaling conflict) instead of Antonina, all of which are either cheaper or more useful at something else than that.
 
-- Antonina is not cheap. She relies on AI3, high rarity, and Taisch to be actually good and worth her cost.
+- Antonina is not cheap. She relies on AI3, high rarity, and [[Taisch]] to be actually good and worth her cost.
 
 However, Arma Inscripta 3 turns her into a rather unique and interesting unit which will be the focus of this guide because the rest of her kit is that uninteresting to talk about.
 ### Algorithms
@@ -111,6 +111,9 @@ If you seriously want to make the most out of her Stun spam, a Guard-less team w
 
 ///
 /// tab | Active
+![Chain Pollution Icon](Antonina/passive){ .skill-icon }
+#### Chain Pollution
+Deals ~b{Operand Damage equal to 120% Hashrate} to target enemy with greatest ATK, and ~b{[Derivative] Operand Damage equal to 60% Hashrate} to other enemies, applying 1 stack of [Trojan].
 
 ///
 /// tab | Ultimate
