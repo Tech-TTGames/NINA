@@ -88,6 +88,8 @@ plugins:
   - search
   - awesome-pages
   - social
+  - ezlinks
+  - glightbox
   - tags:
       tags_file: tags.md
   - git-revision-date-localized:
