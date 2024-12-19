@@ -15,7 +15,7 @@ Dear Professor, be aware that we're not fully operational yet.
 
 **Antonina**
 ////
-![Antonina!](https://iopwiki.com/images/c/c8/Character_Profile_Antonina.png)
+![Antonina!](Antonina/profile)
 //// html | div.infobox-subtitle
 
 **Basic Info**
