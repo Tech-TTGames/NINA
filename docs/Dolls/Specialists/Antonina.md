@@ -93,16 +93,16 @@ If you seriously want to make the most out of her Stun spam, a Guard-less team w
 ///
 ### Tips
 /// tab | AI3 ATK build
-1. Pay attention to who Antonina is targeting with her normal attacks (I know it’s hard with her attack animations but the big crit numbers should be an easy indication to follow) since those are her primary means of doing damage and being useful in general.
-2. Autoskill pauses her normal attack sequence and results in a damage loss for the ATK build. Don’t spam the battery on Antonina with this build and utilize smart positioning + her Ultimate for suppressing the enemies.
+ - Pay attention to who Antonina is targeting with her normal attacks (I know it’s hard with her attack animations but the big crit numbers should be an easy indication to follow) since those are her primary means of doing damage and being useful in general.
+ - Autoskill pauses her normal attack sequence and results in a damage loss for the ATK build. Don’t spam the battery on Antonina with this build and utilize smart positioning + her Ultimate for suppressing the enemies.
 ///
 
 /// tab | Hashrate Support build
-1. The Malignant Interference and Efficiency Accumulation function sets make the Hashrate build more useful than the AI3 ATK one each in their own ways, and they effectively make Hashrate Antonina not a dead team slot: Malignant Interference pushes her own DPS above the AI3 ATK threshold and supports the actual Hashrate DPS buddy as well, meanwhile Efficiency Accumulation has great supportive and survivability-oriented cards that are useful for the entire team, and Antonina procs them really well. Those two sets also synergize with each other really well (especially in a Specialist-heavy team) so keep an eye on them.
-2. Antonina is a fairly strong blue bar breaker, and her Stun spam really fucks over the enemies with long, channeling skills who are often protected by blue bars: Entropic Fortitude (purple porcupine who rolls like a ball) and Sinspreader EX (red flower) will be left helpless, while Odile and Odette have shield phases that can be bypassed if you use a crowd control effect on them in the meantime. While the latter two are bosses, they usually come with reasonably depletable blue bars. Ptolemaea is meant to be defeated with blue bar breakers, and Antonina qualifies as one.
-3. The Ultimate is pretty straightforward: it just stuns the entire field twice for a relatively long time. The only two things I can add here:
-    1. There is a slight delay between Ult activation and the actual Stun happening (around 0.5 sec), keep that in mind.
-    2. Taisch allows you to spam her suppressing Ult more and achieve the maximum stunlocking potential.
+ - The Malignant Interference and Efficiency Accumulation function sets make the Hashrate build more useful than the AI3 ATK one each in their own ways, and they effectively make Hashrate Antonina not a dead team slot: Malignant Interference pushes her own DPS above the AI3 ATK threshold and supports the actual Hashrate DPS buddy as well, meanwhile Efficiency Accumulation has great supportive and survivability-oriented cards that are useful for the entire team, and Antonina procs them really well. Those two sets also synergize with each other really well (especially in a Specialist-heavy team) so keep an eye on them.
+ - Antonina is a fairly strong blue bar breaker, and her Stun spam really fucks over the enemies with long, channeling skills who are often protected by blue bars: Entropic Fortitude (purple porcupine who rolls like a ball) and Sinspreader EX (red flower) will be left helpless, while Odile and Odette have shield phases that can be bypassed if you use a crowd control effect on them in the meantime. While the latter two are bosses, they usually come with reasonably depletable blue bars. Ptolemaea is meant to be defeated with blue bar breakers, and Antonina qualifies as one.
+ - The Ultimate is pretty straightforward: it just stuns the entire field twice for a relatively long time. The only two things I can add here:
+    - There is a slight delay between Ult activation and the actual Stun happening (around 0.5 sec), keep that in mind.
+    - Taisch allows you to spam her suppressing Ult more and achieve the maximum stunlocking potential.
 ///
 
 ## Skills and Stats
