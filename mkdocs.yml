@@ -136,3 +136,4 @@ markdown_extensions:
 
 extra_css:
   - assets/css/infobox.css
+  - assets/css/pallete.css
