@@ -75,19 +75,15 @@ Add substat priority here.
 /// tab | AI3 ATK build
 Here Antonina is a DPS unit who might be lacking in damage, but her Stun spam and BB breaking will save your Dolls in some situations. Even if you go into Battlefield Overload, the ATK buff from it will benefit her anyway. Below is the list of Dolls who can support her:
 
-Abigail - Antonina only really utilizes the crit buffing aspect of her kit, but it’s still a fine option if you have enough team slots or none of the better options. Low priority.
-
-Groove AI or Willow AI2 - ATK Antonina deals damage through her normal attacks, so Attack Speed buffing is a given. We don’t really have any good options for non-environmental buffing, but those can do (Willow AI2 would require manual teleporting but the teams with Antonina are rarely battery-hungry anyway). Medium-high priority.
-
-Mayuri - The strongest buffer for ATK Dolls in the game, use her if you have her. High priority.
-
-Shield stacking - Dolls like Bonee, Kimie, Millau, and Turing can take advantage of Antonina stalling enemies to accumulate shields on your team much easier, which can save your backline from instant kills later or last for longer during Battlefield Overload. Niche priority.
-
-Taisch - Her Ult generation and Ult CD shortening allow you to stunlock enemies via Antonina’s Ult (which would have the highest possible uptime against 2+ enemies). High priority.
-
-Alternative Ultspam enablers - if you don’t have Taisch or you have to do some strict role compression, then Choco AI2, Daiyan AI3 or Helix can help you use Antonina’s oppressive Ult more often. Medium priority.
-
-Rise - The “better than nothing” option if you don’t have anything else in this list. Low priority.
+| Doll                           | Priority    | Note                                                                                                                                                                                                                                                                                         |
+|--------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [[Mayuri]]                     | High        | The strongest buffer for ATK Dolls in the game, use her if you have her.                                                                                                                                                                                                                     |
+| [[Taisch]]                     | High        | Her Ult generation and Ult CD shortening allow you to stunlock enemies via Antonina’s Ult (which would have the highest possible uptime against 2+ enemies).                                                                                                                                 |
+| [[Groove]] AI / [[Willow]] AI2 | Medium-High | ATK Antonina deals damage through her normal attacks, so Attack Speed buffing is a given. We don’t really have any good options for non-environmental buffing, but those can do. (Willow AI2 would require manual teleporting but the teams with Antonina are rarely battery-hungry anyway.) |
+| Alt. Ultimate Enablers         | Medium      | If you don’t have Taisch or you have to do some strict role compression, then [[Choco]] AI2, [[Daiyan]] AI3 or [[Helix]] can help you use Antonina’s oppressive Ult more often.                                                                                                              |
+| Shield Stackers                | Niche       | Dolls like [[Bonee]], [[Kimie]], [[Millau]], and Turing can take advantage of Antonina stalling enemies to accumulate shields on your team much easier, which can save your backline from instant kills later or last for longer during Battlefield Overload.                                |
+| [[Abigail]]                    | Low         | Antonina only really utilizes the crit buffing aspect of her kit, but it’s still a fine option if you have enough team slots or none of the better options.                                                                                                                                  |
+| [[Rise]]                       | Low         | The “better than nothing” option if you don’t have anything else in this list.                                                                                                                                                                                                               |
 ///
 
 /// tab | Hashrate Support build
