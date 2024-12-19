@@ -108,16 +108,25 @@ If you seriously want to make the most out of her Stun spam, a Guard-less team w
 ## Skills and Stats
 ### Skills and Explanation
 /// tab | Passive
+![Data Corrosion Icon](Antonina/passive){ .skill-icon }
+#### Data Corrosion
+Normal attacks inflict 1 stack of [Trojan] on target. Targets with 6 stacks of [Trojan] will be ~r{stunned} for 3 seconds, then all it [Trojan] stacks will be removed. When the target falls, its Trojan stacks will be transferred to a random enemy.
 
+~ai{[Arma Inscripta I]} ~r{Stun} caused by [Trojan] lasts 2 seconds longer.
+
+~ai{[Arma Inscripta II]} Normal attacks target 2 enemies, and apply 1 stack of [Trojan].
 ///
 /// tab | Active
 ![Chain Pollution Icon](Antonina/passive){ .skill-icon }
 #### Chain Pollution
 Deals ~b{Operand Damage equal to 120% Hashrate} to target enemy with greatest ATK, and ~b{[Derivative] Operand Damage equal to 60% Hashrate} to other enemies, applying 1 stack of [Trojan].
 
+~ai{[Arma Inscripta III]} If any enemy triggers Data Corrosion within 3 seconds of skill activation activate [Transmittance].
 ///
 /// tab | Ultimate
-
+![Global Intrusion Icon](Antonina/passive){ .skill-icon }
+#### Global Intrusion
+Antonina ~r{Stuns} all enemies for 7 seconds. After 7 seconds, she inflicts 4 stacks of [Trojan] to all enemies.
 ///
 ### Stats
 +---------------------------------------------------------------------------------------------------------------------+
