@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "NINA"
 version = "0.1.0a"
-description = "Various simulation things, maybe a BR simulator."
+description = "This is a project that provides both a place for people to seek information about their favorite dolls. It just happens to also have a Battle Royale Simulation Utility."
 license = "EPL-2.0"
 authors = ["Tech. TTGames <50541739+Tech-TTGames@users.noreply.github.com>"]
 readme = "README.md"

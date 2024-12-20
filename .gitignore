@@ -1,8 +1,8 @@
-brantutils/*.txt
+utils/brant/*.txt
 .idea
 .venv
 .cache
 secret*
 config*
 data/*
-*.log*
+log

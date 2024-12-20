@@ -19,7 +19,7 @@ import random
 
 import colorama
 
-from brantutils.brantstructs import Simulation
+from utils.brant.brantstructs import Simulation
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(
