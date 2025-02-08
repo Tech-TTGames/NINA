@@ -2249,6 +2249,10 @@
         max_use = -1
         max_cycle = -1
         text = "$Tribute1 pats $Tribute2's head."
+        tribute_changes = [
+            { allies = [[2, 1]] },
+            { allies = [[1, 1]] }
+        ]
         tribute_requirements = [
             { relationship = { 2 = "notenemies" } },
             { relationship = { 1 = "notenemies" } }
