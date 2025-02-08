@@ -80,7 +80,7 @@ class Core(commands.Cog, name="SimCore"):
             try:
                 self.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
                 logger.info("Loaded last simulation data.")
-            except ValueError:
+            except (ValueError, KeyError):
                 self.sim = None
                 os.remove(cast_dir)
                 os.remove(events_dir)
