@@ -293,7 +293,6 @@ class Core(commands.Cog, name="SimCore"):
         description="Displays the status of a tribute.",
     )
     @app_commands.guild_only()
-    @app_commands.default_permissions(manage_messages=True)
     @app_commands.describe(tribute="The tribute to display.",)
     @checks.sim_ready_check()
     @app_commands.autocomplete(tribute=tribute_autocomplete)
