@@ -1245,13 +1245,13 @@ pyyaml = ">=5.1"
 
 [[package]]
 name = "mkdocs-git-committers-plugin-2"
-version = "2.4.1"
+version = "2.5.0"
 description = "An MkDocs plugin to create a list of contributors on the page. The git-committers plugin will seed the template context with a list of GitHub or GitLab committers and other useful GIT info such as last modified date"
 optional = false
 python-versions = "<4,>=3.8"
 files = [
-    {file = "mkdocs_git_committers_plugin_2-2.4.1-py3-none-any.whl", hash = "sha256:ec9c1d81445606c471337d1c4a1782c643b7377077b545279dc18b86b7362c6d"},
-    {file = "mkdocs_git_committers_plugin_2-2.4.1.tar.gz", hash = "sha256:ea1f80a79cedc42289e0b8e973276df04fb94f56e0ae3efc5385fb28547cf5cb"},
+    {file = "mkdocs_git_committers_plugin_2-2.5.0-py3-none-any.whl", hash = "sha256:1778becf98ccdc5fac809ac7b62cf01d3c67d6e8432723dffbb823307d1193c4"},
+    {file = "mkdocs_git_committers_plugin_2-2.5.0.tar.gz", hash = "sha256:a01f17369e79ca28651681cddf212770e646e6191954bad884ca3067316aae60"},
 ]
 
 [package.dependencies]
@@ -2463,4 +2463,4 @@ brentutils = ["beautifulsoup4", "lxml", "selenium", "tomli-w"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "b5cd44bc3ee7506dfab04a707660363dafb201d5d3254bfac051e19c1a83e7e2"
+content-hash = "b1522079e5ba8abe009ac3471c82d9cc38a92ed578c152a7b07740e6bc9ac534"
