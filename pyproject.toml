@@ -16,7 +16,7 @@ start = "NINA.__main__:main"
 [tool.poetry.dependencies]
 python = "^3.12"
 colorama = "^0.4.6"
-discord-py = "^2.3.2"
+discord-py = "^2.5.2"
 aiohttp = {extras = ["speedups"], version = "^3.11.18"}
 pillow = "^11.1.0"
 text-to-owo = "^2.0.1"
