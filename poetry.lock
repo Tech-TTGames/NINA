@@ -502,14 +502,14 @@ test = ["flake8", "isort", "pytest"]
 
 [[package]]
 name = "certifi"
-version = "2024.12.14"
+version = "2025.8.3"
 description = "Python package for providing Mozilla's CA Bundle."
 optional = false
-python-versions = ">=3.6"
+python-versions = ">=3.7"
 groups = ["main"]
 files = [
-    {file = "certifi-2024.12.14-py3-none-any.whl", hash = "sha256:1275f7a45be9464efc1173084eaa30f866fe2e47d389406136d332ed4967ec56"},
-    {file = "certifi-2024.12.14.tar.gz", hash = "sha256:b650d30f370c2b724812bee08008be0c4163b163ddaec3f2546c1caf65f191db"},
+    {file = "certifi-2025.8.3-py3-none-any.whl", hash = "sha256:f6c12493cfb1b06ba2ff328595af9350c65d6644968e5d3a2ffd78699af217a5"},
+    {file = "certifi-2025.8.3.tar.gz", hash = "sha256:e564105f78ded564e3ae7c923924435e1daa7463faeab5bb932bc53ffae63407"},
 ]
 
 [[package]]
@@ -2208,24 +2208,24 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "selenium"
-version = "4.28.1"
+version = "4.35.0"
 description = "Official Python bindings for Selenium WebDriver"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
 markers = "extra == \"brentutils\""
 files = [
-    {file = "selenium-4.28.1-py3-none-any.whl", hash = "sha256:4238847e45e24e4472cfcf3554427512c7aab9443396435b1623ef406fff1cc1"},
-    {file = "selenium-4.28.1.tar.gz", hash = "sha256:0072d08670d7ec32db901bd0107695a330cecac9f196e3afb3fa8163026e022a"},
+    {file = "selenium-4.35.0-py3-none-any.whl", hash = "sha256:90bb6c6091fa55805785cf1660fa1e2176220475ccdb466190f654ef8eef6114"},
+    {file = "selenium-4.35.0.tar.gz", hash = "sha256:83937a538afb40ef01e384c1405c0863fa184c26c759d34a1ebbe7b925d3481c"},
 ]
 
 [package.dependencies]
-certifi = ">=2021.10.8"
-trio = ">=0.17,<1.0"
-trio-websocket = ">=0.9,<1.0"
-typing_extensions = ">=4.9,<5.0"
-urllib3 = {version = ">=1.26,<3", extras = ["socks"]}
-websocket-client = ">=1.8,<2.0"
+certifi = ">=2025.6.15"
+trio = ">=0.30.0,<0.31.0"
+trio-websocket = ">=0.12.2,<0.13.0"
+typing_extensions = ">=4.14.0,<4.15.0"
+urllib3 = {version = ">=2.5.0,<3.0", extras = ["socks"]}
+websocket-client = ">=1.8.0,<1.9.0"
 
 [[package]]
 name = "six"
@@ -2336,15 +2336,15 @@ files = [
 
 [[package]]
 name = "trio"
-version = "0.27.0"
+version = "0.30.0"
 description = "A friendly Python library for async concurrency and I/O"
 optional = true
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main"]
 markers = "extra == \"brentutils\""
 files = [
-    {file = "trio-0.27.0-py3-none-any.whl", hash = "sha256:68eabbcf8f457d925df62da780eff15ff5dc68fd6b367e2dde59f7aaf2a0b884"},
-    {file = "trio-0.27.0.tar.gz", hash = "sha256:1dcc95ab1726b2da054afea8fd761af74bad79bd52381b84eae408e983c76831"},
+    {file = "trio-0.30.0-py3-none-any.whl", hash = "sha256:3bf4f06b8decf8d3cf00af85f40a89824669e2d033bb32469d34840edcfc22a5"},
+    {file = "trio-0.30.0.tar.gz", hash = "sha256:0781c857c0c81f8f51e0089929a26b5bb63d57f927728a5586f7e36171f064df"},
 ]
 
 [package.dependencies]
@@ -2357,44 +2357,45 @@ sortedcontainers = "*"
 
 [[package]]
 name = "trio-websocket"
-version = "0.11.1"
+version = "0.12.2"
 description = "WebSocket library for Trio"
 optional = true
-python-versions = ">=3.7"
+python-versions = ">=3.8"
 groups = ["main"]
 markers = "extra == \"brentutils\""
 files = [
-    {file = "trio-websocket-0.11.1.tar.gz", hash = "sha256:18c11793647703c158b1f6e62de638acada927344d534e3c7628eedcb746839f"},
-    {file = "trio_websocket-0.11.1-py3-none-any.whl", hash = "sha256:520d046b0d030cf970b8b2b2e00c4c2245b3807853ecd44214acd33d74581638"},
+    {file = "trio_websocket-0.12.2-py3-none-any.whl", hash = "sha256:df605665f1db533f4a386c94525870851096a223adcb97f72a07e8b4beba45b6"},
+    {file = "trio_websocket-0.12.2.tar.gz", hash = "sha256:22c72c436f3d1e264d0910a3951934798dcc5b00ae56fc4ee079d46c7cf20fae"},
 ]
 
 [package.dependencies]
+outcome = ">=1.2.0"
 trio = ">=0.11"
 wsproto = ">=0.14"
 
 [[package]]
 name = "typing-extensions"
-version = "4.12.2"
-description = "Backported and Experimental Type Hints for Python 3.8+"
+version = "4.14.1"
+description = "Backported and Experimental Type Hints for Python 3.9+"
 optional = true
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main"]
 markers = "extra == \"brentutils\""
 files = [
-    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
-    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+    {file = "typing_extensions-4.14.1-py3-none-any.whl", hash = "sha256:d1e1e3b58374dc93031d6eda2420a48ea44a36c2b4766a4fdeb3710755731d76"},
+    {file = "typing_extensions-4.14.1.tar.gz", hash = "sha256:38b39f4aeeab64884ce9f74c94263ef78f3c22467c8724005483154c26648d36"},
 ]
 
 [[package]]
 name = "urllib3"
-version = "2.2.3"
+version = "2.5.0"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.9"
 groups = ["main"]
 files = [
-    {file = "urllib3-2.2.3-py3-none-any.whl", hash = "sha256:ca899ca043dcb1bafa3e262d73aa25c465bfb49e0bd9dd5d59f1d0acba2f8fac"},
-    {file = "urllib3-2.2.3.tar.gz", hash = "sha256:e7d814a81dad81e6caf2ec9fdedb284ecc9c73076b62654547cc64ccdcae26e9"},
+    {file = "urllib3-2.5.0-py3-none-any.whl", hash = "sha256:e6b01673c0fa6a13e374b50871808eb3bf7046c4b125b216f6bf1cc604cff0dc"},
+    {file = "urllib3-2.5.0.tar.gz", hash = "sha256:3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"},
 ]
 
 [package.dependencies]
@@ -2628,4 +2629,4 @@ brentutils = ["beautifulsoup4", "lxml", "selenium", "tomli-w"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "5c8d94f1c5d7d4e856dc03a72bba7ca8c91c1c56901ecd6cb2d6d48bc51ad20f"
+content-hash = "67d97100481c80a575142c95f26154ddd8f1ec275a5f3faa027e7b596a59aaba"
