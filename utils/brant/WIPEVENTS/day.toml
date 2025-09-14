@@ -43,16 +43,6 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
-refstring = "(Player1) (tries/tries/tries/tries/try1) to sleep through the entire day."
-text = "$Tribute1 tries to sleep through the entire day."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
 refstring = "(Player1) (receives/receives/receives/receives/receive1) an explosive from an unknown bomber."
 text = "$Tribute1 receives an explosive from an unknown bomber."
 tribute_changes = [
