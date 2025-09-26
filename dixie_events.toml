@@ -1100,508 +1100,198 @@ tribute_requirements = [
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 grabs a shovel."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1) (takes/takes/takes/takes/take1) a handful of throwing knives."
 text = "$Tribute1 takes a handful of throwing knives."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 takes a Mallet from inside the Oasis."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1) (takes/takes/takes/takes/take1) a Hoe from inside the Oasis."
 text = "$Tribute1 takes a Hoe from inside the Oasis."
 tribute_changes = [
-    {},
+    { power = 10 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (snatches/snatches/snatches/snatches/snatch1) a pair of Nunchucks."
 text = "$Tribute1 snatches a pair of Nunchucks."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 grabs an AR-15 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a Vector without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a MPX with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an M4 but forgets the magazines."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1) picks up a Ballistic Shield."
 text = "$Tribute1 picks up a Ballistic Shield."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 grabs a SPAS-12 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an AK-12 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1) grabs some Quartz."
 text = "$Tribute1 grabs some Quartz."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) picks up a Jupiter Cannon trigger."
 text = "$Tribute1 picks up a Jupiter Cannon trigger."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) finds an Adult Card on the ground."
 text = "$Tribute1 finds an Adult Card on the ground."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) grabs some penlights."
 text = "$Tribute1 grabs some penlights."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) finds an unsheathed edge."
 text = "$Tribute1 finds an unsheathed edge."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 grabs an AR-15 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a Vector with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a MPX without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an M4 along with the magazines."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a SPAS-12 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an AK-12 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 picks up a UMP45 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 picks up a UMP45 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds an HK416 assault rifle with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds an HK416 assault rifle without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a UMP9 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a UMP9 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a AK47 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a AK47 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a Makarov pistol with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a Makarov pistol without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds an MP5 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds an MP5 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds a .50AE Desert Eagle with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 finds a .50AE Desert Eagle without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an MP7 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs an MP7 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a G36 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a G36 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 gets a P90 with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 gets a P90 without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a SIG MCX assault rifle with ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a SIG MCX assault rifle without ammunition."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a metal baseball bat."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 grabs a spear with a laser sight attached."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1) obtains a bulletproof vest and escapes the Oasis."
 text = "$Tribute1 obtains a bulletproof vest and escapes the Oasis."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
-text = "$Tribute1 grabs a bipod knife."
-tribute_changes = [
-    {},
-]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
+refstring = "(Player1:1) (decapitates/decapitates/decapitates/decapitates/decapitate1) (Player2!1) with [typeC1] unsheathed edge."
 text = "$Tribute1 decapitates $Tribute2 with $PA1 unsheathed edge."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (spears/spears/spears/spears/spear1) (Player2!1) in the abdomen."
 text = "$Tribute1 spears $Tribute2 in the abdomen."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) (Player2!1) on fire with a molotov."
 text = "$Tribute1 sets $Tribute2 on fire with a molotov."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) bonks (Player2!1)'s (head/head/head/head/heads2) in with a mallet."
 text = "$Tribute1 bonks $Tribute2's head in with a mallet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets an explosive off, killing $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), and (Player3!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, and $Tribute3."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), and (Player4!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, and $Tribute4."
 tribute_changes = [
     { kills = 3 },
@@ -1609,11 +1299,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), (Player4!1) and (Player5!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, $Tribute4 and $Tribute5."
 tribute_changes = [
     { kills = 4 },
@@ -1622,21 +1317,31 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 with a hatchet."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a hatchet."
+text = "$Tribute1 kills $Tribute2 with a hatchet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player3) and (Player4) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute3 and $Tribute4 survive."
 tribute_changes = [
     { status = 1 },
@@ -1644,134 +1349,199 @@ tribute_changes = [
     { kills = 2 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (slices/slices/slices/slices/slice1) (Player2!1) with a sword."
 text = "$Tribute1 severely slices $Tribute2 with a sword."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a suspicious syringe into (Player2!1)'s (neck/neck/neck/neck/necks2), slowly killing [typeB2]."
 text = "$Tribute1 shoots a suspicious syringe into $Tribute2's neck, slowly killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) in the (back/back/back/back/backs2) with a bayonet."
+text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player1) triumphantly (kills/kills/kills/kills/kill1) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute1 triumphantly kills them both."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player2) triumphantly (kills/kills/kills/kills/kill2) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute2 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { kills = 2 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight.(Player3) triumphantly (kills/kills/kills/kills/kill3) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { status = 1 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (finds/finds/finds/finds/find1) (Player2!1) hiding in the Oasis and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 finds $Tribute2 hiding in the Oasis and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (finds/finds/finds/finds/find1) (Player2!1) hiding in the Oasis, but (Player2) (kills/kills/kills/kills/kill2) [typeB1]."
 text = "$Tribute1 finds $Tribute2 hiding in the Oasis, but $Tribute2 kills $OP1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a sickle."
 text = "$Tribute1 kills $Tribute2 with a sickle."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) fight for a bag. (Player1) (strangles/strangles/strangles/strangles/strangle1) (Player2) with the straps and (runs/runs/runs/runs/run1)."
 text = "$Tribute1 and $Tribute2 fight for a bag. $Tribute1 strangles $Tribute2 with the straps and runs."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) fight for a bag. (Player2) (strangles/strangles/strangles/strangles/strangle2) (Player1) with the straps and (runs/runs/runs/runs/run2)."
 text = "$Tribute1 and $Tribute2 fight for a bag. $Tribute2 strangles $Tribute1 with the straps and runs."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 repeatedly stabs $Tribute2 to death with combat knife."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) repeatedly (stabs/stabs/stabs/stabs/stab1) (Player2!1) to death with combat knife."
+text = "$Tribute1 repeatedly stabs $Tribute2 to death with combat knife."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) bashes (Player2!1) to death with a Ballistic Shield."
 text = "$Tribute1 bashes $Tribute2 to death with a Ballistic Shield."
 tribute_changes = [
     {},
@@ -1782,6 +1552,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1), killing (Player2) with a headshot."
 text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
 tribute_changes = [
     {},
@@ -1792,6 +1563,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) kills (Player1) instead."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 tribute_changes = [
     {},
@@ -1802,6 +1574,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing (Player1), (Player2!1), (Player3!1) and (Player4!1)."
 text = "$Tribute1 stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing $Tribute1, $Tribute2, $Tribute3 and $Tribute4."
 tribute_changes = [
     {},
@@ -1814,6 +1587,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing (Player1), (Player2!1) and (Player3!1)."
 text = "$Tribute1 stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing $Tribute1, $Tribute2 and $Tribute3."
 tribute_changes = [
     {},
@@ -1825,6 +1599,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) mentally overpowers (Player2!1) in a fight, killing (him/her/them2). Checkmate."
 text = "$Tribute1 mentally overpowers $Tribute2 in a fight, killing him. Checkmate."
 tribute_changes = [
     {},
@@ -1835,6 +1610,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (his/her/their1) weapon toward (Player2), but (Player3!1) gets in the way to protect (him/her/them2), killing (Player3)."
 text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
 tribute_changes = [
     {},
@@ -1846,6 +1622,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) attempts to stab (Player2), but (Player3!1:2) sacrifices (himself/herself/themself3) to protect (him/her/them2), killing (Player1) and (Player3)."
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
 tribute_changes = [
     {},
@@ -1857,6 +1634,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) attempts to stab (Player2), but (Player3:1) protects (him/her/them2), killing (Player1)."
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects him, killing $Tribute1."
 tribute_changes = [
     {},
@@ -1868,6 +1646,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) unloads their assault rifle into (Player2!1)'s chest point blank, killing (him/her/them2)."
 text = "$Tribute1 unloads their assault rifle into $Tribute2's chest point blank, killing him."
 tribute_changes = [
     {},
@@ -1878,6 +1657,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) brutally beats (Player2!1) to death with a metal baseball bat."
 text = "$Tribute1 brutally beats $Tribute2 to death with a metal baseball bat."
 tribute_changes = [
     {},
@@ -1888,6 +1668,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) forgets (his/her/their1) trigger discipline and fires into (Player2!1)'s chest, fatally wounding (him/her/them2)."
 text = "$Tribute1 forgets his trigger discipline and fires into $Tribute2's chest, fatally wounding him."
 tribute_changes = [
     {},
@@ -1898,6 +1679,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) sneaks up to (Player2:1) from behind and attempts to choke (him/her/them2) to death, but (he/she/they2) would manage to choke (Player1) instead after a struggle."
 text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke him to death, but he would manage to choke $Tribute1 instead after a struggle."
 tribute_changes = [
     {},
@@ -1908,6 +1690,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) throws an unpinned grenade at (Player2!1) and (Player3!1), blowing them both up."
 text = "$Tribute1 throws an unpinned grenade at $Tribute2 and $Tribute3, blowing them both up."
 tribute_changes = [
     {},
@@ -1919,6 +1702,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) throws an unpinned grenade at (Player2) and (Player3!1). Only (Player2) manages to escape the blast."
 text = "$Tribute1 throws an unpinned grenade at $Tribute2 and $Tribute3. Only $Tribute2 manages to escape the blast."
 tribute_changes = [
     {},
@@ -1930,6 +1714,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) throws an unpinned grenade at (Player2) and (Player3!1). Only (Player3) manages to escape the blast."
 text = "$Tribute1 throws an unpinned grenade at $Tribute2 and $Tribute3. Only $Tribute3 manages to escape the blast."
 tribute_changes = [
     {},
@@ -1941,6 +1726,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) fires (his/her/their1) weapon at (Player2:1) but misses, (Player2) shoots back and kills (Player1)."
 text = "$Tribute1 fires his weapon at $Tribute2 but misses, $Tribute2 shoots back and kills $Tribute1."
 tribute_changes = [
     {},
@@ -1951,6 +1737,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:2) work together to kill (Player3!1!2) in a gun fight and they succeed."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight and they succeed."
 tribute_changes = [
     {},
@@ -1962,6 +1749,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) and (Player2) work together to kill (Player3:1) in a gun fight. (Player3) shoots back and kills (Player1)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute1."
 tribute_changes = [
     {},
@@ -1973,6 +1761,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) and (Player2!1) work together to kill (Player3:1) in a gun fight. (Player3) shoots back and kills (Player2)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2."
 tribute_changes = [
     {},
@@ -1984,6 +1773,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) and (Player2!1) work together to kill (Player3:1) in a gun fight. (Player3) shoots back and kills both (Player1) and (Player2)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills both $Tribute1 and $Tribute2."
 tribute_changes = [
     {},
@@ -1995,28 +1785,39 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1!1) and (Player2:2) work together to kill (Player3:1!2) in a gun fight. (Player3) shoots back and kills (Player1), but (Player2) shoots and kills (Player3) as well."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute1, but $Tribute2 shoots and kills $Tribute3 as well."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
     { kills = 1, status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2, but $Tribute1 shoots and kills $Tribute3 as well."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
-    { kills = 1, status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:2) and (Player2!1) work together to kill (Player3:1!2) in a gun fight. (Player3) shoots back and kills (Player2), but (Player1) shoots and kills (Player3) as well."
+text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2, but $Tribute1 shoots and kills $Tribute3 as well."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+    { kills = 1, status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1!1) surrenders to (Player2:1) before being shot to death by (Player2)."
 text = "$Tribute1 surrenders to $Tribute2 before being shot to death by $Tribute2."
 tribute_changes = [
     {},
@@ -2027,6 +1828,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) surrenders to (Player2!1) but quickly disarms (Player2) as (he/she/they2) got too close, (Player1) shoots (Player2) to death."
 text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as he got too close, $Tribute1 shoots $Tribute2 to death."
 tribute_changes = [
     {},
@@ -2037,6 +1839,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (Player2!1) in the head. (Player2) had a Reflect protocol active, causing the bullet to bounce back into (Player1)'s head"
 text = "$Tribute1 shoots $Tribute2 in the head. $Tribute2 had a Reflect protocol active, causing the bullet to bounce back into $Tribute1's head"
 tribute_changes = [
     {},
@@ -2735,506 +2538,640 @@ tribute_requirements = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a hatchet from an unknown sponsor."
 text = "$Tribute1 receives a hatchet from an unknown sponsor."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) suspicious liquids from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives suspicious liquids from an unknown Fr*nch sponsor."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) Diggcoins from an unknown scammer."
 text = "$Tribute1 receives Diggcoins from an unknown scammer."
 tribute_changes = [
-    {},
+    { power = 10 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) fresh food from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives fresh food from an unknown Fr*nch sponsor."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) an explosive from an unknown bomber."
 text = "$Tribute1 receives an explosive from an unknown bomber."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks of receiving a sponsorship but first a word from today's sponsor - Raid Shadow Le--- (Player1) installed Ublock Origin"
 text = "$Tribute1 thinks of receiving a sponsorship but first a word from today's sponsor - Raid Shadow Le--- $Tribute1 installed uBlock Origin"
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) candies from an unknown sugar addict."
 text = "$Tribute1 receives candies from an unknown sugar addict."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) manages to escape."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) finds a plastic chair overlooking a cliff. They sit down and contemplate their life choices."
 text = "$Tribute1 finds a plastic chair overlooking a cliff. They sit down and contemplate their life choices."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) receives a help and advice guide from an unknown professor. [TypeA1] reads it and clears a Matrix Dungeon."
 text = "$Tribute1 receives a help and advice guide from an unknown professor. $SP1_C reads it and clears a Matrix Dungeon."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about playing the critically acclaimed MMORPG Fin--- (Player1) installed Ublock Origin."
 text = "$Tribute1 thinks about playing the critically acclaimed MMORPG Fin--- $Tribute1 installed Ublock Origin."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) wishes they got Sanctifier role."
 text = "$Tribute1 wishes they got Sanctifier role."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) longs for affection."
 text = "$Tribute1 longs for affection."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) trades with (Player2!1)'s district for ammunition."
 text = "$Tribute1 trades with $Tribute2's district for ammunition."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) considers cannibalism."
 text = "$Tribute1 considers cannibalism."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) couldn't care less about the day and goes to sleep."
 text = "$Tribute1 couldn't care less about the day and goes to sleep."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about (Player2)."
 text = "$Tribute1 thinks about $Tribute2."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about (Player2) and (Player3)."
 text = "$Tribute1 thinks about $Tribute2 and $Tribute3."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about (Player2) who is thinking about (Player1)."
 text = "$Tribute1 thinks about $Tribute2 who is thinking about $Tribute1."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about (Player2) who is thinking about (Player3)."
 text = "$Tribute1 thinks about $Tribute2 who is thinking about $Tribute3."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about (Player2) who is thinking about (Player3) who is thinking about (Player4)."
 text = "$Tribute1 thinks about $Tribute2 who is thinking about $Tribute3 who is thinking about $Tribute4."
 tribute_changes = [
-    {},
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) goes swimming in a lake."
 text = "$Tribute1 goes swimming in a lake."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) practices (his/her/their1) aim in the woods."
 text = "$Tribute1 practices his aim in the woods."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) sets Molotov traps around (his/her/their1) shelter."
 text = "$Tribute1 sets Molotov traps around his shelter."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) reinforces their shelter with Barbed wire."
 text = "$Tribute1 reinforces their shelter with Barbed wire."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) survives dysentery."
 text = "$Tribute1 survives dysentery."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1)'s weapon breaks."
 text = "$Tribute1's weapon breaks."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) tries to convince (Player2!1) to team up with (him/her1) but fails."
 text = "$Tribute1 tries to convince $Tribute2 to team up with him but fails."
-tribute_changes = [
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
+]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        2,
+        1,
+    ],
+]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        1,
+        1,
+    ],
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) convinces (Player2!1) to team up for the day."
 text = "$Tribute1 convinces $Tribute2 to team up for the day."
-tribute_changes = [
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
+]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        2,
+        1,
+    ],
+]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        1,
+        1,
+    ],
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) gives (Player2:1) a hug."
 text = "$Tribute1 gives $Tribute2 a hug."
-tribute_changes = [
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
 ]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        2,
+        1,
+    ],
+]
+power = 3
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        1,
+        1,
+    ],
+]
+power = 3
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) pats (Player2:1)'s head."
 text = "$Tribute1 pats $Tribute2's head."
-tribute_changes = [
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
 ]
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        2,
+        1,
+    ],
+]
+power = 3
+
+[[cycles.events.tribute_changes]]
+allies = [
+    [
+        1,
+        1,
+    ],
+]
+power = 3
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) raids (Player2!1)'s shelter while (he/she/they2) would go out hunting."
 text = "$Tribute1 raids $Tribute2's shelter while he would go out hunting."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) thinks about clicking to the rhythm of an anime song."
 text = "$Tribute1 thinks about clicking to the rhythm of an anime song."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) falls off a steep cliff trying to climb down, but survives the fall."
 text = "$Tribute1 falls off a steep cliff trying to climb down, but survives the fall."
 tribute_changes = [
-    {},
+    { power = -5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) falls off a steep cliff trying to climb down, and is unconscious for the day."
 text = "$Tribute1 falls off a steep cliff trying to climb down, and is unconscious for the day."
 tribute_changes = [
-    {},
+    { power = -5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) manage to sneak into (Player3!1)'s shelter and steals from (him/her/them3)."
 text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from him."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) begins planting seeds and farming."
 text = "$Tribute1 begins planting seeds and farming."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) chases after (Player2:1) but fails to catch (him/her/them2). They are playing tag."
 text = "$Tribute1 chases after $Tribute2 but fails to catch him. They are playing tag."
 tribute_changes = [
-    {},
-    {},
+    { power = -5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) chase after (Player3!1) but they fail to catch (him/her/them3)."
 text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch him."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1) and (Player3:1) chase after (Player4!1) but fail to catch (him/her4)."
 text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him."
 tribute_changes = [
-    {},
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1) and (Player3:1) chase after (Player4:1) but fail to catch (him/her4). They are playing tag."
 text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him. They are playing tag."
 tribute_changes = [
-    {},
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) uses (his/her/their1) tools and goes carpenting."
 text = "$Tribute1 uses his tools and goes carpenting."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) receives a packaging of ramen from an unknown sponsor."
 text = "$Tribute1 receives a packaging of ramen from an unknown sponsor."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) boils water over a firepit and makes ramen."
 text = "$Tribute1 boils water over a firepit and makes ramen."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) laughs at (Player2!1)."
 text = "$Tribute1 laughs at $Tribute2."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) argues with (Player2:1), resulting in (him/her/them2) getting kicked out of (Player1:1)'s shelter."
 text = "$Tribute1 argues with $Tribute2, resulting in him getting kicked out of $Tribute1's shelter."
-tribute_changes = [
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
 ]
+
+[[cycles.events.tribute_changes]]
+enemies = [
+    [
+        2,
+        1,
+    ],
+]
+
+[[cycles.events.tribute_changes]]
+enemies = [
+    [
+        1,
+        1,
+    ],
+]
+power = -5
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2) argue with (Player3:1), resulting in (Player3:1) getting kicked out of their shelter."
 text = "$Tribute1 and $Tribute2 argue with $Tribute3, resulting in $Tribute3 getting kicked out of their shelter."
-tribute_changes = [
-    {},
-    {},
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notenemies" } },
+    { relationship = { 1 = "notenemies" } },
 ]
+
+[[cycles.events.tribute_changes]]
+enemies = [
+    [
+        2,
+        1,
+    ],
+]
+
+[[cycles.events.tribute_changes]]
+enemies = [
+    [
+        1,
+        1,
+    ],
+]
+power = -5
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) found some operands to repair themselves with."
 text = "$Tribute1 found some operands to repair themselves with."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) burns a whole field of weed with a flamethrower."
 text = "$Tribute1 burns a whole field of weed with a flamethrower."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) pets an unknown dog sponsor riding a cart."
 text = "$Tribute1 pets an unknown dog sponsor riding a cart."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
 text = "$Tribute1 receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (head/head/head/head/heads2)."
 text = "$Tribute1 throws a knife into $Tribute2's head."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) accidentally (steps/steps/steps/steps/step1) on a landmine."
 text = "$Tribute1 accidentally steps on a landmine."
 tribute_changes = [
     { status = 1 },
@@ -3244,47 +3181,68 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (catches/catches/catches/catches/catch1) (Player2!1) off guard and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 catches $Tribute2 off guard and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to drown (Player3!1)."
 text = "$Tribute1 and $Tribute2 work together to drown $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) after engaging in a fist fight."
 text = "$Tribute1 strangles $Tribute2 after engaging in a fist fight."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 shoots an arrow into $Tribute2's head."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) an arrow into (Player2!1)'s (head/head/head/head/heads2)."
+text = "$Tribute1 shoots an arrow into $Tribute2's head."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) cannot handle the circumstances and (commits/commits/commits/commits/commit1) suicide."
 text = "$Tribute1 cannot handle the circumstances and commits suicide."
 tribute_changes = [
     { status = 1 },
@@ -3294,46 +3252,67 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (bashes/bashes/bashes/bashes/bash1) (Player2!1)'s (head/head/head/head/heads2) against a rock several times."
 text = "$Tribute1 bashes $Tribute2's head against a rock several times."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (decapitates/decapitates/decapitates/decapitates/decapitate1) (Player2!1) with [typeC1] unsheathed edge."
 text = "$Tribute1 decapitates $Tribute2 with $PA1 unsheathed edge."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (spears/spears/spears/spears/spear1) (Player2!1) in the abdomen."
 text = "$Tribute1 spears $Tribute2 in the abdomen."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets $Tribute2 on fire with a molotov."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) (Player2!1) on fire with a molotov."
+text = "$Tribute1 sets $Tribute2 on fire with a molotov."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into a Sinspreader's maw and gets consumed."
 text = "$Tribute1 falls into a Sinspreader's maw and gets consumed."
 tribute_changes = [
     { status = 1 },
@@ -3343,86 +3322,127 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) while [typeC2] (back is/back is/back is/back is/backs are2) turned."
 text = "$Tribute1 stabs $Tribute2 while $PA2 back is turned."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1), but (puts/puts/puts/puts/put1) [typeB2] out of [typeC2] misery."
 text = "$Tribute1 severely injures $Tribute2, but puts $OP2 out of $PA2 misery."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1) and (leaves/leaves/leaves/leaves/leave1) [typeB2] to die."
 text = "$Tribute1 severely injures $Tribute2 and leaves $OP2 to die."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) bonks (Player2!1)'s (head/head/head/head/heads2) in with a mallet."
 text = "$Tribute1 bonks $Tribute2's head in with a mallet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (pushes/pushes/pushes/pushes/push1) (Player2!1) off a cliff during a knife fight."
 text = "$Tribute1 pushes $Tribute2 off a cliff during a knife fight."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (chest/chest/chest/chest/chests2)."
 text = "$Tribute1 throws a knife into $Tribute2's chest."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (is/is/is/is/are1) unable to convince (Player2!1) to not kill [typeB1]."
 text = "$Tribute1 is unable to convince $Tribute2 to not kill $OP1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (convinces/convinces/convinces/convinces/convince1) (Player2!1) to not kill [typeB1], only to kill [typeB2] instead."
+text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into MICA's Love & Hope and dies."
 text = "$Tribute1 falls into MICA's Love & Hope and dies."
 tribute_changes = [
     { status = 1 },
@@ -3432,58 +3452,84 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) start fighting, but (Player2) (runs/runs/runs/runs/run2) away as (Player1) (kills/kills/kills/kills/kill1) (Player3)."
 text = "$Tribute1, $Tribute2, and $Tribute3 start fighting, but $Tribute2 runs away as $Tribute1 kills $Tribute3."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with [typeC2] own weapon."
 text = "$Tribute1 kills $Tribute2 with $PA2 own weapon."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (overpowers/overpowers/overpowers/overpowers/overpower1) (Player2!1), killing [typeB2]."
 text = "$Tribute1 overpowers $Tribute2, killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets an explosive off, killing $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), and (Player3!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, and $Tribute3."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), and (Player4!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, and $Tribute4."
 tribute_changes = [
     { kills = 3 },
@@ -3491,11 +3537,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), (Player4!1) and (Player5!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, $Tribute4 and $Tribute5."
 tribute_changes = [
     { kills = 4 },
@@ -3504,21 +3555,31 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) as [typeA2] (tries/tries/try/tries/try2) to run."
+text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) form a suicide pact, killing themselves."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 form a suicide pact, killing themselves."
 tribute_changes = [
     { status = 1 },
@@ -3531,16 +3592,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a hatchet."
 text = "$Tribute1 kills $Tribute2 with a hatchet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player1) and (Player2) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute1 and $Tribute2 survive."
 tribute_changes = [
     { kills = 2 },
@@ -3548,11 +3615,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player3) and (Player4) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute3 and $Tribute4 survive."
 tribute_changes = [
     { status = 1 },
@@ -3560,146 +3632,216 @@ tribute_changes = [
     { kills = 2 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) (attacks/attacks/attacks/attacks/attack1) (Player2:2!1), but (Player3:2!1) protects [typeB2], killing (Player1)."
 text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
     {},
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (slices/slices/slices/slices/slice1) (Player2!1) with a sword."
 text = "$Tribute1 severely slices $Tribute2 with a sword."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) with a rope."
 text = "$Tribute1 strangles $Tribute2 with a rope."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) for [typeC2] supplies."
+text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a gun at (Player2!1), but (misses/misses/misses/misses/miss1) and (kills/kills/kills/kills/kill1) (Player3) instead."
 text = "$Tribute1 shoots a gun at $Tribute2, but misses and kills $Tribute3 instead."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) with a tree branch."
 text = "$Tribute1 stabs $Tribute2 with a tree branch."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) in the (back/back/back/back/backs2) with a bayonet."
+text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player1) triumphantly (kills/kills/kills/kills/kill1) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute1 triumphantly kills them both."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player2) triumphantly (kills/kills/kills/kills/kill2) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute2 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { kills = 2 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight.(Player3) triumphantly (kills/kills/kills/kills/kill3) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { status = 1 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a sickle."
 text = "$Tribute1 kills $Tribute2 with a sickle."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) repeatedly (stabs/stabs/stabs/stabs/stab1) (Player2!1) to death with combat knife."
 text = "$Tribute1 repeatedly stabs $Tribute2 to death with combat knife."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C reluctantly obliges, killing $Tribute1."
-tribute_changes = [
-    { status = 1 },
-    { kills = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (begs/begs/begs/begs/beg1) for (Player2!1) to kill [typeB1]. [TypeA2] reluctantly (obliges/obliges/oblige/obliges/oblige2), killing (Player1)."
+text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C reluctantly obliges, killing $Tribute1."
+tribute_changes = [
+    { status = 1 },
+    { kills = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (bleeds/bleeds/bleeds/bleeds/bleed1) out due to untreated injuries."
 text = "$Tribute1 bleeds out due to untreated injuries."
 tribute_changes = [
     { status = 1 },
@@ -3709,6 +3851,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) unknowingly (eats/eats/eats/eats/eat1) entropic berries."
 text = "$Tribute1 unknowingly eats entropic berries."
 tribute_changes = [
     { status = 1 },
@@ -3718,26 +3861,37 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) silently (snaps/snaps/snaps/snaps/snap1) (Player2!1)'s (neck/neck/neck/neck/necks2)."
 text = "$Tribute1 silently snaps $Tribute2's neck."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 taints $Tribute2's food, killing $OP2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (taints/taints/taints/taints/taint1) (Player2!1)'s food, killing [typeB2]."
+text = "$Tribute1 taints $Tribute2's food, killing $OP2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from an infection."
 text = "$Tribute1 dies from an infection."
 tribute_changes = [
     { status = 1 },
@@ -3747,6 +3901,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (attempts/attempts/attempts/attempts/attempt1) to climb a tree, but (falls/falls/falls/falls/fall1) to [typeC1] death."
 text = "$Tribute1 attempts to climb a tree, but falls to $PA1 death."
 tribute_changes = [
     { status = 1 },
@@ -3756,26 +3911,37 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1)'s trap kills (Player2!1)."
 text = "$Tribute1's trap kills $Tribute2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 while $SP2 is resting."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) while [typeA2] (is/is/are/is/are2) resting."
+text = "$Tribute1 kills $Tribute2 while $SP2 is resting."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from cringe."
 text = "$Tribute1 dies from cringe."
 tribute_changes = [
     { status = 1 },
@@ -3785,6 +3951,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from hunger."
 text = "$Tribute1 dies from hunger."
 tribute_changes = [
     { status = 1 },
@@ -3794,6 +3961,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from thirst."
 text = "$Tribute1 dies from thirst."
 tribute_changes = [
     { status = 1 },
@@ -3803,6 +3971,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) trying to escape the arena."
 text = "$Tribute1 dies trying to escape the arena."
 tribute_changes = [
     { status = 1 },
@@ -3812,6 +3981,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) of dysentery."
 text = "$Tribute1 dies of dysentery."
 tribute_changes = [
     { status = 1 },
@@ -3821,6 +3991,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) accidently (detonates/detonates/detonates/detonates/detonate1) a land mine while trying to arm it."
 text = "$Tribute1 accidently detonates a land mine while trying to arm it."
 tribute_changes = [
     { status = 1 },
@@ -3830,16 +4001,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (ambushes/ambushes/ambushes/ambushes/ambush1) (Player2!1) and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 ambushes $Tribute2 and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) successfully ambush and kill (Player4:2!1), (Player5:2!1), and (Player6:2!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 successfully ambush and kill $Tribute4, $Tribute5, and $Tribute6."
 tribute_changes = [
     { kills = 3 },
@@ -3849,11 +4026,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) unsuccessfully ambush (Player4:2!1), (Player5:2!1), and (Player6:2!1), who kill them instead."
 text = "$Tribute1, $Tribute2, and $Tribute3 unsuccessfully ambush $Tribute4, $Tribute5, and $Tribute6, who kill them instead."
 tribute_changes = [
     { status = 1 },
@@ -3863,11 +4045,16 @@ tribute_changes = [
     { kills = 3 },
     { kills = 3 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) challenges (Player2:2!1) to a game of chess to decide the fate of (Player3:1!2) and (Player4:2!1). (Player4) dies due to (Player2)'s incompetence at Chess."
 text = "$Tribute1 challenges $Tribute2 to a game of chess to decide the fate of $Tribute3 and $Tribute4. $Tribute4 dies due to $Tribute2's incompetence at Chess."
 tribute_changes = [
     {},
@@ -3875,11 +4062,16 @@ tribute_changes = [
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) challenges (Player2:2!1) to a game of chess to decide the fate of (Player3:1!2) and (Player4:2!1). (Player3) dies due to (Player1)'s incompetence at chess."
 text = "$Tribute1 challenges $Tribute2 to a game of chess to decide the fate of $Tribute3 and $Tribute4. $Tribute3 dies due to $Tribute1's incompetence at chess."
 tribute_changes = [
     { kills = 1 },
@@ -3887,16 +4079,8 @@ tribute_changes = [
     { status = 1 },
     {},
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C refuses to kill, so $Tribute1 kills $OP2 instead."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
     {},
 ]
 
@@ -3904,6 +4088,24 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) forces (Player2:2!1) to kill (Player3:2!1) or (Player4:2!1). [TypeA2] (refuses/refuses/refuse/refuses/refuse2) to kill, so (Player1) (kills/kills/kills/kills/kill1) [typeB2] instead."
+text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C refuses to kill, so $Tribute1 kills $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+    {},
+    {},
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (poisons/poisons/poisons/poisons/poison1) (Player2!1)'s drink, but (mistakes/mistakes/mistakes/mistakes/mistake1) it for [typeC1] own and (dies/dies/dies/dies/die1)."
 text = "$Tribute1 poisons $Tribute2's drink, but mistakes it for $PA1 own and dies."
 tribute_changes = [
     { status = 1 },
@@ -3914,16 +4116,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (poisons/poisons/poisons/poisons/poison1) (Player2!1)'s drink. [TypeA2] (drinks/drinks/drink/drinks/drinks2) it and (dies/dies/die/dies/die2)."
 text = "$Tribute1 poisons $Tribute2's drink. $SP2_C drinks it and dies."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (attempts/attempts/attempts/attempts/attempt1) to climb a tree, but (falls/falls/falls/falls/fall1) on (Player2!1), killing them both."
 text = "$Tribute1 attempts to climb a tree, but falls on $Tribute2, killing them both."
 tribute_changes = [
     { status = 1 },
@@ -3934,6 +4142,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), (Player4:1), and (Player5:1) track down and kill (Player6!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 track down and kill $Tribute6."
 tribute_changes = [
     { kills = 1 },
@@ -3943,11 +4152,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) track down and kill (Player5!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 track down and kill $Tribute5."
 tribute_changes = [
     { kills = 1 },
@@ -3956,11 +4170,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), and (Player3:1) track down and kill (Player4!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 track down and kill $Tribute4."
 tribute_changes = [
     { kills = 1 },
@@ -3968,32 +4187,47 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) track down and kill (Player3!1)."
 text = "$Tribute1 and $Tribute2 track down and kill $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 tracks down and kills $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (tracks/tracks/tracks/tracks/track1) down and (kills/kills/kills/kills/kill1) (Player2!1)."
+text = "$Tribute1 tracks down and kills $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) reports (Player2!1) to Kira. (Player1) is banned for pinging Kira."
 text = "$Tribute1 reports $Tribute2 to Kira. $Tribute1 is banned for pinging Kira."
 tribute_changes = [
     {},
@@ -4004,6 +4238,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1), killing (Player2) with a headshot."
 text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
 tribute_changes = [
     {},
@@ -4014,6 +4249,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) kills (Player1) instead."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 tribute_changes = [
     {},
@@ -4024,6 +4260,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) found a pressure cooker and tried to use it. It was an IED which promptly exploded."
 text = "$Tribute1 found a pressure cooker and tried to use it. It was an IED which promptly exploded."
 tribute_changes = [
     {},
@@ -4033,6 +4270,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) defenestrates (Player2!1) and kills [typeB2]."
 text = "$Tribute1 defenestrates $Tribute2 and kills $OP2."
 tribute_changes = [
     {},
@@ -4043,6 +4281,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
 text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
 tribute_changes = [
     {},
@@ -4052,6 +4291,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a Pumpkin from an unknown sponsor in Burbank. It promptly exploded, killing [typeB1]."
 text = "$Tribute1 receives a Pumpkin from an unknown sponsor in Burbank. It promptly exploded, killing $OP1."
 tribute_changes = [
     {},
@@ -4061,6 +4301,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) got squished to death by a stray Toad Idol."
 text = "$Tribute1 got squished to death by a stray Toad Idol."
 tribute_changes = [
     {},
@@ -4070,6 +4311,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) crushes (Player2!1)'s head with [typeC1] thighs."
 text = "$Tribute1 crushes $Tribute2's head with $PA1 thighs."
 tribute_changes = [
     {},
@@ -4080,6 +4322,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) fell into a pit of Entropy Liquid."
 text = "$Tribute1 fell into a pit of Entropy Liquid."
 tribute_changes = [
     {},
@@ -4089,6 +4332,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) mentally overpowers (Player2!1), killing (him/her/them2). Checkmate."
 text = "$Tribute1 mentally overpowers $Tribute2, killing him. Checkmate."
 tribute_changes = [
     {},
@@ -4099,6 +4343,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) attacks (Player2!1), but (Player3!1) protects (him/her/them2), killing (Player1)."
 text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects him, killing $Tribute1."
 tribute_changes = [
     {},
@@ -4110,6 +4355,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) forces (Player2!1) to kill (Player3!1) or (Player4!1). (Player2) refuses to kill, so (Player1) kills (Player2) instead."
 text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $Tribute2 refuses to kill, so $Tribute1 kills $Tribute2 instead."
 tribute_changes = [
     {},
@@ -4122,6 +4368,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) temporarily obtains Sanctifier role and bans (Player2!1)."
 text = "$Tribute1 temporarily obtains Sanctifier role and bans $Tribute2."
 tribute_changes = [
     {},
@@ -4132,6 +4379,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) practices (his/her1) aim but accidentally hits (Player2:1), fatally wounding (him/her/them2)."
 text = "$Tribute1 practices his aim but accidentally hits $Tribute2, fatally wounding him."
 tribute_changes = [
     {},
@@ -4142,6 +4390,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) gives the wrong callout to (Player2:1) and gets (Player2) killed by (Player3!1)."
 text = "$Tribute1 gives the wrong callout to $Tribute2 and gets $Tribute2 killed by $Tribute3."
 tribute_changes = [
     {},
@@ -4153,6 +4402,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) drowns (Player2!1) in a river while (he/she/they2) tried drinking from it."
 text = "$Tribute1 drowns $Tribute2 in a river while he tried drinking from it."
 tribute_changes = [
     {},
@@ -4163,6 +4413,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) convinces (Player2!1) to team up for the day, but (Player2) betrays (Player1) and stabs (him/her/them1) in the back."
 text = "$Tribute1 convinces $Tribute2 to team up for the day, but $Tribute2 betrays $Tribute1 and stabs him in the back."
 tribute_changes = [
     {},
@@ -4173,6 +4424,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) cries while (Player2!1) comforts (him/her1). (Player2) then stabs (Player1), ending (his/her/their1) suffering."
 text = "$Tribute1 cries while $Tribute2 comforts him. $Tribute2 then stabs $Tribute1, ending his suffering."
 tribute_changes = [
     {},
@@ -4183,6 +4435,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (his/her/their1) weapon toward (Player2!1), but (Player3!1) gets in the way to protect (him/her/them2), killing (Player3)."
 text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
 tribute_changes = [
     {},
@@ -4194,6 +4447,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) attempts to stab (Player2!1), but (Player3!1) sacrifices (himself/herself/themself3) to protect (him/her/them2), killing (Player1) and (Player3)."
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
 tribute_changes = [
     {},
@@ -4205,6 +4459,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) unloads their assault rifle into (Player2!1)'s chest point blank, killing (him/her/them2)."
 text = "$Tribute1 unloads their assault rifle into $Tribute2's chest point blank, killing him."
 tribute_changes = [
     {},
@@ -4215,6 +4470,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) blows a hole in (Player2!1)'s chest with a shotgun, killing (him/her/them2)."
 text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing him."
 tribute_changes = [
     {},
@@ -5298,108 +5554,122 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a hatchet from an unknown sponsor."
 text = "$Tribute1 receives a hatchet from an unknown sponsor."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) suspicious liquids from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives suspicious liquids from an unknown Fr*nch sponsor."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) Diggcoins from an unknown scammer."
 text = "$Tribute1 receives Diggcoins from an unknown scammer."
 tribute_changes = [
-    {},
+    { power = 10 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) fresh food from an unknown Fr*nch sponsor."
 text = "$Tribute1 receives fresh food from an unknown Fr*nch sponsor."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) an explosive from an unknown bomber."
 text = "$Tribute1 receives an explosive from an unknown bomber."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) candies from an unknown sugar addict."
 text = "$Tribute1 receives candies from an unknown sugar addict."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1)'s weapon breaks."
 text = "$Tribute1's weapon breaks."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) manage to sneak into (Player3!1)'s shelter and steals from (him/her3)."
 text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from him."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) receives a packaging of ramen from an unknown sponsor."
 text = "$Tribute1 receives a packaging of ramen from an unknown sponsor."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
 text = "$Tribute1 receives a 1:10 Scale Gundam from an unknown NEET and starts building it."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (head/head/head/head/heads2)."
 text = "$Tribute1 throws a knife into $Tribute2's head."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) accidentally (steps/steps/steps/steps/step1) on a landmine."
 text = "$Tribute1 accidentally steps on a landmine."
 tribute_changes = [
     { status = 1 },
@@ -5409,47 +5679,68 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (catches/catches/catches/catches/catch1) (Player2!1) off guard and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 catches $Tribute2 off guard and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to drown (Player3!1)."
 text = "$Tribute1 and $Tribute2 work together to drown $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) after engaging in a fist fight."
 text = "$Tribute1 strangles $Tribute2 after engaging in a fist fight."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 shoots an arrow into $Tribute2's head."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) an arrow into (Player2!1)'s (head/head/head/head/heads2)."
+text = "$Tribute1 shoots an arrow into $Tribute2's head."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) cannot handle the circumstances and (commits/commits/commits/commits/commit1) suicide."
 text = "$Tribute1 cannot handle the circumstances and commits suicide."
 tribute_changes = [
     { status = 1 },
@@ -5459,46 +5750,67 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (bashes/bashes/bashes/bashes/bash1) (Player2!1)'s (head/head/head/head/heads2) against a rock several times."
 text = "$Tribute1 bashes $Tribute2's head against a rock several times."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (decapitates/decapitates/decapitates/decapitates/decapitate1) (Player2!1) with [typeC1] unsheathed edge."
 text = "$Tribute1 decapitates $Tribute2 with $PA1 unsheathed edge."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (spears/spears/spears/spears/spear1) (Player2!1) in the abdomen."
 text = "$Tribute1 spears $Tribute2 in the abdomen."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets $Tribute2 on fire with a molotov."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) (Player2!1) on fire with a molotov."
+text = "$Tribute1 sets $Tribute2 on fire with a molotov."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into a Sinspreader's maw and gets consumed."
 text = "$Tribute1 falls into a Sinspreader's maw and gets consumed."
 tribute_changes = [
     { status = 1 },
@@ -5508,86 +5820,127 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) while [typeC2] (back is/back is/back is/back is/backs are2) turned."
 text = "$Tribute1 stabs $Tribute2 while $PA2 back is turned."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1), but (puts/puts/puts/puts/put1) [typeB2] out of [typeC2] misery."
 text = "$Tribute1 severely injures $Tribute2, but puts $OP2 out of $PA2 misery."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1) and (leaves/leaves/leaves/leaves/leave1) [typeB2] to die."
 text = "$Tribute1 severely injures $Tribute2 and leaves $OP2 to die."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) bonks (Player2!1)'s (head/head/head/head/heads2) in with a mallet."
 text = "$Tribute1 bonks $Tribute2's head in with a mallet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (pushes/pushes/pushes/pushes/push1) (Player2!1) off a cliff during a knife fight."
 text = "$Tribute1 pushes $Tribute2 off a cliff during a knife fight."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (chest/chest/chest/chest/chests2)."
 text = "$Tribute1 throws a knife into $Tribute2's chest."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (is/is/is/is/are1) unable to convince (Player2!1) to not kill [typeB1]."
 text = "$Tribute1 is unable to convince $Tribute2 to not kill $OP1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (convinces/convinces/convinces/convinces/convince1) (Player2!1) to not kill [typeB1], only to kill [typeB2] instead."
+text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into MICA's Love & Hope and dies."
 text = "$Tribute1 falls into MICA's Love & Hope and dies."
 tribute_changes = [
     { status = 1 },
@@ -5597,58 +5950,84 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) start fighting, but (Player2) (runs/runs/runs/runs/run2) away as (Player1) (kills/kills/kills/kills/kill1) (Player3)."
 text = "$Tribute1, $Tribute2, and $Tribute3 start fighting, but $Tribute2 runs away as $Tribute1 kills $Tribute3."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with [typeC2] own weapon."
 text = "$Tribute1 kills $Tribute2 with $PA2 own weapon."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (overpowers/overpowers/overpowers/overpowers/overpower1) (Player2!1), killing [typeB2]."
 text = "$Tribute1 overpowers $Tribute2, killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets an explosive off, killing $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), and (Player3!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, and $Tribute3."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), and (Player4!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, and $Tribute4."
 tribute_changes = [
     { kills = 3 },
@@ -5656,11 +6035,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), (Player4!1) and (Player5!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, $Tribute4 and $Tribute5."
 tribute_changes = [
     { kills = 4 },
@@ -5669,21 +6053,31 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) as [typeA2] (tries/tries/try/tries/try2) to run."
+text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) form a suicide pact, killing themselves."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 form a suicide pact, killing themselves."
 tribute_changes = [
     { status = 1 },
@@ -5696,16 +6090,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a hatchet."
 text = "$Tribute1 kills $Tribute2 with a hatchet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player1) and (Player2) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute1 and $Tribute2 survive."
 tribute_changes = [
     { kills = 2 },
@@ -5713,11 +6113,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player3) and (Player4) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute3 and $Tribute4 survive."
 tribute_changes = [
     { status = 1 },
@@ -5725,146 +6130,216 @@ tribute_changes = [
     { kills = 2 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) (attacks/attacks/attacks/attacks/attack1) (Player2:2!1), but (Player3:2!1) protects [typeB2], killing (Player1)."
 text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
     {},
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (slices/slices/slices/slices/slice1) (Player2!1) with a sword."
 text = "$Tribute1 severely slices $Tribute2 with a sword."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) with a rope."
 text = "$Tribute1 strangles $Tribute2 with a rope."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) for [typeC2] supplies."
+text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a gun at (Player2!1), but (misses/misses/misses/misses/miss1) and (kills/kills/kills/kills/kill1) (Player3) instead."
 text = "$Tribute1 shoots a gun at $Tribute2, but misses and kills $Tribute3 instead."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) with a tree branch."
 text = "$Tribute1 stabs $Tribute2 with a tree branch."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) in the (back/back/back/back/backs2) with a bayonet."
+text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player1) triumphantly (kills/kills/kills/kills/kill1) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute1 triumphantly kills them both."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player2) triumphantly (kills/kills/kills/kills/kill2) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute2 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { kills = 2 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight.(Player3) triumphantly (kills/kills/kills/kills/kill3) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { status = 1 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a sickle."
 text = "$Tribute1 kills $Tribute2 with a sickle."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) repeatedly (stabs/stabs/stabs/stabs/stab1) (Player2!1) to death with a combat knife."
 text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C reluctantly obliges, killing $Tribute1."
-tribute_changes = [
-    { status = 1 },
-    { kills = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (begs/begs/begs/begs/beg1) for (Player2!1) to kill [typeB1]. [TypeA2] reluctantly (obliges/obliges/oblige/obliges/oblige2), killing (Player1)."
+text = "$Tribute1 begs for $Tribute2 to kill $OP1. $SP2_C reluctantly obliges, killing $Tribute1."
+tribute_changes = [
+    { status = 1 },
+    { kills = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (bleeds/bleeds/bleeds/bleeds/bleed1) out due to untreated injuries."
 text = "$Tribute1 bleeds out due to untreated injuries."
 tribute_changes = [
     { status = 1 },
@@ -5874,6 +6349,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) unknowingly (eats/eats/eats/eats/eat1) entropic berries."
 text = "$Tribute1 unknowingly eats entropic berries."
 tribute_changes = [
     { status = 1 },
@@ -5883,36 +6359,52 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) silently (snaps/snaps/snaps/snaps/snap1) (Player2!1)'s (neck/neck/neck/neck/necks2)."
 text = "$Tribute1 silently snaps $Tribute2's neck."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (taints/taints/taints/taints/taint1) (Player2!1)'s food, killing [typeB2]."
 text = "$Tribute1 taints $Tribute2's food, killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1's trap kills $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1)'s trap kills (Player2!1)."
+text = "$Tribute1's trap kills $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from cringe."
 text = "$Tribute1 dies from cringe."
 tribute_changes = [
     { status = 1 },
@@ -5922,6 +6414,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from hunger."
 text = "$Tribute1 dies from hunger."
 tribute_changes = [
     { status = 1 },
@@ -5931,6 +6424,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) from thirst."
 text = "$Tribute1 dies from thirst."
 tribute_changes = [
     { status = 1 },
@@ -5940,6 +6434,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) trying to escape the arena."
 text = "$Tribute1 dies trying to escape the arena."
 tribute_changes = [
     { status = 1 },
@@ -5949,6 +6444,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (dies/dies/dies/dies/die1) of dysentery."
 text = "$Tribute1 dies of dysentery."
 tribute_changes = [
     { status = 1 },
@@ -5958,6 +6454,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) accidently (detonates/detonates/detonates/detonates/detonate1) a land mine while trying to arm it."
 text = "$Tribute1 accidently detonates a land mine while trying to arm it."
 tribute_changes = [
     { status = 1 },
@@ -5967,16 +6464,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (ambushes/ambushes/ambushes/ambushes/ambush1) (Player2!1) and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 ambushes $Tribute2 and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) successfully ambush and kill (Player4:2!1), (Player5:2!1), and (Player6:2!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 successfully ambush and kill $Tribute4, $Tribute5, and $Tribute6."
 tribute_changes = [
     { kills = 3 },
@@ -5986,11 +6489,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) unsuccessfully ambush (Player4:2!1), (Player5:2!1), and (Player6:2!1), who kill them instead."
 text = "$Tribute1, $Tribute2, and $Tribute3 unsuccessfully ambush $Tribute4, $Tribute5, and $Tribute6, who kill them instead."
 tribute_changes = [
     { status = 1 },
@@ -6000,11 +6508,16 @@ tribute_changes = [
     { kills = 3 },
     { kills = 3 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) forces (Player2:2) to kill (Player3!1!2) or (Player4!1). [TypeA2] (decides/decides/decide/decides/decide2) to kill (Player3)."
 text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C decides to kill $Tribute3."
 tribute_changes = [
     {},
@@ -6012,11 +6525,16 @@ tribute_changes = [
     { status = 1 },
     {},
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) forces (Player2:2) to kill (Player3!1) or (Player4!1!2). [TypeA2] (decides/decides/decide/decides/decide2) to kill (Player4)."
 text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C decides to kill $Tribute4."
 tribute_changes = [
     {},
@@ -6024,16 +6542,8 @@ tribute_changes = [
     {},
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C refuses to kill, so $Tribute1 kills $OP2 instead."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
-    {},
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
     {},
 ]
 
@@ -6041,6 +6551,24 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) forces (Player2:2!1) to kill (Player3:2!1) or (Player4:2!1). [TypeA2] (refuses/refuses/refuse/refuses/refuse2) to kill, so (Player1) (kills/kills/kills/kills/kill1) [typeB2] instead."
+text = "$Tribute1 forces $Tribute2 to kill $Tribute3 or $Tribute4. $SP2_C refuses to kill, so $Tribute1 kills $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+    {},
+    {},
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (poisons/poisons/poisons/poisons/poison1) (Player2!1)'s drink, but (mistakes/mistakes/mistakes/mistakes/mistake1) it for [typeC1] own and (dies/dies/dies/dies/die1)."
 text = "$Tribute1 poisons $Tribute2's drink, but mistakes it for $PA1 own and dies."
 tribute_changes = [
     { status = 1 },
@@ -6051,16 +6579,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (poisons/poisons/poisons/poisons/poison1) (Player2!1)'s drink. [TypeA2] (drinks/drinks/drink/drinks/drinks2) it and (dies/dies/die/dies/die2)."
 text = "$Tribute1 poisons $Tribute2's drink. $SP2_C drinks it and dies."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (attempts/attempts/attempts/attempts/attempt1) to climb a tree, but (falls/falls/falls/falls/fall1) on (Player2!1), killing them both."
 text = "$Tribute1 attempts to climb a tree, but falls on $Tribute2, killing them both."
 tribute_changes = [
     { status = 1 },
@@ -6071,6 +6605,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), (Player4:1), and (Player5:1) track down and kill (Player6!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 track down and kill $Tribute6."
 tribute_changes = [
     { kills = 1 },
@@ -6080,11 +6615,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) track down and kill (Player5!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 track down and kill $Tribute5."
 tribute_changes = [
     { kills = 1 },
@@ -6093,11 +6633,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), and (Player3:1) track down and kill (Player4!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 track down and kill $Tribute4."
 tribute_changes = [
     { kills = 1 },
@@ -6105,42 +6650,62 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) track down and kill (Player3!1)."
 text = "$Tribute1 and $Tribute2 track down and kill $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (tracks/tracks/tracks/tracks/track1) down and (kills/kills/kills/kills/kill1) (Player2!1)."
 text = "$Tribute1 tracks down and kills $Tribute2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 while $SP2 is sleeping."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) while [typeA2] (is/is/are/is/are2) sleeping."
+text = "$Tribute1 kills $Tribute2 while $SP2 is sleeping."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) reports (Player2!1) to MICA. (Player1) is banned for pinging MICA Staff."
 text = "$Tribute1 reports $Tribute2 to MICA. $Tribute1 is banned for pinging MICA Staff."
 tribute_changes = [
     {},
@@ -6151,6 +6716,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1), killing (Player2) with a headshot."
 text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
 tribute_changes = [
     {},
@@ -6161,6 +6727,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) kills (Player1) instead."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 tribute_changes = [
     {},
@@ -6171,6 +6738,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) found a pressure cooker and tried to use it. It was an IED which promptly exploded."
 text = "$Tribute1 found a pressure cooker and tried to use it. It was an IED which promptly exploded."
 tribute_changes = [
     {},
@@ -6180,6 +6748,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) defenestrates (Player2!1) and kills [typeB2]."
 text = "$Tribute1 defenestrates $Tribute2 and kills $OP2."
 tribute_changes = [
     {},
@@ -6190,6 +6759,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
 text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
 tribute_changes = [
     {},
@@ -6199,6 +6769,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (receives/receives/receives/receives/receive1) a Pumpkin from an unknown sponsor in Burbank. It promptly exploded, killing [typeB1]."
 text = "$Tribute1 receives a Pumpkin from an unknown sponsor in Burbank. It promptly exploded, killing $OP1."
 tribute_changes = [
     {},
@@ -6208,6 +6779,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) got squished to death by a stray Toad Idol."
 text = "$Tribute1 got squished to death by a stray Toad Idol."
 tribute_changes = [
     {},
@@ -6217,6 +6789,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) crushes (Player2!1)'s head with [typeC1] thighs."
 text = "$Tribute1 crushes $Tribute2's head with $PA1 thighs."
 tribute_changes = [
     {},
@@ -6227,6 +6800,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) fell into a pit of Entropy Liquid."
 text = "$Tribute1 fell into a pit of Entropy Liquid."
 tribute_changes = [
     {},
@@ -6236,6 +6810,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) mentally overpowers (Player2!1), killing (him/her/them2). Checkmate."
 text = "$Tribute1 mentally overpowers $Tribute2, killing him. Checkmate."
 tribute_changes = [
     {},
@@ -6246,6 +6821,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) ambushes (Player2!1) from the dark and kills (him/her/them2)."
 text = "$Tribute1 ambushes $Tribute2 from the dark and kills him."
 tribute_changes = [
     {},
@@ -6256,6 +6832,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) temporarily obtains Admin role and bans (Player2!1)."
 text = "$Tribute1 temporarily obtains Admin role and bans $Tribute2."
 tribute_changes = [
     {},
@@ -6266,6 +6843,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) brutally beats (Player2!1) to death with a metal baseball bat."
 text = "$Tribute1 brutally beats $Tribute2 to death with a metal baseball bat."
 tribute_changes = [
     {},
@@ -6276,6 +6854,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) practices (his/her1) aim but accidentally hits (Player2:1), fatally wounding (him/her/them2)."
 text = "$Tribute1 practices his aim but accidentally hits $Tribute2, fatally wounding him."
 tribute_changes = [
     {},
@@ -6286,6 +6865,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) gives the wrong callout to (Player2:1) and gets (Player2) killed by (Player3!1)."
 text = "$Tribute1 gives the wrong callout to $Tribute2 and gets $Tribute2 killed by $Tribute3."
 tribute_changes = [
     {},
@@ -6297,6 +6877,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (his/her/their1) weapon toward (Player2!1), but (Player3!1) gets in the way to protect (him/her/them2), killing (Player3)."
 text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
 tribute_changes = [
     {},
@@ -6308,6 +6889,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) attempts to stab (Player2!1), but (Player3!1) sacrifices (himself/herself/themself3) to protect (him/her/them2), killing (Player1) and (Player3)."
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
 tribute_changes = [
     {},
@@ -6319,6 +6901,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) attempts to stab (Player2!1), but (Player3!1) protects (him/her/them2), killing (Player1)."
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects him, killing $Tribute1."
 tribute_changes = [
     {},
@@ -6330,6 +6913,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) forgets (his/her/their1) trigger discipline and fires into (his/her/their1) own chest, bleeding out to death."
 text = "$Tribute1 forgets his trigger discipline and fires into his own chest, bleeding out to death."
 tribute_changes = [
     {},
@@ -6339,6 +6923,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) forgets (his/her/their1) trigger discipline and fires into (Player2:1)'s chest, fatally wounding (him/her/them2)."
 text = "$Tribute1 forgets his trigger discipline and fires into $Tribute2's chest, fatally wounding him."
 tribute_changes = [
     {},
@@ -6349,6 +6934,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to kill (Player3!1) in a gun fight. (Player3) shoots back and kills (Player1)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute1."
 tribute_changes = [
     {},
@@ -6360,6 +6946,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to kill (Player3!1) in a gun fight. (Player3) shoots back and kills (Player2)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2."
 tribute_changes = [
     {},
@@ -6371,6 +6958,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to kill (Player3!1) in a gun fight. (Player3) shoots back and kills both (Player1) and (Player2)."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills both $Tribute1 and $Tribute2."
 tribute_changes = [
     {},
@@ -6382,28 +6970,39 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to kill (Player3!1) in a gun fight. (Player3) shoots back and kills (Player1), but (Player2) shoots and kills (Player3) as well."
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute1, but $Tribute2 shoots and kills $Tribute3 as well."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
     { kills = 1, status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2, but $Tribute1 shoots and kills $Tribute3 as well."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
-    { kills = 1, status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to kill (Player3!1) in a gun fight. (Player3) shoots back and kills (Player2), but (Player1) shoots and kills (Player3) as well."
+text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute2, but $Tribute1 shoots and kills $Tribute3 as well."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+    { kills = 1, status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) surrenders to (Player2!1) but quickly disarms (Player2) as (he/she/they2) got too close, (Player1) shoots (Player2) to death."
 text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as he got too close, $Tribute1 shoots $Tribute2 to death."
 tribute_changes = [
     {},
@@ -6414,6 +7013,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) blows a hole in (Player2!1)'s chest with a shotgun, killing (him/her/them2)."
 text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing him."
 tribute_changes = [
     {},
@@ -6424,6 +7024,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (Player2!1) in the head. (Player2) had a Reflect protocol active, causing the bullet to bounce back into (Player1)'s head"
 text = "$Tribute1 shoots $Tribute2 in the head. $Tribute2 had a Reflect protocol active, causing the bullet to bounce back into $Tribute1's head"
 tribute_changes = [
     {},
@@ -6439,152 +7040,188 @@ allow_item_events = "cycle"
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (gathers/gathers/gathers/gathers/gather1) as much food into a bag as [typeA1] can before fleeing."
 text = "$Tribute1 gathers as much food into a bag as $SP1 can before fleeing."
 tribute_changes = [
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (sobs/sobs/sobs/sobs/sob1) while gripping a photo of [typeC1] waifus and husbandos."
 text = "$Tribute1 sobs while gripping a photo of $PA1 waifus and husbandos."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) decide to work together to get more supplies."
 text = "$Tribute1 and $Tribute2 decide to work together to get more supplies."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) get into a fight over raw meat, but (Player2) (gives/gives/gives/gives/give2) up and (runs/runs/runs/runs/run2) away."
 text = "$Tribute1 and $Tribute2 get into a fight over raw meat, but $Tribute2 gives up and runs away."
-tribute_changes = [
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
     {},
-    {},
+]
+
+[[cycles.events.tribute_changes]]
+power = 5
+
+[[cycles.events.tribute_changes]]
+power = -3
+enemies = [
+    [
+        1,
+        1,
+    ],
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2!1) get into a fight over an Arma Inscripta upgrade, but (Player1) (gives/gives/gives/gives/give1) up and (runs/runs/runs/runs/run1) away."
 text = "$Tribute1 and $Tribute2 get into a fight over an Arma Inscripta upgrade, but $Tribute1 gives up and runs away."
-tribute_changes = [
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
     {},
-    {},
+]
+
+[[cycles.events.tribute_changes]]
+power = 5
+
+[[cycles.events.tribute_changes]]
+power = -3
+enemies = [
+    [
+        1,
+        1,
+    ],
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) confront each other, but grab what they want slowly to avoid conflict."
 text = "$Tribute1, $Tribute2, and $Tribute3 confront each other, but grab what they want slowly to avoid conflict."
 tribute_changes = [
-    {},
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (destroys/destroys/destroys/destroys/destroy1) (Player2!1)'s family memoirs out of spite."
 text = "$Tribute1 destroys $Tribute2's family memoirs out of spite."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) team up to grab food, supplies, weapons, and memoirs."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 team up to grab food, supplies, weapons, and memoirs."
 tribute_changes = [
-    {},
-    {},
-    {},
-    {},
+    { power = 15 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (steals/steals/steals/steals/steal1) (Player2!1)'s memoirs."
 text = "$Tribute1 steals $Tribute2's memoirs."
 tribute_changes = [
-    {},
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (takes/takes/takes/takes/take1) a Quartz Package leaning against the wall."
 text = "$Tribute1 takes a Quartz Package leaning against the wall."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) (stuffs/stuffs/stuffs/stuffs/stuff1) a bundle of algos into a backpack before sprinting away."
 text = "$Tribute1 stuffs a bundle of algos into a backpack before sprinting away."
 tribute_changes = [
-    {},
+    { power = 1 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) grabs a Trigger for a Jupiter Cannon."
 text = "$Tribute1 grabs a Trigger for a Jupiter Cannon."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) finds an Arma Inscripta upgrade, but does not have enough Cores to claim it."
 text = "$Tribute1 finds an Arma Inscripta upgrade, but does not have enough Cores to claim it."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) finds an Adult Card on the ground."
 text = "$Tribute1 finds an Adult Card on the ground."
 tribute_changes = [
-    {},
+    { power = 5 },
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (head/head/head/head/heads2)."
 text = "$Tribute1 throws a knife into $Tribute2's head."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) accidentally (steps/steps/steps/steps/step1) on a landmine."
 text = "$Tribute1 accidentally steps on a landmine."
 tribute_changes = [
     { status = 1 },
@@ -6594,37 +7231,53 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (catches/catches/catches/catches/catch1) (Player2!1) off guard and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 catches $Tribute2 off guard and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) work together to drown (Player3!1)."
 text = "$Tribute1 and $Tribute2 work together to drown $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 shoots an arrow into $Tribute2's head."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) an arrow into (Player2!1)'s (head/head/head/head/heads2)."
+text = "$Tribute1 shoots an arrow into $Tribute2's head."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) cannot handle the circumstances and (commits/commits/commits/commits/commit1) suicide."
 text = "$Tribute1 cannot handle the circumstances and commits suicide."
 tribute_changes = [
     { status = 1 },
@@ -6634,56 +7287,82 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (bashes/bashes/bashes/bashes/bash1) (Player2!1)'s (head/head/head/head/heads2) against a rock several times."
 text = "$Tribute1 bashes $Tribute2's head against a rock several times."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (snaps/snaps/snaps/snaps/snap1) (Player2!1)'s (neck/neck/neck/neck/necks2)."
 text = "$Tribute1 snaps $Tribute2's neck."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (decapitates/decapitates/decapitates/decapitates/decapitate1) (Player2!1) with [typeC1] unsheathed edge."
 text = "$Tribute1 decapitates $Tribute2 with $PA1 unsheathed edge."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (spears/spears/spears/spears/spear1) (Player2!1) in the abdomen."
 text = "$Tribute1 spears $Tribute2 in the abdomen."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets $Tribute2 on fire with a molotov."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) (Player2!1) on fire with a molotov."
+text = "$Tribute1 sets $Tribute2 on fire with a molotov."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into a Sinspreader's maw and gets consumed."
 text = "$Tribute1 falls into a Sinspreader's maw and gets consumed."
 tribute_changes = [
     { status = 1 },
@@ -6693,86 +7372,127 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) while [typeC2] (back is/back is/back is/back is/backs are2) turned."
 text = "$Tribute1 stabs $Tribute2 while $PA2 back is turned."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1), but (puts/puts/injures/puts/put1) [typeB2] out of [typeC2] misery."
 text = "$Tribute1 severely injures $Tribute2, but puts $OP2 out of $PA2 misery."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (injures/injures/injures/injures/injure1) (Player2!1) and (leaves/leaves/leaves/leaves/leave1) [typeB2] to die."
 text = "$Tribute1 severely injures $Tribute2 and leaves $OP2 to die."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) bonks (Player2!1)'s (head/head/head/head/heads2) in with a mallet."
 text = "$Tribute1 bonks $Tribute2's head in with a mallet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (pushes/pushes/pushes/pushes/push1) (Player2!1) off a cliff during a knife fight."
 text = "$Tribute1 pushes $Tribute2 off a cliff during a knife fight."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (throws/throws/throws/throws/throw1) a knife into (Player2!1)'s (chest/chest/chest/chest/chests2)."
 text = "$Tribute1 throws a knife into $Tribute2's chest."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (is/is/is/is/are1) unable to convince (Player2!1) to not kill [typeB1]."
 text = "$Tribute1 is unable to convince $Tribute2 to not kill $OP1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (convinces/convinces/convinces/convinces/convince1) (Player2!1) to not kill [typeB1], only to kill [typeB2] instead."
+text = "$Tribute1 convinces $Tribute2 to not kill $OP1, only to kill $OP2 instead."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (falls/falls/falls/falls/fall1) into MICA's Love & Hope and dies."
 text = "$Tribute1 falls into MICA's Love & Hope and dies."
 tribute_changes = [
     { status = 1 },
@@ -6782,58 +7502,84 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) start fighting, but (Player2) (runs/runs/runs/runs/run2) away as (Player1) (kills/kills/kills/kills/kill1) (Player3)."
 text = "$Tribute1, $Tribute2, and $Tribute3 start fighting, but $Tribute2 runs away as $Tribute1 kills $Tribute3."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with [typeC2] own weapon."
 text = "$Tribute1 kills $Tribute2 with $PA2 own weapon."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (overpowers/overpowers/overpowers/overpowers/overpower1) (Player2!1), killing [typeB2]."
 text = "$Tribute1 overpowers $Tribute2, killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 sets an explosive off, killing $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1)."
+text = "$Tribute1 sets an explosive off, killing $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), and (Player3!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, and $Tribute3."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), and (Player4!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, and $Tribute4."
 tribute_changes = [
     { kills = 3 },
@@ -6841,11 +7587,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (sets/sets/sets/sets/set1) an explosive off, killing (Player2!1), (Player3!1), (Player4!1) and (Player5!1)."
 text = "$Tribute1 sets an explosive off, killing $Tribute2, $Tribute3, $Tribute4 and $Tribute5."
 tribute_changes = [
     { kills = 4 },
@@ -6854,21 +7605,31 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) as [typeA2] (tries/tries/try/tries/try2) to run."
+text = "$Tribute1 kills $Tribute2 as $SP2 tries to run."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) form a suicide pact, killing themselves."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 form a suicide pact, killing themselves."
 tribute_changes = [
     { status = 1 },
@@ -6881,16 +7642,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a hatchet."
 text = "$Tribute1 kills $Tribute2 with a hatchet."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player1) and (Player2) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute1 and $Tribute2 survive."
 tribute_changes = [
     { kills = 2 },
@@ -6898,11 +7665,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) and (Player2:1!2) fight (Player3:2!1) and (Player4:2!1). (Player3) and (Player4) survive."
 text = "$Tribute1 and $Tribute2 fight $Tribute3 and $Tribute4. $Tribute3 and $Tribute4 survive."
 tribute_changes = [
     { status = 1 },
@@ -6910,146 +7682,216 @@ tribute_changes = [
     { kills = 2 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2) (attacks/attacks/attacks/attacks/attack1) (Player2:2!1), but (Player3:2!1) protects [typeB2], killing (Player1)."
 text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 tribute_changes = [
     { status = 1 },
     { kills = 1 },
     {},
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) severely (slices/slices/slices/slices/slice1) (Player2!1) with a sword."
 text = "$Tribute1 severely slices $Tribute2 with a sword."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (strangles/strangles/strangles/strangles/strangle1) (Player2!1) with a rope."
 text = "$Tribute1 strangles $Tribute2 with a rope."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) for [typeC2] supplies."
+text = "$Tribute1 kills $Tribute2 for $PA2 supplies."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a gun at (Player2!1), but (misses/misses/misses/misses/miss1) and (kills/kills/kills/kills/kill1) (Player3) instead."
 text = "$Tribute1 shoots a gun at $Tribute2, but misses and kills $Tribute3 instead."
 tribute_changes = [
     { kills = 1 },
     {},
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (shoots/shoots/shoots/shoots/shoot1) a suspicious syringe into (Player2!1)'s (neck/neck/neck/neck/necks2), slowly killing [typeB2]."
 text = "$Tribute1 shoots a suspicious syringe into $Tribute2's neck, slowly killing $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) with a tree branch."
 text = "$Tribute1 stabs $Tribute2 with a tree branch."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (stabs/stabs/stabs/stabs/stab1) (Player2!1) in the (back/back/back/back/backs2) with a bayonet."
+text = "$Tribute1 stabs $Tribute2 in the back with a bayonet."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player1) triumphantly (kills/kills/kills/kills/kill1) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute1 triumphantly kills them both."
 tribute_changes = [
     { kills = 2 },
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight. (Player2) triumphantly (kills/kills/kills/kills/kill2) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute2 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { kills = 2 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2!3), (Player2:2!1!3), and (Player3:3!1!2) get into a fight.(Player3) triumphantly (kills/kills/kills/kills/kill3) them both."
 text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
 tribute_changes = [
     { status = 1 },
     { status = 1 },
     { kills = 2 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (kills/kills/kills/kills/kill1) (Player2!1) with a sickle."
 text = "$Tribute1 kills $Tribute2 with a sickle."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) repeatedly (stabs/stabs/stabs/stabs/stab1) (Player2!1) to death with a combat knife."
+text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1) (bleeds/bleeds/bleeds/bleeds/bleed1) out due to untreated injuries."
 text = "$Tribute1 bleeds out due to untreated injuries."
 tribute_changes = [
     { status = 1 },
@@ -7059,16 +7901,22 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (ambushes/ambushes/ambushes/ambushes/ambush1) (Player2!1) and (kills/kills/kills/kills/kill1) [typeB2]."
 text = "$Tribute1 ambushes $Tribute2 and kills $OP2."
 tribute_changes = [
     { kills = 1 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) successfully ambush and kill (Player4:2!1), (Player5:2!1), and (Player6:2!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 successfully ambush and kill $Tribute4, $Tribute5, and $Tribute6."
 tribute_changes = [
     { kills = 3 },
@@ -7078,11 +7926,16 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1!2), (Player2:1!2), and (Player3:1!2) unsuccessfully ambush (Player4:2!1), (Player5:2!1), and (Player6:2!1), who kill them instead."
 text = "$Tribute1, $Tribute2, and $Tribute3 unsuccessfully ambush $Tribute4, $Tribute5, and $Tribute6, who kill them instead."
 tribute_changes = [
     { status = 1 },
@@ -7092,11 +7945,16 @@ tribute_changes = [
     { kills = 3 },
     { kills = 3 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), (Player4:1), and (Player5:1) track down and kill (Player6!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4, and $Tribute5 track down and kill $Tribute6."
 tribute_changes = [
     { kills = 1 },
@@ -7106,11 +7964,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), (Player3:1), and (Player4:1) track down and kill (Player5!1)."
 text = "$Tribute1, $Tribute2, $Tribute3, and $Tribute4 track down and kill $Tribute5."
 tribute_changes = [
     { kills = 1 },
@@ -7119,11 +7982,16 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1), (Player2:1), and (Player3:1) track down and kill (Player4!1)."
 text = "$Tribute1, $Tribute2, and $Tribute3 track down and kill $Tribute4."
 tribute_changes = [
     { kills = 1 },
@@ -7131,32 +7999,47 @@ tribute_changes = [
     { kills = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) and (Player2:1) track down and kill (Player3!1)."
 text = "$Tribute1 and $Tribute2 track down and kill $Tribute3."
 tribute_changes = [
     { kills = 1 },
     { kills = 1 },
     { status = 1 },
 ]
-
-[[cycles.events]]
-weight = 20
-max_use = -1
-max_cycle = -1
-text = "$Tribute1 tracks down and kills $Tribute2."
-tribute_changes = [
-    { kills = 1 },
-    { status = 1 },
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) (tracks/tracks/tracks/tracks/track1) down and (kills/kills/kills/kills/kill1) (Player2!1)."
+text = "$Tribute1 tracks down and kills $Tribute2."
+tribute_changes = [
+    { kills = 1 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
+
+[[cycles.events]]
+weight = 20
+max_use = -1
+max_cycle = -1
+refstring = "(Player1:1) stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing (Player1), (Player2!1), (Player3!1) and (Player4!1)."
 text = "$Tribute1 stumbles on a Trigger Button and presses it. A Jupiter Cannon from far away fires killing $Tribute1, $Tribute2, $Tribute3 and $Tribute4."
 tribute_changes = [
     {},
@@ -7169,6 +8052,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1), killing (Player2) with a headshot."
 text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
 tribute_changes = [
     {},
@@ -7179,6 +8063,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots their gun at (Player2!1). (Player1) forgot to turn off the safety and (Player2) kills (Player1) instead."
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 tribute_changes = [
     {},
@@ -7189,6 +8074,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) found a pressure cooker and tried to open it. It was an IED which promptly exploded."
 text = "$Tribute1 found a pressure cooker and tried to open it. It was an IED which promptly exploded."
 tribute_changes = [
     {},
@@ -7198,6 +8084,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1) got squished to death by a stray Toad Idol."
 text = "$Tribute1 got squished to death by a stray Toad Idol."
 tribute_changes = [
     {},
@@ -7207,6 +8094,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "(Player1:1) shoots (Player2!1) in the head. (Player2) had a Reflect protocol active, causing the bullet to bounce back into (Player1)'s head"
 text = "$Tribute1 shoots $Tribute2 in the head. $Tribute2 had a Reflect protocol active, causing the bullet to bounce back into $Tribute1's head"
 tribute_changes = [
     {},
@@ -7217,6 +8105,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1), (Player2) and (Player3)."
 text = "AU's air support fired a cruise missile, killing $Tribute1, $Tribute2 and $Tribute3."
 tribute_changes = [
     {},
@@ -7228,6 +8117,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1) and (Player2)."
 text = "AU's air support fired a cruise missile, killing $Tribute1 and $Tribute2."
 tribute_changes = [
     {},
@@ -7238,6 +8128,7 @@ tribute_changes = [
 weight = 20
 max_use = -1
 max_cycle = -1
+refstring = "AU's air support fired a cruise missile, killing (Player1), (Player2), (Player3) and (Player4)."
 text = "AU's air support fired a cruise missile, killing $Tribute1, $Tribute2, $Tribute3 and $Tribute4."
 tribute_changes = [
     {},
@@ -7381,3 +8272,971 @@ tribute_requirements = [
     {},
     { status = 1 },
 ]
+
+[[items]]
+name = "shovel"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their shovel."
+
+[items.base_event]
+text = "$Tribute1 picked up a shovel."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their shovel to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their shovel."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "Mallet"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their Mallet."
+
+[items.base_event]
+text = "$Tribute1 picked up a Mallet."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their Mallet to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their Mallet."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "AR-15"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their AR-15."
+
+[items.base_event]
+text = "$Tribute1 picked up a AR-15."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their AR-15 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their AR-15."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "Vector"
+power = 20
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 1
+textl = "$Tribute1 ran out of ammo on their Vector."
+
+[items.base_event]
+text = "$Tribute1 picked up a Vector."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their Vector to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their Vector."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "MPX"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their MPX."
+
+[items.base_event]
+text = "$Tribute1 picked up a MPX."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their MPX to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their MPX."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "M4"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their M4."
+
+[items.base_event]
+text = "$Tribute1 picked up a M4."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their M4 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their M4."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "SPAS-12"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their SPAS-12."
+
+[items.base_event]
+text = "$Tribute1 picked up a SPAS-12."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their SPAS-12 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their SPAS-12."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "AK-12"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their AK-12."
+
+[items.base_event]
+text = "$Tribute1 picked up a AK-12."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their AK-12 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their AK-12."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "UMP45"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their UMP45."
+
+[items.base_event]
+text = "$Tribute1 picked up a UMP45."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their UMP45 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their UMP45."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "HK416"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their HK416."
+
+[items.base_event]
+text = "$Tribute1 picked up a HK416."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their HK416 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their HK416."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "UMP9"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their UMP9."
+
+[items.base_event]
+text = "$Tribute1 picked up a UMP9."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their UMP9 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their UMP9."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "AK47"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their AK47."
+
+[items.base_event]
+text = "$Tribute1 picked up a AK47."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their AK47 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their AK47."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "Makarov"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their Makarov."
+
+[items.base_event]
+text = "$Tribute1 picked up a Makarov."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their Makarov to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their Makarov."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "MP5"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their MP5."
+
+[items.base_event]
+text = "$Tribute1 picked up a MP5."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their MP5 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their MP5."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "Desert Eagle"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their Desert Eagle."
+
+[items.base_event]
+text = "$Tribute1 picked up a Desert Eagle."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their Desert Eagle to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their Desert Eagle."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "MP7"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their MP7."
+
+[items.base_event]
+text = "$Tribute1 picked up a MP7."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their MP7 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their MP7."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "G36"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their G36."
+
+[items.base_event]
+text = "$Tribute1 picked up a G36."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their G36 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their G36."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "P90"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their P90."
+
+[items.base_event]
+text = "$Tribute1 picked up a P90."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their P90 to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their P90."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "SIG MCX"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their SIG MCX."
+
+[items.base_event]
+text = "$Tribute1 picked up a SIG MCX."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their SIG MCX to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their SIG MCX."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "baseball bat"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their baseball bat."
+
+[items.base_event]
+text = "$Tribute1 picked up a baseball bat."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their baseball bat to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their baseball bat."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "spear"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their spear."
+
+[items.base_event]
+text = "$Tribute1 picked up a spear."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their spear to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their spear."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
+
+[[items]]
+name = "knife"
+power = 50
+cycles = [
+    "Bloodbath",
+    "Day",
+]
+use_count = 5
+textl = "$Tribute1 ran out of ammo on their knife."
+
+[items.base_event]
+text = "$Tribute1 picked up a knife."
+weight = 10
+max_use = 3
+tribute_changes = [
+    { itemg = 0 },
+]
+
+[[items.events]]
+text = "$Tribute1 uses their knife to hunt for food."
+weight = 15
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
+
+[[items.events]]
+text = "$Tribute1 shoots $Tribute2 with their knife."
+weight = 25
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+
+[[items.events.tribute_requirements]]
+itemstatus = [
+    ">",
+    1,
+]
+
+[items.events.tribute_requirements.relationship]
+2 = "notallies"
+
+[[items.events.tribute_requirements]]
