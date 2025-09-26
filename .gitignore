@@ -6,3 +6,4 @@ secret*
 config*
 data/*
 log
+__pycache__/
