@@ -41,7 +41,7 @@ class NINABot(commands.Bot):
         stat_confg: The config for the bot.
     """
     stat_confg: config.Config
-    sim: "Simulation"
+    sim: "Simulation | None"
     basp: pathlib.Path
 
     def __init__(self, *args, confg: config.Config | None, **kwargs) -> None:

@@ -75,20 +75,19 @@ class Core(commands.Cog, name="SimCore"):
         self._bt = bot_instance
         self._dir = const.PROG_DIR.joinpath("data")
         os.makedirs(self._dir, exist_ok=True)
-        self.sim = None
         self.owo_toggwe = False
-        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
-        if cast_dir.exists() and events_dir.exists():
-            try:
-                self.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
-                logger.info("Loaded last simulation data.")
-            except (ValueError, KeyError):
-                self.sim = None
-                os.remove(cast_dir)
-                os.remove(events_dir)
-                logger.info("Local files invalid/corrupt. Purged from system.")
-        self._bt.basp = self._dir
-        self._bt.sim = self.sim
+        if self._bt.sim is None:
+            cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
+            if cast_dir.exists() and events_dir.exists():
+                try:
+                    self._bt.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
+                    logger.info("Loaded last simulation data.")
+                except (ValueError, KeyError):
+                    self._bt.sim = None
+                    os.remove(cast_dir)
+                    os.remove(events_dir)
+                    logger.info("Local files invalid/corrupt. Purged from system.")
+            self._bt.basp = self._dir
         self.lock = False
         logger.info("Loaded %s", self.__class__.__name__)
 
@@ -189,17 +188,16 @@ class Core(commands.Cog, name="SimCore"):
             a = random.randint(0, 7911979)
             self.owo_toggwe = a == 0
         t = self.t
-        self.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
-        self._bt.sim = self.sim
+        self._bt.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
         # Reset the sim just in case.
         logger.info(f"Readying simulation for {ctx.user}.")
         await ctx.response.defer(thinking=True)
-        await self.sim.ready(seed, randomize_dc, recolor_dc, ctx)
+        await self._bt.sim.ready(seed, randomize_dc, recolor_dc, ctx)
         embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
                               title=t(f"Simulation primary ready up protocol complete."),
                               description=t("Fetching images..."))
-        embed.set_author(name=t(self.sim.name), icon_url=self.sim.logo)
-        embed.set_footer(text=t("Random seed:") + f"{self.sim.seed}")
+        embed.set_author(name=t(self._bt.sim.name), icon_url=self._bt.sim.logo)
+        embed.set_footer(text=t("Random seed:") + f"{self._bt.sim.seed}")
         await ctx.followup.send(embed=embed)
         cast_fdir = self._dir.joinpath("cast")
         location = self._dir.joinpath("status")
@@ -213,14 +211,14 @@ class Core(commands.Cog, name="SimCore"):
         os.makedirs(cast_fdir)
         image_tasks = []
         sesh = self._bt.httpsession
-        for tribute_id, tribute in enumerate(self.sim.cast):
+        for tribute_id, tribute in enumerate(self._bt.sim.cast):
             cwd = cast_fdir.joinpath(str(tribute_id))
             os.makedirs(cwd)
             image_tasks.append(tribute.fetch_image("alive", cwd, sesh))
         await asyncio.gather(*image_tasks)
         image_tasks = []
         # Separated to allow for PIL to be used for BW images.
-        for tribute_id, tribute in enumerate(self.sim.cast):
+        for tribute_id, tribute in enumerate(self._bt.sim.cast):
             cwd = cast_fdir.joinpath(str(tribute_id))
             image_tasks.append(tribute.fetch_image("dead", cwd, sesh))
         await asyncio.gather(*image_tasks)
@@ -250,9 +248,9 @@ class Core(commands.Cog, name="SimCore"):
         os.makedirs(location, exist_ok=True)
         # This is a directory as the districts split the status images.
         emd = discord.Embed(title=t("Current Simulation Status"))
-        emd.set_author(name=t(f"{self.sim.name}"), icon_url=self.sim.logo)
-        for district in self.sim.districts:
-            image = await district.get_render(self.sim)
+        emd.set_author(name=t(f"{self._bt.sim.name}"), icon_url=self._bt.sim.logo)
+        for district in self._bt.sim.districts:
+            image = await district.get_render(self._bt.sim)
             op_image = discord.File(image, filename=image.name)
             emd.description = t(f"Status for {district.name}")
             emd.set_image(url=f"attachment://{image.name}")
@@ -279,9 +277,9 @@ class Core(commands.Cog, name="SimCore"):
             raise exceptions.UsageError("Bot simulation lock active.")
         self.lock = True
         t = self.t
-        sim = self.sim
+        sim = self._bt.sim
         # recovery.Safe doesn't seem to be working at the moment. Bypassed
-        # with recovery.Safe(self.sim) as sim:
+        # with recovery.Safe(self._bt.sim) as sim:
         await ctx.response.defer(thinking=True)
         ctx.extras["location"] = self._dir.joinpath("cycles", f"{sim.cycle}")
         os.makedirs(ctx.extras["location"], exist_ok=True)
@@ -309,7 +307,7 @@ class Core(commands.Cog, name="SimCore"):
             ctx: The interaction context.
             tribute: The tribute to display.
         """
-        for possibly_correct in self.sim.cast:
+        for possibly_correct in self._bt.sim.cast:
             if possibly_correct.name == tribute:
                 tribute = possibly_correct
                 break
@@ -325,13 +323,13 @@ class Core(commands.Cog, name="SimCore"):
         )
         file = discord.utils.MISSING
         if tribute.status and tribute.dead_image == "BW":
-            place = self._dir.joinpath("cast", f"{self.sim.cast.index(tribute)}")
+            place = self._dir.joinpath("cast", f"{self._bt.sim.cast.index(tribute)}")
             fil = await tribute.fetch_image("dead", place)
             file = discord.File(fil)
             emd.set_image(url=f"attachment://{file.filename}")
         else:
             emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
-        emd.set_author(name=t(f"{self.sim.name}"), icon_url=self.sim.logo)
+        emd.set_author(name=t(f"{self._bt.sim.name}"), icon_url=self._bt.sim.logo)
         emd.add_field(name=t("Items"),
                       value=NINA.truncatelast(
                           t("\n".join([f"{item.name} - {uses}" for item, uses in tribute.items.items()])), 1024))
