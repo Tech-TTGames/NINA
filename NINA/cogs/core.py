@@ -45,11 +45,13 @@ async def tribute_autocomplete(
         interaction: The interaction requesting autocompletion.
         current: The current input in the field.
     """
-    return [
-        app_commands.Choice(name=tribute.name, value=tribute.name)
-        for tribute in interaction.client.sim.cast
-        if current.lower() in tribute.name.lower()
-    ]
+    choices = []
+    for tribute in interaction.client.sim.cast:
+        if len(choices) >= 25:
+            break
+        if current.lower() in tribute.name.lower():
+            choices.append(app_commands.Choice(name=tribute.name, value=tribute.name))
+    return choices
 
 
 class Core(commands.Cog, name="SimCore"):
