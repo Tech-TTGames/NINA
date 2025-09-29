@@ -44,7 +44,7 @@ weight = 10
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 0 },
+    {},
 ]
 
 [[cycles.events]]
@@ -430,8 +430,7 @@ weight = 10
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
+    { power = -5 },
 ]
 
 [[cycles.events]]
@@ -480,7 +479,7 @@ weight = 5
 max_use = 5
 max_cycle = -1
 tribute_changes = [
-    { status = 1, kills = 1, power = 15 },
+    { status = 1, kills = 1 },
 ]
 
 [[cycles.events]]
@@ -543,7 +542,7 @@ weight = 10
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { status = 1, kills = 1, power = 15 },
+    { status = 1, kills = 1 },
 ]
 
 [[cycles.events]]
@@ -834,10 +833,10 @@ weight = 5
 max_use = 1
 max_cycle = -1
 tribute_changes = [
-    { status = 1, kills = 1, power = 15 },
-    { status = 1, kills = 1, power = 15 },
-    { status = 1, kills = 1, power = 15 },
-    { status = 1, kills = 1, power = 15 },
+    { status = 1, kills = 1 },
+    { status = 1, kills = 1 },
+    { status = 1, kills = 1 },
+    { status = 1, kills = 1 },
 ]
 tribute_requirements = [
     { relationship = { 2 = "allies", 3 = "allies", 4 = "allies" } },
@@ -1109,7 +1108,8 @@ tribute_changes = [
     { status = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    {},
     {},
 ]
 
@@ -1125,7 +1125,9 @@ tribute_changes = [
     { status = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
+    { relationship = { 2 = "notallies", 3 = "notallies", 4 = "notallies" } },
+    {},
+    {},
     {},
 ]
 
@@ -1142,7 +1144,10 @@ tribute_changes = [
     { status = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
+    { relationship = { 2 = "notallies", 3 = "notallies", 4 = "notallies", 5 = "notallies" } },
+    {},
+    {},
+    {},
     {},
 ]
 
@@ -1172,8 +1177,10 @@ tribute_changes = [
     { kills = 2, power = 30, powern = -5 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
-    {},
+    { relationship = { 2 = "allies", 3 = "notallies", 4 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies", 4 = "notallies" } },
+    { relationship = { 1 = "notallies", 2 = "notallies", 4 = "allies" } },
+    { relationship = { 1 = "notallies", 2 = "notallies", 3 = "allies" } },
 ]
 
 [[cycles.events]]
@@ -1229,8 +1236,9 @@ tribute_changes = [
     { status = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
-    {},
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 2 = "notallies" } },
 ]
 
 [[cycles.events]]
@@ -1244,8 +1252,9 @@ tribute_changes = [
     { status = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
-    {},
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 2 = "notallies" } },
 ]
 
 [[cycles.events]]
@@ -1259,8 +1268,9 @@ tribute_changes = [
     { kills = 2, power = 30, powern = -5 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
-    {},
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 3 = "notallies" } },
+    { relationship = { 1 = "notallies", 2 = "notallies" } },
 ]
 
 [[cycles.events]]
@@ -1353,8 +1363,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
+    { kills = 1, power = 15, powern = 10 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1363,9 +1373,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { kills = 1, power = 20 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1374,11 +1383,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { status = 1 },
+    { kills = 1, power = 10 },
 ]
 
 [[cycles.events]]
@@ -1387,11 +1393,10 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1400,10 +1405,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
+    { status = 1 },
+    { status = 1 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1412,8 +1416,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { enemies = [[1,1]], power = -3 },
+    { kills = 1, power = 10 },
+    { status = 1, enemies = [[1,1]], power = -3 },
 ]
 
 [[cycles.events]]
@@ -1422,10 +1426,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { kills = 1, power = 15 },
+    { allies = [[3,1]] },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1434,11 +1437,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { status = 1 },
+    { kills = 2, power = 20 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1447,10 +1448,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { status = 1 },
+    {},
+    { kills = 1, power = 10 },
 ]
 
 [[cycles.events]]
@@ -1459,8 +1459,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
+    { kills = 1, power = 20 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1469,8 +1469,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
+    { kills = 1, power = 15, powern = 10 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1479,8 +1479,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 8, powern = 5 },
-    { power = 8, powern = 5 },
+    { kills = 1, power = 8, powern = 5 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1489,9 +1489,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
+    { status = 1 },
+    { kills = 1, power = 15, powern = 10 },
 ]
 
 [[cycles.events]]
@@ -1500,9 +1499,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { kills = 2, power = 30 },
+    { status = 1 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1511,10 +1510,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { kills = 1, power = 15 },
+    {},
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1523,10 +1521,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { kills = 1, power = 15 },
+    { status = 1 },
+    {},
 ]
 
 [[cycles.events]]
@@ -1535,10 +1532,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { status = 1 },
+    { kills = 1, power = 20 },
 ]
 
 [[cycles.events]]
@@ -1547,9 +1542,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { kills = 1, power = 20 },
+    { kills = 1, power = 20 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1558,11 +1553,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { status = 1 },
+    {},
+    { kills = 1, power = 20 },
 ]
 
 [[cycles.events]]
@@ -1571,11 +1564,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    {},
+    { status = 1 },
+    { kills = 1, power = 20 },
 ]
 
 [[cycles.events]]
@@ -1584,12 +1575,9 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
-    { power = 20 },
+    { status = 1 },
+    { status = 1 },
+    { kills = 2, power = 30 },
 ]
 
 [[cycles.events]]
@@ -1628,9 +1616,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
+    { status = 1 },
+    { kills = 1, power = 10 },
 ]
 
 [[cycles.events]]
@@ -1639,11 +1626,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
-    { power = 15, powern = 10 },
+    { kills = 1, power = 15, powern = 10 },
+    { status = 1 },
 ]
 
 [[cycles.events]]
@@ -1652,10 +1636,8 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
-    { power = 1 },
+    { status = 1, kills = 1 },
+    { kills = 1, power = 10 },
 ]
 
 [[cycles]]
