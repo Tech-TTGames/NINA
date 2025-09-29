@@ -60,7 +60,7 @@ RPronouns = ["herself", "himself", "itself", "themselves", "themself"]
 PAdjectives = ["her", "his", "its", "their", "their"]
 
 
-def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[int, int]:
+def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) -> tuple[float, float]:
     """Get the size of the text.
 
     Args:
@@ -182,9 +182,13 @@ async def generate_endcycle(
         (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
         (0, 0, 0, 0),
     )
-    text = t(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
     if request:
-        text = t(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
+        if involved:
+            text = t(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
+        else:
+            text = "Result: Wipeout."
+    else:
+        text = t(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
     draw = draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 128))
     # Size is
     # Width: number between 1-4 * 576 + 64
@@ -495,20 +499,27 @@ class Simulation:
         for tribute in self.alive:
             if tribute.district not in districts:
                 districts.append(tribute.district)
-        if len(districts) == 1:
+        if len(districts) <= 1:
             logger.info("Simulation %s complete.", self.name)
             self.cycle = -1
             if interaction:
                 image = await generate_endcycle(self.cycle, self.alive, self, 1)
+                if len(districts) == 1:
+                    sp = "Winners:\n" + "\n".join([tribute.name for tribute in self.alive])
+                else:
+                    sp = "Results: Wipeout."
                 attach = discord.File(image)
                 embed = discord.Embed(color=discord.Color.gold(),
                                       title=t("Simulation Complete"),
-                                      description=t("Winners:\n" + "\n".join([tribute.name for tribute in self.alive])))
+                                      description=t(sp))
                 embed.set_author(name=t(self.name), icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
-            logger.info("Winner: %s", districts[0].name)
-            logger.info("Alive tributes: %s", ", ".join([tribute.name for tribute in self.alive]))
+            if len(districts) == 1:
+                logger.info("Winner: %s", districts[0].name)
+                logger.info("Alive tributes: %s", ", ".join([tribute.name for tribute in self.alive]))
+            else:
+                logger.info("The simulation ended in a wipeout. There are no winners.")
 
 
 class District:
@@ -1331,12 +1342,13 @@ class Event:
                         affected.power += value
                         continue
                     case "powern":
+                        np = affected.power + value
                         if value > 0:
                             # If the power is positive, we want to add it with a ceiling of BASE_POWER.
-                            affected.power += min(affected.power + value, BASE_POWER)
+                            affected.power = min(np, BASE_POWER)
                         elif value < 0:
                             # If the power is negative, we want to subtract it with a floor of BASE_POWER.
-                            affected.power += max(affected.power + value, BASE_POWER)
+                            affected.power = max(np, BASE_POWER)
                         continue
                     case "status":
                         affected.status = value
