@@ -1755,7 +1755,7 @@ tribute_requirements = [
 
 [[cycles]]
 name = "Day"
-weight = "1000"
+weight = 20
 allow_item_events = "all"
 
 [[cycles.events]]
@@ -4271,7 +4271,7 @@ tribute_requirements = [
 
 [[cycles]]
 name = "Night"
-weight = "-1000"
+weight = -20
 allow_item_events = "cycle"
 
 [[cycles.events]]
@@ -6699,7 +6699,7 @@ tribute_requirements = [
 
 [[cycles]]
 name = "Feast"
-weight = "1"
+weight = 2
 allow_item_events = "cycle"
 
 [[cycles.events]]
