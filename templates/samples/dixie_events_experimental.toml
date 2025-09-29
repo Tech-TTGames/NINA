@@ -56,6 +56,10 @@ tribute_changes = [
     { enemies = [[2,1]] },
     { enemies = [[1,1]] },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 finds a baggie full of water."
@@ -112,6 +116,11 @@ tribute_changes = [
     { power = 5, allies = [[1,1],[3,1]] },
     { power = 5, allies = [[2,1],[1,1]] },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notenemies", 3 = "notenemies" } },
+    { relationship = { 1 = "notenemies", 3 = "notenemies" } },
+    { relationship = { 1 = "notenemies", 2 = "notenemies" } },
+]
 
 [[cycles.events]]
 text = "$Tribute1 runs away with a lighter and some rope."
@@ -139,6 +148,10 @@ max_cycle = -1
 tribute_changes = [
     { power = 5 },
     { enemies = [[1,1]] },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1366,6 +1379,10 @@ tribute_changes = [
     { kills = 1, power = 15, powern = 10 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
@@ -1376,6 +1393,10 @@ tribute_changes = [
     { kills = 1, power = 20 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
@@ -1385,6 +1406,10 @@ max_cycle = -1
 tribute_changes = [
     { status = 1 },
     { kills = 1, power = 10 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1419,6 +1444,10 @@ tribute_changes = [
     { kills = 1, power = 10 },
     { status = 1, enemies = [[1,1]], power = -3 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
@@ -1429,6 +1458,11 @@ tribute_changes = [
     { kills = 1, power = 15 },
     { allies = [[3,1]] },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    { relationship = { 3 = "allies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1441,6 +1475,11 @@ tribute_changes = [
     { kills = 2, power = 20 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    { relationship = { 3 = "allies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects him, killing $Tribute1."
@@ -1452,6 +1491,11 @@ tribute_changes = [
     {},
     { kills = 1, power = 10 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    { relationship = { 3 = "allies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 unloads their assault rifle into $Tribute2's chest point blank, killing him."
@@ -1461,6 +1505,10 @@ max_cycle = -1
 tribute_changes = [
     { kills = 1, power = 20 },
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1472,6 +1520,10 @@ tribute_changes = [
     { kills = 1, power = 15, powern = 10 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 forgets his trigger discipline and fires into $Tribute2's chest, fatally wounding him."
@@ -1482,6 +1534,10 @@ tribute_changes = [
     { kills = 1, power = 8, powern = 5 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke him to death, but he would manage to choke $Tribute1 instead after a struggle."
@@ -1491,6 +1547,10 @@ max_cycle = -1
 tribute_changes = [
     { status = 1 },
     { kills = 1, power = 15, powern = 10 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1503,6 +1563,11 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    {},
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 throws an unpinned grenade at $Tribute2 and $Tribute3. Only $Tribute2 manages to escape the blast."
@@ -1513,6 +1578,11 @@ tribute_changes = [
     { kills = 1, power = 15 },
     {},
     { status = 1 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    {},
+    {},
 ]
 
 [[cycles.events]]
@@ -1525,6 +1595,11 @@ tribute_changes = [
     { status = 1 },
     {},
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies", 3 = "notallies" } },
+    {},
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 fires his weapon at $Tribute2 but misses, $Tribute2 shoots back and kills $Tribute1."
@@ -1534,6 +1609,10 @@ max_cycle = -1
 tribute_changes = [
     { status = 1 },
     { kills = 1, power = 20 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1546,6 +1625,11 @@ tribute_changes = [
     { kills = 1, power = 20 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills $Tribute1."
@@ -1556,6 +1640,11 @@ tribute_changes = [
     { status = 1 },
     {},
     { kills = 1, power = 20 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1568,6 +1657,11 @@ tribute_changes = [
     { status = 1 },
     { kills = 1, power = 20 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 and $Tribute2 work together to kill $Tribute3 in a gun fight. $Tribute3 shoots back and kills both $Tribute1 and $Tribute2."
@@ -1578,6 +1672,11 @@ tribute_changes = [
     { status = 1 },
     { status = 1 },
     { kills = 2, power = 30 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
+    {},
 ]
 
 [[cycles.events]]
@@ -1591,7 +1690,8 @@ tribute_changes = [
     { kills = 1, status = 1, power = 15, powern = -5, itemg = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
     {},
 ]
 
@@ -1606,7 +1706,8 @@ tribute_changes = [
     { kills = 1, status = 1, power = 15, powern = -5, itemg = 1 },
 ]
 tribute_requirements = [
-    { relationship = { 2 = "notallies" } },
+    { relationship = { 2 = "allies", 3 = "notallies" } },
+    { relationship = { 1 = "allies", 3 = "notallies" } },
     {},
 ]
 
@@ -1619,6 +1720,10 @@ tribute_changes = [
     { status = 1 },
     { kills = 1, power = 10 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as he got too close, $Tribute1 shoots $Tribute2 to death."
@@ -1629,6 +1734,10 @@ tribute_changes = [
     { kills = 1, power = 15, powern = 10 },
     { status = 1 },
 ]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[cycles.events]]
 text = "$Tribute1 shoots $Tribute2 in the head. $Tribute2 had a Reflect protocol active, causing the bullet to bounce back into $Tribute1's head"
@@ -1636,8 +1745,12 @@ weight = 20
 max_use = -1
 max_cycle = -1
 tribute_changes = [
-    { status = 1, kills = 1 },
+    { status = 1 },
     { kills = 1, power = 10 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "notallies" } },
+    {},
 ]
 
 [[cycles]]
