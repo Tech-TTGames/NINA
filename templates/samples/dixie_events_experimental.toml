@@ -287,7 +287,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -301,7 +301,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 obtains a bass-boosted microphone and screams into $Tribute2's ears, temporarily deafening them."
+text = "$Tribute1 obtains a bass-boosted microphone and screams into $Tribute2's ears, temporarily deafening $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -357,7 +357,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 hastily grabs a poster of his favourite anime."
+text = "$Tribute1 hastily grabs a poster of $PA1 favourite anime."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -550,7 +550,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 forgets his trigger discipline and fires into his own chest, bleeding out to death."
+text = "$Tribute1 forgets $PA1 trigger discipline and fires into $PA1 own chest, bleeding out to death."
 weight = 10
 max_use = -1
 max_cycle = -1
@@ -1271,7 +1271,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight.$Tribute3 triumphantly kills them both."
+text = "$Tribute1, $Tribute2, and $Tribute3 get into a fight. $Tribute3 triumphantly kills them both."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1385,7 +1385,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2, killing $Tribute2 with a headshot."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1399,7 +1399,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1436,7 +1436,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 mentally overpowers $Tribute2 in a fight, killing him. Checkmate."
+text = "$Tribute1 mentally overpowers $Tribute2 in a fight, killing $OP2. Checkmate."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1450,7 +1450,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
+text = "$Tribute1 shoots $PA1 weapon toward $Tribute2, but $Tribute3 gets in the way to protect $OP2, killing $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1466,7 +1466,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
+text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices $RP3 to protect $OP2, killing $Tribute1 and $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1482,7 +1482,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects him, killing $Tribute1."
+text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1498,7 +1498,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 unloads their assault rifle into $Tribute2's chest point blank, killing him."
+text = "$Tribute1 unloads $PA1 assault rifle into $Tribute2's chest point blank, killing $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1526,7 +1526,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 forgets his trigger discipline and fires into $Tribute2's chest, fatally wounding him."
+text = "$Tribute1 forgets $PA1 trigger discipline and fires into $Tribute2's chest, fatally wounding $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1540,7 +1540,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke him to death, but he would manage to choke $Tribute1 instead after a struggle."
+text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke $OP2 to death, but he would manage to choke $Tribute1 instead after a struggle."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1602,7 +1602,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 fires his weapon at $Tribute2 but misses, $Tribute2 shoots back and kills $Tribute1."
+text = "$Tribute1 fires $PA1 weapon at $Tribute2 but misses, $Tribute2 shoots back and kills $Tribute1."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1818,7 +1818,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 sharpens $PP1 spear."
+text = "$Tribute1 sharpens $PA1 spear."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1872,7 +1872,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 practices $PP1 punches against a Baalia Training Machine."
+text = "$Tribute1 practices $PA1 punches against a Baalia Training Machine."
 weight = 10
 max_use = -1
 max_cycle = -1
@@ -2266,7 +2266,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 sprains $PP1 ankle while running away from $Tribute2."
+text = "$Tribute1 sprains $PA1 ankle while running away from $Tribute2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2431,7 +2431,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2445,7 +2445,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 finds a plastic chair overlooking a cliff. They sit down and contemplate their life choices."
+text = "$Tribute1 finds a plastic chair overlooking a cliff. They sit down and contemplate $PA1 life choices."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2585,7 +2585,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 practices his aim in the woods."
+text = "$Tribute1 practices $PA1 aim in the woods."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2594,7 +2594,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 sets Molotov traps around his shelter."
+text = "$Tribute1 sets Molotov traps around $PA1 shelter."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2603,7 +2603,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 reinforces their shelter with Barbed wire."
+text = "$Tribute1 reinforces $PA1 shelter with Barbed wire."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2630,7 +2630,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 tries to convince $Tribute2 to team up with him but fails."
+text = "$Tribute1 tries to convince $Tribute2 to team up with $OP2 but fails."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2727,7 +2727,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from him."
+text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from $OP3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2752,7 +2752,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 chases after $Tribute2 but fails to catch him. They are playing tag."
+text = "$Tribute1 chases after $Tribute2 but fails to catch $OP2. They are playing tag."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2766,7 +2766,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch him."
+text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch $OP3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2782,7 +2782,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him."
+text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch $OP4."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2800,7 +2800,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him. They are playing tag."
+text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch $OP4. They are playing tag."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2818,7 +2818,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 uses his tools and goes carpenting."
+text = "$Tribute1 uses $PA1 tools and goes carpenting."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2859,7 +2859,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 argues with $Tribute2, resulting in him getting kicked out of $Tribute1's shelter."
+text = "$Tribute1 argues with $Tribute2, resulting in $OP2 getting kicked out of $Tribute1's shelter."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -3979,7 +3979,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2, killing $Tribute2 with a headshot."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -3993,7 +3993,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4080,7 +4080,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 mentally overpowers $Tribute2, killing him. Checkmate."
+text = "$Tribute1 mentally overpowers $Tribute2, killing $OP2. Checkmate."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4094,7 +4094,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects him, killing $Tribute1."
+text = "$Tribute1 attacks $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4142,7 +4142,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 practices his aim but accidentally hits $Tribute2, fatally wounding him."
+text = "$Tribute1 practices $PA1 aim but accidentally hits $Tribute2, fatally wounding $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4182,7 +4182,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 convinces $Tribute2 to team up for the day, but $Tribute2 betrays $Tribute1 and stabs him in the back."
+text = "$Tribute1 convinces $Tribute2 to team up for the day, but $Tribute2 betrays $Tribute1 and stabs $OP1 in the back."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4196,7 +4196,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 cries while $Tribute2 comforts him. $Tribute2 then stabs $Tribute1, ending his suffering."
+text = "$Tribute1 cries while $Tribute2 comforts $OP1. $Tribute2 then stabs $Tribute1, ending $PA1 suffering."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4210,7 +4210,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
+text = "$Tribute1 shoots $PA1 weapon toward $Tribute2, but $Tribute3 gets in the way to protect $OP2, killing $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4226,7 +4226,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
+text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices $RP3 to protect $OP2, killing $Tribute1 and $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4242,7 +4242,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 unloads their assault rifle into $Tribute2's chest point blank, killing him."
+text = "$Tribute1 unloads $PA1 assault rifle into $Tribute2's chest point blank, killing $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4256,7 +4256,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing him."
+text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4307,7 +4307,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 tends to $PP1 own wounds."
+text = "$Tribute1 tends to $PA1 own wounds."
 weight = 2
 max_use = -1
 max_cycle = -1
@@ -4840,7 +4840,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 manages to escape."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4899,7 +4899,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 practices his aim in the woods. No one is alarmed, but $Tribute2 hears the gunshots."
+text = "$Tribute1 practices $PA1 aim in the woods. No one is alarmed, but $Tribute2 hears the gunshots."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4941,7 +4941,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 tries to convince $Tribute2 to team up with him but fails."
+text = "$Tribute1 tries to convince $Tribute2 to team up with $OP2 but fails."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5001,7 +5001,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch him."
+text = "$Tribute1 and $Tribute2 chase after $Tribute3 but they fail to catch $OP3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5017,7 +5017,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 chases after $Tribute2 but fails to catch him."
+text = "$Tribute1 chases after $Tribute2 but fails to catch $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5031,7 +5031,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch him."
+text = "$Tribute1, $Tribute2 and $Tribute3 chase after $Tribute4 but fail to catch $OP4."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5072,7 +5072,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 argues with $Tribute2, resulting in him getting kicked out of $Tribute1's shelter."
+text = "$Tribute1 argues with $Tribute2, resulting in $OP2 getting kicked out of $Tribute1's shelter."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5168,7 +5168,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 found some operands to repair themselves with."
+text = "$Tribute1 found some operands to repair $OP1 with."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6318,7 +6318,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2, killing $Tribute2 with a headshot."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6332,7 +6332,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6419,7 +6419,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 mentally overpowers $Tribute2, killing him. Checkmate."
+text = "$Tribute1 mentally overpowers $Tribute2, killing $OP2. Checkmate."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6433,7 +6433,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 ambushes $Tribute2 from the dark and kills him."
+text = "$Tribute1 ambushes $Tribute2 from the dark and kills $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6475,7 +6475,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 practices his aim but accidentally hits $Tribute2, fatally wounding him."
+text = "$Tribute1 practices $PA1 aim but accidentally hits $Tribute2, fatally wounding $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6505,7 +6505,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots his weapon toward $Tribute2, but $Tribute3 gets in the way to protect him, killing $Tribute3."
+text = "$Tribute1 shoots $PA1 weapon toward $Tribute2, but $Tribute3 gets in the way to protect $OP2, killing $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6521,7 +6521,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices himself to protect him, killing $Tribute1 and $Tribute3."
+text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 sacrifices $RP3 to protect $OP2, killing $Tribute1 and $Tribute3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6537,7 +6537,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects him, killing $Tribute1."
+text = "$Tribute1 attempts to stab $Tribute2, but $Tribute3 protects $OP2, killing $Tribute1."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6553,7 +6553,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 forgets his trigger discipline and fires into his own chest, bleeding out to death."
+text = "$Tribute1 forgets $PA1 trigger discipline and fires into $PA1 own chest, bleeding out to death."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6562,7 +6562,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 forgets his trigger discipline and fires into $Tribute2's chest, fatally wounding him."
+text = "$Tribute1 forgets $PA1 trigger discipline and fires into $Tribute2's chest, fatally wounding $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6670,7 +6670,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing him."
+text = "$Tribute1 blows a hole in $Tribute2's chest with a shotgun, killing $OP2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -7700,7 +7700,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2, killing $Tribute2 with a headshot."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2, killing $Tribute2 with a headshot."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -7714,7 +7714,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 shoots their gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
+text = "$Tribute1 shoots $PA1 gun at $Tribute2. $Tribute1 forgot to turn off the safety and $Tribute2 kills $Tribute1 instead."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -7797,7 +7797,7 @@ name = "MP5"
 power = 100
 cycles = ["Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their MP5."
+textl = "$Tribute1 ran out of ammo on $PA1 MP5."
 
 [items.base_event]
 text = "$Tribute1 picked up an MP5."
@@ -7831,7 +7831,7 @@ name = "Advanced Search Command"
 power = 0
 cycles = ["Bloodbath", "Day", "Feast"]
 use_count = 1
-textl = "$Tribute1 used up all their rolls."
+textl = "$Tribute1 used up all $PA1 rolls."
 
 [items.base_event]
 text = "$Tribute1 found some Advanced Searches."
@@ -7842,7 +7842,7 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 spent their Advanced Searches to restore $Tribute2."
+text = "$Tribute1 spent $PA1 Advanced Searches to restore $Tribute2."
 weight = 750
 tribute_changes = [
     { itemu = 1 },
@@ -7870,7 +7870,7 @@ name = "Basic Search Command"
 power = 0
 cycles = ["Bloodbath", "Day", "Feast"]
 use_count = 1
-textl = "$Tribute1 used up all their rolls."
+textl = "$Tribute1 used up all $PA1 rolls."
 
 [items.base_event]
 text = "$Tribute1 found some Basic Searches."
@@ -7881,7 +7881,7 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 spent their Basic Searches to restore $Tribute2."
+text = "$Tribute1 spent $PA1 Basic Searches to restore $Tribute2."
 weight = 500
 tribute_changes = [
     { itemu = 1 },
@@ -7920,14 +7920,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their shovel to dig for roots."
+text = "$Tribute1 uses $PA1 shovel to dig for roots."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 bludgeons $Tribute2 to death with their shovel."
+text = "$Tribute1 bludgeons $Tribute2 to death with $PA1 shovel."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -7954,14 +7954,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their mallet to fortify a shelter."
+text = "$Tribute1 uses $PA1 mallet to fortify a shelter."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 crushes $Tribute2's skull with their mallet."
+text = "$Tribute1 crushes $Tribute2's skull with $PA1 mallet."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -7977,7 +7977,7 @@ name = "AR-15"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their AR-15."
+textl = "$Tribute1 ran out of ammo on $PA1 AR-15."
 
 [items.base_event]
 text = "$Tribute1 picked up an AR-15."
@@ -7988,14 +7988,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their AR-15 to hunt for food."
+text = "$Tribute1 uses $PA1 AR-15 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their AR-15."
+text = "$Tribute1 shoots $Tribute2 with $PA1 AR-15."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8011,7 +8011,7 @@ name = "Vector"
 power = 20
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their Vector."
+textl = "$Tribute1 ran out of ammo on $PA1 Vector."
 
 [items.base_event]
 text = "$Tribute1 picked up a Vector."
@@ -8022,14 +8022,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their Vector to hunt for food."
+text = "$Tribute1 uses $PA1 Vector to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their Vector."
+text = "$Tribute1 shoots $Tribute2 with $PA1 Vector."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8045,7 +8045,7 @@ name = "MPX"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their MPX."
+textl = "$Tribute1 ran out of ammo on $PA1 MPX."
 
 [items.base_event]
 text = "$Tribute1 picked up an MPX."
@@ -8056,14 +8056,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their MPX to hunt for food."
+text = "$Tribute1 uses $PA1 MPX to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their MPX."
+text = "$Tribute1 shoots $Tribute2 with $PA1 MPX."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8079,7 +8079,7 @@ name = "M4"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their M4."
+textl = "$Tribute1 ran out of ammo on $PA1 M4."
 
 [items.base_event]
 text = "$Tribute1 picked up an M4."
@@ -8090,14 +8090,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their M4 to hunt for food."
+text = "$Tribute1 uses $PA1 M4 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their M4."
+text = "$Tribute1 shoots $Tribute2 with $PA1 M4."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8113,7 +8113,7 @@ name = "SPAS-12"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their SPAS-12."
+textl = "$Tribute1 ran out of ammo on $PA1 SPAS-12."
 
 [items.base_event]
 text = "$Tribute1 picked up a SPAS-12."
@@ -8124,14 +8124,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their SPAS-12 to hunt for food."
+text = "$Tribute1 uses $PA1 SPAS-12 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their SPAS-12."
+text = "$Tribute1 shoots $Tribute2 with $PA1 SPAS-12."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8147,7 +8147,7 @@ name = "AK-12"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their AK-12."
+textl = "$Tribute1 ran out of ammo on $PA1 AK-12."
 
 [items.base_event]
 text = "$Tribute1 picked up an AK-12."
@@ -8158,14 +8158,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their AK-12 to hunt for food."
+text = "$Tribute1 uses $PA1 AK-12 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their AK-12."
+text = "$Tribute1 shoots $Tribute2 with $PA1 AK-12."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8181,7 +8181,7 @@ name = "UMP45"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their UMP45."
+textl = "$Tribute1 ran out of ammo on $PA1 UMP45."
 
 [items.base_event]
 text = "$Tribute1 picked up a UMP45."
@@ -8192,14 +8192,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their UMP45 to hunt for food."
+text = "$Tribute1 uses $PA1 UMP45 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their UMP45."
+text = "$Tribute1 shoots $Tribute2 with $PA1 UMP45."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8215,7 +8215,7 @@ name = "HK416"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their HK416."
+textl = "$Tribute1 ran out of ammo on $PA1 HK416."
 
 [items.base_event]
 text = "$Tribute1 picked up an HK416."
@@ -8226,14 +8226,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their HK416 to hunt for food."
+text = "$Tribute1 uses $PA1 HK416 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their HK416."
+text = "$Tribute1 shoots $Tribute2 with $PA1 HK416."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8249,7 +8249,7 @@ name = "UMP9"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their UMP9."
+textl = "$Tribute1 ran out of ammo on $PA1 UMP9."
 
 [items.base_event]
 text = "$Tribute1 picked up a UMP9."
@@ -8260,14 +8260,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their UMP9 to hunt for food."
+text = "$Tribute1 uses $PA1 UMP9 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their UMP9."
+text = "$Tribute1 shoots $Tribute2 with $PA1 UMP9."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8283,7 +8283,7 @@ name = "AK47"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their AK47."
+textl = "$Tribute1 ran out of ammo on $PA1 AK47."
 
 [items.base_event]
 text = "$Tribute1 picked up an AK47."
@@ -8294,14 +8294,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their AK47 to hunt for food."
+text = "$Tribute1 uses $PA1 AK47 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their AK47."
+text = "$Tribute1 shoots $Tribute2 with $PA1 AK47."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8317,7 +8317,7 @@ name = "Makarov"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their Makarov."
+textl = "$Tribute1 ran out of ammo on $PA1 Makarov."
 
 [items.base_event]
 text = "$Tribute1 picked up a Makarov."
@@ -8328,14 +8328,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their Makarov to hunt for food."
+text = "$Tribute1 uses $PA1 Makarov to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their Makarov."
+text = "$Tribute1 shoots $Tribute2 with $PA1 Makarov."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8351,7 +8351,7 @@ name = "Desert Eagle"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their Desert Eagle."
+textl = "$Tribute1 ran out of ammo on $PA1 Desert Eagle."
 
 [items.base_event]
 text = "$Tribute1 picked up a Desert Eagle."
@@ -8362,14 +8362,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their Desert Eagle to hunt for food."
+text = "$Tribute1 uses $PA1 Desert Eagle to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their Desert Eagle."
+text = "$Tribute1 shoots $Tribute2 with $PA1 Desert Eagle."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8385,7 +8385,7 @@ name = "MP7"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their MP7."
+textl = "$Tribute1 ran out of ammo on $PA1 MP7."
 
 [items.base_event]
 text = "$Tribute1 picked up an MP7."
@@ -8396,14 +8396,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their MP7 to hunt for food."
+text = "$Tribute1 uses $PA1 MP7 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their MP7."
+text = "$Tribute1 shoots $Tribute2 with $PA1 MP7."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8419,7 +8419,7 @@ name = "G36"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their G36."
+textl = "$Tribute1 ran out of ammo on $PA1 G36."
 
 [items.base_event]
 text = "$Tribute1 picked up a G36."
@@ -8430,14 +8430,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their G36 to hunt for food."
+text = "$Tribute1 uses $PA1 G36 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their G36."
+text = "$Tribute1 shoots $Tribute2 with $PA1 G36."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8453,7 +8453,7 @@ name = "P90"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their P90."
+textl = "$Tribute1 ran out of ammo on $PA1 P90."
 
 [items.base_event]
 text = "$Tribute1 picked up a P90."
@@ -8464,14 +8464,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their P90 to hunt for food."
+text = "$Tribute1 uses $PA1 P90 to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their P90."
+text = "$Tribute1 shoots $Tribute2 with $PA1 P90."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8487,7 +8487,7 @@ name = "SIG MCX"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their SIG MCX."
+textl = "$Tribute1 ran out of ammo on $PA1 SIG MCX."
 
 [items.base_event]
 text = "$Tribute1 picked up a SIG MCX."
@@ -8498,14 +8498,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their SIG MCX to hunt for food."
+text = "$Tribute1 uses $PA1 SIG MCX to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their SIG MCX."
+text = "$Tribute1 shoots $Tribute2 with $PA1 SIG MCX."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8532,14 +8532,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 practices their swing with their baseball bat."
+text = "$Tribute1 practices $PA1 swing with $PA1 baseball bat."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 beats $Tribute2 to death with their baseball bat."
+text = "$Tribute1 beats $Tribute2 to death with $PA1 baseball bat."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8566,14 +8566,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their spear to hunt for food."
+text = "$Tribute1 uses $PA1 spear to hunt for food."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 impales $Tribute2 with their spear."
+text = "$Tribute1 impales $Tribute2 with $PA1 spear."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },
@@ -8600,14 +8600,14 @@ tribute_changes = [
 ]
 
 [[items.events]]
-text = "$Tribute1 uses their knife to whittle a piece of wood."
+text = "$Tribute1 uses $PA1 knife to whittle a piece of wood."
 weight = 15
 tribute_changes = [
     { power = 20, itemu = 1 },
 ]
 
 [[items.events]]
-text = "$Tribute1 stabs $Tribute2 to death with their knife."
+text = "$Tribute1 stabs $Tribute2 to death with $PA1 knife."
 weight = 25
 tribute_changes = [
     { kills = 1, itemu = 2 },

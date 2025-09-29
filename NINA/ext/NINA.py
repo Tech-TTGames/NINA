@@ -1521,7 +1521,7 @@ class Item:
             cycles: The cycle library for the simulation.
         """
         self.name = data['name']
-        self.textl = string.Template(data.get('text', f"$Tribute1's {self.name} broke."))
+        self.textl = string.Template(data.get('textl', f"$Tribute1's {self.name} broke."))
         self.power = data.get('power', 0)
         self.cycles = [cycle for cycle in cycles if cycle.name in data['cycles']]
         self.use_count = data.get('use_count', -1)
