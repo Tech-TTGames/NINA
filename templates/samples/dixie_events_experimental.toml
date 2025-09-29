@@ -7803,28 +7803,28 @@ textl = "$Tribute1 ran out of ammo on their MP5."
 text = "$Tribute1 picked up an MP5."
 weight = 10
 max_use = 5
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses $PA1 MP5 to hunt for food."
 weight = 10
-        tribute_changes = [
-            { power = 15, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 15, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with $PA1 MP5."
 weight = 10
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 1 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "Advanced Search Command"
@@ -7837,33 +7837,33 @@ textl = "$Tribute1 used up all their rolls."
 text = "$Tribute1 found some Advanced Searches."
 weight = 2
 max_use = 5
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 spent their Advanced Searches to restore $Tribute2."
 weight = 750
-        tribute_changes = [
-            { itemu = 1 },
-            { status = 0, allies = [1, 1], powern = 500 },
-        ]
-        tribute_requirements = [
-            { relationship = { 2 = "allies" } },
-            { status = 1 },
-        ]
+tribute_changes = [
+    { itemu = 1 },
+    { status = 0, allies = [[1,1]], powern = 500 },
+]
+tribute_requirements = [
+    { relationship = { 2 = "allies" } },
+    { status = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 lost the rate up. $Tribute2 curses MICA from afterlife."
 weight = 250
-        tribute_changes = [
-            { itemu = 1, powern = -50 },
-            {},
-        ]
-        tribute_requirements = [
-            { relationship = { 2 = "allies" } },
-            { status = 1 },
-        ]
+tribute_changes = [
+    { itemu = 1, powern = -50 },
+    {},
+]
+tribute_requirements = [
+    { relationship = { 2 = "allies" } },
+    { status = 1 },
+]
 
 [[items]]
 name = "Basic Search Command"
@@ -7876,101 +7876,101 @@ textl = "$Tribute1 used up all their rolls."
 text = "$Tribute1 found some Basic Searches."
 weight = 5
 max_use = 7
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 spent their Basic Searches to restore $Tribute2."
 weight = 500
-        tribute_changes = [
-            { itemu = 1 },
-            { status = 0, powern = -200 },
-        ]
-        tribute_requirements = [
-            {},
-            { status = 1 },
-        ]
+tribute_changes = [
+    { itemu = 1 },
+    { status = 0, powern = -200 },
+]
+tribute_requirements = [
+    {},
+    { status = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 lost the rate up. $Tribute2 screams at MICA from afterlife."
 weight = 500
-        tribute_changes = [
-            { itemu = 1, powern = -5 },
-            {},
-        ]
-        tribute_requirements = [
-            {},
-            { status = 1 },
-        ]
+tribute_changes = [
+    { itemu = 1, powern = -5 },
+    {},
+]
+tribute_requirements = [
+    {},
+    { status = 1 },
+]
 
 [[items]]
-name = "shovel"
+name = "Shovel"
 power = 50
 cycles = ["Bloodbath", "Day"]
-use_count = 5
-textl = "$Tribute1 ran out of ammo on their shovel."
+use_count = 20
+textl = "$Tribute1's shovel broke from overuse."
 
 [items.base_event]
 text = "$Tribute1 picked up a shovel."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
-text = "$Tribute1 uses their shovel to hunt for food."
+text = "$Tribute1 uses their shovel to dig for roots."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their shovel."
+text = "$Tribute1 bludgeons $Tribute2 to death with their shovel."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "Mallet"
 power = 50
 cycles = ["Bloodbath", "Day"]
-use_count = 5
-textl = "$Tribute1 ran out of ammo on their Mallet."
+use_count = 20
+textl = "$Tribute1's mallet broke from overuse."
 
 [items.base_event]
-text = "$Tribute1 picked up a Mallet."
+text = "$Tribute1 picked up a mallet."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
-text = "$Tribute1 uses their Mallet to hunt for food."
+text = "$Tribute1 uses their mallet to fortify a shelter."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their Mallet."
+text = "$Tribute1 crushes $Tribute2's skull with their mallet."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "AR-15"
@@ -7980,65 +7980,65 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their AR-15."
 
 [items.base_event]
-text = "$Tribute1 picked up a AR-15."
+text = "$Tribute1 picked up an AR-15."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their AR-15 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their AR-15."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "Vector"
 power = 20
 cycles = ["Bloodbath", "Day"]
-use_count = 1
+use_count = 5
 textl = "$Tribute1 ran out of ammo on their Vector."
 
 [items.base_event]
 text = "$Tribute1 picked up a Vector."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their Vector to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their Vector."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "MPX"
@@ -8048,31 +8048,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their MPX."
 
 [items.base_event]
-text = "$Tribute1 picked up a MPX."
+text = "$Tribute1 picked up an MPX."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their MPX to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their MPX."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "M4"
@@ -8082,31 +8082,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their M4."
 
 [items.base_event]
-text = "$Tribute1 picked up a M4."
+text = "$Tribute1 picked up an M4."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their M4 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their M4."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "SPAS-12"
@@ -8119,28 +8119,28 @@ textl = "$Tribute1 ran out of ammo on their SPAS-12."
 text = "$Tribute1 picked up a SPAS-12."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their SPAS-12 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their SPAS-12."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "AK-12"
@@ -8150,31 +8150,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their AK-12."
 
 [items.base_event]
-text = "$Tribute1 picked up a AK-12."
+text = "$Tribute1 picked up an AK-12."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their AK-12 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their AK-12."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "UMP45"
@@ -8187,28 +8187,28 @@ textl = "$Tribute1 ran out of ammo on their UMP45."
 text = "$Tribute1 picked up a UMP45."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their UMP45 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their UMP45."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "HK416"
@@ -8218,31 +8218,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their HK416."
 
 [items.base_event]
-text = "$Tribute1 picked up a HK416."
+text = "$Tribute1 picked up an HK416."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their HK416 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their HK416."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "UMP9"
@@ -8255,28 +8255,28 @@ textl = "$Tribute1 ran out of ammo on their UMP9."
 text = "$Tribute1 picked up a UMP9."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their UMP9 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their UMP9."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "AK47"
@@ -8286,31 +8286,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their AK47."
 
 [items.base_event]
-text = "$Tribute1 picked up a AK47."
+text = "$Tribute1 picked up an AK47."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their AK47 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their AK47."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "Makarov"
@@ -8323,62 +8323,28 @@ textl = "$Tribute1 ran out of ammo on their Makarov."
 text = "$Tribute1 picked up a Makarov."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their Makarov to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their Makarov."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
-
-[[items]]
-name = "MP5"
-power = 50
-cycles = ["Bloodbath", "Day"]
-use_count = 5
-textl = "$Tribute1 ran out of ammo on their MP5."
-
-[items.base_event]
-text = "$Tribute1 picked up a MP5."
-weight = 10
-max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
-
-[[items.events]]
-text = "$Tribute1 uses their MP5 to hunt for food."
-weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
-
-[[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their MP5."
-weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "Desert Eagle"
@@ -8391,28 +8357,28 @@ textl = "$Tribute1 ran out of ammo on their Desert Eagle."
 text = "$Tribute1 picked up a Desert Eagle."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their Desert Eagle to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their Desert Eagle."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "MP7"
@@ -8422,31 +8388,31 @@ use_count = 5
 textl = "$Tribute1 ran out of ammo on their MP7."
 
 [items.base_event]
-text = "$Tribute1 picked up a MP7."
+text = "$Tribute1 picked up an MP7."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their MP7 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their MP7."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "G36"
@@ -8459,28 +8425,28 @@ textl = "$Tribute1 ran out of ammo on their G36."
 text = "$Tribute1 picked up a G36."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their G36 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their G36."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "P90"
@@ -8493,28 +8459,28 @@ textl = "$Tribute1 ran out of ammo on their P90."
 text = "$Tribute1 picked up a P90."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their P90 to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their P90."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
 name = "SIG MCX"
@@ -8527,128 +8493,128 @@ textl = "$Tribute1 ran out of ammo on their SIG MCX."
 text = "$Tribute1 picked up a SIG MCX."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their SIG MCX to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
 text = "$Tribute1 shoots $Tribute2 with their SIG MCX."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
-name = "baseball bat"
+name = "Baseball Bat"
 power = 50
 cycles = ["Bloodbath", "Day"]
-use_count = 5
-textl = "$Tribute1 ran out of ammo on their baseball bat."
+use_count = 20
+textl = "$Tribute1's baseball bat broke from overuse."
 
 [items.base_event]
 text = "$Tribute1 picked up a baseball bat."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
-text = "$Tribute1 uses their baseball bat to hunt for food."
+text = "$Tribute1 practices their swing with their baseball bat."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their baseball bat."
+text = "$Tribute1 beats $Tribute2 to death with their baseball bat."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
-name = "spear"
+name = "Spear"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their spear."
+textl = "$Tribute1's spear broke from overuse."
 
 [items.base_event]
 text = "$Tribute1 picked up a spear."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
 text = "$Tribute1 uses their spear to hunt for food."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their spear."
+text = "$Tribute1 impales $Tribute2 with their spear."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
 [[items]]
-name = "knife"
+name = "Knife"
 power = 50
 cycles = ["Bloodbath", "Day"]
 use_count = 5
-textl = "$Tribute1 ran out of ammo on their knife."
+textl = "$Tribute1's knife became too dull to use."
 
 [items.base_event]
 text = "$Tribute1 picked up a knife."
 weight = 10
 max_use = 3
-        tribute_changes = [
-            { itemg = 0 },
-        ]
+tribute_changes = [
+    { itemg = 0 },
+]
 
 [[items.events]]
-text = "$Tribute1 uses their knife to hunt for food."
+text = "$Tribute1 uses their knife to whittle a piece of wood."
 weight = 15
-        tribute_changes = [
-            { power = 20, itemu = 1 },
-        ]
+tribute_changes = [
+    { power = 20, itemu = 1 },
+]
 
 [[items.events]]
-text = "$Tribute1 shoots $Tribute2 with their knife."
+text = "$Tribute1 stabs $Tribute2 to death with their knife."
 weight = 25
-        tribute_changes = [
-            { kills = 1, itemu = 2 },
-            { status = 1 },
-        ]
-        tribute_requirements = [
-            { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
-            {},
-        ]
+tribute_changes = [
+    { kills = 1, itemu = 2 },
+    { status = 1 },
+]
+tribute_requirements = [
+    { itemstatus = ['>', 1], relationship = { 2 = "notallies" } },
+    {},
+]
 
