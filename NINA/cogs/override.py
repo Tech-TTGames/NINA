@@ -183,9 +183,9 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         await ctx.followup.send("Sent logs.")
         logger.info("Logs sent.")
 
-    @app_commands.command(name="exec", description="Initiate an exec request.")
+    @app_commands.command(name="execute", description="Initiate an exec request.")
     @checks.is_owner_check()
-    async def exec(self, ctx: discord.Interaction) -> None:
+    async def execute(self, ctx: discord.Interaction) -> None:
         """Initiates an exec request.
 
         This command starts listening in the DMs from the user for the code to execute.
