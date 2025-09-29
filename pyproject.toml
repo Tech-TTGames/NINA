@@ -21,7 +21,7 @@ aiohttp = {extras = ["speedups"], version = "^3.12.14"}
 pillow = "^11.3.0"
 text-to-owo = "^2.0.1"
 tomli-w = { version = "^1.2.0", optional = true }
-beautifulsoup4 = { version = "^4.13.4", optional = true }
+beautifulsoup4 = { version = "^4.14.2", optional = true }
 selenium = {version = "^4.35.0", optional = true}
 lxml = {version = "^6.0.0", optional = true}
 mkdocs-material = "^9.6.19"
