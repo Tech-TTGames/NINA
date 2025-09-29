@@ -61,7 +61,7 @@ class NINABot(commands.Bot):
         self.stat_confg = confg
         self.full_tree = None
         headers = {'User-agent': f"{type(self).__name__}/{const.VERSION[1:]}"}
-        self.httpsession = aiohttp.ClientSession(headers=headers, middlewares=(http.create_retry_middleware(1)))
+        self.httpsession = aiohttp.ClientSession(headers=headers, middlewares=(http.create_retry_middleware(1),))
 
     async def setup_hook(self) -> None:
         """Runs just before the bot connects to Discord.
