@@ -22,15 +22,15 @@ import random
 import shutil
 
 import discord
-import owo
 from discord import app_commands
 from discord.ext import commands
+import owo
 
 from NINA import bot
 from NINA.data import const
-from NINA.ext import NINA
 from NINA.ext import checks
 from NINA.ext import exceptions
+from NINA.ext import NINA
 
 logger = logging.getLogger("NINA.core")
 

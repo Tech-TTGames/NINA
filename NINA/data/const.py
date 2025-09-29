@@ -19,7 +19,7 @@ import pathlib
 import colorama
 import discord
 
-VERSION = "v0.1.0a"
+VERSION = "v0.1.0b"
 """The current version of the bot as a string.
 
 FORMAT:

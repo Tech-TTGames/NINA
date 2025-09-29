@@ -694,7 +694,7 @@ class Tribute:
 
     def handle_relationships(
         self,
-        tributes: list[list[int, int]],
+        tributes: list[list[int]],
         involved: list["Tribute"],
         relationship: Literal["allies", "enemies"],
     ):
