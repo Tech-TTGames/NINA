@@ -767,9 +767,9 @@ class Tribute:
         """
         place = DATA_DIR / "cast" / self.hash_ident
         if itype == "alive":
-            image = self.dead_image
-        else:
             image = self.image
+        else:
+            image = self.dead_image
         place.mkdir(parents=True, exist_ok=True)
 
         if image == "BW" and itype == "dead":
