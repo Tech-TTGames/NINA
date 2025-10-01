@@ -203,11 +203,12 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
             """Check if the message is from the user in DMs."""
             return msg.channel == channel and msg.author == owner
 
-        response = ""
+        li = locals()
         code = await ctx.client.wait_for("message", check=dm_from_user)
-        await asyncio.to_thread(exec, code.content, globals(), locals())
+        await asyncio.to_thread(exec, code.content, globals(), li)
         await channel.send("Executed.")
-        if response:
+        if li.get("response", None):
+            response = li.get("response")
             await channel.send(response)
 
     @commands.command(name="sync", description="Syncs the tree.")
