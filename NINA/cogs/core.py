@@ -77,7 +77,7 @@ class Core(commands.Cog, name="SimCore"):
         os.makedirs(self._dir, exist_ok=True)
         self.owo_toggwe = False
         if self._bt.sim is None:
-            cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
+            cast_fi, events_fi = self._dir / "cast.toml", self._dir / "events.toml"
             if cast_fi.exists() and events_fi.exists():
                 try:
                     self._bt.sim = NINA.Simulation(cast_fi, events_fi, self.owo_toggwe)
@@ -125,7 +125,7 @@ class Core(commands.Cog, name="SimCore"):
         t = self.t
         logger.info("Setting up simulation for %s.", ctx.user.name)
         await ctx.response.defer(thinking=True, ephemeral=True)
-        cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
+        cast_fi, events_fi = self._dir / "cast.toml", self._dir / "events.toml"
         async with ctx.channel.typing():
             with open(cast_fi, "wb") as f:
                 f.write(await cast.read())
@@ -171,7 +171,7 @@ class Core(commands.Cog, name="SimCore"):
         if self.lock:
             raise exceptions.UsageError("Bot simulation lock active.")
         self.lock = True
-        cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
+        cast_fi, events_fi = self._dir / "cast.toml", self._dir / "events.toml"
         if not cast_fi.exists() or not events_fi.exists():
             setup_id = 0
             for command in self._bt.full_tree:
