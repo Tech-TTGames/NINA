@@ -25,6 +25,7 @@ from NINA import cogs
 from NINA.data import config
 from NINA.data import const
 from NINA.ext import http
+from NINA.ext.NINA import Simulation
 
 logger = logging.getLogger("NINA.botcore")
 
@@ -40,7 +41,7 @@ class NINABot(commands.Bot):
         stat_confg: The config for the bot.
     """
     stat_confg: config.Config
-    sim: "Simulation | None"
+    sim: Simulation | None
     basp: pathlib.Path
 
     def __init__(self, *args, confg: config.Config | None, **kwargs) -> None:

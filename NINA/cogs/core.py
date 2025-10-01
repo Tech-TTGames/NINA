@@ -199,13 +199,12 @@ class Core(commands.Cog, name="SimCore"):
         embed.set_author(name=t(self._bt.sim.name), icon_url=self._bt.sim.logo)
         embed.set_footer(text=t("Random seed:") + f"{self._bt.sim.seed}")
         await ctx.followup.send(embed=embed)
-        cast_fdir = self._dir.joinpath("cast")
-        location = self._dir.joinpath("status")
-        cycles = self._dir.joinpath("cycles")
-        if cycles.exists():
-            shutil.rmtree(cycles)
-        if location.exists():
-            shutil.rmtree(location)
+        cast_fdir = self._dir / "cast"
+        purgables = ["session_cast", "status", "cycles"]
+        for target in purgables:
+            pth = self._dir / target
+            if pth.exists():
+                shutil.rmtree(pth)
         if cast_fdir.exists():
             active_tributes = {tribute.hash_ident for tribute in self._bt.sim.cast}
             cached_tributes = {dirname.name for dirname in cast_fdir.iterdir()}
@@ -245,9 +244,6 @@ class Core(commands.Cog, name="SimCore"):
         """
         await ctx.response.defer(thinking=True)
         t = self.t
-        location = self._dir.joinpath("status")
-        os.makedirs(location, exist_ok=True)
-        # This is a directory as the districts split the status images.
         emd = discord.Embed(title=t("Current Simulation Status"))
         emd.set_author(name=t(f"{self._bt.sim.name}"), icon_url=self._bt.sim.logo)
         for district in self._bt.sim.districts:

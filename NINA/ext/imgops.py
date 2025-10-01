@@ -12,6 +12,7 @@ Typical usage example:
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
 import itertools
+import pathlib
 
 from PIL import Image
 from PIL import ImageDraw
@@ -105,3 +106,18 @@ def border(im: Image.Image, color: str):
     """
     draw = ImageDraw.Draw(im)
     draw.rectangle((0, 0, im.width - 1, im.height - 1), outline=color, width=5)
+
+
+def magicsave(image: Image.Image | tuple[list[Image.Image], dict], path: pathlib.Path) -> None:
+    """Saves the image to the given path.
+
+    With all the module-defined optimizations and requirements.
+
+    Args:
+        image: The image to save
+        path: The path to save the image to.
+    """
+    if isinstance(image, tuple):
+        image[0][0].save(path, save_all=True, append_images=image[0][1:], **image[1], optimize=True, disposal=2)
+    else:
+        image.save(path, optimize=True)

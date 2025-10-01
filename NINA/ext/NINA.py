@@ -171,7 +171,7 @@ async def generate_endcycle(
     """
     t = sim.t
     image_paths = await asyncio.gather(
-        *[tribute.fetch_image(["alive", "dead"][tribute.status]) for tribute in involved])
+        *[tribute.get_image(["alive", "dead"][tribute.status]) for tribute in involved])
     images = [(Image.open(pth), (dead.name, dead.district.name)) for pth, dead in zip(image_paths, involved)]
     place = DATA_DIR / "cycles" / f"{cycle_no}"
     if cycle_no == -1:
@@ -634,8 +634,7 @@ class Tribute:
             Influences the probability of both being killed and committing murder.
         gender: The gender of the tribute.
             0: Female, 1: Male, 2: Neuter, 3: Pair, 4: Non-binary
-        image: The image of the tribute (link)
-        dead_image: The image of the tribute after death (link)
+        images: Dict of alive and dead images for tribute (links).
         hash_ident: Hash-based unique Tribute identifier.
         allies: Tributes considered allies by this tribute.
         enemies: Tribute considered enemies by this tribute.
@@ -645,8 +644,7 @@ class Tribute:
     """
     name: str
     gender: int
-    image: str
-    dead_image: str
+    images: dict[str, str]
     hash_ident: str
     status: int
     power: int
@@ -674,9 +672,8 @@ class Tribute:
         """
         self.name = data["name"]
         self.gender = data["gender"]
-        self.image = data["image"]
-        self.dead_image = data["dead_image"]
-        self.hash_ident = hashlib.md5((self.name + self.image + self.dead_image).encode("utf-8")).hexdigest()
+        self.images = {"alive": data["image"], "dead": data["dead_image"]}
+        self.hash_ident = hashlib.md5((self.name + data["image"] + data["dead_image"]).encode("utf-8")).hexdigest()
         self.status = 0
         self.power = BASE_POWER
         self.district = None
@@ -753,67 +750,95 @@ class Tribute:
             case _:
                 raise ValueError("Invalid relationship.")
 
+    def resolve_image(self, itype: Literal["alive", "dead"] | str) -> pathlib.Path:
+        """Resolves the base image name. Does not verify existence.
+
+        Args
+            itype: The type of image to resolve.
+                Valid values: alive, dead
+        """
+        place = DATA_DIR / "cast" / self.hash_ident
+        image = self.images[itype]
+
+        if image == "BW" and itype == "dead":
+            placepth = place / "dead.png"
+        else:
+            frmt = image.split(".")[-1]
+            if frmt in {"jpg", "jpeg"}:
+                frmt = "png"
+            elif frmt == "webp":
+                frmt = "gif"  # Sadly, Discord doesn't support webp.
+            elif frmt not in {"png", "gif"}:
+                raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
+            placepth = place / f"{itype}.{frmt}"
+        return placepth
+
     async def fetch_image(
         self,
         itype: Literal["alive", "dead"] | str,
-        session: aiohttp.ClientSession | None = None,
+        session: aiohttp.ClientSession,
     ) -> pathlib.Path:
-        """Fetch the image of the tribute.
+        """Fetch the raw image of the tribute from the source.
 
         Args:
             itype: The type of image to fetch.
                 Valid values: alive, dead
             session: The aiohttp session to use for the request.
         """
-        place = DATA_DIR / "cast" / self.hash_ident
-        if itype == "alive":
-            image = self.image
-        else:
-            image = self.dead_image
-        place.mkdir(parents=True, exist_ok=True)
-
-        if image == "BW" and itype == "dead":
-            placepth = place / f"{itype}.png"
-        else:
-            frmt = image.split(".")[-1]
-            if frmt in ["jpg", "jpeg"]:
-                frmt = "png"
-            if frmt == "webp":
-                frmt = "gif"  # Sadly, Discord doesn't support webp.
-            if frmt not in ["png", "gif"]:
-                raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
-            placepth = place / f"{itype}.{frmt}"
+        placepth = self.resolve_image(itype)
+        image = self.images[itype]
 
         if placepth.exists():
             return placepth
 
-        if not session:
-            raise ValueError(f"No session and image not found for {placepth}.")
-
         if image == "BW" and itype == "dead":
-            img = Image.open(await self.fetch_image("alive", session))
-            img = img.convert("LA")
-            img = imgops.resize(img, border_c=self.district.color)
-            img.save(placepth, optimize=True)
-            return placepth
-
-        try:
+            img_b = await self.fetch_image("alive", session)
+        else:
             async with session.get(image) as response:
                 if not response.ok:
                     raise ValueError(f"Could not fetch image for tribute {self.name}.")
-                img = Image.open(io.BytesIO(await response.read()))
-        except aiohttp.ClientError as exc:
-            await asyncio.sleep(10)  # Retries the download if a ClientError happened
-            async with session.get(image) as response:
-                if not response.ok:
-                    raise ValueError(f"Could not fetch image for tribute {self.name}.") from exc
-                img = Image.open(io.BytesIO(await response.read()))
+                img_b = await response.read()
 
-        img = imgops.resize(img, border_c=self.district.color)
-        if isinstance(img, tuple):
-            img[0][0].save(placepth, save_all=True, append_images=img[0][1:], **img[1], optimize=True, disposal=2)
-        else:
-            img.save(placepth, optimize=True)
+        def _imageops_and_save():
+            """Some slow download and conversion operations."""
+            if image == "BW":
+                img = Image.open(img_b)
+                img = img.convert("LA")
+            else:
+                img = Image.open(io.BytesIO(img_b))
+
+            img = imgops.resize(img)
+            imgops.magicsave(img, placepth)
+
+        await asyncio.to_thread(_imageops_and_save)
+        return placepth
+
+    async def get_image(self, itype: Literal["alive", "dead"] | str) -> pathlib.Path:
+        """Get the current session image of the tribute.
+
+        Uses local cache as source of truth, and will not cause an attempt to fetch.
+
+        Args:
+            itype: The type of image to fetch.
+                Valid values: alive, dead
+        """
+        place = DATA_DIR / "session_cast" / self.hash_ident
+        placepth = place / f"{itype}.png"
+        if placepth.exists():
+            return placepth
+
+        raw_path = self.resolve_image(itype)
+
+        if not raw_path.exists():
+            raise FileNotFoundError(f"Could not get image for tribute {self.name}.")
+
+        def _process():
+            """Applies session-specific postprocessing."""
+            img = Image.open(raw_path)
+            img = imgops.resize(img, border_c=self.district.color)
+            imgops.magicsave(img, placepth)
+
+        await asyncio.to_thread(_process)
         return placepth
 
     async def get_status_render(self, sim: Simulation) -> pathlib.Path:
@@ -831,9 +856,9 @@ class Tribute:
         place = DATA_DIR / "cast" / self.hash_ident
         place.mkdir(parents=True, exist_ok=True)
         if self.status:
-            user_image = Image.open(await self.fetch_image("dead"))
+            user_image = Image.open(await self.get_image("dead"))
         else:
-            user_image = Image.open(await self.fetch_image("alive"))
+            user_image = Image.open(await self.get_image("alive"))
 
         base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
         font = ImageFont.truetype(FONT, size=28)
