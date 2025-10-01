@@ -70,9 +70,6 @@ class Secret:
     This class is used to access sensitive data.
     It loads from a TOML file, and provides a throwaway access key. After
     the key is used, the data in this class is deleted.
-
-    Attributes:
-        token: The bot token.
     """
 
     def __init__(self):
@@ -88,6 +85,7 @@ class Secret:
             self.secrets = tomllib.load(f)
         BURNABLE = True
 
+    @property
     def token(self) -> str:
         """Returns the bot token.
 

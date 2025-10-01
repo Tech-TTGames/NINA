@@ -34,7 +34,7 @@ class Safe(object):
         self.exposed = deepcopy(obj)
 
     def __repr__(self):
-        return f"<Safe(value={repr(self.value)})>"
+        return f"<Safe(object={repr(self.exposed)})>"
 
     def __enter__(self):
         return self.exposed

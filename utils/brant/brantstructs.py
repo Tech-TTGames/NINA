@@ -29,7 +29,7 @@ class Simulation:
         Args:
             filename: The file containing the cast.
         """
-        with open(filename) as file:
+        with open(filename, encoding="utf-8") as file:
             self.name = file.readline().strip()
             self.logo = file.readline().strip()
             self.districts = []
@@ -51,8 +51,8 @@ class Simulation:
                     if cur_district is not None:
                         self.districts.append(cur_district)
                     cur_district = {
-                        'name': line.strip(),
-                        'color': file.readline().strip(),
+                        "name": line.strip(),
+                        "color": file.readline().strip(),
                     }
                     skipcount = 0
             if cur_district is not None:
@@ -63,15 +63,15 @@ class Simulation:
         districts_clean = []
         for district in self.districts:
             districts_clean.append({
-                'name': district['name'],
-                'color': district['color'][:7],
+                "name": district["name"],
+                "color": district["color"][:7],
             })
         resolve_cast = [castmember.__dict__ for castmember in self.cast]
         return {
-            'name': self.name,
-            'logo': self.logo,
-            'districts': districts_clean,
-            'cast': resolve_cast,
+            "name": self.name,
+            "logo": self.logo,
+            "districts": districts_clean,
+            "cast": resolve_cast,
         }
 
     def write(
@@ -83,22 +83,22 @@ class Simulation:
         Args:
             filename: The file to write the simulation to.
         """
-        with open(filename, 'w') as file:
-            file.write(self.name + '\n')
-            file.write(self.logo + '\n')
+        with open(filename, "w", encoding="utf-8") as file:
+            file.write(self.name + "\n")
+            file.write(self.logo + "\n")
             cast_index = 0
             cpd = len(self.cast) // len(self.districts)
             for district in self.districts:
                 file.write("\n")
                 file.write("\n")
-                file.write(district['name'] + '\n')
-                file.write(district['color'] + '\n')
+                file.write(district["name"] + "\n")
+                file.write(district["color"] + "\n")
                 for a in range(cast_index, cast_index + cpd):
                     file.write("\n")
-                    file.write(self.cast[a].name + '\n')
-                    file.write(self.cast[a].nickname + '\n')
+                    file.write(self.cast[a].name + "\n")
+                    file.write(self.cast[a].nickname + "\n")
                     file.write(f"{self.cast[a].gender}\n")
-                    file.write(self.cast[a].image + '\n')
+                    file.write(self.cast[a].image + "\n")
                     file.write(self.cast[a].dead_image)
                     if a != len(self.cast) - 1:
                         file.write("\n")
@@ -113,7 +113,7 @@ class Simulation:
         Args:
             filename: The file to write the simulation to.
         """
-        file = open(filename, 'wb')
+        file = open(filename, "wb")
         tomli_w.dump(self.__dict__(), file)
         file.close()
 

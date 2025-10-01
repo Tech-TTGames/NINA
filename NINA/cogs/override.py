@@ -172,7 +172,8 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         """
         await ctx.response.defer(thinking=True)
         logger.info("Sending logs to %s...", str(ctx.user))
-        filename = f"bot.log{'.'+str(id_no) if id_no else ''}"
+        pad = "." + str(id_no) if id_no else ""
+        filename = f"bot.log{pad}"
         file_path = os.path.join(const.PROG_DIR, "log", filename)
         try:
             await ctx.user.send(file=discord.File(fp=file_path))
@@ -190,7 +191,8 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
 
         This command starts listening in the DMs from the user for the code to execute.
         """
-        await ctx.response.send_message("Waiting for code in DMs. Edit response to return something.", ephemeral=True)
+        await ctx.response.send_message("Waiting for code in DMs. Edit the `response` variable to return something.",
+                                        ephemeral=True)
 
         owner = ctx.user
         channel = owner.dm_channel
@@ -201,10 +203,12 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
             """Check if the message is from the user in DMs."""
             return msg.channel == channel and msg.author == owner
 
-        response = None
+        response = ""
         code = await ctx.client.wait_for("message", check=dm_from_user)
         await asyncio.to_thread(exec, code.content, globals(), locals())
         await channel.send("Executed.")
+        if response:
+            await channel.send(response)
 
     @commands.command(name="sync", description="Syncs the tree.")
     @commands.is_owner()

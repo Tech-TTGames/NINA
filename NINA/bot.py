@@ -25,7 +25,6 @@ from NINA import cogs
 from NINA.data import config
 from NINA.data import const
 from NINA.ext import http
-from NINA.ext.NINA import Simulation
 
 logger = logging.getLogger("NINA.botcore")
 
@@ -60,7 +59,7 @@ class NINABot(commands.Bot):
         super().__init__(*args, **kwargs)
         self.stat_confg = confg
         self.full_tree = None
-        headers = {'User-agent': f"{type(self).__name__}/{const.VERSION[1:]}"}
+        headers = {"User-agent": f"{type(self).__name__}/{const.VERSION[1:]}"}
         self.httpsession = aiohttp.ClientSession(headers=headers, middlewares=(http.create_retry_middleware(1),))
         self.sim = None
 

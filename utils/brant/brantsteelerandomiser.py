@@ -21,53 +21,53 @@ import colorama
 
 from utils.brant.brantstructs import Simulation
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='Brent-Steele Cast Randomizer by Tech~.',
-        prog='brantsteelerandomiser.py',
+        description="Brent-Steele Cast Randomizer by Tech~.",
+        prog="brantsteelerandomiser.py",
     )
     # Input file
     parser.add_argument(
-        '-i',
-        '--input',
+        "-i",
+        "--input",
         type=str,
-        help='Input file.',
+        help="Input file.",
         required=True,
     )
     # Output file
     parser.add_argument(
-        '-o',
-        '--output',
+        "-o",
+        "--output",
         type=str,
-        help='Output file.',
+        help="Output file.",
         required=False,
     )
     parser.add_argument(
-        '-c',
-        '--cast',
-        action='store_true',
-        help='Randomize cast.',
+        "-c",
+        "--cast",
+        action="store_true",
+        help="Randomize cast.",
         default=False,
     )
     parser.add_argument(
-        '-dc',
-        '--district_colors',
-        action='store_true',
-        help='Randomize district colors.',
+        "-dc",
+        "--district_colors",
+        action="store_true",
+        help="Randomize district colors.",
         default=False,
     )
     parser.add_argument(
-        '-toml',
-        '--output_toml',
-        action='store_true',
-        help='Output a toml file.',
+        "-toml",
+        "--output_toml",
+        action="store_true",
+        help="Output a toml file.",
         default=False,
     )
     parser.add_argument(
-        '-r',
-        '--repeat',
+        "-r",
+        "--repeat",
         type=int,
-        help='Number of times to randomize cast. Conflicts with --output.',
+        help="Number of times to randomize cast. Conflicts with --output.",
         default=1,
     )
     args = parser.parse_args()
@@ -76,13 +76,13 @@ if __name__ == '__main__':
     for i in range(args.repeat):
         if args.output is None:
             if args.output_toml:
-                ext = '.toml'
+                ext = ".toml"
             else:
-                ext = '.txt'
+                ext = ".txt"
             no = ""
             if i:
                 no = f"_{i}"
-            output = pathlib.Path(f'{args.input[:-4]}_randomized{no}{ext}')
+            output = pathlib.Path(f"{args.input[:-4]}_randomized{no}{ext}")
 
         else:
             output = pathlib.Path(args.output)
@@ -93,7 +93,7 @@ if __name__ == '__main__':
         if output.exists():
             print(colorama.Fore.RED + "Output file already exists!")
             print("Are you sure you want to overwrite it? (Y/N)" + colorama.Style.RESET_ALL)
-            if input().upper() != 'Y':
+            if input().upper() != "Y":
                 print("Exiting...")
                 exit(0)
         print("Reading input...")
@@ -101,9 +101,7 @@ if __name__ == '__main__':
             sim = Simulation(intake)
         except Exception as e:
             print(colorama.Fore.RED + "Error reading input file!" + colorama.Style.RESET_ALL)
-            print(e)
-            print("Exiting...")
-            exit(1)
+            raise e
         if args.cast:
             print("Randomizing cast...")
             random.shuffle(sim.cast)
@@ -114,8 +112,8 @@ if __name__ == '__main__':
             offset = random.randint(0, increment)
             for y, district in enumerate(sim.districts):
                 rgb = [int(x * 255) for x in colorsys.hsv_to_rgb((y * increment + offset) / 360, 1.0, 1.0)]
-                color = '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
-                district['color'] = color + " 0 0"
+                color = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
+                district["color"] = color + " 0 0"
         if args.output_toml:
             sim.writet(output)
         else:

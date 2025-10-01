@@ -32,10 +32,11 @@ def create_retry_middleware(attempts: int = 2, timecap: int = 30) -> AIOHTTPMidd
 
     async def retry_middleware(request: aiohttp.ClientRequest, handler: Callable[...,
                                                                                  Awaitable]) -> aiohttp.ClientResponse:
-        for attempt in range(attempts + 1):
+        response = None
+        for _ in range(attempts + 1):
             response = await handler(request)
-            if response.status in (429, 503) and 'Retry-After' in response.headers:
-                retry_after = response.headers['Retry-After']
+            if response.status in (429, 503) and "Retry-After" in response.headers:
+                retry_after = response.headers["Retry-After"]
                 try:
                     delay = int(retry_after)
                 except ValueError:

@@ -30,7 +30,7 @@ def main():
     print(f"Starting Project: NINA {const.VERSION}...")
     cnfg = config.Config()
     print("Brace for timeloop!")
-    debug_mode = 'pydevd' in sys.modules
+    debug_mode = "pydevd" in sys.modules
     asyncio.run(NINA.start_bot(conf=cnfg, debug=debug_mode), debug=debug_mode)
 
 

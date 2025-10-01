@@ -140,7 +140,7 @@ async def start_bot(conf: config.Config, debug: bool = False) -> None:
     print("Starting bot...")
     try:
         scrt = config.Secret()
-        await bot_instance.start(scrt.token())
+        await bot_instance.start(scrt.token)
     except KeyboardInterrupt:
         logger.info("Keyboard interrupt detected. Shutting down...")
         print("Keyboard interrupt detected. Shutting down...")

@@ -1,6 +1,11 @@
 """Lists all failed images."""
-import tomllib
+# License: EPL-2.0
+# SPDX-License-Identifier: EPL-2.0
+# Copyright (c) 2023-present Tech. TTGames
+
 import time
+import tomllib
+
 import requests
 
 cast_file = input()
@@ -15,7 +20,7 @@ for tribute in data["cast"]:
         if im == "BW":
             continue
         try:
-            r = requests.get(im, headers = {'User-agent': 'NINABot 0.1.0a'})
+            r = requests.get(im, headers = {"User-agent": "NINABot 0.1.0a"}, timeout=10)
             ok = r.status_code == requests.codes.ok
             if r.status_code != requests.codes.ok:
                 time.sleep(int(r.headers["Retry-After"]))

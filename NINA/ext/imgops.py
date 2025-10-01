@@ -67,7 +67,7 @@ def resize(
     Returns:
         The resized image.
     """
-    if getattr(im, 'n_frames', 1) == 1:
+    if getattr(im, "n_frames", 1) == 1:
         # Not an animated image
         return thumbpaste(im, size, border_c=border_c)
     # Now do the same but for each frame in the animated image
