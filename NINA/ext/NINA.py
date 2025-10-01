@@ -19,6 +19,7 @@ Typical usage example:
 
 import asyncio
 import colorsys
+import hashlib
 import io
 import itertools
 import logging
@@ -51,6 +52,7 @@ DRAW_ARGS = {
     "stroke_width": 2,
     "align": "center",
 }
+DATA_DIR = const.PROG_DIR / "data"
 
 # 0: Female, 1: Male, 2: Neuter, 3: Pair, 4: Non-binary
 SPronouns = ["she", "he", "it", "they", "they"]
@@ -69,7 +71,7 @@ def getsize(draw: ImageDraw.ImageDraw, text: str, font: ImageFont.FreeTypeFont) 
         text: The text to measure.
         font: The font to use for measurement.
     """
-    bbox = draw.textbbox((0, 0), text, font, stroke_width=DRAW_ARGS['stroke_width'], align=DRAW_ARGS['align'])
+    bbox = draw.textbbox((0, 0), text, font, stroke_width=DRAW_ARGS["stroke_width"], align=DRAW_ARGS["align"])
     return bbox[2] - bbox[0], bbox[3] - bbox[1]
 
 
@@ -133,8 +135,8 @@ def draw_max_text(
                               new_text,
                               font,
                               anchor,
-                              stroke_width=DRAW_ARGS['stroke_width'],
-                              align=DRAW_ARGS['align'])
+                              stroke_width=DRAW_ARGS["stroke_width"],
+                              align=DRAW_ARGS["align"])
         if anchor[1] == "a":
             location = (location[0], location[1] + (location[1] - sizey[1]))
         else:
@@ -168,27 +170,26 @@ async def generate_endcycle(
         request: 0 for mortem request, 1 for victory screen.
     """
     t = sim.t
-    tribute_place = const.PROG_DIR.joinpath("data", "cast")
-    image_paths = await asyncio.gather(*[
-        tribute.fetch_image(["alive", "dead"][tribute.status], tribute_place.joinpath(f"{sim.cast.index(tribute)}"))
-        for tribute in involved
-    ])
+    image_paths = await asyncio.gather(
+        *[tribute.fetch_image(["alive", "dead"][tribute.status]) for tribute in involved])
     images = [(Image.open(pth), (dead.name, dead.district.name)) for pth, dead in zip(image_paths, involved)]
-    place = const.PROG_DIR.joinpath("data", "cycles", f"{cycle_no}")
+    place = DATA_DIR / "cycles" / f"{cycle_no}"
     if cycle_no == -1:
-        place = const.PROG_DIR.joinpath("data")
+        place = DATA_DIR / "cycles" / "special"
+    place.mkdir(parents=True, exist_ok=True)
     base_image = Image.new(
         "RGBA",
         (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
         (0, 0, 0, 0),
     )
+    plural = {"s" if len(involved) > 1 else ""}
     if request:
         if involved:
-            text = t(f"Winner{'s' if len(involved) > 1 else ''} of {sim.name}!")
+            text = t(f"Winner{plural} of {sim.name}!")
         else:
             text = "Result: Wipeout."
     else:
-        text = t(f"Fallen Tribute{'s' if len(involved) > 1 else ''} for Day {cycle_no // 2 + 1}")
+        text = t(f"Fallen Tribute{plural} for Day {cycle_no // 2 + 1}")
     draw = draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 128))
     # Size is
     # Width: number between 1-4 * 576 + 64
@@ -208,11 +209,12 @@ async def generate_endcycle(
                       font=font,
                       anchor="ma",
                       **DRAW_ARGS)
+    place = place / ["mortem", "victors"][request]
     if not gifs_pending:
-        place = place.joinpath(f"{['mortem', 'victors'][request]}.png")
+        place = place.with_suffix(".png")
         base_image.save(place, optimize=True)
     else:
-        place = place.joinpath(f"{['mortem', 'victors'][request]}.gif")
+        place = place.with_suffix(".gif")
         max_frames = max([gif[0].n_frames for gif in gifs_pending])
         status_img = [base_image.copy() for _ in range(max_frames)]
         for gif, location in gifs_pending:
@@ -261,20 +263,20 @@ class Simulation:
         self,
         cast_file: pathlib.Path,
         events_file: pathlib.Path,
-        owo_toggwe: bool = False,
+        owo_toggwe: bool | None = False,
     ) -> None:
         """Initialize the Simulation object."""
         with open(cast_file, "rb") as file:
             data = tomllib.load(file)
         self.cycle = -2
-        self.name: str = data['name']
-        self.logo: str = data['logo']
-        self.cast = [Tribute(tribute) for tribute in data['cast']]
-        self.districts = [District(district) for district in data['districts']]
+        self.name: str = data["name"]
+        self.logo: str = data["logo"]
+        self.cast = [Tribute(tribute) for tribute in data["cast"]]
+        self.districts = [District(district) for district in data["districts"]]
         with open(events_file, "rb") as file:
             data = tomllib.load(file)
-        self.cycles = [Cycle(cycle) for cycle in data['cycles']]
-        self.items = [Item(item, self.cycles) for item in data['items']]
+        self.cycles = [Cycle(cycle) for cycle in data["cycles"]]
+        self.items = [Item(item, self.cycles) for item in data["items"]]
         if not self.cycles:
             raise ValueError("No cycles found.")
         self.owo_toggwe = owo_toggwe
@@ -339,7 +341,7 @@ class Simulation:
             offset = random.randint(0, increment)
             for i, district in enumerate(self.districts):
                 rgb = [int(x * 255) for x in colorsys.hsv_to_rgb((i * increment + offset) / 360, 1.0, 1.0)]
-                color = '#%02x%02x%02x' % (rgb[0], rgb[1], rgb[2])
+                color = f"#{rgb[0]:02x}{rgb[1]:02x}{rgb[2]:02x}"
                 district.color = color
         logger.info("Assigning districts.")
         if interaction:
@@ -442,8 +444,7 @@ class Simulation:
                 continue  # Already logged in affiliationresolution
             event_no += 1
             if interaction:
-                pack = (interaction.extras["location"], event_no)
-                resolution_text, image = await event.rendered_resolve(tributes_involved, self, pack)
+                resolution_text, image = await event.rendered_resolve(tributes_involved, self, event_no)
                 attach = discord.File(image, description=f"{resolution_text}")
                 embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
                                       title=t(f"Event {event_no} for Cycle {self.cycle}"),
@@ -466,7 +467,8 @@ class Simulation:
             if interaction:
                 image = await generate_endcycle(self.cycle, self.cycle_deaths, self, 0)
                 attach = discord.File(image)
-                line = t(f"You hear {len(self.cycle_deaths)} cannon shot{'s' if len(self.cycle_deaths) > 1 else ''}"
+                plural = "s" if len(self.cycle_deaths) > 1 else ""
+                line = t(f"You hear {len(self.cycle_deaths)} cannon shot{plural}"
                          " in the distance.\nThe fallen tributes are:\n")
                 embed = discord.Embed(
                     title=t(f"Fallen Tributes for Day {self.cycle // 2 + 1}"),
@@ -509,9 +511,7 @@ class Simulation:
                 else:
                     sp = "Results: Wipeout."
                 attach = discord.File(image)
-                embed = discord.Embed(color=discord.Color.gold(),
-                                      title=t("Simulation Complete"),
-                                      description=t(sp))
+                embed = discord.Embed(color=discord.Color.gold(), title=t("Simulation Complete"), description=t(sp))
                 embed.set_author(name=t(self.name), icon_url=self.logo)
                 embed.set_image(url=f"attachment://{attach.filename}")
                 await interaction.followup.send(embed=embed, file=attach)
@@ -542,8 +542,8 @@ class District:
             data: tomli interpreted data.
                 Example: { name = "Eosphorous Faction", color = "#FF0400" }
         """
-        self.name = data['name']
-        self.color = data['color']
+        self.name = data["name"]
+        self.color = data["color"]
         self.members = []
         self.render = None
 
@@ -571,12 +571,9 @@ class District:
         if self.render and self.render[1] == status:
             return self.render[0]
 
-        data_dir = const.PROG_DIR.joinpath("data")
-        place = data_dir.joinpath("cast")
-        landing = data_dir.joinpath("status")
-        tribute_status_gets = [
-            tribute.get_status_render(place.joinpath(f"{sim.cast.index(tribute)}"), sim) for tribute in self.members
-        ]
+        landing = DATA_DIR / "status"
+        landing.mkdir(parents=True, exist_ok=True)
+        tribute_status_gets = [tribute.get_status_render(sim) for tribute in self.members]
         tribute_status = await asyncio.gather(*tribute_status_gets)
         tribute_status = [Image.open(stat_img) for stat_img in tribute_status]
         member_c = len(self.members)
@@ -602,10 +599,10 @@ class District:
                 continue
             base_image.paste(tribute_status_image, (64 + i * 576, 128))
         if not gifs_to_process:
-            landing = landing.joinpath(f"{sim.districts.index(self)}.png")
+            landing = landing / f"{sim.districts.index(self)}.png"
             base_image.save(landing, optimize=True)
         else:
-            landing = landing.joinpath(f"{sim.districts.index(self)}.gif")
+            landing = landing / f"{sim.districts.index(self)}.gif"
             max_frames = max([gif[1].n_frames for gif in gifs_to_process])
             status_img = [base_image.copy() for _ in range(max_frames)]
             for i, gif in gifs_to_process:
@@ -639,6 +636,7 @@ class Tribute:
             0: Female, 1: Male, 2: Neuter, 3: Pair, 4: Non-binary
         image: The image of the tribute (link)
         dead_image: The image of the tribute after death (link)
+        hash_ident: Hash-based unique Tribute identifier.
         allies: Tributes considered allies by this tribute.
         enemies: Tribute considered enemies by this tribute.
         items: Items held by the tribute
@@ -649,6 +647,7 @@ class Tribute:
     gender: int
     image: str
     dead_image: str
+    hash_ident: str
     status: int
     power: int
     district: District | None
@@ -673,10 +672,11 @@ class Tribute:
                 dead_image = "https://cdn.discordapp.com/attachments/718338933880258601/1187782049633935433/image.png"
                 ```
         """
-        self.name = data['name']
-        self.gender = data['gender']
-        self.image = data['image']
-        self.dead_image = data['dead_image']
+        self.name = data["name"]
+        self.gender = data["gender"]
+        self.image = data["image"]
+        self.dead_image = data["dead_image"]
+        self.hash_ident = hashlib.md5((self.name + self.image + self.dead_image).encode("utf-8")).hexdigest()
         self.status = 0
         self.power = BASE_POWER
         self.district = None
@@ -756,7 +756,6 @@ class Tribute:
     async def fetch_image(
         self,
         itype: Literal["alive", "dead"] | str,
-        place: pathlib.Path,
         session: aiohttp.ClientSession | None = None,
     ) -> pathlib.Path:
         """Fetch the image of the tribute.
@@ -764,18 +763,17 @@ class Tribute:
         Args:
             itype: The type of image to fetch.
                 Valid values: alive, dead
-            place: The place to save the image to.
-                The directory for the tribute.
             session: The aiohttp session to use for the request.
         """
-        match itype:
-            case "dead":
-                image = self.dead_image
-            case _:
-                image = self.image
+        place = DATA_DIR / "cast" / self.hash_ident
+        if itype == "alive":
+            image = self.dead_image
+        else:
+            image = self.image
+        place.mkdir(parents=True, exist_ok=True)
 
         if image == "BW" and itype == "dead":
-            placepth = place.joinpath(f"{itype}.png")
+            placepth = place / f"{itype}.png"
         else:
             frmt = image.split(".")[-1]
             if frmt in ["jpg", "jpeg"]:
@@ -784,7 +782,7 @@ class Tribute:
                 frmt = "gif"  # Sadly, Discord doesn't support webp.
             if frmt not in ["png", "gif"]:
                 raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
-            placepth = place.joinpath(f"{itype}.{frmt}")
+            placepth = place / f"{itype}.{frmt}"
 
         if placepth.exists():
             return placepth
@@ -793,7 +791,7 @@ class Tribute:
             raise ValueError(f"No session and image not found for {placepth}.")
 
         if image == "BW" and itype == "dead":
-            img = Image.open(await self.fetch_image("alive", place, session))
+            img = Image.open(await self.fetch_image("alive", session))
             img = img.convert("LA")
             img = imgops.resize(img, border_c=self.district.color)
             img.save(placepth, optimize=True)
@@ -804,11 +802,11 @@ class Tribute:
                 if not response.ok:
                     raise ValueError(f"Could not fetch image for tribute {self.name}.")
                 img = Image.open(io.BytesIO(await response.read()))
-        except aiohttp.ClientError:
+        except aiohttp.ClientError as exc:
             await asyncio.sleep(10)  # Retries the download if a ClientError happened
             async with session.get(image) as response:
                 if not response.ok:
-                    raise ValueError(f"Could not fetch image for tribute {self.name}.")
+                    raise ValueError(f"Could not fetch image for tribute {self.name}.") from exc
                 img = Image.open(io.BytesIO(await response.read()))
 
         img = imgops.resize(img, border_c=self.district.color)
@@ -818,34 +816,30 @@ class Tribute:
             img.save(placepth, optimize=True)
         return placepth
 
-    async def get_status_render(self, place: pathlib.Path | None, sim: Simulation) -> pathlib.Path:
+    async def get_status_render(self, sim: Simulation) -> pathlib.Path:
         """Get an assembled image representing the tribute.
 
         With the status, kills and effective power.
 
         Args:
-            place: The place to save the image to.
-                The directory for the tribute.
             sim: The simulation being rendered for.
         """
         t = sim.t
         status = [self.status, self.kills, self.effectivepower()]
         if self.render and self.render[1] == status:
             return self.render[0]
-        if not place:
-            if self.render:
-                place = self.render[0].parent
-            else:
-                raise ValueError(f"Neither place nor old render provided for tribute {self}")
+        place = DATA_DIR / "cast" / self.hash_ident
+        place.mkdir(parents=True, exist_ok=True)
         if self.status:
-            user_image = Image.open(await self.fetch_image("dead", place))
+            user_image = Image.open(await self.fetch_image("dead"))
         else:
-            user_image = Image.open(await self.fetch_image("alive", place))
+            user_image = Image.open(await self.fetch_image("alive"))
 
         base_image = Image.new("RGBA", (512, 640), (0, 0, 0, 0))
         font = ImageFont.truetype(FONT, size=28)
+        status_s = ("Alive", "Dead")[self.status]
         text = (f"{self.name}\n"
-                f"Status: {['Alive', 'Dead'][self.status]}\n"
+                f"Status: {status_s}\n"
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         draw = ImageDraw.Draw(base_image)
@@ -853,13 +847,13 @@ class Tribute:
         if user_image.format == "PNG":
             status_img = base_image
             status_img.paste(user_image)
-            landing = place.joinpath("status.png")
+            landing = place / "status.png"
             status_img.save(landing, optimize=True)
         else:
-            status_img = [base_image.copy() for _ in range(user_image.n_frames)]
+            status_img = [base_image.copy() for _ in range(getattr(user_image, "n_frames", 1))]
             for sts_frame, usr_frame in zip(status_img, ImageSequence.Iterator(user_image)):
                 sts_frame.paste(usr_frame)
-            landing = place.joinpath("status.gif")
+            landing = place / "status.gif"
             status_img[0].save(
                 landing,
                 save_all=True,
@@ -912,12 +906,12 @@ class Cycle:
                 /// REMOVED FOR BREVITY, REFER EVENT OBJECT ///
                 ```
         """
-        self.name = data['name']
-        self.text = data.get('text', None)
-        self.allow_item_events = data.get('allow_item_events', "none")
-        self.weight = data.get('weight', 1)
-        self.max_use = data.get('max_use', -1)
-        self.events = [Event(event, self) for event in data['events']]
+        self.name = data["name"]
+        self.text = data.get("text", None)
+        self.allow_item_events = data.get("allow_item_events", "none")
+        self.weight = data.get("weight", 1)
+        self.max_use = data.get("max_use", -1)
+        self.events = [Event(event, self) for event in data["events"]]
 
     def __str__(self):
         """Text representation of the cycle."""
@@ -925,7 +919,7 @@ class Cycle:
 
     async def render_start(self, simstate: Simulation) -> pathlib.Path:
         """Get an image representing the start of the cycle."""
-        place = const.PROG_DIR.joinpath("data", "cycles", f"{simstate.cycle}", f"start.png")
+        place = DATA_DIR / "cycles" / f"{simstate.cycle}" / "start.png"
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
         font = ImageFont.truetype(FONT, size=64)
@@ -1053,15 +1047,15 @@ class Event:
             cycle: The cycle the event belongs to.
             item: The item the event is attached to.
         """
-        self.text = string.Template(data['text'])
+        self.text = string.Template(data["text"])
         self.cycle = cycle
-        self.weight = data.get('weight', 1)
-        self.max_use = data.get('max_use', -1)
-        self.max_cycle = data.get('max_cycle', -1)
+        self.weight = data.get("weight", 1)
+        self.max_use = data.get("max_use", -1)
+        self.max_cycle = data.get("max_cycle", -1)
         self.cycle_use = self.max_cycle
         self.item = item
-        self.tribute_changes: list[dict] = data['tribute_changes']
-        self.tribute_requirements: list[dict] = data.get('tribute_requirements', [])
+        self.tribute_changes: list[dict] = data["tribute_changes"]
+        self.tribute_requirements: list[dict] = data.get("tribute_requirements", [])
 
     def __str__(self):
         """Return the text representation of the event."""
@@ -1083,21 +1077,21 @@ class Event:
             return True
         # If tribute_requirements exist, they have to have as many entries as there are tributes involved.
         requirements = self.tribute_requirements[placement]
-        if requirements.get('status', 0) != tribute.status:
+        if requirements.get("status", 0) != tribute.status:
             return False
-        if requirements.get('power', 'MISSING') != 'MISSING':
-            operation, power = requirements['power']
+        if requirements.get("power", "MISSING") != "MISSING":
+            operation, power = requirements["power"]
             if operation == "=" and tribute.effectivepower() != power:
                 return False
             if operation == ">" and tribute.effectivepower() <= power:
                 return False
             if operation == "<" and tribute.effectivepower() >= power:
                 return False
-        if requirements.get('item_status', 'MISSING') != 'MISSING':
+        if requirements.get("item_status", "MISSING") != "MISSING":
             if not self.item:
                 raise ValueError("Event has item requirements but is not attached to an item.")
             # Assuming the Tribute has the item, otherwise the event would not be in the pool.
-            operation, status = requirements['item_status']
+            operation, status = requirements["item_status"]
             if operation == "=" and tribute.items[self.item] != status:
                 return False
             if operation == ">" and tribute.items[self.item] <= status:
@@ -1125,8 +1119,8 @@ class Event:
         relationship_reqs: list[dict[str, str]] = []
         empty_relationship = 0
         for reqs in self.tribute_requirements:
-            if reqs.get('relationship', 'MISSING') != 'MISSING':
-                relationship_reqs.append(reqs['relationship'])
+            if reqs.get("relationship", "MISSING") != "MISSING":
+                relationship_reqs.append(reqs["relationship"])
                 continue
             relationship_reqs.append({})
             empty_relationship += 1
@@ -1426,7 +1420,7 @@ class Event:
         return "\n".join(resolutuion_strings)
 
     async def rendered_resolve(self, tributes: list[Tribute], simstate: Simulation,
-                               pack: tuple[pathlib.Path, int]) -> tuple[str, pathlib.Path]:
+                               event_no: int) -> tuple[str, pathlib.Path]:
         """Resolve the event with a rendered image.
 
         Resolves the tribute changes and returns the resolution text and the rendered image.
@@ -1434,17 +1428,12 @@ class Event:
         Args:
             tributes: The tributes to resolve the event for.
             simstate: The simulation state.
-            pack: Tuple of cycle directory and event number
+            event_no: Current event number as part of the current cycle.
         """
         tribute_c = len(tributes)
         base_image = Image.new("RGBA", (512 * tribute_c + 64 * (tribute_c + 1), 640), (0, 0, 0, 0))
-        tribute_place = const.PROG_DIR.joinpath("data", "cast")
-        tribute_images = await asyncio.gather(*[
-            tribute.fetch_image(
-                ["alive", "dead"][tribute.status],
-                tribute_place.joinpath(f"{simstate.cast.index(tribute)}"),
-            ) for tribute in tributes
-        ])
+        tribute_images = await asyncio.gather(
+            *[tribute.fetch_image(["alive", "dead"][tribute.status]) for tribute in tributes])
         tribute_images = [Image.open(im) for im in tribute_images]
         text = await self.resolve(tributes, simstate)
         draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 640))
@@ -1454,11 +1443,13 @@ class Event:
                 gifs_to_process.append((i, tribute_image))
                 continue
             base_image.paste(tribute_image, (64 + i * 576, 0))
+        landing = DATA_DIR / "cycles" / f"{simstate.cycle}"
+        landing.mkdir(parents=True, exist_ok=True)
         if not gifs_to_process:
-            landing = pack[0].joinpath(f"{pack[1]}.png")
+            landing = landing / f"{event_no}.png"
             base_image.save(landing, optimize=True)
         else:
-            landing = pack[0].joinpath(f"{pack[1]}.gif")
+            landing = landing / f"{event_no}.gif"
             max_frames = max([gif[1].n_frames for gif in gifs_to_process])
             status_img = [base_image.copy() for _ in range(max_frames)]
             for i, gif in gifs_to_process:
@@ -1520,18 +1511,18 @@ class Item:
                 ```
             cycles: The cycle library for the simulation.
         """
-        self.name = data['name']
-        self.textl = string.Template(data.get('textl', f"$Tribute1's {self.name} broke."))
-        self.power = data.get('power', 0)
-        self.cycles = [cycle for cycle in cycles if cycle.name in data['cycles']]
-        self.use_count = data.get('use_count', -1)
-        self.base_event = Event(data['base_event'], self.cycles, self)
+        self.name = data["name"]
+        self.textl = string.Template(data.get("textl", f"$Tribute1's {self.name} broke."))
+        self.power = data.get("power", 0)
+        self.cycles = [cycle for cycle in cycles if cycle.name in data["cycles"]]
+        self.use_count = data.get("use_count", -1)
+        self.base_event = Event(data["base_event"], self.cycles, self)
         event_cycles: list[Cycle] = []
         for cycle in cycles:
             if cycle.allow_item_events == "all" or (cycle.allow_item_events == "cycle" and
-                                                    cycle.name in data['cycles']):
+                                                    cycle.name in data["cycles"]):
                 event_cycles.append(cycle)
-        self.events = [Event(event, event_cycles, self) for event in data['events']]
+        self.events = [Event(event, event_cycles, self) for event in data["events"]]
 
     def __str__(self):
         """Return the name of the item."""
@@ -1541,9 +1532,8 @@ class Item:
 async def main():
     """Testing loop."""
     sim = Simulation(
-        const.PROG_DIR.joinpath("data", "cast.toml"),
-        const.PROG_DIR.joinpath("data", "events.toml"),
-        None,
+        DATA_DIR / "cast.toml",
+        DATA_DIR / "events.toml",
     )
     await sim.ready(None)
     # Place for testing code

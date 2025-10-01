@@ -27,7 +27,7 @@ from discord.ext import commands
 import owo
 
 from NINA import bot
-from NINA.data import const
+from NINA.data.const import PROG_DIR
 from NINA.ext import checks
 from NINA.ext import exceptions
 from NINA.ext import NINA
@@ -73,19 +73,19 @@ class Core(commands.Cog, name="SimCore"):
             bot_instance: The bot instance.
         """
         self._bt = bot_instance
-        self._dir = const.PROG_DIR.joinpath("data")
+        self._dir = PROG_DIR / "data"
         os.makedirs(self._dir, exist_ok=True)
         self.owo_toggwe = False
         if self._bt.sim is None:
-            cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
-            if cast_dir.exists() and events_dir.exists():
+            cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
+            if cast_fi.exists() and events_fi.exists():
                 try:
-                    self._bt.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
+                    self._bt.sim = NINA.Simulation(cast_fi, events_fi, self.owo_toggwe)
                     logger.info("Loaded last simulation data.")
                 except (ValueError, KeyError):
                     self._bt.sim = None
-                    os.remove(cast_dir)
-                    os.remove(events_dir)
+                    os.remove(cast_fi)
+                    os.remove(events_fi)
                     logger.info("Local files invalid/corrupt. Purged from system.")
             self._bt.basp = self._dir
         self.lock = False
@@ -123,17 +123,17 @@ class Core(commands.Cog, name="SimCore"):
             raise exceptions.UsageError("Bot cog lock active.")
         self.lock = True
         t = self.t
-        logger.info(f"Setting up simulation for {ctx.user}.")
+        logger.info("Setting up simulation for %s.", ctx.user.name)
         await ctx.response.defer(thinking=True, ephemeral=True)
-        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
+        cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
         async with ctx.channel.typing():
-            with open(cast_dir, "wb") as f:
+            with open(cast_fi, "wb") as f:
                 f.write(await cast.read())
-            with open(events_dir, "wb") as f:
+            with open(events_fi, "wb") as f:
                 f.write(await events.read())
         self.lock = False
         await ctx.followup.send(t("Configuration loaded."), ephemeral=True)
-        logger.info(f"Simulation set up for {ctx.user}.")
+        logger.info("Simulation set up for %s.", ctx.user.name)
 
     @app_commands.command(
         name="ready",
@@ -171,8 +171,8 @@ class Core(commands.Cog, name="SimCore"):
         if self.lock:
             raise exceptions.UsageError("Bot simulation lock active.")
         self.lock = True
-        cast_dir, events_dir = self._dir.joinpath("cast.toml"), self._dir.joinpath("events.toml")
-        if not cast_dir.exists() or not events_dir.exists():
+        cast_fi, events_fi = self._dir / "cast.tom", self._dir / "events.toml"
+        if not cast_fi.exists() or not events_fi.exists():
             setup_id = 0
             for command in self._bt.full_tree:
                 if command.name == "setup":
@@ -188,13 +188,13 @@ class Core(commands.Cog, name="SimCore"):
             a = random.randint(0, 7911979)
             self.owo_toggwe = a == 0
         t = self.t
-        self._bt.sim = NINA.Simulation(cast_dir, events_dir, self.owo_toggwe)
         # Reset the sim just in case.
-        logger.info(f"Readying simulation for {ctx.user}.")
+        self._bt.sim = NINA.Simulation(cast_fi, events_fi, self.owo_toggwe)
+        logger.info("Readying simulation for %s.", ctx.user.name)
         await ctx.response.defer(thinking=True)
         await self._bt.sim.ready(seed, randomize_dc, recolor_dc, ctx)
         embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
-                              title=t(f"Simulation primary ready up protocol complete."),
+                              title=t("Simulation primary ready up protocol complete."),
                               description=t("Fetching images..."))
         embed.set_author(name=t(self._bt.sim.name), icon_url=self._bt.sim.logo)
         embed.set_footer(text=t("Random seed:") + f"{self._bt.sim.seed}")
@@ -207,23 +207,22 @@ class Core(commands.Cog, name="SimCore"):
         if location.exists():
             shutil.rmtree(location)
         if cast_fdir.exists():
-            shutil.rmtree(cast_fdir)
-        os.makedirs(cast_fdir)
-        image_tasks = []
+            active_tributes = {tribute.hash_ident for tribute in self._bt.sim.cast}
+            cached_tributes = {dirname for dirname in cast_fdir.iterdir()}
+
+            extras = cached_tributes - active_tributes
+            for extra in extras:
+                shutil.rmtree(extra)
+        else:
+            os.makedirs(cast_fdir)
         sesh = self._bt.httpsession
-        for tribute_id, tribute in enumerate(self._bt.sim.cast):
-            cwd = cast_fdir.joinpath(str(tribute_id))
-            os.makedirs(cwd)
-            image_tasks.append(tribute.fetch_image("alive", cwd, sesh))
+        image_tasks = [tribute.fetch_image("alive", sesh) for tribute in self._bt.sim.cast]
         await asyncio.gather(*image_tasks)
-        image_tasks = []
         # Separated to allow for PIL to be used for BW images.
-        for tribute_id, tribute in enumerate(self._bt.sim.cast):
-            cwd = cast_fdir.joinpath(str(tribute_id))
-            image_tasks.append(tribute.fetch_image("dead", cwd, sesh))
+        image_tasks = [tribute.fetch_image("dead", sesh) for tribute in self._bt.sim.cast]
         await asyncio.gather(*image_tasks)
         await ctx.followup.send(t("Images fetched. Simulation ready."))
-        logger.info(f"Simulation readied for {ctx.user}.")
+        logger.info("Simulation readied for %s.", ctx.user.name)
         self.lock = False
 
     @app_commands.command(
@@ -281,9 +280,6 @@ class Core(commands.Cog, name="SimCore"):
         # recovery.Safe doesn't seem to be working at the moment. Bypassed
         # with recovery.Safe(self._bt.sim) as sim:
         await ctx.response.defer(thinking=True)
-        ctx.extras["location"] = self._dir.joinpath("cycles", f"{sim.cycle}")
-        os.makedirs(ctx.extras["location"], exist_ok=True)
-        # This is a directory as a cycle consists of multiple event images.
         await sim.computecycle(ctx)
         await ctx.followup.send(t(f"Cycle {sim.cycle - 1} complete!"))
         self.lock = False
@@ -314,17 +310,16 @@ class Core(commands.Cog, name="SimCore"):
         if isinstance(tribute, str):
             raise exceptions.UsageError("Invalid Tribute provided.")
         t = self.t
+        nmd_s = ["Alive", "Dead"][tribute.status]
         emd = discord.Embed(
             color=discord.Colour.from_str(tribute.district.color),
             title=t(f"Status of {tribute.name}"),
-            description=t(f"**Status:** {['Alive', 'Dead'][tribute.status]}\n") +
-            t(f"**District:** {tribute.district.name}\n") + t(f"**Kills:** {tribute.kills}\n") +
-            t(f"**Power:** {tribute.effectivepower()}"),
+            description=t(f"**Status:** {nmd_s}\n") + t(f"**District:** {tribute.district.name}\n") +
+            t(f"**Kills:** {tribute.kills}\n") + t(f"**Power:** {tribute.effectivepower()}"),
         )
         file = discord.utils.MISSING
         if tribute.status and tribute.dead_image == "BW":
-            place = self._dir.joinpath("cast", f"{self._bt.sim.cast.index(tribute)}")
-            fil = await tribute.fetch_image("dead", place)
+            fil = await tribute.fetch_image("dead")
             file = discord.File(fil)
             emd.set_image(url=f"attachment://{file.filename}")
         else:
