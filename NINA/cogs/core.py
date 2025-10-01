@@ -208,11 +208,13 @@ class Core(commands.Cog, name="SimCore"):
             shutil.rmtree(location)
         if cast_fdir.exists():
             active_tributes = {tribute.hash_ident for tribute in self._bt.sim.cast}
-            cached_tributes = {dirname for dirname in cast_fdir.iterdir()}
+            cached_tributes = {dirname.name for dirname in cast_fdir.iterdir()}
 
             extras = cached_tributes - active_tributes
-            for extra in extras:
-                shutil.rmtree(extra)
+            if extras:
+                logger.info("Purging cache of %i tributes.", len(extras))
+                for extra in extras:
+                    shutil.rmtree(cast_fdir / extra)
         else:
             os.makedirs(cast_fdir)
         sesh = self._bt.httpsession
