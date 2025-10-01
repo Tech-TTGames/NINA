@@ -920,6 +920,7 @@ class Cycle:
     async def render_start(self, simstate: Simulation) -> pathlib.Path:
         """Get an image representing the start of the cycle."""
         place = DATA_DIR / "cycles" / f"{simstate.cycle}" / "start.png"
+        place.parent.mkdir(parents=True, exist_ok=True)
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
         font = ImageFont.truetype(FONT, size=64)
