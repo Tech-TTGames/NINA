@@ -1,4 +1,4 @@
-"""Pillow advanced image resizing.
+"""Pillow advanced image resizing and various utilities.
 
 This module contains the advanced image resizing functions for Pillow.
 This is to resize user-provided images to the correct size for the simulation.
@@ -79,13 +79,13 @@ def resize(
     return frames, im.info
 
 
-def average_gif_durations(durations: list[list[int] | int], frames: int) -> list[int]:
-    """Calculates the average duration for each frame of the gif in milliseconds.
+def average_animation_duration(durations: list[list[int] | int], frames: int) -> list[int]:
+    """Calculates the average duration for each frame of the animation in milliseconds.
 
     Args:
-        durations: The durations of the gif in milliseconds, for every gif.
+        durations: The durations of the animation in milliseconds, for every animation.
             Either a list of specific durations or a global one.
-        frames: Maximum number of frames for the gif.
+        frames: Maximum number of frames for the animation.
     """
     for list_d in range(len(durations)):
         if isinstance(durations[list_d], int):
@@ -108,16 +108,86 @@ def border(im: Image.Image, color: str):
     draw.rectangle((0, 0, im.width - 1, im.height - 1), outline=color, width=5)
 
 
-def magicsave(image: Image.Image | tuple[list[Image.Image], dict], path: pathlib.Path) -> None:
-    """Saves the image to the given path.
+def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
+              path: pathlib.Path,
+              durs: list[int] | int | None = None) -> None:
+    """Saves the image to the given path with format-specific optimizations.
 
-    With all the module-defined optimizations and requirements.
+    Supports PNG, GIF, and both static and animated lossless WebP.
 
     Args:
-        image: The image to save
-        path: The path to save the image to.
+        image: The image or animated image tuple to save.
+        path: The path to save the image to. Its extension determines the format.
+        durs: The duration(s) for animation frames in milliseconds.
     """
-    if isinstance(image, tuple):
-        image[0][0].save(path, save_all=True, append_images=image[0][1:], **image[1], optimize=True, disposal=2)
+    if path.suffix.lower() == ".webp":
+        if isinstance(image, tuple):
+            frames, info = image
+            background = info.get("background")
+            loop = info.get("loop", 0)
+            frames[0].save(
+                path,
+                "WEBP",
+                save_all=True,
+                append_images=frames[1:],
+                duration=durs or info.get("duration", 100),
+                loop=loop,
+                background=background,
+                lossless=True,
+                method=6,
+                quality=100,
+            )
+        else:
+            image.save(path, "WEBP", lossless=True, method=6, quality=100)
     else:
-        image.save(path, optimize=True)
+        if isinstance(image, tuple):
+            frames, info = image
+            frames[0].save(path,
+                           save_all=True,
+                           append_images=frames[1:],
+                           **info,
+                           loop=0,
+                           duration=durs or info.get("duration", 100),
+                           optimize=True,
+                           disposal=2)
+        else:
+            image.save(path, optimize=True)
+
+
+def save_composite_image(path: pathlib.Path, base_image: Image.Image,
+                         animated_elements: list[tuple[Image.Image, tuple[int, int]]]) -> None:
+    """
+    Saves a composite image. If animated elements are present, it creates
+    an optimized animation; otherwise, it saves the static base image.
+
+    Args:
+        path: The file path to save the image to.
+        base_image: The static background image, potentially with other
+                    non-animated elements already pasted onto it.
+        animated_elements: A list of tuples, where each tuple contains:
+                           (Image.Image object of the Animation, (x, y location to paste)).
+    """
+    if not animated_elements:
+        magicsave(base_image, path)
+        return
+
+    # --- Animation Compositing Logic ---
+    max_frames = max(getattr(ani, "n_frames", 1) for ani, _ in animated_elements)
+
+    ani_frame_iterators = [itertools.cycle(ImageSequence.Iterator(ani)) for ani, _ in animated_elements]
+
+    final_frames = []
+    for _ in range(max_frames):
+        frame = base_image.copy()
+
+        for i, (_, location) in enumerate(animated_elements):
+            ani_frame = next(ani_frame_iterators[i])
+            frame.paste(ani_frame, location, ani_frame)
+
+        final_frames.append(frame)
+
+    info = animated_elements[0][0].info
+    durations = [ani.info.get("duration", 50) for ani, _ in animated_elements]
+    info["duration"] = average_animation_duration(durations, max_frames)
+
+    magicsave((final_frames, info), path)

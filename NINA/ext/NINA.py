@@ -36,7 +36,6 @@ import owo
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-from PIL import ImageSequence
 
 from NINA.data import const
 from NINA.ext import imgops
@@ -194,13 +193,13 @@ async def generate_endcycle(
     # Width: number between 1-4 * 576 + 64
     # Height: 640 for each row of images,
     font = ImageFont.truetype(FONT, size=32)
-    gifs_pending = []
+    animation = []
     for row, batch in enumerate(itertools.batched(images, 4)):
         offset = 64 + ((4 - len(batch)) * 288) * bool(len(involved) > 4)
         for col, img in enumerate(batch):
             paste = (offset + col * 576, 128 + row * 576)
-            if img[0].format == "GIF":
-                gifs_pending.append((img[0], paste))
+            if getattr(img[0], "n_frames", 1) != 1:
+                animation.append((img[0], paste))
             else:
                 base_image.paste(img[0], paste)
             draw.text((paste[0] + 256, paste[1] + 512),
@@ -208,27 +207,8 @@ async def generate_endcycle(
                       font=font,
                       anchor="ma",
                       **DRAW_ARGS)
-    place = place / ["mortem", "victors"][request]
-    if not gifs_pending:
-        place = place.with_suffix(".png")
-        base_image.save(place, optimize=True)
-    else:
-        place = place.with_suffix(".gif")
-        max_frames = max([gif[0].n_frames for gif in gifs_pending])
-        status_img = [base_image.copy() for _ in range(max_frames)]
-        for gif, location in gifs_pending:
-            for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
-                result_frame.paste(gif_frame, location)
-        durs = imgops.average_gif_durations([gif[0].info.get("duration", 50) for gif in gifs_pending], max_frames)
-        status_img[0].save(
-            place,
-            save_all=True,
-            append_images=status_img[1:],
-            loop=0,
-            duration=durs,
-            optimize=True,
-            disposal=2,
-        )
+    place = (place / ["mortem", "victors"][request]).with_suffix(".webp")
+    imgops.save_composite_image(place, base_image, animation)
     return place
 
 
@@ -407,7 +387,7 @@ class Simulation:
                                   t(f"Remaining tribute count: {len(self.alive)}"))
             embed.set_author(name=t(self.name), icon_url=self.logo)
             attach = discord.File(await cycle.render_start(self))
-            embed.set_image(url="attachment://start.png")
+            embed.set_image(url="attachment://start.webp")
             await interaction.followup.send(embed=embed, file=attach)
         logger.info("Beginning cycle %s.", cycle.name)
         if cycle.text:
@@ -591,33 +571,15 @@ class District:
             stroke_width=DRAW_ARGS["stroke_width"],
             align=DRAW_ARGS["align"],
         )
-        gifs_to_process = []
+        animation = []
         for i, tribute_status_image in enumerate(tribute_status):
-            if tribute_status_image.format == "GIF":
-                gifs_to_process.append((i, tribute_status_image))
+            paste_location = (64 + i * 576, 128)
+            if getattr(tribute_status_image, "n_frames", 1) != 1:
+                animation.append((tribute_status_image, paste_location))
                 continue
-            base_image.paste(tribute_status_image, (64 + i * 576, 128))
-        if not gifs_to_process:
-            landing = landing / f"{sim.districts.index(self)}.png"
-            base_image.save(landing, optimize=True)
-        else:
-            landing = landing / f"{sim.districts.index(self)}.gif"
-            max_frames = max([gif[1].n_frames for gif in gifs_to_process])
-            status_img = [base_image.copy() for _ in range(max_frames)]
-            for i, gif in gifs_to_process:
-                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
-                    result_frame.paste(gif_frame, (64 + i * 576, 128))
-            durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process],
-                                                max_frames)
-            status_img[0].save(
-                landing,
-                save_all=True,
-                append_images=status_img[1:],
-                loop=0,
-                duration=durs,
-                optimize=True,
-                disposal=2,
-            )
+            base_image.paste(tribute_status_image, paste_location)
+        landing = landing / f"{sim.districts.index(self)}.webp"
+        imgops.save_composite_image(landing, base_image, animation)
         self.render = (landing, status)
         return landing
 
@@ -749,28 +711,6 @@ class Tribute:
             case _:
                 raise ValueError("Invalid relationship.")
 
-    def resolve_image(self, itype: Literal["alive", "dead"] | str) -> str:
-        """Resolves the base image name.
-
-        Args
-            itype: The type of image to resolve.
-                Valid values: alive, dead
-        """
-        image = self.images[itype]
-
-        if image == "BW" and itype == "dead":
-            fname = "dead.png"
-        else:
-            frmt = image.split(".")[-1]
-            if frmt in {"jpg", "jpeg"}:
-                frmt = "png"
-            elif frmt == "webp":
-                frmt = "gif"  # Sadly, Discord doesn't support webp.
-            elif frmt not in {"png", "gif"}:
-                raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
-            fname = f"{itype}.{frmt}"
-        return fname
-
     async def fetch_image(
         self,
         itype: Literal["alive", "dead"] | str,
@@ -785,7 +725,7 @@ class Tribute:
         """
         place = DATA_DIR / "cast" / self.hash_ident
         place.mkdir(parents=True, exist_ok=True)
-        placepth = place / self.resolve_image(itype)
+        placepth = place / f"{itype}.webp"
         image = self.images[itype]
 
         if placepth.exists():
@@ -824,7 +764,7 @@ class Tribute:
         """
         place = DATA_DIR / "session_cast" / self.hash_ident
         place.mkdir(parents=True, exist_ok=True)
-        fname = self.resolve_image(itype)
+        fname = f"{itype}.webp"
         placepth = place / fname
         if placepth.exists():
             return placepth
@@ -855,7 +795,7 @@ class Tribute:
         status = [self.status, self.kills, self.effectivepower()]
         if self.render and self.render[1] == status:
             return self.render[0]
-        place = DATA_DIR / "cast" / self.hash_ident
+        place = DATA_DIR / "session_cast" / self.hash_ident
         place.mkdir(parents=True, exist_ok=True)
         if self.status:
             user_image = Image.open(await self.get_image("dead"))
@@ -870,25 +810,14 @@ class Tribute:
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         draw = ImageDraw.Draw(base_image)
-        draw.text((256, 675), t(text), font=font, anchor="md", **DRAW_ARGS)
-        if user_image.format == "PNG":
-            status_img = base_image
-            status_img.paste(user_image)
-            landing = place / "status.png"
-            status_img.save(landing, optimize=True)
+        draw.text((256, 576), t(text), font=font, anchor="ma", **DRAW_ARGS)
+        landing = place / "status.webp"
+        animated = []
+        if getattr(user_image, "n_frames", 1) == 1:
+            base_image.paste(user_image, (0, 0), user_image)
         else:
-            status_img = [base_image.copy() for _ in range(getattr(user_image, "n_frames", 1))]
-            for sts_frame, usr_frame in zip(status_img, ImageSequence.Iterator(user_image)):
-                sts_frame.paste(usr_frame)
-            landing = place / "status.gif"
-            status_img[0].save(
-                landing,
-                save_all=True,
-                append_images=status_img[1:],
-                **user_image.info,
-                optimize=True,
-                disposal=2,
-            )
+            animated.append((user_image, (0, 0)))
+        imgops.save_composite_image(landing, base_image, animated)
         self.render = (landing, status)
         return landing
 
@@ -946,7 +875,7 @@ class Cycle:
 
     async def render_start(self, simstate: Simulation) -> pathlib.Path:
         """Get an image representing the start of the cycle."""
-        place = DATA_DIR / "cycles" / f"{simstate.cycle}" / "start.png"
+        place = DATA_DIR / "cycles" / f"{simstate.cycle}" / "start.webp"
         place.parent.mkdir(parents=True, exist_ok=True)
         image = Image.new("RGBA", (512, 64), (0, 0, 0, 0))
         draw = ImageDraw.Draw(image)
@@ -963,7 +892,7 @@ class Cycle:
                   anchor=anchor,
                   font=font,
                   **DRAW_ARGS)
-        image.save(place, optimize=True)
+        imgops.magicsave(image, place)
         return place
 
 
@@ -1465,35 +1394,16 @@ class Event:
         tribute_images = [Image.open(im) for im in tribute_images]
         text = await self.resolve(tributes, simstate)
         draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 640))
-        gifs_to_process = []
+        animation = []
         for i, tribute_image in enumerate(tribute_images):
-            if tribute_image.format == "GIF":
-                gifs_to_process.append((i, tribute_image))
+            if getattr(tribute_image, "n_frames", 1) != 1:
+                animation.append((i, tribute_image))
                 continue
             base_image.paste(tribute_image, (64 + i * 576, 0))
         landing = DATA_DIR / "cycles" / f"{simstate.cycle}"
         landing.mkdir(parents=True, exist_ok=True)
-        if not gifs_to_process:
-            landing = landing / f"{event_no}.png"
-            base_image.save(landing, optimize=True)
-        else:
-            landing = landing / f"{event_no}.gif"
-            max_frames = max([gif[1].n_frames for gif in gifs_to_process])
-            status_img = [base_image.copy() for _ in range(max_frames)]
-            for i, gif in gifs_to_process:
-                for result_frame, gif_frame in zip(status_img, itertools.cycle(ImageSequence.all_frames(gif))):
-                    result_frame.paste(gif_frame, (64 + i * 576, 0))
-            durs = imgops.average_gif_durations([gif[1].info.get("duration", 50) for gif in gifs_to_process],
-                                                max_frames)
-            status_img[0].save(
-                landing,
-                save_all=True,
-                append_images=status_img[1:],
-                loop=0,
-                duration=durs,
-                optimize=True,
-                disposal=2,
-            )
+        landing = landing / f"{event_no}.webp"
+        imgops.save_composite_image(landing, base_image, animation)
         return text, landing
 
 
