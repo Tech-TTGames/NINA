@@ -317,7 +317,7 @@ class Core(commands.Cog, name="SimCore"):
             t(f"**Kills:** {tribute.kills}\n") + t(f"**Power:** {tribute.effectivepower()}"),
         )
         file = discord.utils.MISSING
-        if tribute.status and tribute.dead_image == "BW":
+        if tribute.status and tribute.images["dead"] == "BW":
             fil = await tribute.get_image("dead")
             file = discord.File(fil)
             emd.set_image(url=f"attachment://{file.filename}")
