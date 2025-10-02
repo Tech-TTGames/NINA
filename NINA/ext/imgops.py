@@ -34,6 +34,9 @@ def thumbpaste(
         size: The size to resize the image to.
         border_c: An optional string of the color for the border to use for the image
     """
+    if im.mode != 'RGBA':
+        im = im.convert('RGBA')
+
     if im.size[0] > size[0] or im.size[1] > size[1]:
         im.thumbnail(size)
     if im.size[0] < size[0] or im.size[1] < size[1]:
@@ -43,7 +46,7 @@ def thumbpaste(
     new_image = Image.new("RGBA", size, (255, 0, 0, 0))
     padding_x = (size[0] - im.size[0]) // 2
     padding_y = (size[1] - im.size[1]) // 2
-    new_image.paste(im, (padding_x, padding_y))
+    new_image.paste(im, (padding_x, padding_y), im)
     if border_c:
         border(new_image, border_c)
     return new_image
@@ -74,7 +77,6 @@ def resize(
     # Now do the same but for each frame in the animated image
     frames = []
     for frame in ImageSequence.Iterator(im):
-        frame = frame.convert("RGBA")
         frames.append(thumbpaste(frame, size, border_c=border_c))
     return frames, im.info
 
@@ -184,6 +186,8 @@ def save_composite_image(path: pathlib.Path, base_image: Image.Image,
 
         for i, (_, location) in enumerate(animated_elements):
             ani_frame = next(ani_frame_iterators[i])
+            if ani_frame.mode != "RGBA":
+                ani_frame = ani_frame.convert("RGBA")
             frame.paste(ani_frame, location, ani_frame)
 
         final_frames.append(frame)

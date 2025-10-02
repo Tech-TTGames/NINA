@@ -197,11 +197,14 @@ async def generate_endcycle(
     for row, batch in enumerate(itertools.batched(images, 4)):
         offset = 64 + ((4 - len(batch)) * 288) * bool(len(involved) > 4)
         for col, img in enumerate(batch):
+            limg = img[0]
             paste = (offset + col * 576, 128 + row * 576)
-            if getattr(img[0], "n_frames", 1) != 1:
-                animation.append((img[0], paste))
+            if getattr(limg, "n_frames", 1) != 1:
+                animation.append((limg, paste))
             else:
-                base_image.paste(img[0], paste)
+                if limg != "RGBA":
+                    limg = limg.convert("RGBA")
+                base_image.paste(limg, paste, limg)
             draw.text((paste[0] + 256, paste[1] + 512),
                       text=t(f"{img[1][0]}\n{img[1][1]}"),
                       font=font,
@@ -577,7 +580,9 @@ class District:
             if getattr(tribute_status_image, "n_frames", 1) != 1:
                 animation.append((tribute_status_image, paste_location))
                 continue
-            base_image.paste(tribute_status_image, paste_location)
+            if tribute_status_image.mode != "RGBA":
+                tribute_status_image = tribute_status_image.convert("RGBA")
+            base_image.paste(tribute_status_image, paste_location, tribute_status_image)
         landing = landing / f"{sim.districts.index(self)}.webp"
         imgops.save_composite_image(landing, base_image, animation)
         self.render = (landing, status)
@@ -814,6 +819,8 @@ class Tribute:
         landing = place / "status.webp"
         animated = []
         if getattr(user_image, "n_frames", 1) == 1:
+            if user_image.mode != "RGBA":
+                user_image = user_image.convert("RGBA")
             base_image.paste(user_image, (0, 0), user_image)
         else:
             animated.append((user_image, (0, 0)))
@@ -1399,7 +1406,9 @@ class Event:
             if getattr(tribute_image, "n_frames", 1) != 1:
                 animation.append((i, tribute_image))
                 continue
-            base_image.paste(tribute_image, (64 + i * 576, 0))
+            if tribute_image.mode != "RGBA":
+                tribute_image = tribute_image.convert("RGBA")
+            base_image.paste(tribute_image, (64 + i * 576, 0), tribute_image)
         landing = DATA_DIR / "cycles" / f"{simstate.cycle}"
         landing.mkdir(parents=True, exist_ok=True)
         landing = landing / f"{event_no}.webp"
