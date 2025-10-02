@@ -2418,24 +2418,24 @@ cython = ["Cython (==3.0.11)"]
 
 [[package]]
 name = "selenium"
-version = "4.35.0"
+version = "4.36.0"
 description = "Official Python bindings for Selenium WebDriver"
 optional = true
 python-versions = ">=3.9"
 groups = ["main"]
 markers = "extra == \"brentutils\""
 files = [
-    {file = "selenium-4.35.0-py3-none-any.whl", hash = "sha256:90bb6c6091fa55805785cf1660fa1e2176220475ccdb466190f654ef8eef6114"},
-    {file = "selenium-4.35.0.tar.gz", hash = "sha256:83937a538afb40ef01e384c1405c0863fa184c26c759d34a1ebbe7b925d3481c"},
+    {file = "selenium-4.36.0-py3-none-any.whl", hash = "sha256:525fdfe96b99c27d9a2c773c75aa7413f4c24bdb7b9749c1950aa3b5f79ed915"},
+    {file = "selenium-4.36.0.tar.gz", hash = "sha256:0eced83038736c3a013b824116df0b6dbb83e93721545f51b680451013416723"},
 ]
 
 [package.dependencies]
 certifi = ">=2025.6.15"
-trio = ">=0.30.0,<0.31.0"
-trio-websocket = ">=0.12.2,<0.13.0"
-typing_extensions = ">=4.14.0,<4.15.0"
+trio = ">=0.30.0,<1.0"
+trio-websocket = ">=0.12.2,<1.0"
+typing_extensions = ">=4.14.0,<5.0"
 urllib3 = {version = ">=2.5.0,<3.0", extras = ["socks"]}
-websocket-client = ">=1.8.0,<1.9.0"
+websocket-client = ">=1.8.0,<2.0"
 
 [[package]]
 name = "six"
@@ -2873,4 +2873,4 @@ brentutils = ["beautifulsoup4", "lxml", "selenium", "tomli-w"]
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.12"
-content-hash = "772047a0809c68677292299eed19bd7b88648b227d992a128349e3ad66215d87"
+content-hash = "5015fd67cbfca27673449b8e1407897f0e9f5c4b006ba6b62bdd36b0d75cf58b"

@@ -28,6 +28,7 @@ import pathlib
 import random
 import string
 import tomllib
+import time
 from typing import Any, Literal, Optional, Union
 
 import aiohttp
@@ -403,6 +404,7 @@ class Simulation:
         for item in self.items:
             if cycle in item.cycles:
                 cycle_events.append(item.base_event)
+        magictimer = time.time()
         while active_tributes:
             possible_events = []
             wg = [tribute.effectivepower() for tribute in active_tributes]
@@ -426,6 +428,9 @@ class Simulation:
                 continue  # Already logged in affiliationresolution
             event_no += 1
             if interaction:
+                if magictimer > time.time():
+                    await asyncio.sleep(magictimer - time.time())
+                magictimer = time.time() + 3
                 resolution_text, image = await event.rendered_resolve(tributes_involved, self, event_no)
                 attach = discord.File(image, description=f"{resolution_text}")
                 embed = discord.Embed(color=discord.Color.from_rgb(255, 255, 255),
