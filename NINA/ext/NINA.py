@@ -750,18 +750,17 @@ class Tribute:
             case _:
                 raise ValueError("Invalid relationship.")
 
-    def resolve_image(self, itype: Literal["alive", "dead"] | str) -> pathlib.Path:
-        """Resolves the base image name. Does not verify existence.
+    def resolve_image(self,itype: Literal["alive", "dead"] | str) -> str:
+        """Resolves the base image name.
 
         Args
             itype: The type of image to resolve.
                 Valid values: alive, dead
         """
-        place = DATA_DIR / "cast" / self.hash_ident
         image = self.images[itype]
 
         if image == "BW" and itype == "dead":
-            placepth = place / "dead.png"
+            fname = "dead.png"
         else:
             frmt = image.split(".")[-1]
             if frmt in {"jpg", "jpeg"}:
@@ -770,8 +769,8 @@ class Tribute:
                 frmt = "gif"  # Sadly, Discord doesn't support webp.
             elif frmt not in {"png", "gif"}:
                 raise ValueError(f"Invalid image format {frmt} for tribute {self.name}.")
-            placepth = place / f"{itype}.{frmt}"
-        return placepth
+            fname = f"{itype}.{frmt}"
+        return fname
 
     async def fetch_image(
         self,
@@ -785,7 +784,9 @@ class Tribute:
                 Valid values: alive, dead
             session: The aiohttp session to use for the request.
         """
-        placepth = self.resolve_image(itype)
+        place = DATA_DIR / "cast" / self.hash_ident
+        place.mkdir(parents=True, exist_ok=True)
+        placepth = place / self.resolve_image(itype)
         image = self.images[itype]
 
         if placepth.exists():
@@ -823,11 +824,13 @@ class Tribute:
                 Valid values: alive, dead
         """
         place = DATA_DIR / "session_cast" / self.hash_ident
-        placepth = place / f"{itype}.png"
+        place.mkdir(parents=True, exist_ok=True)
+        fname = self.resolve_image(itype)
+        placepth = place / fname
         if placepth.exists():
             return placepth
 
-        raw_path = self.resolve_image(itype)
+        raw_path = DATA_DIR / "cast" / self.hash_ident / fname
 
         if not raw_path.exists():
             raise FileNotFoundError(f"Could not get image for tribute {self.name}.")
@@ -1459,7 +1462,7 @@ class Event:
         tribute_c = len(tributes)
         base_image = Image.new("RGBA", (512 * tribute_c + 64 * (tribute_c + 1), 640), (0, 0, 0, 0))
         tribute_images = await asyncio.gather(
-            *[tribute.fetch_image(["alive", "dead"][tribute.status]) for tribute in tributes])
+            *[tribute.get_image(["alive", "dead"][tribute.status]) for tribute in tributes])
         tribute_images = [Image.open(im) for im in tribute_images]
         text = await self.resolve(tributes, simstate)
         draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 640))
