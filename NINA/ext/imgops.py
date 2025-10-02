@@ -123,7 +123,9 @@ def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
     if path.suffix.lower() == ".webp":
         if isinstance(image, tuple):
             frames, info = image
-            background = info.get("background")
+            background = info.get("background", (0, 0, 0, 0))
+            if not isinstance(background, tuple):
+                background = (0, 0, 0, 0)
             loop = info.get("loop", 0)
             frames[0].save(
                 path,
