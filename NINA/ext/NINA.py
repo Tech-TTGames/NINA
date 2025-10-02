@@ -1403,12 +1403,13 @@ class Event:
         draw_max_text(base_image, text, (base_image.width, 128), "md", (base_image.width // 2, 640))
         animation = []
         for i, tribute_image in enumerate(tribute_images):
+            pos = (64 + i * 576, 0)
             if getattr(tribute_image, "n_frames", 1) != 1:
-                animation.append((i, tribute_image))
+                animation.append((tribute_image, pos))
                 continue
             if tribute_image.mode != "RGBA":
                 tribute_image = tribute_image.convert("RGBA")
-            base_image.paste(tribute_image, (64 + i * 576, 0), tribute_image)
+            base_image.paste(tribute_image, pos, tribute_image)
         landing = DATA_DIR / "cycles" / f"{simstate.cycle}"
         landing.mkdir(parents=True, exist_ok=True)
         landing = landing / f"{event_no}.webp"
