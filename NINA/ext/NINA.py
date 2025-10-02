@@ -180,7 +180,7 @@ async def generate_endcycle(
         (min(4, len(involved)) * 576 + 64, (len(involved) // 4 + 1 - bool(len(involved) % 4 == 0)) * 576 + 128),
         (0, 0, 0, 0),
     )
-    plural = {"s" if len(involved) > 1 else ""}
+    plural = "s" if len(involved) > 1 else ""
     if request:
         if involved:
             text = t(f"Winner{plural} of {sim.name}!")
@@ -815,7 +815,7 @@ class Tribute:
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         draw = ImageDraw.Draw(base_image)
-        draw.text((256, 576), t(text), font=font, anchor="ma", **DRAW_ARGS)
+        draw.text((256, 675), t(text), font=font, anchor="md", **DRAW_ARGS)
         landing = place / "status.webp"
         animated = []
         if getattr(user_image, "n_frames", 1) == 1:
