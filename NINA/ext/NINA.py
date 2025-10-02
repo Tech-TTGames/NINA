@@ -170,8 +170,7 @@ async def generate_endcycle(
         request: 0 for mortem request, 1 for victory screen.
     """
     t = sim.t
-    image_paths = await asyncio.gather(
-        *[tribute.get_image(["alive", "dead"][tribute.status]) for tribute in involved])
+    image_paths = await asyncio.gather(*[tribute.get_image(["alive", "dead"][tribute.status]) for tribute in involved])
     images = [(Image.open(pth), (dead.name, dead.district.name)) for pth, dead in zip(image_paths, involved)]
     place = DATA_DIR / "cycles" / f"{cycle_no}"
     if cycle_no == -1:
@@ -750,7 +749,7 @@ class Tribute:
             case _:
                 raise ValueError("Invalid relationship.")
 
-    def resolve_image(self,itype: Literal["alive", "dead"] | str) -> str:
+    def resolve_image(self, itype: Literal["alive", "dead"] | str) -> str:
         """Resolves the base image name.
 
         Args
