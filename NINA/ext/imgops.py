@@ -20,6 +20,7 @@ from PIL import ImageOps
 from PIL import ImageSequence
 
 SIZE = (512, 512)
+WEBP_COMPRESSION = (4, 80)
 
 
 def thumbpaste(
@@ -138,11 +139,11 @@ def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
                 loop=loop,
                 background=background,
                 lossless=True,
-                method=6,
-                quality=100,
+                method=WEBP_COMPRESSION[0],
+                quality=WEBP_COMPRESSION[1],
             )
         else:
-            image.save(path, "WEBP", lossless=True, method=6, quality=100)
+            image.save(path, "WEBP", lossless=True, method=WEBP_COMPRESSION[0], quality=WEBP_COMPRESSION[1])
     else:
         if isinstance(image, tuple):
             frames, info = image
