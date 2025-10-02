@@ -35,8 +35,8 @@ def thumbpaste(
         size: The size to resize the image to.
         border_c: An optional string of the color for the border to use for the image
     """
-    if im.mode != 'RGBA':
-        im = im.convert('RGBA')
+    if im.mode != "RGBA":
+        im = im.convert("RGBA")
 
     if im.size[0] > size[0] or im.size[1] > size[1]:
         im.thumbnail(size)

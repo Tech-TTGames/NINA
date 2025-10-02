@@ -31,6 +31,7 @@ from NINA.data.const import PROG_DIR
 from NINA.ext import checks
 from NINA.ext import exceptions
 from NINA.ext import NINA
+from NINA.ext.NINA import Tribute
 
 logger = logging.getLogger("NINA.core")
 
@@ -305,7 +306,7 @@ class Core(commands.Cog, name="SimCore"):
             if possibly_correct.name == tribute:
                 tribute = possibly_correct
                 break
-        if isinstance(tribute, str):
+        if not isinstance(tribute, Tribute):
             raise exceptions.UsageError("Invalid Tribute provided.")
         t = self.t
         nmd_s = ["Alive", "Dead"][tribute.status]
@@ -317,11 +318,11 @@ class Core(commands.Cog, name="SimCore"):
         )
         file = discord.utils.MISSING
         if tribute.status and tribute.dead_image == "BW":
-            fil = await tribute.fetch_image("dead")
+            fil = await tribute.get_image("dead")
             file = discord.File(fil)
             emd.set_image(url=f"attachment://{file.filename}")
         else:
-            emd.set_thumbnail(url=[tribute.image, tribute.dead_image][tribute.status])
+            emd.set_thumbnail(url=tribute.images[nmd_s.lower()])
         emd.set_author(name=t(f"{self._bt.sim.name}"), icon_url=self._bt.sim.logo)
         emd.add_field(name=t("Items"),
                       value=NINA.truncatelast(
