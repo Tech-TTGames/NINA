@@ -315,7 +315,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 aggressively pulls at $Tribute2's hair but they manage to escape."
+text = "$Tribute1 aggressively pulls at $Tribute2's hair but $SP2 manage to escape."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -343,7 +343,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 slaps $Tribute2. They flee out of shame."
+text = "$Tribute1 slaps $Tribute2. $SP2_C flee out of shame."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2010,7 +2010,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it."
+text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. $SP1_C did not manage to parry it."
 weight = 1
 max_use = -1
 max_cycle = 3
@@ -2022,7 +2022,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They managed to parry it in time."
+text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. $SP1_C managed to parry it in time."
 weight = 1
 max_use = -1
 max_cycle = 3
@@ -2445,7 +2445,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 finds a plastic chair overlooking a cliff. They sit down and contemplate $PA1 life choices."
+text = "$Tribute1 finds a plastic chair overlooking a cliff. $SP1_C sit down and contemplate $PA1 life choices."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2472,7 +2472,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 wishes they got Sanctifier role."
+text = "$Tribute1 wishes $SP1 got Sanctifier role."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4030,7 +4030,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
+text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. $SP1_C did not manage to parry it in time and died."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4293,7 +4293,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 robs $Tribute2 while they sleep."
+text = "$Tribute1 robs $Tribute2 while $SP2 sleep."
 weight = 2
 max_use = -1
 max_cycle = 5
@@ -4822,7 +4822,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 finds a coffin to sleep in, they were plagued by nightmares."
+text = "$Tribute1 finds a coffin to sleep in, $SP1 were plagued by nightmares."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4881,7 +4881,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 wishes they got Sanctifier role."
+text = "$Tribute1 wishes $SP1 got Sanctifier role."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6369,7 +6369,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. They did not manage to parry it in time and died."
+text = "$Tribute1 receives a Grand Starfall from an unknown sponsor. $SP1_C did not manage to parry it in time and died."
 weight = 20
 max_use = -1
 max_cycle = -1
