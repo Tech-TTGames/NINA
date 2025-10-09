@@ -820,7 +820,11 @@ class Tribute:
                 f"Kills: {self.kills}\n"
                 f"Power: {self.effectivepower()}\n")
         draw = ImageDraw.Draw(base_image)
-        draw.text((256, 675), t(text), font=font, anchor="md", **DRAW_ARGS)
+
+        if self.status:
+            draw.rectangle((0, 512, 512, 640), fill=(255, 0, 0, 127))
+
+        draw.text((256, 640), t(text), font=font, anchor="mb", **DRAW_ARGS)
         landing = place / "status.webp"
         animated = []
         if getattr(user_image, "n_frames", 1) == 1:

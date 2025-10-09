@@ -34,27 +34,6 @@ image = "https://cdn.discordapp.com/emojis/1151854189203443712.png"
 dead_image = "https://i.imgur.com/bRiVmnX.png"
 
 [[cast]]
-name = "Florence"
-nickname = "Florence"
-gender = 0
-image = "https://i.imgur.com/w586Mai.png"
-dead_image = "https://i.imgur.com/ixmFKIP.png"
-
-[[cast]]
-name = "Helix"
-nickname = "Helix"
-gender = 0
-image = "https://cdn.discordapp.com/emojis/1059230395234783242.png"
-dead_image = "https://i.imgur.com/I4iuUCG.png"
-
-[[cast]]
-name = "Kuro Gaming"
-nickname = "Kuro Gaming"
-gender = 0
-image = "https://i.imgur.com/PbZbEer.png"
-dead_image = "https://i.imgur.com/a7MYvGG.png"
-
-[[cast]]
 name = "Karnma"
 nickname = "Karnma"
 gender = 1
@@ -69,32 +48,11 @@ image = "https://i.imgur.com/pHbieEgh.jpg"
 dead_image = "https://i.imgur.com/HAeKmjVh.jpg"
 
 [[cast]]
-name = "William"
-nickname = "William"
-gender = 1
-image = "https://i.imgur.com/aKmdpSO.png"
-dead_image = "https://i.imgur.com/oYxRMHu.png"
-
-[[cast]]
 name = "Wolfy"
 nickname = "Wolfy"
 gender = 0
 image = "https://i.imgur.com/LDwIxmG.png"
 dead_image = "https://i.imgur.com/fTFzNbX.png"
-
-[[cast]]
-name = "Hesperus"
-nickname = "Hesperus"
-gender = 1
-image = "https://i.imgur.com/CwPXFab.png"
-dead_image = "https://i.imgur.com/yYnhK97.png"
-
-[[cast]]
-name = "Tech."
-nickname = "Tech."
-gender = 4
-image = "https://i.imgur.com/ePmNUcS.gif"
-dead_image = "https://i.imgur.com/AENpXzd.png"
 
 [[cast]]
 name = "Kekdated"
@@ -181,13 +139,6 @@ image = "https://cdn.discordapp.com/emojis/1175947226418249749.png"
 dead_image = "https://i.imgur.com/o4jjuRF.png"
 
 [[cast]]
-name = "Prof. SoCKs"
-nickname = "Prof. SoCKs"
-gender = 1
-image = "https://i.imgur.com/ZgnO2Pdh.jpg"
-dead_image = "https://i.imgur.com/1Ivy6bM.png"
-
-[[cast]]
 name = "Daiyan"
 nickname = "Daiyan"
 gender = 0
@@ -244,20 +195,6 @@ image = "https://i.imgur.com/Wdxb4uh.png"
 dead_image = "https://i.imgur.com/TJ64Yln.png"
 
 [[cast]]
-name = "Majima when he"
-nickname = "Majima when he"
-gender = 1
-image = "https://i.imgur.com/P53gc1h.png"
-dead_image = "https://i.imgur.com/MUY1fCN.png"
-
-[[cast]]
-name = "Dupin"
-nickname = "Dupin"
-gender = 1
-image = "https://cdn.discordapp.com/emojis/1045283406155632661.png"
-dead_image = "https://i.imgur.com/qr4cQ7b.png"
-
-[[cast]]
 name = "Ksenia"
 nickname = "Ksenia"
 gender = 0
@@ -305,34 +242,6 @@ nickname = "Raph"
 gender = 1
 image = "https://i.imgur.com/3VuPzWx.png"
 dead_image = "https://i.imgur.com/S6f5wCT.png"
-
-[[cast]]
-name = "Lizzy"
-nickname = "Lizzy"
-gender = 0
-image = "https://i.imgur.com/1vW4L2a.png"
-dead_image = "BW"
-
-[[cast]]
-name = "Griffin"
-nickname = "Griffin"
-gender = 1
-image = "https://i.imgur.com/epXEqCL.png"
-dead_image = "https://i.imgur.com/yIYkg61.png"
-
-[[cast]]
-name = "Nina"
-nickname = "Nina"
-gender = 0
-image = "https://i.imgur.com/X3BM59z.png"
-dead_image = "https://i.imgur.com/iXO86Ys.png"
-
-[[cast]]
-name = "Kimie when she"
-nickname = "Kimie when she"
-gender = 0
-image = "https://i.imgur.com/Qd2hGAG.png"
-dead_image = "https://i.imgur.com/UGl5TDo.png"
 
 [[cast]]
 name = "Catto"
@@ -459,10 +368,3 @@ nickname = "Akismile"
 gender = 1
 image = "https://cdn.discordapp.com/emojis/1005044933322866708.png"
 dead_image = "https://i.imgur.com/2rHUlbs.png"
-
-[[cast]]
-name = "Harry"
-nickname = "Harry"
-gender = 1
-image = "https://i.imgur.com/jfMcabn.png"
-dead_image = "https://i.imgur.com/6pJTIN3.png"
