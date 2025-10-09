@@ -822,7 +822,7 @@ class Tribute:
         draw = ImageDraw.Draw(base_image)
 
         if self.status:
-            draw.rectangle((0, 512, 512, 640), fill=(255, 0, 0, 127))
+            draw.rectangle((0, 512, 512, 640), fill=(255, 0, 0, 180))
 
         draw.text((256, 675), t(text), font=font, anchor="md", **DRAW_ARGS)
         landing = place / "status.webp"
