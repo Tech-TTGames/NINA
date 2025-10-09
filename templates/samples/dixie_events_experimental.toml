@@ -411,7 +411,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 finds a suppressor. It does not fit on the weapon he found."
+text = "$Tribute1 finds a suppressor. It does not fit on the weapon $SP1 found."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1540,7 +1540,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke $OP2 to death, but he would manage to choke $Tribute1 instead after a struggle."
+text = "$Tribute1 sneaks up to $Tribute2 from behind and attempts to choke $OP2 to death, but $SP2 would manage to choke $Tribute1 instead after a struggle."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -1726,7 +1726,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as he got too close, $Tribute1 shoots $Tribute2 to death."
+text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as $SP2 got too close, $Tribute1 shoots $Tribute2 to death."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2686,7 +2686,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 raids $Tribute2's shelter while he would go out hunting."
+text = "$Tribute1 raids $Tribute2's shelter while $SP2 would go out hunting."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4168,7 +4168,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 drowns $Tribute2 in a river while he tried drinking from it."
+text = "$Tribute1 drowns $Tribute2 in a river while $SP2 tried drinking from it."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6656,7 +6656,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as he got too close, $Tribute1 shoots $Tribute2 to death."
+text = "$Tribute1 surrenders to $Tribute2 but quickly disarms $Tribute2 as $SP2 got too close, $Tribute1 shoots $Tribute2 to death."
 weight = 20
 max_use = -1
 max_cycle = -1
