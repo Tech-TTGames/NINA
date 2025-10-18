@@ -2472,7 +2472,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 wishes $SP1 got Sanctifier role."
+text = "$Tribute1 wishes $SP1 got the Sanctifier role."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2889,7 +2889,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 found some operands to repair themselves with."
+text = "$Tribute1 found some operands to repair $RP1 with."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4128,7 +4128,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 temporarily obtains Sanctifier role and bans $Tribute2."
+text = "$Tribute1 temporarily obtains the Sanctifier role and bans $Tribute2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -4293,7 +4293,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 robs $Tribute2 while $SP2 sleep."
+text = "$Tribute1 robs $Tribute2 while $SP2 sleeps."
 weight = 2
 max_use = -1
 max_cycle = 5
@@ -4881,7 +4881,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 wishes $SP1 got Sanctifier role."
+text = "$Tribute1 wishes $SP1 got the Sanctifier role."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -5168,7 +5168,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 found some operands to repair $OP1 with."
+text = "$Tribute1 found some operands to repair $RP1 with."
 weight = 20
 max_use = -1
 max_cycle = -1
