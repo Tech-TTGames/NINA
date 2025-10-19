@@ -343,7 +343,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 slaps $Tribute2. $SP2_C flee out of shame."
+text = "$Tribute1 slaps $Tribute2. $SP2_C flees out of shame."
 weight = 20
 max_use = -1
 max_cycle = -1
