@@ -603,6 +603,7 @@ class Tribute:
 
     Attributes:
         name: The name of the tribute.
+        nickname: The nickname of the tribute.
         status: The status of the tribute.
             0: Alive, 1: Dead
         power: The power of the tribute.
@@ -618,6 +619,7 @@ class Tribute:
         log: Log of all events this tribute has been a part of.
     """
     name: str
+    nickname: str
     gender: int
     images: dict[str, str]
     hash_ident: str
@@ -646,6 +648,7 @@ class Tribute:
                 ```
         """
         self.name = data["name"]
+        self.nickname = data["nickname"]
         self.gender = data["gender"]
         self.images = {"alive": data["image"], "dead": data["dead_image"]}
         self.hash_ident = hashlib.md5((self.name + data["image"] + data["dead_image"]).encode("utf-8")).hexdigest()
@@ -923,15 +926,29 @@ class Event:
         text: The text of the event.
             Placeholders:
             $TributeX - The name of the tribute in the Xth position.
+            $NickX - The nickname of the tribute in the Xth position.
             $DistrictX - The name of the district the tribute in the Xth position belongs to.
+            $KillsX - The amount of kills the tribute in the Xth position has.
             $PowerX - The power of the tribute in the Xth position.
+            $ItemLX_Y - The name of the Yth item lost by the tribute in the Xth position.
+            $ItemGX_Y - The name of the Yth item gained by the tribute in the Xth position.
+
+            === GRAMMAR HELPERS ===
             $SPX - The subjective pronoun of the tribute in the Xth position.
             $OPX - The objective pronoun of the tribute in the Xth position.
             $PPX - The possessive pronoun of the tribute in the Xth position.
             $RPX - The reflexive pronoun of the tribute in the Xth position.
             $PAX - The possessive adjective of the tribute in the Xth position.
-            $ItemLX_Y - The name of the Yth item lost by the tribute in the Xth position.
-            $ItemGX_Y - The name of the Yth item gained by the tribute in the Xth position.
+            $BEX - The correct 'be' verb of the tribute in the Xth position.
+            $PBEX - The correct past 'be' verb of the tribute in the Xth position.
+            $SX - The letter 's' if the gender of tribute in the Xth position isn't plural, nothing otherwise.
+            $ESX - The string 'es' if the gender of tribute in the Xth position isn't plural, nothing otherwise.
+
+            === GLOBALS ===
+            $Cycle - The cycle number.
+            $AliveC - The number of alive tributes.
+            $DeadC - The number of dead tributes.
+
             Variants:
                 ..._C - the capitalized version of the placeholder.
         cycle: The cycle the event belongs to.
@@ -1372,17 +1389,28 @@ class Event:
                         affected.handle_relationships(value, tributes, "enemies")
                     case _:
                         continue
-        resolution_dict = {}
+        resolution_dict = {
+            "Cycle": str(simstate.cycle),
+            "AliveC": str(len(simstate.alive)),
+            "DeadC": str(len(simstate.dead)),
+        }
         for tribute_id, tribute in enumerate(tributes):
             # Generate all the Placeholders
+            is_plural = tribute.gender in (3, 4)
             resolution_dict[f"Tribute{tribute_id + 1}"] = tribute.name
+            resolution_dict[f"Nick{tribute_id + 1}"] = tribute.nickname
             resolution_dict[f"District{tribute_id + 1}"] = tribute.district.name
+            resolution_dict[f"Kills{tribute_id + 1}"] = str(tribute.kills)
             resolution_dict[f"Power{tribute_id + 1}"] = str(tribute.power)
             resolution_dict[f"SP{tribute_id + 1}"] = SPronouns[tribute.gender]
             resolution_dict[f"OP{tribute_id + 1}"] = OPronouns[tribute.gender]
             resolution_dict[f"PP{tribute_id + 1}"] = PPronouns[tribute.gender]
             resolution_dict[f"RP{tribute_id + 1}"] = RPronouns[tribute.gender]
             resolution_dict[f"PA{tribute_id + 1}"] = PAdjectives[tribute.gender]
+            resolution_dict[f"BE{tribute_id + 1}"] = "are" if is_plural else "is"
+            resolution_dict[f"PBE{tribute_id + 1}"] = "were" if is_plural else "was"
+            resolution_dict[f"S{tribute_id + 1}"] = "" if is_plural else "s"
+            resolution_dict[f"ES{tribute_id + 1}"] = "" if is_plural else "es"
             for i, item in enumerate(item_loses.get(tribute, [])):
                 resolution_dict[f"ItemL{tribute_id + 1}_{i + 1}"] = item.name
             for i, item in enumerate(item_gains.get(tribute, [])):
