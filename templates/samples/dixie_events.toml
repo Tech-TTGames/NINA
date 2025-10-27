@@ -1534,7 +1534,7 @@
 
 
     [[cycles.events]]
-        text = "$Tribute1, $Tribute2, $Tribute4 and $Tribute5 overestimated their ability to handle Exception Protocol."
+        text = "$Tribute1, $Tribute2, $Tribute3, $Tribute4 and $Tribute5 overestimated their ability to handle Exception Protocol."
         weight = 1
         max_use = -1
         max_cycle = 2
