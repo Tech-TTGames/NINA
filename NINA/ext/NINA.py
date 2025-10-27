@@ -409,15 +409,19 @@ class Simulation:
             possible_events = []
             wg = [tribute.effectivepower() for tribute in active_tributes]
             tribute: "Tribute" = random.choices(active_tributes, weights=wg)[0]
-            for item, _ in tribute.items.items():
-                if (cycle in item.cycles and cycle.allow_item_events == "cycle") or cycle.allow_item_events == "all":
-                    possible_events.extend(item.events)
-            for event in cycle_events:
-                if event.check_requirements(tribute, 0):
-                    logger.debug("Adding event to pool %s for tribute %s", event.text.template, tribute.name)
-                    possible_events.append(event)
-                else:
-                    logger.debug("Discarded event %s for tribute %s", event.text.template, tribute.name)
+            itemwise = []
+            for item in tribute.items.keys():
+                for ievent in item.events:
+                    if cycle not in ievent.cycle:
+                        logger.debug("Discarded event %s for tribute %s (cycle mismatch)", ievent.text.template, tribute.name)
+                        continue
+                    itemwise.append(ievent)
+            for cevent in itertools.chain(cycle_events, itemwise):
+                if cevent.check_requirements(tribute, 0):
+                    logger.debug("Adding event '%s' to pool for tribute %s", cevent.text.template, tribute.name)
+                    possible_events.append(cevent)
+                    continue
+                logger.debug("Discarded event %s for tribute %s (failed reqs)", cevent.text.template, tribute.name)
             if not possible_events:
                 logger.warning("Could not find event for tribute '%s'.", tribute.name)
                 continue
