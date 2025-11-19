@@ -678,6 +678,34 @@ class Tribute:
             power = 1
         return power
 
+    def placeholders(self, loc: int = 1) -> dict[str, str]:
+        """ Generates tribute-specific placeholders.
+
+        Args:
+            loc: The tribute id to generate the placeholders under.
+
+        Returns:
+            A dictionary containing all tribute-specific placeholders under the specified id.
+        """
+        is_plural = self.gender in (3, 4)
+        tribute_dict = {
+            f"Tribute{loc}": self.name,
+            f"Nick{loc}": self.nickname,
+            f"District{loc}": self.district.name,
+            f"Kills{loc}": str(self.kills),
+            f"Power{loc}": str(self.power),
+            f"SP{loc}": SPronouns[self.gender],
+            f"OP{loc}": OPronouns[self.gender],
+            f"PP{loc}": PPronouns[self.gender],
+            f"RP{loc}": RPronouns[self.gender],
+            f"PA{loc}": PAdjectives[self.gender],
+            f"BE{loc}": "are" if is_plural else "is",
+            f"PBE{loc}": "were" if is_plural else "was",
+            f"S{loc}": "" if is_plural else "s",
+            f"ES{loc}": "" if is_plural else "es",
+        }
+        return tribute_dict
+
     def handle_relationships(
         self,
         tributes: list[list[int]],
@@ -1354,7 +1382,7 @@ class Event:
                         affected.items[self.item] -= value
                         if affected.items[self.item] == 0:
                             affected.items.pop(self.item)
-                            destruction = self.item.textl.safe_substitute(Tribute1=affected.name)
+                            destruction = self.item.textl.safe_substitute(**affected.placeholders())
                             resolutuion_strings.append(t(destruction))
                             affected.log.append(t(destruction))
                         continue
@@ -1395,22 +1423,7 @@ class Event:
             "DeadC": str(len(simstate.dead)),
         }
         for tribute_id, tribute in enumerate(tributes):
-            # Generate all the Placeholders
-            is_plural = tribute.gender in (3, 4)
-            resolution_dict[f"Tribute{tribute_id + 1}"] = tribute.name
-            resolution_dict[f"Nick{tribute_id + 1}"] = tribute.nickname
-            resolution_dict[f"District{tribute_id + 1}"] = tribute.district.name
-            resolution_dict[f"Kills{tribute_id + 1}"] = str(tribute.kills)
-            resolution_dict[f"Power{tribute_id + 1}"] = str(tribute.power)
-            resolution_dict[f"SP{tribute_id + 1}"] = SPronouns[tribute.gender]
-            resolution_dict[f"OP{tribute_id + 1}"] = OPronouns[tribute.gender]
-            resolution_dict[f"PP{tribute_id + 1}"] = PPronouns[tribute.gender]
-            resolution_dict[f"RP{tribute_id + 1}"] = RPronouns[tribute.gender]
-            resolution_dict[f"PA{tribute_id + 1}"] = PAdjectives[tribute.gender]
-            resolution_dict[f"BE{tribute_id + 1}"] = "are" if is_plural else "is"
-            resolution_dict[f"PBE{tribute_id + 1}"] = "were" if is_plural else "was"
-            resolution_dict[f"S{tribute_id + 1}"] = "" if is_plural else "s"
-            resolution_dict[f"ES{tribute_id + 1}"] = "" if is_plural else "es"
+            resolution_dict.update(tribute.placeholders(tribute_id+1))
             for i, item in enumerate(item_loses.get(tribute, [])):
                 resolution_dict[f"ItemL{tribute_id + 1}_{i + 1}"] = item.name
             for i, item in enumerate(item_gains.get(tribute, [])):
