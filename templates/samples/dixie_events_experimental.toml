@@ -228,7 +228,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 knocks out $Tribute2, leaving them at the Oasis."
+text = "$Tribute1 knocks out $Tribute2, leaving $OP2 in the Oasis."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -315,7 +315,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 aggressively pulls at $Tribute2's hair but $SP2 manage to escape."
+text = "$Tribute1 aggressively pulls at $Tribute2's hair but $SP2 manages to escape."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2686,7 +2686,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 raids $Tribute2's shelter while $SP2 would go out hunting."
+text = "$Tribute1 raids $Tribute2's shelter while $SP2 is hunting."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -2727,7 +2727,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steals from $OP3."
+text = "$Tribute1 and $Tribute2 manage to sneak into $Tribute3's shelter and steal from $OP3."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -6447,7 +6447,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 temporarily obtains Admin role and bans $Tribute2."
+text = "$Tribute1 temporarily obtains the Sector Administrator role and bans $Tribute2."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -7843,7 +7843,7 @@ tribute_changes = [
 
 [[items.events]]
 text = "$Tribute1 spent $PA1 Advanced Searches to restore $Tribute2."
-weight = 750
+weight = 7500
 tribute_changes = [
     { itemu = 1 },
     { status = 0, allies = [[1,1]], powern = 500 },
@@ -7855,7 +7855,7 @@ tribute_requirements = [
 
 [[items.events]]
 text = "$Tribute1 lost the rate up. $Tribute2 curses MICA from afterlife."
-weight = 250
+weight = 2500
 tribute_changes = [
     { itemu = 1, powern = -50 },
     {},
@@ -7882,7 +7882,7 @@ tribute_changes = [
 
 [[items.events]]
 text = "$Tribute1 spent $PA1 Basic Searches to restore $Tribute2."
-weight = 500
+weight = 5000
 tribute_changes = [
     { itemu = 1 },
     { status = 0, powern = -200 },
@@ -7894,7 +7894,7 @@ tribute_requirements = [
 
 [[items.events]]
 text = "$Tribute1 lost the rate up. $Tribute2 screams at MICA from afterlife."
-weight = 500
+weight = 5000
 tribute_changes = [
     { itemu = 1, powern = -5 },
     {},
