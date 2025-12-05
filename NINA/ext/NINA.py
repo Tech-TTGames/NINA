@@ -1228,7 +1228,8 @@ class Event:
                 listed_possibilities.append(possibility)
             while listed_possibilities:
                 g_breaker = False
-                sub_choice = random.choices(listed_possibilities, weights=sub_wg)[0]
+                sub_idx = random.choices(range(len(listed_possibilities)), weights=sub_wg)[0]
+                sub_choice = listed_possibilities[sub_idx]
                 # First, we check if the choice's requirements for previous tributes are met,
                 # i.e., if the choice has a relationship requirement regarding the previous tribute.
                 for j in range(sub_pos):
@@ -1258,8 +1259,8 @@ class Event:
                             continue
                 if g_breaker or sub_choice in trail:
                     # If the choice's requirements for previous tributes are not met, we remove it from the pool.
-                    sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
-                    listed_possibilities.remove(sub_choice)
+                    sub_wg.pop(sub_idx)
+                    listed_possibilities.pop(sub_idx)
                     continue
                 # If the choice's requirements for previous tributes are met, we intersect the possibilities
                 # with the choice's requirements for the current tribute.
@@ -1292,8 +1293,8 @@ class Event:
                         break
                 if g_breaker:
                     # If the choice's requirements for the next tributes are not met, we remove it from the pool.
-                    sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
-                    listed_possibilities.remove(sub_choice)
+                    sub_wg.pop(sub_idx)
+                    listed_possibilities.pop(sub_idx)
                     continue
                 # If the intersection is not empty, we add the choice to the trail and continue resolving.
                 trail.append(sub_choice)
@@ -1301,8 +1302,8 @@ class Event:
                 if result:
                     return result
                 trail.pop()
-                sub_wg.remove(sub_wg[listed_possibilities.index(sub_choice)])
-                listed_possibilities.remove(sub_choice)
+                sub_wg.pop(sub_idx)
+                listed_possibilities.pop(sub_idx)
             return None
 
         resolved_tributes = await sub_resolve(1, possible_resolutions, [tribute])
