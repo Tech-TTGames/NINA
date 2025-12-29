@@ -30,7 +30,7 @@ mkdocs-git-committers-plugin-2 = "^2.5.0"
 mkdocs-awesome-pages-plugin = "^2.10.1"
 cairosvg = "^2.8.2"
 markdown-grid-tables = "^0.6.0"
-mkdocs-glightbox = "^0.5.1"
+mkdocs-glightbox = "^0.5.2"
 mkdocs-ezlinked-plugin = "^0.3.3"
 
 [tool.poetry.group.dev.dependencies]
