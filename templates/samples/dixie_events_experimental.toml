@@ -1357,7 +1357,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 repeatedly stabs $Tribute2 to death with combat knife."
+text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
 weight = 20
 max_use = -1
 max_cycle = -1

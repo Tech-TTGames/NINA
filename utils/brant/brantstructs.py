@@ -10,6 +10,7 @@ transferring data between the Project: NINA and the Brent-Steele simulator.
 import pathlib
 from typing import TextIO
 
+import tomllib
 import tomli_w
 
 
@@ -29,34 +30,43 @@ class Simulation:
         Args:
             filename: The file containing the cast.
         """
-        with open(filename, encoding="utf-8") as file:
-            self.name = file.readline().strip()
-            self.logo = file.readline().strip()
-            self.districts = []
-            self.cast = []
-            skipcount = 0
-            cur_district = None
-            while True:
-                line = file.readline()
-                if line == "":
-                    break
-                if line == "\n":
-                    skipcount += 1
-                    continue
-                if skipcount == 1:
-                    tribute = Tribute(line.strip(), file)
-                    self.cast.append(tribute)
-                    skipcount = 0
-                if skipcount == 2:
-                    if cur_district is not None:
-                        self.districts.append(cur_district)
-                    cur_district = {
-                        "name": line.strip(),
-                        "color": file.readline().strip(),
-                    }
-                    skipcount = 0
-            if cur_district is not None:
-                self.districts.append(cur_district)
+        if pathlib.Path(filename).suffix == ".txt":
+            with open(filename, encoding="utf-8") as file:
+                self.name = file.readline().strip()
+                self.logo = file.readline().strip()
+                self.districts = []
+                self.cast = []
+                skipcount = 0
+                cur_district = None
+                while True:
+                    line = file.readline()
+                    if line == "":
+                        break
+                    if line == "\n":
+                        skipcount += 1
+                        continue
+                    if skipcount == 1:
+                        tribute = Tribute(line.strip(), file)
+                        self.cast.append(tribute)
+                        skipcount = 0
+                    if skipcount == 2:
+                        if cur_district is not None:
+                            self.districts.append(cur_district)
+                        cur_district = {
+                            "name": line.strip(),
+                            "color": file.readline().strip(),
+                        }
+                        skipcount = 0
+                if cur_district is not None:
+                    self.districts.append(cur_district)
+        else:
+            with open(filename, "rb") as file:
+                dts = tomllib.load(file)
+                self.name: str = dts["name"]
+                self.logo: str = dts["logo"]
+                self.districts = dts["districts"]
+                self.cast = [Tribute(tribute["name"], tribute) for tribute in dts["cast"]]
+
 
     def __dict__(self):
         """Return a dictionary representation of the simulation."""
@@ -124,20 +134,26 @@ class Tribute:
     Attributes:
     """
 
-    def __init__(self, name: str, file: TextIO):
+    def __init__(self, name: str, file: TextIO | dict):
         """Take the provided file and read the tribute from it.
 
         We assume the cursor is at the end of the line containing the
         tribute's name.
 
         Args:
-            file: The file containing the tribute.
+            file: The file or dict containing the tribute.
         """
         self.name = name
-        self.nickname = file.readline().strip()
-        self.gender = int(file.readline().strip())
-        self.image = file.readline().strip()
-        self.dead_image = file.readline().strip()
+        if type(file) is TextIO:
+            self.nickname = file.readline().strip()
+            self.gender = int(file.readline().strip())
+            self.image = file.readline().strip()
+            self.dead_image = file.readline().strip()
+        else:
+            self.nickname = file["nickname"]
+            self.gender = file["gender"]
+            self.image = file["image"]
+            self.dead_image = file["dead_image"]
 
     def __str__(self):
         """Return a string representation of the tribute."""
