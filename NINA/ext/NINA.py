@@ -212,7 +212,7 @@ async def generate_endcycle(
                       anchor="ma",
                       **DRAW_ARGS)
     place = (place / ["mortem", "victors"][request]).with_suffix(".webp")
-    imgops.save_composite_image(place, base_image, animation)
+    await imgops.save_composite_image(place, base_image, animation)
     return place
 
 
@@ -593,7 +593,7 @@ class District:
                 tribute_status_image = tribute_status_image.convert("RGBA")
             base_image.paste(tribute_status_image, paste_location, tribute_status_image)
         landing = landing / f"{sim.districts.index(self)}.webp"
-        imgops.save_composite_image(landing, base_image, animation)
+        await imgops.save_composite_image(landing, base_image, animation)
         self.render = (landing, status)
         return landing
 
@@ -793,7 +793,7 @@ class Tribute:
                 img = Image.open(io.BytesIO(img_b))
 
             img = imgops.resize(img)
-            imgops.magicsave(img, placepth)
+            imgops.magicsave_sync(img, placepth)
 
         await asyncio.to_thread(_imageops_and_save)
         return placepth
@@ -823,7 +823,7 @@ class Tribute:
             """Applies session-specific postprocessing."""
             img = Image.open(raw_path)
             img = imgops.resize(img, border_c=self.district.color)
-            imgops.magicsave(img, placepth)
+            imgops.magicsave_sync(img, placepth)
 
         await asyncio.to_thread(_process)
         return placepth
@@ -868,7 +868,7 @@ class Tribute:
             base_image.paste(user_image, (0, 0), user_image)
         else:
             animated.append((user_image, (0, 0)))
-        imgops.save_composite_image(landing, base_image, animated)
+        await imgops.save_composite_image(landing, base_image, animated)
         self.render = (landing, status)
         return landing
 
@@ -943,7 +943,7 @@ class Cycle:
                   anchor=anchor,
                   font=font,
                   **DRAW_ARGS)
-        imgops.magicsave(image, place)
+        await imgops.magicsave(image, place)
         return place
 
 
@@ -1468,7 +1468,7 @@ class Event:
         landing = DATA_DIR / "cycles" / f"{simstate.cycle}"
         landing.mkdir(parents=True, exist_ok=True)
         landing = landing / f"{event_no}.webp"
-        imgops.save_composite_image(landing, base_image, animation)
+        await imgops.save_composite_image(landing, base_image, animation)
         return text, landing
 
 

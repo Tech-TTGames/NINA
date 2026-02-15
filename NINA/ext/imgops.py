@@ -11,16 +11,21 @@ Typical usage example:
 # License: EPL-2.0
 # SPDX-License-Identifier: EPL-2.0
 # Copyright (c) 2023-present Tech. TTGames
+import asyncio
 import itertools
 import pathlib
+import logging
 
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageOps
 from PIL import ImageSequence
 
+logger = logging.getLogger("NINA.imgops")
+
 SIZE = (512, 512)
 WEBP_COMPRESSION = (4, 80)
+MAX_DISCORD_SIZE = 9.5 * 1024 * 1024
 
 
 def thumbpaste(
@@ -111,7 +116,7 @@ def border(im: Image.Image, color: str):
     draw.rectangle((0, 0, im.width - 1, im.height - 1), outline=color, width=5)
 
 
-def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
+def magicsave_sync(image: Image.Image | tuple[list[Image.Image], dict],
               path: pathlib.Path,
               durs: list[int] | int | None = None) -> None:
     """Saves the image to the given path with format-specific optimizations.
@@ -124,26 +129,54 @@ def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
         durs: The duration(s) for animation frames in milliseconds.
     """
     if path.suffix.lower() == ".webp":
+        strategies = [
+            {"lossless": True, "quality": WEBP_COMPRESSION[1]},
+            {"lossless": False, "quality": 90},
+            {"lossless": False, "quality": 75},
+            {"lossless": False, "quality": 50},
+        ]
+
+        for i, settings in enumerate(strategies):
+            if isinstance(image, tuple):
+                frames, info = image
+                background = info.get("background", (0, 0, 0, 0))
+                if not isinstance(background, tuple):
+                    background = (0, 0, 0, 0)
+                loop = info.get("loop", 0)
+                frames[0].save(
+                    path,
+                    "WEBP",
+                    save_all=True,
+                    append_images=frames[1:],
+                    duration=durs or info.get("duration", 100),
+                    loop=loop,
+                    background=background,
+                    lossless=settings["lossless"],
+                    method=WEBP_COMPRESSION[0],
+                    quality=settings["quality"],
+                )
+            else:
+                image.save(
+                    path,
+                    "WEBP",
+                    lossless=settings["lossless"],
+                    method=WEBP_COMPRESSION[0],
+                    quality=settings["quality"]
+                )
+
+            if path.stat().st_size < MAX_DISCORD_SIZE:
+                return
+
+        logger.warning("Out of strategies. Discarding any animation and reducing quality to absolute minimum.")
         if isinstance(image, tuple):
-            frames, info = image
-            background = info.get("background", (0, 0, 0, 0))
-            if not isinstance(background, tuple):
-                background = (0, 0, 0, 0)
-            loop = info.get("loop", 0)
-            frames[0].save(
-                path,
-                "WEBP",
-                save_all=True,
-                append_images=frames[1:],
-                duration=durs or info.get("duration", 100),
-                loop=loop,
-                background=background,
-                lossless=True,
-                method=WEBP_COMPRESSION[0],
-                quality=WEBP_COMPRESSION[1],
-            )
-        else:
-            image.save(path, "WEBP", lossless=True, method=WEBP_COMPRESSION[0], quality=WEBP_COMPRESSION[1])
+            image = image[0][0]
+        image.save(
+            path,
+            "WEBP",
+            lossless=False,
+            method=WEBP_COMPRESSION[0],
+            quality=25
+        )
     else:
         if isinstance(image, tuple):
             frames, info = image
@@ -159,7 +192,14 @@ def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
             image.save(path, optimize=True)
 
 
-def save_composite_image(path: pathlib.Path, base_image: Image.Image,
+async def magicsave(image: Image.Image | tuple[list[Image.Image], dict],
+              path: pathlib.Path,
+              durs: list[int] | int | None = None) -> None:
+    """Wraps magicsave_sync to allow for async operations. Args are the same as magicsave_sync."""
+    await asyncio.to_thread(magicsave_sync, image, path, durs)
+
+
+def save_composite_image_sync(path: pathlib.Path, base_image: Image.Image,
                          animated_elements: list[tuple[Image.Image, tuple[int, int]]]) -> None:
     """
     Saves a composite image. If animated elements are present, it creates
@@ -173,7 +213,7 @@ def save_composite_image(path: pathlib.Path, base_image: Image.Image,
                            (Image.Image object of the Animation, (x, y location to paste)).
     """
     if not animated_elements:
-        magicsave(base_image, path)
+        magicsave_sync(base_image, path)
         return
 
     # --- Animation Compositing Logic ---
@@ -197,4 +237,10 @@ def save_composite_image(path: pathlib.Path, base_image: Image.Image,
     durations = [ani.info.get("duration", 50) for ani, _ in animated_elements]
     info["duration"] = average_animation_duration(durations, max_frames)
 
-    magicsave((final_frames, info), path)
+    magicsave_sync((final_frames, info), path)
+
+
+async def save_composite_image(path: pathlib.Path, base_image: Image.Image,
+                         animated_elements: list[tuple[Image.Image, tuple[int, int]]]) -> None:
+    """Wraps save_composite_image_sync to allow for async operations. Args are the same as save_composite_image_sync."""
+    await asyncio.to_thread(save_composite_image_sync, path, base_image, animated_elements)
