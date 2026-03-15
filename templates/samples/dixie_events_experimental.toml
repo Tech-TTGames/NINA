@@ -457,7 +457,7 @@ tribute_changes = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 tries to shoot at $Tribute2 but $OP1 weapon is empty."
+text = "$Tribute1 tries to shoot at $Tribute2 but $PA1 weapon is empty."
 weight = 20
 max_use = -1
 max_cycle = -1
@@ -3559,7 +3559,7 @@ tribute_requirements = [
 ]
 
 [[cycles.events]]
-text = "$Tribute1 repeatedly stabs $Tribute2 to death with combat knife."
+text = "$Tribute1 repeatedly stabs $Tribute2 to death with a combat knife."
 weight = 20
 max_use = -1
 max_cycle = -1
