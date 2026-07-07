@@ -191,11 +191,11 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
     async def execute(self, ctx: discord.Interaction) -> None:
         """Initiates an exec request.
 
-        This command starts listening in the DMs from the user for the code to execute.
+        This command starts listening in to the DMs from the user for the code to execute.
         Supports async/await and automatically cleans Discord codeblocks.
         """
         await ctx.response.send_message(
-            "Waiting for code in DMs. Edit the `response` variable to return something. You have 5 minutes.",
+            "Waiting for code in DMs. Edit the `response` variable or return to return something. You have 5 minutes.",
             ephemeral=True
         )
 
@@ -230,7 +230,7 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         env.update(globals())
 
         # 3. Wrap the code in an async function so you can use 'await'
-        wrapped_code = f"async def _eval_func():\n{textwrap.indent(code_str, '    ')}"
+        wrapped_code = f"async def _eval_func():\n    global response\n{textwrap.indent(code_str, '    ')}"
 
         try:
             # Execute the definition to load the async func into the environment
@@ -238,18 +238,19 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
 
             # Actually run the async func we just created
             func = env['_eval_func']
-            await func()
+            returned_data = await func()
 
-            await channel.send("✅ Executed successfully.")
+            await channel.send("Executed.")
 
             # 4. Check if a response was generated
-            if env.get('response'):
-                await channel.send(f"**Response:**\n```py\n{env['response']}\n```")
+            final_output = returned_data or env.get('response')
+            if final_output:
+                await channel.send(f"**Response:**\n```py\n{final_output}\n```")
 
         except Exception as e:
             # 5. Catch and return tracebacks so you aren't debugging blind
             tb = traceback.format_exc()
-            await channel.send(f"❌ **Error:**\n```py\n{tb}\n```")
+            await channel.send(f"**Error:**\n```py\n{tb}\n```")
 
     @commands.command(name="sync", description="Syncs the tree.")
     @commands.is_owner()
