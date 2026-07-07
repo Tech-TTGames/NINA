@@ -20,6 +20,8 @@ Typical usage example:
 import asyncio
 import logging
 import os
+import textwrap
+import traceback
 
 import discord
 from discord import app_commands
@@ -190,26 +192,64 @@ class Overrides(commands.GroupCog, name="override", description="Owner override 
         """Initiates an exec request.
 
         This command starts listening in the DMs from the user for the code to execute.
+        Supports async/await and automatically cleans Discord codeblocks.
         """
-        await ctx.response.send_message("Waiting for code in DMs. Edit the `response` variable to return something.",
-                                        ephemeral=True)
+        await ctx.response.send_message(
+            "Waiting for code in DMs. Edit the `response` variable to return something. You have 5 minutes.",
+            ephemeral=True
+        )
 
         owner = ctx.user
         channel = owner.dm_channel
         if channel is None:
             channel = await owner.create_dm()
 
-        def dm_from_user(msg):
-            """Check if the message is from the user in DMs."""
+        def dm_from_user(msg: discord.Message):
             return msg.channel == channel and msg.author == owner
 
-        li = locals()
-        code = await ctx.client.wait_for("message", check=dm_from_user)
-        await asyncio.to_thread(exec, code.content, globals(), li)
-        await channel.send("Executed.")
-        if li.get("response", None):
-            response = li.get("response")
-            await channel.send(response)
+        try:
+            msg = await ctx.client.wait_for("message", check=dm_from_user, timeout=300.0)
+        except asyncio.TimeoutError:
+            await channel.send("Eval request timed out.")
+            return
+
+        # 1. Clean Discord Markdown backticks
+        code_str = msg.content
+        if code_str.startswith("```") and code_str.endswith("```"):
+            code_str = "\n".join(code_str.split("\n")[1:-1])
+        code_str = code_str.strip("` \n")
+
+        # 2. Setup environment variables for the exec context
+        env = {
+            'ctx': ctx,
+            'client': ctx.client,
+            'channel': channel,
+            'owner': owner,
+            'response': None,
+        }
+        env.update(globals())
+
+        # 3. Wrap the code in an async function so you can use 'await'
+        wrapped_code = f"async def _eval_func():\n{textwrap.indent(code_str, '    ')}"
+
+        try:
+            # Execute the definition to load the async func into the environment
+            exec(wrapped_code, env)
+
+            # Actually run the async func we just created
+            func = env['_eval_func']
+            await func()
+
+            await channel.send("✅ Executed successfully.")
+
+            # 4. Check if a response was generated
+            if env.get('response'):
+                await channel.send(f"**Response:**\n```py\n{env['response']}\n```")
+
+        except Exception as e:
+            # 5. Catch and return tracebacks so you aren't debugging blind
+            tb = traceback.format_exc()
+            await channel.send(f"❌ **Error:**\n```py\n{tb}\n```")
 
     @commands.command(name="sync", description="Syncs the tree.")
     @commands.is_owner()
