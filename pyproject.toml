@@ -44,7 +44,7 @@ start = "NINA.__main__:main"
 
 [dependency-groups]
 dev = [
-    "isort>=8.0.1,<9",
+    "isort>=9.0.2,<10",
     "yapf>=0.43.0,<0.44",
     "pylint>=4.0.4,<5",
 ]
