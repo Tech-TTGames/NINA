@@ -1433,7 +1433,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
-    { name = "aiohttp", extras = ["speedups"], specifier = ">=3.13.5,<4" },
+    { name = "aiohttp", extras = ["speedups"], specifier = ">=3.14.3,<4" },
     { name = "beautifulsoup4", marker = "extra == 'brentutils'", specifier = ">=4.14.2,<5" },
     { name = "cairosvg", specifier = ">=2.8.2,<3" },
     { name = "colorama", specifier = ">=0.4.6,<0.5" },
